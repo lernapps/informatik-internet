@@ -247,7 +247,7 @@ neuer Karte als Props, Beispiel-Adressen nur RFC 5737/2606.
 
 ### Tasks
 
-- [ ] Load skill `lernapps-cli`. Create the app as its section "Create" says:
+- [x] Load skill `lernapps-cli`. Create the app as its section "Create" says:
       `npx --no -- lernapps create --archetype explainer`.
 - [ ] Fill the content guide `.agents/skills/app-content/SKILL.md` from "Notes" and "Content method": every heading,
       no "FILL IN" left. Commit it before any content.
