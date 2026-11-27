@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Ein Netz aus Netzen
+  en: A network of networks
+summary:
+  de: Du erklärst, wie das Internet aufgebaut ist und wie Client und Server sich über IP-Adressen und das DNS finden.
+  en: You explain how the internet is built and how client and server find each other with IP addresses and DNS.
+pages: [das-brauchst-du, aufbau, client-server, ip-dns]
+selfAssessment:
+  pages:
+    - exercises:
+        - /netz/aufbau/#weg-legen
+        - /netz/aufbau/#lokal-oder-global
+        - /netz/aufbau/#lokal-oder-global
+    - exercises:
+        - /netz/client-server/#client-oder-server
+        - /netz/client-server/#client-oder-server
+        - /netz/client-server/#was-tut-ein-server
+    - exercises:
+        - /netz/ip-dns/#gueltige-adresse
+        - /netz/ip-dns/#dns-nachschlagen
+        - /netz/ip-dns/#dns-schritte

@@ -1,0 +1,241 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Aufbau einer URL
+  en: How a URL is built
+description:
+  de: "Die Teile einer URL benennen: Protokoll, Domain und Pfad."
+  en: "Name the parts of a URL: protocol, domain name and path."
+competencies: [url-aufbau]
+blocks:
+  - type: section
+    id: einstieg
+    title:
+      de: Ein Link im Klassenchat
+      en: A link in the class chat
+    blocks:
+      - type: text
+        text:
+          de: |
+            **Frau Berg:** Hier ist die Ausflugsseite: https://www.schule.example/klasse-7b/ausflug.html
+
+            **Mia:** Der hintere Teil sieht aus wie ein Pfad auf meinem Tablet!
+
+            Im Kapitel davor hast du gelernt, wie Geräte sich mit Namen und Adressen finden. Auf dieser Seite lernst du,
+            die Teile einer solchen Webadresse zu benennen.
+          en: |
+            **Ms Berg:** Here is the trip page: https://www.schule.example/klasse-7b/ausflug.html
+
+            **Mia:** The last part looks like a path on my tablet!
+
+            In the chapter before you learned how devices find each other with names and addresses. On this page you
+            learn to name the parts of a web address like this.
+      - type: single-choice
+        id: wie-ein-pfad
+        text:
+          de: "Welcher Teil von https://www.schule.example/klasse-7b/ausflug.html sieht aus wie ein Dateipfad?"
+          en: "Which part of https://www.schule.example/klasse-7b/ausflug.html looks like a file path?"
+        options:
+          - text: { de: /klasse-7b/ausflug.html, en: /klasse-7b/ausflug.html }
+            correct: true
+            info:
+              de: Ordner und Datei, getrennt durch Schrägstriche, wie bei Mias Tablet.
+              en: A folder and a file, separated by slashes, as on Mia's tablet.
+          - text: { de: www.schule.example, en: www.schule.example }
+            correct: false
+            info:
+              de: Das ist ein Name mit Punkten, kein Weg durch Ordner.
+              en: That is a name with dots, not a way through folders.
+          - text: { de: "https://", en: "https://" }
+            correct: false
+            info:
+              de: Das steht ganz vorn und enthält keinen Ordner und keine Datei.
+              en: That is right at the front and has no folder and no file.
+        explanation:
+          de: Ordner, Schrägstrich, Datei, so sieht ein Pfad aus.
+          en: Folder, slash, file is what a path looks like.
+  - type: section
+    id: idee
+    title:
+      de: Drei Teile einer URL
+      en: Three parts of a URL
+    blocks:
+      - type: code
+        language: plaintext
+        code: |
+          https://
+          www.schule.example
+          /klasse-7b/ausflug.html
+        caption:
+          de: "Die URL der Ausflugsseite, in ihre drei Teile zerlegt: oben das Protokoll, in der Mitte die Domain, unten der Pfad."
+          en: "The URL of the trip page, taken apart into its three parts: at the top the protocol, in the middle the domain name, at the bottom the path."
+      - type: definition
+        term: { de: URL, en: URL }
+        explanation:
+          de: Die Adresse einer Seite oder Datei im Web, zum Beispiel https://www.schule.example/klasse-7b/ausflug.html.
+          en: The address of a page or file on the web, for example https://www.schule.example/klasse-7b/ausflug.html.
+      - type: table
+        caption: { de: Was jeder Teil sagt, en: What each part says }
+        header:
+          - { de: Teil, en: Part }
+          - { de: Was er sagt, en: What it says }
+        rows:
+          - - { de: "Protokoll: https", en: "protocol: https" }
+            - { de: nach welchen Regeln Browser und Server reden, en: which rules the browser and the server talk by }
+          - - { de: "Domain: www.schule.example", en: "domain name: www.schule.example" }
+            - { de: auf welchem Rechner die Seite liegt, en: which computer the page is on }
+          - - { de: "Pfad: /klasse-7b/ausflug.html", en: "path: /klasse-7b/ausflug.html" }
+            - { de: wo die Datei auf diesem Rechner liegt, en: where the file is on that computer }
+      - type: definition
+        term: { de: Domain, en: domain name }
+        explanation:
+          de: Der Name eines Rechners im Internet, zum Beispiel www.schule.example. Das DNS übersetzt ihn in eine IP-Adresse.
+          en: The name of a computer on the internet, for example www.schule.example. DNS translates it into an IP address.
+      - type: definition
+        term: { de: Protokoll, en: protocol }
+        explanation:
+          de: Feste Regeln, nach denen zwei Rechner miteinander reden. Mehr dazu auf der nächsten Seite.
+          en: Fixed rules that two computers talk to each other by. More about it on the next page.
+      - type: note
+        title: { de: Merke, en: Remember }
+        blocks:
+          - type: text
+            text:
+              de: |
+                Der Pfad einer URL sagt, welche Seite oder Datei **auf dem Webserver** gemeint ist, nicht auf deinem Tablet. Die Wurzel heißt dort
+                einfach nur ein Schrägstrich /. Die Domain sagt, welcher Rechner gemeint ist; der Pfad sagt, welche Datei darauf.
+              en: |
+                The path of a URL says which page or file **on the web server** is meant, not on your tablet. Its root is just a slash /. The
+                domain name says which computer is meant; the path says which file on it.
+  - type: section
+    id: beispiel
+    title:
+      de: "Beispiel: eine URL lesen"
+      en: "Example: reading a URL"
+    blocks:
+      - type: example
+        title:
+          {
+            de: "https://museum.example/ausstellung/steine/bild-3.jpg",
+            en: "https://museum.example/ausstellung/steine/bild-3.jpg",
+          }
+        blocks:
+          - type: text
+            text:
+              de: |
+                1. Vor :// steht das Protokoll: https.
+                2. Bis zum nächsten / steht die Domain: museum.example. Diesen Rechner fragt der Browser.
+                3. Der Rest ist der Pfad: im Ordner ausstellung, darin im Ordner steine, die Datei bild-3.jpg.
+              en: |
+                1. Before :// is the protocol: https.
+                2. Up to the next / is the domain name: museum.example. This is the computer the browser asks.
+                3. The rest is the path: in the folder ausstellung, inside it in the folder steine, the file bild-3.jpg.
+  - type: section
+    id: uebung
+    title:
+      de: Üben mit URLs
+      en: Practise with URLs
+    blocks:
+      - type: vue-component
+        id: url-zerlegen
+        component: UrlZerleger
+        props:
+          task:
+            de: "Leg jeden Teil dieser URL in seinen Kasten:"
+            en: "Put each part of this URL into its box:"
+          urls: { data: urls }
+          boxes:
+            - { de: Protokoll, en: protocol }
+            - { de: Domain, en: domain name }
+            - { de: Pfad, en: path }
+          rules:
+            - { de: "Das Protokoll steht ganz vorn, vor ://.", en: "The protocol is right at the front, before ://." }
+            - {
+                de: "Die Domain steht zwischen :// und dem ersten / danach.",
+                en: "The domain name is between :// and the first / after it.",
+              }
+            - {
+                de: "Der Pfad beginnt mit dem ersten / nach der Domain.",
+                en: "The path starts with the first / after the domain name.",
+              }
+          empty: { de: noch leer, en: still empty }
+          reset: { de: Zurücksetzen, en: Reset }
+          unplaced: { de: Leg zuerst jeden Teil in einen Kasten., en: First put each part into a box. }
+          wrong:
+            de: "„{teil}“ gehört nicht in den Kasten {box}. {regel}"
+            en: "“{teil}” does not belong in the box {box}. {regel}"
+        examples:
+          accepted:
+            - { answer: [0, 1, 2, 2], seed: 1 }
+          rejected:
+            - { answer: [0, 2, 1, 1], seed: 1 }
+            - { answer: [1, 1, 2, 2], seed: 1 }
+      - type: generated
+        id: welcher-teil
+        given:
+          e: { pick: 1, from: { data: url-teile } }
+        task:
+          text:
+            de: "In der URL {{e.url}}: Zu welchem Teil gehört **{{e.stueck}}**?"
+            en: "In the URL {{e.url}}: which part does **{{e.stueck}}** belong to?"
+        answer:
+          value: "e.antwort"
+          compare:
+            choice:
+              - { de: Protokoll, en: protocol }
+              - { de: Domain, en: domain name }
+              - { de: Pfad, en: path }
+        mistakes:
+          - value: "e.falsch"
+            message:
+              de: "Such die Stelle von :// und vom ersten / danach. Liegt das Stück davor, dazwischen oder dahinter?"
+              en: "Find where :// is and the first / after it. Is the piece before, between or after them?"
+          - value: "e.anders"
+            message:
+              de: "Such die Stelle von :// und vom ersten / danach. Liegt das Stück davor, dazwischen oder dahinter?"
+              en: "Find where :// is and the first / after it. Is the piece before, between or after them?"
+        hint:
+          de: "Vor :// steht das Protokoll, bis zum nächsten / die Domain, danach der Pfad."
+          en: "Before :// is the protocol, up to the next / the domain name, after that the path."
+        steps:
+          - de: "{{e.grund}} Antwort: {{answer}}."
+            en: "{{e.grund}} Answer: {{answer}}."
+      - type: true-false
+        id: pfad-auf-tablet
+        text:
+          de: "Stimmt das? Bei https://www.schule.example/see.jpg sagt der Pfad, wo das Foto auf Mias Tablet liegt."
+          en: "True or false? In https://www.schule.example/see.jpg the path says where the photo is on Mia's tablet."
+        answer: false
+        explanation:
+          de: Die Aussage stimmt nicht. Der Pfad sagt, wo die Datei auf dem Rechner www.schule.example liegt, also auf dem Webserver.
+          en: The statement is not true. The path says where the file is on the computer www.schule.example, so on the web server.
+      - type: matching
+        id: was-du-bekommst
+        text:
+          de: Was bekommst du wohl, wenn du diese URL öffnest? Ordne zu.
+          en: What do you probably get when you open this URL? Match them up.
+        pairs:
+          - left: { de: "https://fotos.example/see.jpg", en: "https://fotos.example/see.jpg" }
+            right: { de: "ein Foto von einem See", en: "a photo of a lake" }
+          - left: { de: "https://wetter.example/heute.html", en: "https://wetter.example/heute.html" }
+            right: { de: eine Seite mit dem Wetter von heute, en: "a page with today's weather" }
+          - left: { de: "https://spiele.example/quiz.html", en: "https://spiele.example/quiz.html" }
+            right: { de: eine Seite mit einem Quiz, en: a page with a quiz }
+        distractors:
+          - { de: eine Datei von deinem eigenen Tablet, en: a file from your own tablet }
+        explanation:
+          de: Die Domain sagt, welcher Rechner antwortet; der Pfad, welche Datei er schickt. Keine dieser URLs holt eine Datei von deinem eigenen Gerät.
+          en: The domain name says which computer answers; the path says which file it sends. No URL here fetches a file from your own device.
+      - type: text
+        text:
+          de: |
+            **Mia:** https, Domain, Pfad. Jetzt verstehe ich den Link!
+
+            **Selin:** Und was heißt das „https“ genau? Für meine E-Mail steht da nichts davon.
+
+            Als Nächstes: Dienste im Internet und ihre Protokolle.
+          en: |
+            **Mia:** https, domain name, path. Now I understand the link!
+
+            **Selin:** And what exactly does “https” mean? My email doesn't have it.
+
+            Next: services on the internet and their protocols.

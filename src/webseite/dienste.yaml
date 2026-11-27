@@ -1,0 +1,307 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Internetdienste und Protokolle
+  en: Internet services and protocols
+description:
+  de: "WWW, E-Mail und Chat unterscheiden; jeder Dienst redet nach festen Regeln, seinem Protokoll."
+  en: "Tell the web, email and chat apart; each service talks by fixed rules, its protocol."
+competencies: [internetdienste]
+blocks:
+  - type: section
+    id: einstieg
+    title:
+      de: Fotos verschicken, aber wie?
+      en: Sending photos, but how?
+    blocks:
+      - type: text
+        text:
+          de: |
+            **Selin:** Ich schicke meiner Oma die Ausflugsfotos per E-Mail.
+
+            **Ben:** Ich stelle sie in den Chat. Ist doch alles Internet, oder?
+
+            Auf der Seite davor hast du eine URL zerlegt, mit dem Protokoll https vorn. Webseiten im Browser nennt man
+            das World Wide Web (WWW). Auf dieser Seite lernst du Dienste im Internet und ihre Regeln kennen.
+          en: |
+            **Selin:** I'm sending the trip photos to my grandma by email.
+
+            **Ben:** I'm putting them in the chat. It's all the internet, isn't it?
+
+            On the page before you took a URL apart, with the protocol https at the front. Web pages in the browser are
+            called the World Wide Web (WWW). On this page you get to know services on the internet and their rules.
+      - type: true-false
+        id: internet-gleich-www
+        text:
+          de: "Stimmt das? Das Internet und das World Wide Web sind dasselbe."
+          en: "True or false? The internet and the World Wide Web are the same thing."
+        answer: false
+        explanation:
+          de: Die Aussage stimmt nicht. Das Internet ist das Netz aus Netzen. Das World Wide Web ist ein Dienst, der dieses Netz nutzt, so wie E-Mail und Chat.
+          en: The statement is not true. The internet is the network of networks. The World Wide Web is one service that uses this network, like email and chat.
+  - type: section
+    id: idee
+    title:
+      de: "Ausprobieren: der Weg einer E-Mail"
+      en: "Try it: the route of an email"
+    blocks:
+      - type: definition
+        term: { de: Internetdienst, en: internet service }
+        explanation:
+          de: Ein Angebot, das das Internet nutzt, zum Beispiel das World Wide Web, E-Mail oder Chat. Jeder Dienst hat eigene Programme und eigene Regeln.
+          en: Something offered over the internet, for example the World Wide Web, email or chat. Each service has its own programs and its own rules.
+      - type: text
+        text:
+          de: |
+            Ein **Protokoll** legt fest, wer was wann sagt, wie beim Telefonieren: erst „Hallo“, dann die Frage, dann
+            die Antwort. Jeder Dienst hat sein eigenes. Bei E-Mail reisen die Briefe über zwei **Mailserver**. Drück
+            **Nächster Schritt**.
+          en: |
+            A **protocol** sets out who says what and when, as on the phone: first “hello”, then the question, then the
+            answer. Each service has its own. With email the letters travel through two **mail servers**. Press **Next
+            step**.
+      - type: vue-component
+        component: NetzSimulator
+        props:
+          title: { de: "Karte 7: Selin schickt Ben eine E-Mail", en: "Map 7: Selin sends Ben an email" }
+          label:
+            de: "Karte 7: Selins Tablet an Router 1, daran Selins Mailserver. Router 1 ist mit Router 2 verbunden, daran Bens Mailserver und Bens Handy."
+            en: "Map 7: Selin's tablet at router 1, with Selin's mail server. Router 1 is joined to router 2, which has Ben's mail server and Ben's phone."
+          stations:
+            - { id: selin, kind: geraet, name: { de: Selins Tablet, en: "Selin's tablet" }, x: 10, y: 34 }
+            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 34, y: 34 }
+            - {
+                id: ms,
+                kind: server,
+                name: { de: Mailserver Selin, en: "Selin's mail server" },
+                x: 34,
+                y: 0,
+                above: true,
+              }
+            - { id: r2, kind: router, name: { de: Router 2, en: Router 2 }, x: 66, y: 34 }
+            - { id: mb, kind: server, name: { de: Mailserver Ben, en: "Ben's mail server" }, x: 66, y: 0, above: true }
+            - { id: ben, kind: geraet, name: { de: Bens Handy, en: "Ben's phone" }, x: 90, y: 34 }
+          cables:
+            - { from: selin, to: r1 }
+            - { from: r1, to: ms }
+            - { from: r1, to: r2 }
+            - { from: r2, to: mb }
+            - { from: r2, to: ben }
+          steps:
+            - from: selin
+              to: r1
+              text:
+                de: Selins Mail-App gibt die E-Mail ab, nach den Regeln von SMTP.
+                en: Selin's email app hands in the email, by the rules of SMTP.
+              packet: { de: "E-Mail an ben@schule.example (SMTP)", en: "Email to ben@schule.example (SMTP)" }
+            - from: r1
+              to: ms
+              text: { de: Sie landet bei Selins Mailserver., en: "It arrives at Selin's mail server." }
+            - from: ms
+              to: r1
+              text:
+                de: Selins Mailserver schickt sie weiter zu Bens Mailserver, wieder mit SMTP.
+                en: "Selin's mail server sends it on to Ben's mail server, again with SMTP."
+            - from: r1
+              to: r2
+              text: { de: Router reichen sie weiter …, en: Routers pass it on … }
+            - from: r2
+              to: mb
+              text:
+                de: "… bis in Bens Postfach. Dort wartet sie, auch wenn Bens Handy gerade aus ist."
+                en: "… into Ben's mailbox. It waits there, even if Ben's phone is switched off."
+            - from: mb
+              to: r2
+              text:
+                de: Später fragt Bens Mail-App nach neuer Post und holt sie ab, nach den Regeln von IMAP.
+                en: Later Ben's email app asks for new mail and fetches it, by the rules of IMAP.
+              packet: { de: "E-Mail für Ben (IMAP)", en: "Email for Ben (IMAP)" }
+            - from: r2
+              to: ben
+              text: { de: Ben liest die E-Mail., en: Ben reads the email. }
+          next: { de: Nächster Schritt, en: Next step }
+          restart: { de: Von vorn, en: Start again }
+          ready:
+            de: "Selin hat die E-Mail geschrieben. Drück auf „Nächster Schritt“."
+            en: "Selin has written the email. Press “Next step”."
+          arrived: { de: Angekommen bei Ben., en: "Arrived at Ben's." }
+          packetLabel: { de: "Auf dem Päckchen steht:", en: "The packet says:" }
+        nojs:
+          de: |
+            Karte 7: Selins Tablet hängt an Router 1, daran auch Selins Mailserver. Router 1 ist mit Router 2 verbunden,
+            daran hängen Bens Mailserver und Bens Handy.
+
+            1. Selins Mail-App gibt die E-Mail ab, nach den Regeln von SMTP.
+            2. Sie landet bei Selins Mailserver.
+            3. Selins Mailserver schickt sie weiter zu Bens Mailserver, wieder mit SMTP.
+            4. Router reichen sie weiter …
+            5. … bis in Bens Postfach. Dort wartet sie, auch wenn Bens Handy gerade aus ist.
+            6. Später fragt Bens Mail-App nach neuer Post und holt sie ab, nach den Regeln von IMAP.
+            7. Ben liest die E-Mail.
+          en: |
+            Map 7: Selin's tablet is at router 1, which also has Selin's mail server. Router 1 is joined to router 2,
+            which has Ben's mail server and Ben's phone.
+
+            1. Selin's email app hands in the email, by the rules of SMTP.
+            2. It arrives at Selin's mail server.
+            3. Selin's mail server sends it on to Ben's mail server, again with SMTP.
+            4. Routers pass it on …
+            5. … into Ben's mailbox. It waits there, even if Ben's phone is switched off.
+            6. Later Ben's email app asks for new mail and fetches it, by the rules of IMAP.
+            7. Ben reads the email.
+      - type: table
+        caption: { de: Drei Dienste und ihre Protokolle, en: Three services and their protocols }
+        header:
+          - { de: Dienst, en: Service }
+          - { de: Protokoll, en: Protocol }
+        rows:
+          - - { de: World Wide Web (Webseiten), en: World Wide Web (web pages) }
+            - { de: "HTTP, oder HTTPS: dasselbe, nur verschlüsselt", en: "HTTP, or HTTPS: the same, but encrypted" }
+          - - { de: E-Mail, en: email }
+            - { de: "SMTP zum Senden, IMAP zum Abholen", en: "SMTP to send, IMAP to fetch" }
+          - - { de: Chat, en: chat }
+            - {
+                de: "die Regeln des Messengers; ein offener Standard heißt XMPP",
+                en: "the messenger's rules; one open standard is called XMPP",
+              }
+      - type: definition
+        term: { de: Mailserver, en: mail server }
+        explanation:
+          de: Ein Server, der E-Mails annimmt, weiterschickt und in Postfächern aufbewahrt, bis sie abgeholt werden.
+          en: A server that accepts emails, sends them on and keeps them in mailboxes until they are fetched.
+      - type: definition
+        term: { de: World Wide Web, en: World Wide Web }
+        explanation:
+          de: Der Dienst für Webseiten. Browser holen die Seiten mit HTTP oder HTTPS von Webservern. Kurz WWW oder Web.
+          en: The service for web pages. Browsers fetch the pages from web servers with HTTP or HTTPS. WWW or the web for short.
+      - type: note
+        title: { de: Merke, en: Remember }
+        blocks:
+          - type: text
+            text:
+              de: |
+                Das **Internet** ist das Netz. **WWW, E-Mail und Chat** sind Dienste, die es nutzen. Jeder Dienst redet
+                nach seinem eigenen **Protokoll**.
+              en: |
+                The **internet** is the network. **The web, email and chat** are services that use it. Each service talks
+                by its own **protocol**.
+  - type: section
+    id: beispiel
+    title:
+      de: "Beispiel: ein Gespräch nach HTTP"
+      en: "Example: a conversation by HTTP"
+    blocks:
+      - type: code
+        language: plaintext
+        code: |
+          Browser:   GET /klasse-7b/ausflug.html
+          Server:    200 OK
+                     (dann folgt die Seite)
+        caption:
+          de: "Vereinfacht: Der Browser fragt mit GET nach einem Pfad, der Server antwortet mit 200 OK und der Seite. Echte Nachrichten sind länger."
+          en: "Simplified: the browser asks for a path with GET, the server answers with 200 OK and the page. Real messages are longer. (The server's line in brackets says: then the page follows.)"
+  - type: section
+    id: uebung
+    title:
+      de: Üben mit Diensten
+      en: Practise with services
+    blocks:
+      - type: generated
+        id: welcher-dienst
+        given:
+          e: { pick: 1, from: { data: situationen } }
+        task:
+          text:
+            de: "{{e.fall}} Welchen Dienst nutzt die Person: WWW, E-Mail oder Chat?"
+            en: "{{e.fall}} Which service does the person use: the web, email or chat?"
+        answer:
+          value: "e.antwort"
+          compare:
+            choice:
+              - { de: WWW, en: web }
+              - { de: E-Mail, en: email }
+              - { de: Chat, en: chat }
+        mistakes:
+          - value: "e.falsch"
+            message:
+              de: "Frag dich: Wird eine Webseite abgerufen, ein Brief in ein Postfach gelegt oder schnell hin und her geschrieben?"
+              en: "Ask yourself: is a web page loaded, a letter put into a mailbox, or are messages sent quickly back and forth?"
+        hint:
+          de: Webseiten im Browser sind WWW, Post mit @-Adresse ist E-Mail, schnelle kurze Nachrichten sind Chat.
+          en: Web pages in the browser are the web, mail with an @ address is email, quick short messages are chat.
+        steps:
+          - de: "{{e.grund}} Antwort: {{answer}}."
+            en: "{{e.grund}} Answer: {{answer}}."
+      - type: matching
+        id: protokoll-zuordnen
+        text:
+          de: Welches Protokoll gehört zu welcher Aufgabe?
+          en: Which protocol goes with which job?
+        pairs:
+          - left: { de: eine Webseite verschlüsselt abrufen, en: load a web page encrypted }
+            right: { de: HTTPS, en: HTTPS }
+          - left: { de: eine E-Mail verschicken, en: send an email }
+            right: { de: SMTP, en: SMTP }
+          - left: { de: neue E-Mails vom Server abholen, en: fetch new emails from the server }
+            right: { de: IMAP, en: IMAP }
+        distractors:
+          - { de: Dateipfad, en: file path }
+        explanation:
+          de: HTTPS holt Webseiten verschlüsselt, SMTP verschickt E-Mails, IMAP holt sie ab. Ein Dateipfad ist kein Protokoll, sondern der Ort einer Datei.
+          en: HTTPS fetches web pages encrypted, SMTP sends emails, IMAP fetches them. A file path is not a protocol but the place of a file.
+      - type: ordering
+        id: http-gespraech
+        text:
+          de: Ben öffnet die Ausflugsseite. In welcher Reihenfolge reden Browser und Webserver nach HTTP?
+          en: Ben opens the trip page. In which order do the browser and the web server talk by HTTP?
+        items:
+          - {
+              de: "Der Browser schickt: GET /klasse-7b/ausflug.html",
+              en: "The browser sends: GET /klasse-7b/ausflug.html",
+            }
+          - { de: Der Webserver sucht die Datei., en: The web server looks for the file. }
+          - {
+              de: "Der Webserver antwortet: 200 OK, mit der Seite.",
+              en: "The web server answers: 200 OK, with the page.",
+            }
+          - { de: Der Browser zeigt die Seite., en: The browser shows the page. }
+        explanation:
+          de: Nach HTTP fragt immer der Browser zuerst, mit GET und einem Pfad. Der Server antwortet mit einer Zahl wie 200 OK und der Seite.
+          en: By HTTP the browser always asks first, with GET and a path. The server answers with a number like 200 OK and the page.
+      - type: single-choice
+        id: ben-offline
+        text:
+          de: Bens Handy ist aus, als Selin ihm eine E-Mail schickt. Was passiert mit der E-Mail?
+          en: "Ben's phone is switched off when Selin sends him an email. What happens to the email?"
+        options:
+          - text: { de: Sie wartet auf Bens Mailserver., en: "It waits on Ben's mail server." }
+            correct: true
+            info:
+              de: Der Mailserver hebt sie im Postfach auf. Bens Mail-App holt sie mit IMAP ab, sobald das Handy an ist.
+              en: The mail server keeps it in the mailbox. Ben's email app fetches it with IMAP as soon as the phone is on.
+          - text: { de: Sie geht verloren., en: It gets lost. }
+            correct: false
+            info:
+              de: Bei E-Mail muss der Empfänger nicht online sein. Dafür gibt es den Mailserver.
+              en: With email the receiver does not have to be online. That is what the mail server is for.
+          - text: { de: Sie wird zu einer Webseite., en: It turns into a web page. }
+            correct: false
+            info:
+              de: E-Mail und WWW sind verschiedene Dienste mit verschiedenen Protokollen.
+              en: Email and the web are different services with different protocols.
+        explanation:
+          de: E-Mail funktioniert über Mailserver. Die Post wartet dort, bis sie abgeholt wird.
+          en: Email works through mail servers. The mail waits there until it is fetched.
+      - type: text
+        text:
+          de: |
+            **Selin:** E-Mail mit SMTP und IMAP, die Ausflugsseite mit HTTPS. Alles Internet, aber verschiedene Dienste!
+
+            **Ben:** Dann will ich jetzt die ganze Reise der Ausflugsseite sehen, von der URL bis auf mein Handy.
+
+            Als Nächstes: der Abruf einer Webseite, Schritt für Schritt.
+          en: |
+            **Selin:** Email with SMTP and IMAP, the trip page with HTTPS. All the internet, but different services!
+
+            **Ben:** Then I want to see the whole journey of the trip page now, from the URL onto my phone.
+
+            Next: how a web page is loaded, step by step.

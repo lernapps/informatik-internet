@@ -1,0 +1,315 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Client und Server
+  en: Client and server
+description:
+  de: "Wer fragt, wer antwortet: die Rollen von Client und Server, mit Beispielen."
+  en: "Who asks, who answers: the roles of client and server, with examples."
+competencies: [client-und-server]
+blocks:
+  - type: section
+    id: einstieg
+    title:
+      de: Wo liegt die Ausflugsseite?
+      en: Where is the trip page?
+    blocks:
+      - type: text
+        text:
+          de: |
+            **Lea:** Die Ausflugsseite ist ja nicht auf meinem Tablet. Wo liegt die eigentlich?
+
+            **Frau Berg:** Auf einem Rechner der Schule. Er wartet, bis jemand nach der Seite fragt.
+
+            **Ben:** Und mein Handy fragt dann?
+
+            Auf der Seite davor hast du Päckchen durch Netze geschickt. Auf dieser Seite lernst du, wer im Netz fragt und
+            wer antwortet.
+          en: |
+            **Lea:** The trip page isn't on my tablet. So where is it?
+
+            **Ms Berg:** On a computer at school. It waits until someone asks for the page.
+
+            **Ben:** And then my phone asks?
+
+            On the page before you sent packets through networks. On this page you learn who asks and who answers in a
+            network.
+      - type: single-choice
+        id: wer-fragt
+        text:
+          de: Ben will die Ausflugsseite sehen. Wer schickt die erste Nachricht los?
+          en: Ben wants to see the trip page. Who sends the first message?
+        options:
+          - text: { de: Bens Handy, en: "Ben's phone" }
+            correct: true
+            info:
+              de: Ben will etwas haben, also fragt sein Handy zuerst danach.
+              en: Ben wants something, so his phone asks for it first.
+          - text: { de: Der Rechner mit der Seite, en: The computer with the page }
+            correct: false
+            info:
+              de: Der Rechner mit der Seite weiß nicht, dass Ben sie will. Er wartet, bis jemand fragt.
+              en: The computer with the page does not know that Ben wants it. It waits until someone asks.
+          - text: { de: Der Router der Schule, en: The school router }
+            correct: false
+            info:
+              de: Ein Router reicht Päckchen nur weiter. Er fragt selbst nach nichts.
+              en: A router only passes packets on. It does not ask for anything itself.
+        explanation:
+          de: Wer etwas haben will, fragt zuerst. Hier ist das Bens Handy.
+          en: Whoever wants something asks first. Here that is Ben's phone.
+  - type: section
+    id: idee
+    title:
+      de: "Ausprobieren: Anfrage und Antwort"
+      en: "Try it: request and response"
+    blocks:
+      - type: text
+        text:
+          de: |
+            Das orange Kästchen ist der **Webserver** der Schule, ein Rechner mit der Ausflugsseite. Drück **Nächster
+            Schritt** und schau, in welche Richtung das Päckchen reist und was darauf steht.
+          en: |
+            The orange box is the school's **web server**, a computer with the trip page. Press **Next step** and watch
+            which way the packet travels and what it says.
+      - type: vue-component
+        component: NetzSimulator
+        props:
+          title: { de: "Karte 5: Bens Handy fragt den Webserver", en: "Map 5: Ben's phone asks the web server" }
+          label:
+            de: "Karte 5: Bens Handy, Bens Router, Router 1, der Router der Schule und der Webserver der Schule, in einer Reihe verbunden."
+            en: "Map 5: Ben's phone, Ben's router, router 1, the school router and the school's web server, joined in a row."
+          zones:
+            - { name: { de: bei Ben, en: "Ben's home" }, x: 1, y: -5, w: 38, h: 40 }
+            - { name: { de: Mitte, en: Middle }, x: 40, y: -5, w: 20, h: 40 }
+            - { name: { de: Schule, en: School }, x: 61, y: -5, w: 38, h: 40 }
+          stations:
+            - { id: ben, kind: geraet, name: { de: Bens Handy, en: "Ben's phone" }, x: 10, y: 6 }
+            - { id: rb, kind: router, name: { de: Router Ben, en: "Ben's router" }, x: 30, y: 6 }
+            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 50, y: 6 }
+            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 70, y: 6 }
+            - { id: web, kind: server, name: { de: Webserver, en: Web server }, x: 88, y: 6 }
+          cables:
+            - { from: ben, to: rb }
+            - { from: rb, to: r1 }
+            - { from: r1, to: rs }
+            - { from: rs, to: web }
+          steps:
+            - from: ben
+              to: rb
+              text:
+                de: Bens Handy schickt eine Anfrage los.
+                en: Ben's phone sends off a request.
+              packet: { de: "Anfrage: Bitte die Ausflugsseite!", en: "Request: the trip page, please!" }
+            - from: rb
+              to: r1
+              text: { de: Die Router reichen die Anfrage weiter …, en: The routers pass the request on … }
+            - from: r1
+              to: rs
+              text: { de: "… bis zur Schule.", en: "… all the way to the school." }
+            - from: rs
+              to: web
+              text:
+                de: Der Webserver bekommt die Anfrage und sucht die Seite.
+                en: The web server gets the request and looks for the page.
+            - from: web
+              to: rs
+              text:
+                de: Der Webserver schickt die Seite als Antwort zurück.
+                en: The web server sends the page back as its response.
+              packet: { de: "Antwort: die Ausflugsseite", en: "Response: the trip page" }
+            - from: rs
+              to: r1
+              text: { de: Die Router reichen die Antwort weiter …, en: The routers pass the response on … }
+            - from: r1
+              to: rb
+              text: { de: "… zurück zu Ben.", en: "… back to Ben." }
+            - from: rb
+              to: ben
+              text:
+                de: Bens Handy bekommt die Antwort und zeigt die Seite.
+                en: Ben's phone gets the response and shows the page.
+          next: { de: Nächster Schritt, en: Next step }
+          restart: { de: Von vorn, en: Start again }
+          ready:
+            de: "Das Päckchen liegt bei Bens Handy. Drück auf „Nächster Schritt“."
+            en: "The packet is at Ben's phone. Press “Next step”."
+          arrived: { de: "Fertig: eine Anfrage, eine Antwort.", en: "Done: one request, one response." }
+          packetLabel: { de: "Auf dem Päckchen steht:", en: "The packet says:" }
+        nojs:
+          de: |
+            Karte 5: Bens Handy, Bens Router, Router 1, der Router der Schule und der Webserver der Schule, in einer Reihe
+            verbunden.
+
+            1. Bens Handy schickt eine Anfrage los: „Bitte die Ausflugsseite!“
+            2. Die Router reichen die Anfrage weiter …
+            3. … bis zur Schule.
+            4. Der Webserver bekommt die Anfrage und sucht die Seite.
+            5. Der Webserver schickt die Seite als Antwort zurück.
+            6. Die Router reichen die Antwort weiter …
+            7. … zurück zu Ben.
+            8. Bens Handy bekommt die Antwort und zeigt die Seite.
+          en: |
+            Map 5: Ben's phone, Ben's router, router 1, the school router and the school's web server, joined in a row.
+
+            1. Ben's phone sends off a request: “The trip page, please!”
+            2. The routers pass the request on …
+            3. … all the way to the school.
+            4. The web server gets the request and looks for the page.
+            5. The web server sends the page back as its response.
+            6. The routers pass the response on …
+            7. … back to Ben.
+            8. Ben's phone gets the response and shows the page.
+      - type: definition
+        term: { de: Client, en: client }
+        explanation:
+          de: Ein Programm oder Gerät, das eine Anfrage schickt und auf die Antwort wartet, zum Beispiel der Browser auf Bens Handy.
+          en: A program or device that sends a request and waits for the response, for example the browser on Ben's phone.
+      - type: definition
+        term: { de: Server, en: server }
+        explanation:
+          de: Ein Programm oder Rechner, der auf Anfragen wartet und Antworten schickt, oft an viele Clients gleichzeitig.
+          en: A program or computer that waits for requests and sends responses, often to many clients at once.
+      - type: definition
+        term: { de: Webserver, en: web server }
+        explanation:
+          de: Ein Server, der Webseiten schickt, zum Beispiel der Rechner der Schule mit der Ausflugsseite.
+          en: A server that sends web pages, for example the school's computer with the trip page.
+      - type: true-false
+        id: server-gross
+        text:
+          de: "Stimmt das? Toms Laptop kann kein Server sein, weil er zu klein ist."
+          en: "True or false? Tom's laptop cannot be a server because it is too small."
+        answer: false
+        explanation:
+          de: Die Aussage stimmt nicht. Wenn andere Geräte bei Toms Laptop fragen und er antwortet, ist er ein Server. Es kommt auf die Rolle an, nicht auf die Größe.
+          en: The statement is not true. If other devices ask Tom's laptop and it answers, it is a server. What counts is the role, not the size.
+      - type: text
+        text:
+          de: |
+            Wie am Schulkiosk: Du bestellst (Client), der Kiosk gibt aus (Server). Doch der Vergleich hat Grenzen: Ein
+            Server ist ein Programm auf einem Rechner. Er läuft oft Tag und Nacht und bedient viele Clients zugleich.
+          en: |
+            Like at the school tuck shop: you order (client), the shop hands it out (server). But the comparison has
+            limits: a server is a program on a computer. It often runs day and night and serves many clients at once.
+      - type: note
+        title: { de: Merke, en: Remember }
+        blocks:
+          - type: text
+            text:
+              de: |
+                Client und Server sind **Rollen**: Wer fragt, ist Client. Wer antwortet, ist Server. Das hängt nicht von
+                der Größe ab. Auch ein kleiner Laptop kann Server sein.
+              en: |
+                Client and server are **roles**: whoever asks is the client. Whoever answers is the server. It does not
+                depend on size. Even a small laptop can be a server.
+  - type: section
+    id: beispiel
+    title:
+      de: "Beispiel: das Online-Spiel"
+      en: "Example: the online game"
+    blocks:
+      - type: example
+        title: { de: Jonas Spielstand, en: "Jona's progress" }
+        blocks:
+          - type: text
+            text:
+              de: |
+                1. Jona beendet ein Level. Die Spiel-App auf seinem Laptop (Client) schickt eine Anfrage: „Speichere
+                   meinen Spielstand.“
+                2. Der Spielserver (Server) speichert ihn und antwortet: „Gespeichert.“
+                3. Am nächsten Tag fragt die App: „Wo war Jona?“ Der Server antwortet mit dem Level.
+
+                Derselbe Spielserver antwortet gleichzeitig tausenden anderen Spielern.
+              en: |
+                1. Jona finishes a level. The game app on his laptop (client) sends a request: “Save my progress.”
+                2. The game server (server) saves it and responds: “Saved.”
+                3. The next day the app asks: “Where was Jona?” The server responds with the level.
+
+                The same game server answers thousands of other players at the same time.
+  - type: section
+    id: uebung
+    title:
+      de: Üben mit Fragen und Antworten
+      en: Practise with requests and responses
+    blocks:
+      - type: generated
+        id: client-oder-server
+        given:
+          e: { pick: 1, from: { data: rollen } }
+        task:
+          text:
+            de: "{{e.fall}} Welche Rolle hat hier **{{e.teil}}**: Client oder Server?"
+            en: "{{e.fall}} What role does **{{e.teil}}** have here: client or server?"
+        answer:
+          value: "e.antwort"
+          compare:
+            choice:
+              - { de: Client, en: client }
+              - { de: Server, en: server }
+        mistakes:
+          - value: "e.gegenteil"
+            message:
+              de: "Frag dich: Schickt dieser Teil eine Frage los, oder wartet er auf Fragen und antwortet?"
+              en: "Ask yourself: does this part send off a question, or does it wait for questions and answer?"
+        hint:
+          de: Wer fragt, ist Client. Wer antwortet, ist Server.
+          en: Whoever asks is the client. Whoever answers is the server.
+        steps:
+          - de: "{{e.grund}} Antwort: {{answer}}."
+            en: "{{e.grund}} Answer: {{answer}}."
+      - type: multiple-choice
+        id: was-tut-ein-server
+        text:
+          de: Was tut ein Server? Wähle alles, was stimmt.
+          en: What does a server do? Choose everything that is true.
+        options:
+          - text: { de: Er wartet auf Anfragen., en: It waits for requests. }
+            correct: true
+            info:
+              de: Ein Server wartet bereit, bis ein Client etwas will.
+              en: A server waits, ready, until a client wants something.
+          - text: { de: Er antwortet vielen Clients., en: It answers many clients. }
+            correct: true
+            info:
+              de: Ein Webserver schickt dieselbe Seite an viele Handys und Laptops.
+              en: A web server sends the same page to many phones and laptops.
+          - text: { de: Er fragt Ben von sich aus., en: It asks Ben on its own. }
+            correct: false
+            info:
+              de: Ein Server fängt nicht an. Der Client fragt zuerst.
+              en: A server does not start. The client asks first.
+          - text: { de: Er ist immer ein riesiger Rechner., en: It is always a giant computer. }
+            correct: false
+            info:
+              de: Server ist eine Rolle. Auch ein Laptop kann Server sein, wenn er antwortet.
+              en: Server is a role. Even a laptop can be a server if it answers.
+        explanation:
+          de: Ein Server wartet auf Anfragen und antwortet, oft vielen Clients. Wie groß er ist, spielt keine Rolle.
+          en: A server waits for requests and answers, often many clients. How big it is does not matter.
+      - type: ordering
+        id: anfrage-antwort
+        text:
+          de: In welcher Reihenfolge passiert das, wenn Lea eine Seite ansehen will?
+          en: In which order does this happen when Lea wants to look at a page?
+        items:
+          - { de: Leas Browser schickt eine Anfrage., en: "Lea's browser sends a request." }
+          - { de: Router reichen die Anfrage zum Server., en: Routers pass the request to the server. }
+          - { de: Der Server schickt die Seite als Antwort., en: The server sends the page as its response. }
+          - { de: Leas Browser zeigt die Seite., en: "Lea's browser shows the page." }
+        explanation:
+          de: Erst fragt der Client, dann antwortet der Server. Die Router tragen beides durchs Netz.
+          en: First the client asks, then the server answers. The routers carry both through the network.
+      - type: text
+        text:
+          de: |
+            **Ben:** Mein Handy ist der Client, der Webserver der Schule antwortet. Verstanden!
+
+            **Jona:** Aber woher weiß dein Handy, wo der Webserver steht? Er braucht doch eine Adresse.
+
+            Als Nächstes: IP-Adressen und das DNS.
+          en: |
+            **Ben:** My phone is the client, the school's web server answers. Got it!
+
+            **Jona:** But how does your phone know where the web server is? It needs an address.
+
+            Next: IP addresses and DNS.

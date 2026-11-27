@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+format: 2
+strand: informatik/informatiksysteme
+title:
+  de: Wie das Internet funktioniert
+  en: How the internet works
+intro:
+  de: >-
+    Die Klasse 7b plant einen Projekttag: „Wir spielen das Internet“. Im Klassenchat fragt Ben: „Wie kommt die Seite
+    von unserem Ausflug eigentlich auf mein Handy?“ Mit Jona, Selin, Mia und den anderen findest du es heraus. Im
+    Netz-Simulator schickst du Päckchen von Rechner zu Rechner: über Router, mit Adressen, mit einem Telefonbuch für
+    Namen, bis eine ganze Webseite bei dir ankommt.
+  en: >-
+    Class 7b is planning a project day: “We play the internet”. In the class chat Ben asks: “How does the page about
+    our school trip actually get onto my phone?” You find out with Jona, Selin, Mia and the others. In the network
+    simulator you send packets from computer to computer: through routers, with addresses, with a phone book for
+    names, until a whole web page reaches you.
+languages: [de, en]
+tasks: { start: first }
+chapters: [netz, webseite]
+sources:
+  - title:
+      de: "Gesellschaft für Informatik: Bildungsstandards Informatik für die Sekundarstufe I (2025), Abschnitt 5.4, IS-5"
+      en: "German Informatics Society: Educational standards in computer science, lower secondary (2025), section 5.4, IS-5"
+    url: "https://www.mnu.de/images/fachbereiche/Informatik/Bildungsstandards_Sek_I_2025__pdf-A_.pdf"
+  - title:
+      de: "ISB Bayern: LehrplanPLUS Gymnasium, Natur und Technik 7, Lernbereich 2.1 Vernetzte Informationsstrukturen"
+      en: "ISB Bavaria: LehrplanPLUS Gymnasium, science and technology 7, unit 2.1 networked information structures"
+    url: "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/7/nt_gym"
+  - title:
+      de: "Ministerium für Schule und Bildung NRW: Kernlehrplan Realschule, Wahlpflichtfach Informatik (2023)"
+      en: "Ministry of Schools and Education NRW: Core curriculum Realschule, elective computer science (2023)"
+    url: "https://lehrplannavigator.nrw.de/system/files/media/document/file/rs_wpif_klp_2023_06_01.pdf"
+  - title:
+      de: "Hessisches Kultusministerium: Kerncurriculum Informatik für den Wahlunterricht, Sekundarstufe I (2021)"
+      en: "Hessian Ministry of Education: Core curriculum computer science for electives, lower secondary (2021)"
+    url: "https://kultus.hessen.de/sites/kultus.hessen.de/files/2021-08/kch_informatik.pdf"
+  - title:
+      de: "RFC 5737: IPv4-Adressen für Beispiele in Dokumentationen"
+      en: "RFC 5737: IPv4 address blocks reserved for documentation"
+    url: "https://www.rfc-editor.org/rfc/rfc5737"
+  - title:
+      de: "RFC 2606: Reservierte Namen wie .example"
+      en: "RFC 2606: Reserved top level DNS names such as .example"
+    url: "https://www.rfc-editor.org/rfc/rfc2606"
+  - title:
+      de: "RFC 1812: Anforderungen an IPv4-Router"
+      en: "RFC 1812: Requirements for IP version 4 routers"
+    url: "https://www.rfc-editor.org/rfc/rfc1812"

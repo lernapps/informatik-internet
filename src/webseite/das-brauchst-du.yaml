@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Das brauchst du hier
+  en: What you need here
+description:
+  de: "Kurz wiederholt: der Dateipfad auf Mias Tablet, bevor die URL kommt."
+  en: "A short recap: the file path on Mia's tablet, before the URL comes."
+recap: informatik/dateipfad
+blocks:
+  - type: section
+    id: einstieg
+    title:
+      de: Im Klassenchat der 7b
+      en: In the class 7b chat
+    blocks:
+      - type: text
+        text:
+          de: |
+            **Mia:** Meine Ausflugsfotos lagen zuerst auf meinem Tablet, im Ordner Fotos.
+
+            **Frau Berg:** Und jetzt liegt die Ausflugsseite auf dem Webserver der Schule. Auch dort hat jede Datei einen
+            Pfad.
+          en: |
+            **Mia:** My trip photos were on my tablet first, in the folder Photos.
+
+            **Ms Berg:** And now the trip page is on the school's web server. There too every file has a path.
+  - type: section
+    id: selbstcheck
+    title:
+      de: Kannst du das schon?
+      en: Can you do this already?
+    blocks:
+      - type: text
+        text:
+          de: |
+            Für dieses Kapitel brauchst du den Baustein **Dateipfad**: „Ich kann den Ort einer Datei als Pfad angeben und
+            einen Pfad lesen.“
+
+            Prüf dich im Kopf an diesem Pfad auf Mias Tablet:
+
+            **Mias Tablet/Schule/Deutsch/notizen.txt**
+
+            - Links steht die Wurzel: Mias Tablet.
+            - Dann die Ordner, getrennt durch einen Schrägstrich /: Schule, darin Deutsch.
+            - Rechts steht die Datei: notizen.txt.
+
+            Unsicher? Lies die Seite [Dateipfad](https://lernapps.net/informatik-dateien/ordnen/dateipfad/) in der App
+            „Meine Dateien“.
+          en: |
+            For this chapter you need the building block **file paths**: “I can give the place of a file as a path and
+            read a path.”
+
+            Check yourself in your head with this path on Mia's tablet:
+
+            **Mia's tablet/School/German/notes.txt**
+
+            - On the left is the root: Mia's tablet.
+            - Then the folders, separated by a slash /: School, and inside it German.
+            - On the right is the file: notes.txt.
+
+            Not sure? Read the page [File paths](https://lernapps.net/informatik-dateien/en/ordnen/dateipfad/) in the app
+            “My files”.
+      - type: single-choice
+        id: welcher-ordner
+        text:
+          de: "In welchem Ordner liegt die Datei mit dem Pfad Mias Tablet/Fotos/Seeberg/see.jpg?"
+          en: "Which folder is the file with the path Mia's tablet/Photos/Seeberg/lake.jpg in?"
+        options:
+          - text: { de: Seeberg, en: Seeberg }
+            correct: true
+            info:
+              de: Seeberg steht direkt vor der Datei. Dort liegt see.jpg.
+              en: Seeberg comes right before the file. That is where lake.jpg is.
+          - text: { de: Fotos, en: Photos }
+            correct: false
+            info:
+              de: Fotos ist der Ordner eine Stufe höher. Darin liegt erst der Ordner Seeberg.
+              en: Photos is the folder one level up. Inside it is the folder Seeberg.
+          - text: { de: Mias Tablet, en: "Mia's tablet" }
+            correct: false
+            info:
+              de: Mias Tablet ist die Wurzel, ganz links. Die Datei liegt weiter unten im Baum.
+              en: Mia's tablet is the root, on the far left. The file is further down the tree.
+        explanation:
+          de: Der Name direkt vor der Datei ist der Ordner, in dem sie liegt.
+          en: The name right before the file is the folder it is in.

@@ -1,0 +1,365 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: IP-Adresse und DNS
+  en: IP addresses and DNS
+description:
+  de: "Jedes Gerät im Netz braucht eine Adresse; das DNS übersetzt Namen in IP-Adressen."
+  en: "Every device in a network needs an address; DNS translates names into IP addresses."
+competencies: [ip-adresse-und-dns]
+blocks:
+  - type: section
+    id: einstieg
+    title:
+      de: Was steht auf dem Umschlag?
+      en: What goes on the envelope?
+    blocks:
+      - type: text
+        text:
+          de: |
+            **Jona:** Ich schreibe für den Projekttag „www.schule.example“ auf einen Umschlag.
+
+            **Selin:** Router lesen aber keine Namen. Die brauchen Zahlen!
+
+            Auf der Seite davor hast du gesehen: Bens Handy fragt, der Webserver antwortet. Auf dieser Seite lernst du,
+            wie die beiden sich mit Adressen finden.
+          en: |
+            **Jona:** For the project day I'm writing “www.schule.example” on an envelope.
+
+            **Selin:** But routers don't read names. They need numbers!
+
+            On the page before you saw: Ben's phone asks, the web server answers. On this page you learn how the two find
+            each other with addresses.
+      - type: multiple-choice
+        id: umschlag
+        text:
+          de: Bens Handy schickt ein Päckchen und will eine Antwort. Was muss darauf stehen? Wähle alles, was stimmt.
+          en: Ben's phone sends a packet and wants a response. What must be on it? Choose everything that is true.
+        options:
+          - text: { de: die Adresse des Empfängers, en: "the address of the receiver" }
+            correct: true
+            info:
+              de: Ohne sie wissen die Router nicht, wohin das Päckchen soll.
+              en: Without it the routers do not know where the packet should go.
+          - text: { de: die Adresse des Absenders, en: "the address of the sender" }
+            correct: true
+            info:
+              de: Die Antwort muss zurückfinden. Dafür braucht sie die Adresse von Bens Handy.
+              en: The response has to find its way back. For that it needs the address of Ben's phone.
+          - text: { de: der Name des Browsers, en: the name of the browser }
+            correct: false
+            info:
+              de: Welcher Browser fragt, hilft den Routern nicht beim Weiterreichen.
+              en: Which browser asks does not help the routers pass the packet on.
+        explanation:
+          de: Wie bei einem Brief stehen Empfänger und Absender auf dem Päckchen. Im Netz sind das Zahlen.
+          en: As on a letter, the receiver and the sender are on the packet. In a network they are numbers.
+  - type: section
+    id: idee
+    title:
+      de: "Ausprobieren: erst nachschlagen, dann schicken"
+      en: "Try it: look it up first, then send"
+    blocks:
+      - type: definition
+        term: { de: IP-Adresse, en: IP address }
+        explanation:
+          de: "Die Nummer eines Geräts im Netz, zum Beispiel 192.0.2.17. Sie besteht aus vier Zahlen von 0 bis 255, getrennt durch Punkte."
+          en: "The number of a device in a network, for example 192.0.2.17. It is made of four numbers from 0 to 255, separated by dots."
+      - type: text
+        text:
+          de: |
+            **Jedes Gerät im Netz braucht eine Adresse.** Menschen merken sich aber lieber Namen wie
+            www.schule.example. Darum gibt es das **DNS**: ein Telefonbuch, das Namen in IP-Adressen übersetzt. Der
+            lila DNS-Server schlägt nach. Drück **Nächster Schritt**.
+          en: |
+            **Every device in a network needs an address.** But people prefer to remember names like
+            www.schule.example. That is why there is **DNS**: a phone book that translates names into IP addresses. The
+            purple DNS server looks them up. Press **Next step**.
+      - type: vue-component
+        component: NetzSimulator
+        props:
+          title: { de: "Karte 6: Name nachschlagen, dann schicken", en: "Map 6: look up the name, then send" }
+          label:
+            de: "Karte 6: Bens Handy mit 192.0.2.25 über Bens Router an Router 1. An Router 1 hängen der DNS-Server 203.0.113.53 und der Router der Schule mit dem Webserver 198.51.100.7."
+            en: "Map 6: Ben's phone with 192.0.2.25 through Ben's router to router 1. Router 1 has the DNS server 203.0.113.53 and the school router with the web server 198.51.100.7."
+          stations:
+            - { id: ben, kind: geraet, name: { de: Bens Handy, en: "Ben's phone" }, address: 192.0.2.25, x: 12, y: 32 }
+            - { id: rb, kind: router, name: { de: Router Ben, en: "Ben's router" }, x: 34, y: 32 }
+            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 56, y: 32 }
+            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 80, y: 32 }
+            - {
+                id: dns,
+                kind: dns,
+                name: { de: DNS-Server, en: DNS server },
+                address: 203.0.113.53,
+                x: 40,
+                y: 0,
+                above: true,
+              }
+            - {
+                id: web,
+                kind: server,
+                name: { de: Webserver, en: Web server },
+                address: 198.51.100.7,
+                x: 80,
+                y: 0,
+                above: true,
+              }
+          cables:
+            - { from: ben, to: rb }
+            - { from: rb, to: r1 }
+            - { from: r1, to: dns }
+            - { from: r1, to: rs }
+            - { from: rs, to: web }
+          steps:
+            - from: ben
+              to: rb
+              text:
+                de: "Bens Handy fragt den DNS-Server: Welche IP-Adresse hat www.schule.example?"
+                en: "Ben's phone asks the DNS server: what is the IP address of www.schule.example?"
+              packet:
+                {
+                  de: "an 203.0.113.53, von 192.0.2.25: Frage nach www.schule.example",
+                  en: "to 203.0.113.53, from 192.0.2.25: question about www.schule.example",
+                }
+            - from: rb
+              to: r1
+              text: { de: Die Router reichen die Frage weiter., en: The routers pass the question on. }
+            - from: r1
+              to: dns
+              text:
+                de: Der DNS-Server schlägt den Namen nach und findet 198.51.100.7.
+                en: The DNS server looks up the name and finds 198.51.100.7.
+            - from: dns
+              to: r1
+              text:
+                de: Er schickt die Antwort an die Absender-Adresse 192.0.2.25 zurück.
+                en: It sends the answer back to the sender's address 192.0.2.25.
+              packet:
+                {
+                  de: "an 192.0.2.25: www.schule.example hat 198.51.100.7",
+                  en: "to 192.0.2.25: www.schule.example is 198.51.100.7",
+                }
+            - from: r1
+              to: rb
+              text: { de: Die Router reichen die Antwort zurück …, en: The routers pass the answer back … }
+            - from: rb
+              to: ben
+              text:
+                de: "… und Bens Handy kennt jetzt die Adresse des Webservers."
+                en: "… and Ben's phone now knows the address of the web server."
+            - from: ben
+              to: rb
+              text:
+                de: Jetzt schickt Bens Handy die Anfrage nach der Ausflugsseite an 198.51.100.7.
+                en: Now Ben's phone sends the request for the trip page to 198.51.100.7.
+              packet:
+                { de: "an 198.51.100.7, von 192.0.2.25: Anfrage", en: "to 198.51.100.7, from 192.0.2.25: request" }
+            - from: rb
+              to: r1
+              text:
+                {
+                  de: "Die Router lesen die Zahl und reichen weiter …",
+                  en: "The routers read the number and pass it on …",
+                }
+            - from: r1
+              to: rs
+              text: { de: "… bis ins Netz der Schule.", en: "… into the school network." }
+            - from: rs
+              to: web
+              text: { de: Die Anfrage kommt beim Webserver an., en: The request reaches the web server. }
+          next: { de: Nächster Schritt, en: Next step }
+          restart: { de: Von vorn, en: Start again }
+          ready:
+            de: "Bens Handy kennt nur den Namen www.schule.example. Drück auf „Nächster Schritt“."
+            en: "Ben's phone only knows the name www.schule.example. Press “Next step”."
+          arrived: { de: Angekommen beim Webserver., en: Arrived at the web server. }
+          packetLabel: { de: "Auf dem Päckchen steht:", en: "The packet says:" }
+        nojs:
+          de: |
+            Karte 6: Bens Handy (192.0.2.25) ist über Bens Router mit Router 1 verbunden. An Router 1 hängen der
+            DNS-Server (203.0.113.53) und der Router der Schule mit dem Webserver (198.51.100.7).
+
+            1. Bens Handy fragt den DNS-Server: Welche IP-Adresse hat www.schule.example?
+            2. Die Router reichen die Frage weiter.
+            3. Der DNS-Server schlägt den Namen nach und findet 198.51.100.7.
+            4. Er schickt die Antwort an die Absender-Adresse 192.0.2.25 zurück.
+            5. Die Router reichen die Antwort zurück …
+            6. … und Bens Handy kennt jetzt die Adresse des Webservers.
+            7. Jetzt schickt Bens Handy die Anfrage nach der Ausflugsseite an 198.51.100.7.
+            8. Die Router lesen die Zahl und reichen weiter …
+            9. … bis ins Netz der Schule.
+            10. Die Anfrage kommt beim Webserver an.
+          en: |
+            Map 6: Ben's phone (192.0.2.25) is joined through Ben's router to router 1. Router 1 has the DNS server
+            (203.0.113.53) and the school router with the web server (198.51.100.7).
+
+            1. Ben's phone asks the DNS server: what is the IP address of www.schule.example?
+            2. The routers pass the question on.
+            3. The DNS server looks up the name and finds 198.51.100.7.
+            4. It sends the answer back to the sender's address 192.0.2.25.
+            5. The routers pass the answer back …
+            6. … and Ben's phone now knows the address of the web server.
+            7. Now Ben's phone sends the request for the trip page to 198.51.100.7.
+            8. The routers read the number and pass it on …
+            9. … into the school network.
+            10. The request reaches the web server.
+      - type: definition
+        term: { de: DNS, en: DNS }
+        explanation:
+          de: "Das Telefonbuch des Internets (englisch Domain Name System). DNS-Server übersetzen Namen wie www.schule.example in IP-Adressen."
+          en: "The phone book of the internet (Domain Name System). DNS servers translate names like www.schule.example into IP addresses."
+      - type: note
+        title: { de: Merke, en: Remember }
+        blocks:
+          - type: text
+            text:
+              de: |
+                Router lesen **nur Zahlen**, keine Namen. Darum schlägt das Gerät den Namen zuerst beim DNS nach. Anders
+                als beim Telefonbuch geschieht das von selbst, in Bruchteilen einer Sekunde.
+              en: |
+                Routers read **only numbers**, not names. That is why the device looks up the name with DNS first. Unlike
+                a phone book, this happens by itself, in a fraction of a second.
+      - type: note
+        title: { de: Für Neugierige, en: For the curious }
+        blocks:
+          - type: text
+            text:
+              de: |
+                Zu Hause gibt der Router den Geräten Adressen, die nur im Heimnetz gelten, und hat selbst eine fürs
+                Internet. Neuere IP-Adressen (IPv6) sind viel länger. In den Karten zeigen wir vereinfacht eine Adresse pro Gerät. Die Adressen und Namen hier sind
+                [Beispiel-Adressen](https://www.rfc-editor.org/rfc/rfc5737) und
+                [Beispiel-Namen](https://www.rfc-editor.org/rfc/rfc2606): „.example“ gibt es absichtlich nicht.
+              en: |
+                At home the router gives the devices addresses that only work in the home network, and has one for the
+                internet itself. Newer IP addresses (IPv6) are much longer. The maps show one address per device to keep it simple. The addresses and names here are
+                [example addresses](https://www.rfc-editor.org/rfc/rfc5737) and
+                [example names](https://www.rfc-editor.org/rfc/rfc2606): “.example” does not exist, on purpose.
+  - type: section
+    id: beispiel
+    title:
+      de: "Zum Mitmachen ohne Computer: das Briefumschlag-Spiel"
+      en: "Join in without a computer: the envelope game"
+    blocks:
+      - type: note
+        title: { de: So spielt ihr es, en: How to play }
+        blocks:
+          - type: text
+            text:
+              de: |
+                1. Jedes Kind bekommt eine Karte mit einer IP-Adresse, zum Beispiel 192.0.2.5. Drei Kinder sind Router.
+                2. Ein Kind ist das DNS. Es hat eine Liste: Name → IP-Adresse.
+                3. Wer schreiben will, kennt nur einen Namen. Er fragt das DNS nach der Nummer.
+                4. Auf den Umschlag kommen „an“ und „von“, beides als IP-Adresse. Die Router geben ihn weiter.
+                5. Die Antwort geht an die Absender-Adresse zurück.
+              en: |
+                1. Each child gets a card with an IP address, for example 192.0.2.5. Three children are routers.
+                2. One child is DNS. They have a list: name → IP address.
+                3. Whoever wants to write only knows a name. They ask DNS for the number.
+                4. On the envelope go “to” and “from”, both as IP addresses. The routers pass it on.
+                5. The answer goes back to the sender's address.
+  - type: section
+    id: uebung
+    title:
+      de: Üben mit Adressen
+      en: Practise with addresses
+    blocks:
+      - type: generated
+        id: gueltige-adresse
+        given:
+          e: { pick: 1, from: { data: adressen } }
+        task:
+          text:
+            de: "Kann **{{e.adresse}}** eine IP-Adresse sein? Eine IP-Adresse hat vier Zahlen von 0 bis 255."
+            en: "Can **{{e.adresse}}** be an IP address? An IP address has four numbers from 0 to 255."
+        answer:
+          value: "e.antwort"
+          compare:
+            choice:
+              - { de: ja, en: "yes" }
+              - { de: nein, en: "no" }
+        mistakes:
+          - value: "e.gegenteil"
+            message:
+              de: Zähl die Zahlen zwischen den Punkten, und prüf jede einzeln.
+              en: Count the numbers between the dots, and check each one.
+        hint:
+          de: Es müssen genau vier Zahlen sein, keine größer als 255.
+          en: There must be exactly four numbers, none bigger than 255.
+        steps:
+          - de: "{{e.grund}} Antwort: {{answer}}."
+            en: "{{e.grund}} Answer: {{answer}}."
+      - type: generated
+        id: dns-nachschlagen
+        given:
+          e: { pick: 1, from: { data: dns } }
+        task:
+          text:
+            de: "Das Telefonbuch des DNS: www.schule.example → 198.51.100.7, mail.schule.example → 198.51.100.25, spiele.example → 203.0.113.80, wetter.example → 203.0.113.9, museum.example → 198.51.100.44. An welche IP-Adresse schickt Lea ihre Anfrage für **{{e.name}}**?"
+            en: "The DNS phone book: www.schule.example → 198.51.100.7, mail.schule.example → 198.51.100.25, spiele.example → 203.0.113.80, wetter.example → 203.0.113.9, museum.example → 198.51.100.44. Which IP address does Lea send her request for **{{e.name}}** to?"
+        answer:
+          value: "e.adresse"
+          compare:
+            choice: ["198.51.100.7", "198.51.100.25", "203.0.113.80", "203.0.113.9", "198.51.100.44"]
+        mistakes:
+          - value: "e.falsch"
+            message:
+              de: Das ist die Adresse eines anderen Namens. Such den Namen genau, Buchstabe für Buchstabe.
+              en: That is the address of another name. Find the name exactly, letter by letter.
+        hint:
+          de: Such den Namen links, die Adresse steht rechts daneben.
+          en: Find the name on the left; the address is next to it on the right.
+        steps:
+          - de: "Im Telefonbuch steht {{e.name}} → {{answer}}."
+            en: "The phone book says {{e.name}} → {{answer}}."
+      - type: ordering
+        id: dns-schritte
+        text:
+          de: Selin tippt spiele.example ein. In welcher Reihenfolge passiert das?
+          en: Selin types in spiele.example. In which order does this happen?
+        items:
+          - { de: Selins Tablet kennt nur den Namen., en: "Selin's tablet only knows the name." }
+          - {
+              de: Das Tablet fragt den DNS-Server nach der IP-Adresse.,
+              en: The tablet asks the DNS server for the IP address.,
+            }
+          - { de: Der DNS-Server antwortet mit 203.0.113.80., en: The DNS server answers with 203.0.113.80. }
+          - { de: Das Tablet schickt die Anfrage an 203.0.113.80., en: The tablet sends the request to 203.0.113.80. }
+        explanation:
+          de: Erst nachschlagen, dann schicken. Router brauchen die Zahl, bevor das Päckchen losgeht.
+          en: First look it up, then send. Routers need the number before the packet sets off.
+      - type: single-choice
+        id: dns-faellt-aus
+        text:
+          de: Ben öffnet die Ausflugsseite zum ersten Mal. Der DNS-Server antwortet heute nicht. Der Webserver der Schule läuft. Ben tippt www.schule.example ein. Was passiert?
+          en: Ben opens the trip page for the first time. Today the DNS server does not answer. The school's web server is running. Ben types in www.schule.example. What happens?
+        options:
+          - text: { de: Die Seite lädt nicht., en: The page does not load. }
+            correct: true
+            info:
+              de: Ohne Antwort vom DNS kennt Bens Handy die IP-Adresse nicht und weiß nicht, wohin es fragen soll.
+              en: Without an answer from DNS, Ben's phone does not know the IP address and does not know where to ask.
+          - text: { de: Die Router lesen den Namen selbst., en: The routers read the name themselves. }
+            correct: false
+            info:
+              de: Router lesen nur IP-Adressen. Mit dem Namen können sie nichts anfangen.
+              en: Routers only read IP addresses. They cannot do anything with the name.
+          - text: { de: "Die Seite kommt, nur langsamer.", en: "The page comes, just more slowly." }
+            correct: false
+            info:
+              de: Ohne Adresse geht gar keine Anfrage los, auch keine langsame.
+              en: Without an address no request sets off at all, not even a slow one.
+        explanation:
+          de: Der Name allein reicht nicht. Erst das DNS liefert die Zahl, mit der das Päckchen losgehen kann.
+          en: The name alone is not enough. Only DNS gives the number the packet needs to set off.
+      - type: text
+        text:
+          de: |
+            **Selin:** Also: Router lesen Zahlen, das DNS übersetzt Namen. Unser Umschlag-Spiel kann kommen!
+
+            Geschafft: Du kennst das Netz aus Netzen, Client und Server und die Adressen. Im nächsten Kapitel reist eine
+            ganze Webseite zu Ben.
+          en: |
+            **Selin:** So: routers read numbers, DNS translates names. Our envelope game is ready!
+
+            Well done: you know the network of networks, client and server, and the addresses. In the next chapter a whole
+            web page travels to Ben.

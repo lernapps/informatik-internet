@@ -1,0 +1,473 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Aufbau des Internets
+  en: How the internet is built
+description:
+  de: "Das Internet als Netz aus vielen Netzen: Router reichen Päckchen weiter, lokale und globale Netze."
+  en: "The internet as a network of many networks: routers pass packets on, local and global networks."
+competencies: [internet-aufbau]
+blocks:
+  - type: section
+    id: einstieg
+    title:
+      de: Ist das Internet ein großes Kabel?
+      en: Is the internet one big cable?
+    blocks:
+      - type: text
+        text:
+          de: |
+            **Ben:** Ist das Internet eigentlich ein riesiges Kabel um die ganze Welt?
+
+            **Selin:** Oder ein riesiger Computer, auf dem alles liegt?
+
+            **Frau Berg:** Wir bauen es am Projekttag nach. Fangt klein an: mit zwei Geräten.
+
+            Auf dieser Seite lernst du, wie das Internet aufgebaut ist. Am Ende legst du selbst einen Weg durch mehrere
+            Netze.
+          en: |
+            **Ben:** Is the internet actually a giant cable around the whole world?
+
+            **Selin:** Or a giant computer that holds everything?
+
+            **Ms Berg:** We will rebuild it on project day. Start small: with two devices.
+
+            On this page you learn how the internet is built. At the end you find a route through several networks
+            yourself.
+      - type: single-choice
+        id: zwei-geraete
+        text:
+          de: Mia und Jona sitzen nebeneinander. Was brauchen ihre Geräte mindestens, damit Mia ein Foto zu Jona schicken kann?
+          en: Mia and Jona sit next to each other. What do their devices need at least so that Mia can send a photo to Jona?
+        options:
+          - text:
+              de: Eine Verbindung, mit Kabel oder Funk
+              en: A connection, by cable or wireless
+            correct: true
+            info:
+              de: Zwei Geräte, die verbunden sind, können schon Daten tauschen. Das ist das kleinste Netz.
+              en: Two devices that are connected can already exchange data. That is the smallest network.
+          - text:
+              de: Das Internet
+              en: The internet
+            correct: false
+            info:
+              de: Das Internet brauchst du für Geräte in anderen Netzen, weit weg. Für zwei Geräte nebeneinander reicht eine Verbindung.
+              en: You need the internet for devices in other networks, far away. For two devices side by side a connection is enough.
+          - text:
+              de: Einen Drucker
+              en: A printer
+            correct: false
+            info:
+              de: Ein Drucker bringt Daten auf Papier. Zum Schicken eines Fotos braucht man ihn nicht.
+              en: A printer puts data on paper. You do not need one to send a photo.
+          - text:
+              de: Eine Suchmaschine
+              en: A search engine
+            correct: false
+            info:
+              de: Eine Suchmaschine hilft beim Finden von Webseiten. Sie verbindet keine Geräte.
+              en: A search engine helps you find web pages. It does not connect devices.
+        explanation:
+          de: Schon zwei verbundene Geräte bilden ein Netz. Mit Kabel oder Funk (WLAN) können sie Daten tauschen.
+          en: Two connected devices already form a network. By cable or wireless (Wi-Fi) they can exchange data.
+  - type: section
+    id: idee
+    title:
+      de: "Ausprobieren: Die Karte wächst"
+      en: "Try it: the map grows"
+    blocks:
+      - type: text
+        text:
+          de: |
+            Im Netz-Simulator ist jedes Gerät ein blaues Kästchen, jeder Router ein grüner Kreis. Beide nennen wir
+            **Stationen**. Linien sind Kabel oder Funk (WLAN). Die Daten reisen als **Päckchen** (gelber Umschlag).
+            **Nächster Schritt** schickt es ein Kabel weiter, die Liste schreibt mit. **Von vorn** setzt es zurück.
+          en: |
+            In the network simulator each device is a blue box, each router a green circle. We call both **stations**.
+            Lines are cables or wireless links (Wi-Fi). The data travels as a **packet** (yellow envelope). **Next step**
+            sends it one cable on, and the list writes it down. **Start again** puts it back.
+      - type: vue-component
+        component: NetzSimulator
+        props:
+          title: { de: "Karte 1: zwei Geräte", en: "Map 1: two devices" }
+          label:
+            de: "Karte 1: Mias Tablet und Jonas Laptop, durch ein Kabel verbunden."
+            en: "Map 1: Mia's tablet and Jona's laptop, joined by one cable."
+          stations:
+            - { id: mia, kind: geraet, name: { de: Mias Tablet, en: Mia's tablet }, x: 20, y: 4 }
+            - { id: jona, kind: geraet, name: { de: Jonas Laptop, en: Jona's laptop }, x: 80, y: 4 }
+          cables:
+            - { from: mia, to: jona }
+          steps:
+            - from: mia
+              to: jona
+              text:
+                de: Mias Tablet schickt das Foto als Päckchen direkt über das Kabel zu Jonas Laptop.
+                en: Mia's tablet sends the photo as a packet straight along the cable to Jona's laptop.
+              packet: { de: Foto für Jonas Laptop, en: Photo for Jona's laptop }
+          next: { de: Nächster Schritt, en: Next step }
+          restart: { de: Von vorn, en: Start again }
+          ready:
+            {
+              de: "Das Päckchen liegt bei Mias Tablet. Drück auf „Nächster Schritt“.",
+              en: "The packet is at Mia's tablet. Press “Next step”.",
+            }
+          arrived: { de: Angekommen., en: Arrived. }
+          packetLabel: { de: "Auf dem Päckchen steht:", en: "The packet says:" }
+        nojs:
+          de: |
+            Karte 1: Mias Tablet und Jonas Laptop sind durch ein Kabel verbunden.
+
+            1. Mias Tablet schickt das Foto als Päckchen direkt über das Kabel zu Jonas Laptop.
+          en: |
+            Map 1: Mia's tablet and Jona's laptop are joined by one cable.
+
+            1. Mia's tablet sends the photo as a packet straight along the cable to Jona's laptop.
+      - type: text
+        text:
+          de: |
+            In der Schule hängen viele Geräte an einem **Router**. Er weiß, welches Kabel zu welchem Gerät führt.
+            Schick ein Foto zum Drucker:
+          en: |
+            At school many devices are connected to one **router**. It knows which cable leads to which device. Send a
+            photo to the printer:
+      - type: vue-component
+        component: NetzSimulator
+        props:
+          title: { de: "Karte 2: das Netz der Schule", en: "Map 2: the school network" }
+          label:
+            de: "Karte 2: das Netz der Schule. Mias Tablet, Jonas Laptop, Leas Tablet und der Drucker hängen am Router der Schule."
+            en: "Map 2: the school network. Mia's tablet, Jona's laptop, Lea's tablet and the printer are joined to the school router."
+          stations:
+            - { id: mia, kind: geraet, name: { de: Mias Tablet, en: Mia's tablet }, x: 14, y: 4 }
+            - { id: jona, kind: geraet, name: { de: Jonas Laptop, en: Jona's laptop }, x: 14, y: 40 }
+            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 50, y: 22 }
+            - { id: drucker, kind: geraet, name: { de: Drucker, en: Printer }, x: 86, y: 4 }
+            - { id: lea, kind: geraet, name: { de: Leas Tablet, en: Lea's tablet }, x: 86, y: 40 }
+          cables:
+            - { from: mia, to: rs }
+            - { from: jona, to: rs }
+            - { from: drucker, to: rs }
+            - { from: lea, to: rs }
+          steps:
+            - from: mia
+              to: rs
+              text:
+                de: Mias Tablet schickt das Päckchen zum Router der Schule.
+                en: Mia's tablet sends the packet to the school router.
+              packet: { de: Foto für den Drucker, en: Photo for the printer }
+            - from: rs
+              to: drucker
+              text:
+                de: Der Router liest, für wen das Päckchen ist, und reicht es über das Kabel zum Drucker weiter.
+                en: The router reads who the packet is for and passes it on along the cable to the printer.
+          next: { de: Nächster Schritt, en: Next step }
+          restart: { de: Von vorn, en: Start again }
+          ready:
+            {
+              de: "Das Päckchen liegt bei Mias Tablet. Drück auf „Nächster Schritt“.",
+              en: "The packet is at Mia's tablet. Press “Next step”.",
+            }
+          arrived:
+            {
+              de: "Angekommen, ohne das Netz der Schule zu verlassen.",
+              en: "Arrived, without leaving the school network.",
+            }
+          packetLabel: { de: "Auf dem Päckchen steht:", en: "The packet says:" }
+        nojs:
+          de: |
+            Karte 2: das Netz der Schule. Mias Tablet, Jonas Laptop, Leas Tablet und der Drucker hängen am Router der Schule.
+
+            1. Mias Tablet schickt das Päckchen zum Router der Schule.
+            2. Der Router liest, für wen das Päckchen ist, und reicht es über das Kabel zum Drucker weiter.
+          en: |
+            Map 2: the school network. Mia's tablet, Jona's laptop, Lea's tablet and the printer are joined to the school router.
+
+            1. Mia's tablet sends the packet to the school router.
+            2. The router reads who the packet is for and passes it on along the cable to the printer.
+      - type: definition
+        term: { de: Router, en: router }
+        explanation:
+          de: Ein Gerät, das Netze verbindet und Päckchen weiterreicht, bis sie ihr Ziel erreichen. Im Schulnetz verteilt es sie auch an die Geräte.
+          en: A device that joins networks and passes packets on until they reach their goal. In the school network it also hands them to the devices.
+      - type: definition
+        term: { de: lokales Netz, en: local network }
+        explanation:
+          de: Ein Netz an einem Ort, zum Beispiel in der Schule oder in einer Wohnung. Kurz LAN (englisch local area network).
+          en: A network in one place, for example at school or in a home. LAN for short (local area network).
+      - type: text
+        text:
+          de: |
+            Ben ist zu Hause, in einem anderen Netz. Die Router der Netze sind verbunden, dazwischen stehen weitere
+            Router.
+          en: |
+            Ben is at home, in another network. The routers of the networks are joined, with more routers in
+            between.
+      - type: vue-component
+        component: NetzSimulator
+        props:
+          title: { de: "Karte 3: drei Netze", en: "Map 3: three networks" }
+          zones:
+            - { name: { de: Schule, en: School }, x: 1, y: -5, w: 38, h: 68 }
+            - { name: { de: Mitte, en: Middle }, x: 40, y: -5, w: 20, h: 68 }
+            - { name: { de: bei Ben, en: "Ben's home" }, x: 61, y: -5, w: 38, h: 68 }
+          label:
+            de: "Karte 3: drei Netze. Links das Netz der Schule, in der Mitte ein Netz dazwischen mit Router 1 und Router 2, rechts das Netz bei Ben zu Hause."
+            en: "Map 3: three networks. On the left the school network, in the middle a network in between with router 1 and router 2, on the right the network at Ben's home."
+          stations:
+            - { id: jona, kind: geraet, name: { de: Jonas Laptop, en: Jona's laptop }, x: 10, y: 4 }
+            - { id: mia, kind: geraet, name: { de: Mias Tablet, en: Mia's tablet }, x: 10, y: 44 }
+            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 30, y: 24 }
+            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 50, y: 4 }
+            - { id: r2, kind: router, name: { de: Router 2, en: Router 2 }, x: 50, y: 44 }
+            - { id: rb, kind: router, name: { de: Router Ben, en: Ben's router }, x: 70, y: 24 }
+            - { id: ben, kind: geraet, name: { de: Bens Handy, en: Ben's phone }, x: 90, y: 24 }
+          cables:
+            - { from: jona, to: rs }
+            - { from: mia, to: rs }
+            - { from: rs, to: r1 }
+            - { from: rs, to: r2 }
+            - { from: r1, to: rb }
+            - { from: r2, to: rb }
+            - { from: rb, to: ben }
+          steps:
+            - from: mia
+              to: rs
+              text:
+                de: Mias Tablet schickt das Päckchen zum Router der Schule.
+                en: Mia's tablet sends the packet to the school router.
+              packet: { de: Foto für Bens Handy, en: Photo for Ben's phone }
+            - from: rs
+              to: r1
+              text:
+                de: Bens Handy ist nicht im Netz der Schule. Der Router der Schule reicht das Päckchen nach draußen, zu Router 1.
+                en: Ben's phone is not in the school network. The school router passes the packet outside, to router 1.
+            - from: r1
+              to: rb
+              text:
+                de: Router 1 reicht es weiter zum Router bei Ben zu Hause.
+                en: Router 1 passes it on to the router at Ben's home.
+            - from: rb
+              to: ben
+              text:
+                de: Bens Router gibt es an Bens Handy. Das Päckchen ist durch drei Netze gereist.
+                en: Ben's router hands it to Ben's phone. The packet has travelled through three networks.
+          next: { de: Nächster Schritt, en: Next step }
+          restart: { de: Von vorn, en: Start again }
+          ready:
+            {
+              de: "Das Päckchen liegt bei Mias Tablet. Drück auf „Nächster Schritt“.",
+              en: "The packet is at Mia's tablet. Press “Next step”.",
+            }
+          arrived: { de: Angekommen bei Ben., en: Arrived at Ben's. }
+          packetLabel: { de: "Auf dem Päckchen steht:", en: "The packet says:" }
+        nojs:
+          de: |
+            Karte 3: drei Netze. Links das Netz der Schule mit Jonas Laptop, Mias Tablet und dem Router der Schule. In
+            der Mitte ein Netz dazwischen mit Router 1 und Router 2, beide mit dem Router der Schule und mit Bens Router
+            verbunden. Rechts das Netz bei Ben zu Hause: Bens Router mit Bens Handy.
+
+            1. Mias Tablet schickt das Päckchen zum Router der Schule.
+            2. Bens Handy ist nicht im Netz der Schule. Der Router der Schule reicht das Päckchen nach draußen, zu Router 1.
+            3. Router 1 reicht es weiter zum Router bei Ben zu Hause.
+            4. Bens Router gibt es an Bens Handy. Das Päckchen ist durch drei Netze gereist.
+          en: |
+            Map 3: three networks. On the left the school network with Jona's laptop, Mia's tablet and the school
+            router. In the middle a network in between with router 1 and router 2, both joined to the school router and
+            to Ben's router. On the right the network at Ben's home: Ben's router with Ben's phone.
+
+            1. Mia's tablet sends the packet to the school router.
+            2. Ben's phone is not in the school network. The school router passes the packet outside, to router 1.
+            3. Router 1 passes it on to the router at Ben's home.
+            4. Ben's router hands it to Ben's phone. The packet has travelled through three networks.
+      - type: definition
+        term: { de: Internet, en: internet }
+        explanation:
+          de: Ein Netz aus sehr vielen Netzen auf der ganzen Welt. Router verbinden die Netze und reichen Päckchen von Netz zu Netz weiter. Ein Netz, das so über weite Strecken reicht, heißt globales Netz.
+          en: A network of very many networks all over the world. Routers join the networks and pass packets on from network to network. A network that reaches this far is called a global network.
+      - type: note
+        title: { de: Merke, en: Remember }
+        blocks:
+          - type: text
+            text:
+              de: |
+                Das Internet ist **kein Kabel und kein riesiger Computer**, sondern ein Netz aus vielen Netzen. Router
+                reichen die Päckchen weiter. Oft gibt es mehr als einen Weg: Auf Karte 3 käme das Päckchen auch über
+                Router 2 zu Ben.
+              en: |
+                The internet is **not a cable and not a giant computer**, but a network of many networks. Routers pass
+                the packets on. Often there is more than one route: on map 3 the packet could also reach Ben through
+                router 2.
+  - type: section
+    id: beispiel
+    title:
+      de: "Zum Mitmachen ohne Computer: die Zettel-Staffel"
+      en: "Join in without a computer: the note relay"
+    blocks:
+      - type: note
+        title: { de: So spielt ihr es, en: How to play }
+        blocks:
+          - type: text
+            text:
+              de: |
+                1. Bildet drei Gruppen in drei Ecken des Raums. Jede Gruppe ist ein Netz.
+                2. Jede Gruppe wählt ein Kind als Router. Nur Router gehen zu anderen Gruppen.
+                3. Ein Kind schreibt einen Zettel „Für Lea in Gruppe 3“ und gibt ihn seinem Router.
+                4. Die Router reichen ihn weiter, bis er bei Lea ist.
+                5. Ein Router setzt sich hin, er ist „kaputt“. Findet ihr einen anderen Weg?
+              en: |
+                1. Form three groups in three corners of the room. Each group is a network.
+                2. Each group picks one child as its router. Only routers walk to other groups.
+                3. One child writes a note “For Lea in group 3” and gives it to their router.
+                4. The routers pass it on until it reaches Lea.
+                5. One router sits down: it is “broken”. Can you find another way?
+  - type: section
+    id: uebung
+    title:
+      de: Üben mit der Netzkarte
+      en: Practise with the network map
+    blocks:
+      - type: vue-component
+        id: weg-legen
+        component: NetzWeg
+        props:
+          task:
+            de: "Start: {start}. Ziel: {goal}. Leg den Weg eines Päckchens: Tippe nach dem Start die nächsten Stationen der Reihe nach an."
+            en: "Start: {start}. Goal: {goal}. Lay the route of a packet: after the start, tap the next stations one after the other."
+          title: { de: "Karte 4: vier Netze", en: "Map 4: four networks" }
+          label:
+            de: "Karte 4: das Netz der Schule, ein Netz dazwischen mit Router 1 und Router 2, die Netze bei Ben und bei Lea zu Hause."
+            en: "Map 4: the school network, a network in between with router 1 and router 2, the networks at Ben's and at Lea's home."
+          zones:
+            - { name: { de: Schule, en: School }, x: 1, y: -5, w: 38, h: 68 }
+            - { name: { de: Mitte, en: Middle }, x: 40, y: -5, w: 20, h: 68 }
+            - { name: { de: bei Ben, en: "Ben's home" }, x: 61, y: -5, w: 38, h: 33 }
+            - { name: { de: bei Lea, en: "Lea's home" }, x: 61, y: 35, w: 38, h: 28 }
+          stations:
+            - { id: jona, kind: geraet, name: { de: Jonas Laptop, en: Jona's laptop }, x: 10, y: 4 }
+            - { id: mia, kind: geraet, name: { de: Mias Tablet, en: Mia's tablet }, x: 10, y: 44 }
+            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 30, y: 24 }
+            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 50, y: 4 }
+            - { id: r2, kind: router, name: { de: Router 2, en: Router 2 }, x: 50, y: 44 }
+            - { id: rb, kind: router, name: { de: Router Ben, en: Ben's router }, x: 70, y: 4 }
+            - { id: rl, kind: router, name: { de: Router Lea, en: Lea's router }, x: 70, y: 44 }
+            - { id: ben, kind: geraet, name: { de: Bens Handy, en: Ben's phone }, x: 90, y: 4 }
+            - { id: lea, kind: geraet, name: { de: Leas Tablet, en: Lea's tablet }, x: 90, y: 44 }
+          cables:
+            - { from: jona, to: rs }
+            - { from: mia, to: rs }
+            - { from: rs, to: r1 }
+            - { from: rs, to: r2 }
+            - { from: r1, to: rb }
+            - { from: r2, to: rb }
+            - { from: r2, to: rl }
+            - { from: rb, to: ben }
+            - { from: rl, to: lea }
+          trips:
+            - { start: mia, goal: ben }
+            - { start: jona, goal: lea }
+            - { start: lea, goal: ben }
+            - { start: ben, goal: mia }
+            - { start: lea, goal: jona }
+          startMark: { de: Start, en: Start }
+          goalMark: { de: Ziel, en: Goal }
+          wayLabel: { de: "Dein Weg:", en: "Your route:" }
+          anyWay:
+            de: Jeder Weg über verbundene Router zählt, nicht nur der kürzeste.
+            en: Every route over joined routers counts, not just the shortest.
+          choose: { de: "Nächste Station:", en: "Next station:" }
+          undo: { de: Letzte Station zurück, en: Take back the last station }
+          restart: { de: Von vorn, en: Start again }
+          empty:
+            de: Wähl zuerst die Station, zu der das Päckchen vom Start aus geht.
+            en: First choose the station the packet goes to from the start.
+          gap:
+            de: "Zwischen {from} und {to} liegt kein Kabel. Das Päckchen kann nur über eine Linie der Karte gehen."
+            en: "No cable joins {from} and {to}. The packet can only travel along a line on the map."
+          noRouter:
+            de: "{name} ist kein Router. Nur Router reichen Päckchen weiter."
+            en: "{name} is not a router. Only routers pass packets on."
+          twice:
+            de: "{name} kommt zweimal in deinem Weg vor. Ein Päckchen geht nicht im Kreis."
+            en: "{name} comes twice in your route. A packet does not go round in circles."
+          short:
+            de: "Dein Weg endet bei {name}. Das Päckchen soll aber bis {goal} kommen."
+            en: "Your route ends at {name}. But the packet should get to {goal}."
+        examples:
+          accepted:
+            - { answer: [rs, r1, rb, ben], seed: 1 }
+          rejected:
+            - { answer: [rs, rb, ben], seed: 1 }
+            - { answer: [] }
+      - type: generated
+        id: lokal-oder-global
+        given:
+          e: { pick: 1, from: { data: verbindungen } }
+        task:
+          text:
+            de: "{{e.fall}} Bleiben die Päckchen in einem **lokalen** Netz, oder reisen sie durch ein **globales** Netz?"
+            en: "{{e.fall}} Do the packets stay in a **local** network, or do they travel through a **global** network?"
+        answer:
+          value: "e.antwort"
+          compare:
+            choice:
+              - { de: lokal, en: local }
+              - { de: global, en: global }
+        mistakes:
+          - value: "e.gegenteil"
+            message:
+              de: "Frag dich: Sind beide Geräte im selben Netz, an einem Ort? Oder liegen andere Netze dazwischen?"
+              en: "Ask yourself: are both devices in the same network, in one place? Or are other networks in between?"
+        hint:
+          de: Hängen beide Geräte am selben Router, an einem Ort?
+          en: Are both devices connected to the same router, in one place?
+        steps:
+          - de: "{{e.grund}} Antwort: {{answer}}."
+            en: "{{e.grund}} Answer: {{answer}}."
+      - type: true-false
+        id: router-faellt-aus
+        text:
+          de: "Mias Schulrouter ist mit Router 1 und Router 2 verbunden. Beide sind mit Bens Router verbunden. Stimmt das? Wenn Router 1 ausfällt, kommt kein Päckchen mehr von Mia zu Ben."
+          en: "Mia's school router is joined to router 1 and router 2. Both are joined to Ben's router. True or false? If router 1 breaks down, no packet can get from Mia to Ben any more."
+        answer: false
+        explanation:
+          de: "Die Aussage stimmt nicht. Der Router der Schule ist auch mit Router 2 verbunden, und Router 2 mit Bens Router. Das Päckchen nimmt dann diesen Weg. Weil es viele Wege gibt, fällt das Internet nicht aus, wenn ein Router kaputt ist."
+          en: "The statement is not true. The school router is also joined to router 2, and router 2 to Ben's router. The packet then takes that way. Because there are many ways, the internet does not stop when one router breaks."
+      - type: matching
+        id: was-passiert
+        text:
+          de: Was passiert mit dem Päckchen? Ordne zu.
+          en: What happens to the packet? Match them up.
+        pairs:
+          - left: { de: Mia druckt in der Schule., en: Mia prints at school. }
+            right: { de: Es bleibt im lokalen Netz der Schule., en: It stays in the school's local network. }
+          - left: { de: Mia schickt Ben ein Foto nach Hause., en: Mia sends Ben a photo at home. }
+            right:
+              { de: Es reist über Router durch mehrere Netze., en: It travels through several networks via routers. }
+          - left: { de: Router 1 fällt aus., en: Router 1 breaks down. }
+            right: { de: Es nimmt einen anderen Weg., en: It takes another route. }
+          - left: { de: Das Päckchen kommt beim Router der Schule an., en: The packet arrives at the school router. }
+            right:
+              {
+                de: "Der Router liest, für wen es ist, und reicht es weiter.",
+                en: "The router reads who it is for and passes it on.",
+              }
+        distractors:
+          - { de: Es wird auf einem Computer für alle gespeichert., en: It is stored on one computer for everyone. }
+        explanation:
+          de: "Im lokalen Netz reicht ein Router. Nach draußen reisen Päckchen über mehrere Router durch mehrere Netze; fällt einer aus, nehmen sie einen anderen Weg. Das Internet ist kein einzelner Computer, der alles speichert."
+          en: "In a local network one router is enough. To go outside, packets travel through several networks via several routers; if one breaks, they take another route. The internet is not one single computer that stores everything."
+      - type: text
+        text:
+          de: |
+            **Mia:** Mein Foto ist bei Ben angekommen, über drei Netze!
+
+            **Ben:** Und wer schickt mir die Ausflugsseite?
+
+            Als Nächstes: Wer fragt, wer antwortet? Client und Server.
+          en: |
+            **Mia:** My photo reached Ben, through three networks!
+
+            **Ben:** And who sends me the trip page?
+
+            Next: who asks, who answers? Client and server.

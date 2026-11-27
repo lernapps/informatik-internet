@@ -1,0 +1,51 @@
+# Fälle für die Übung „Welcher Dienst?“. antwort ist WWW, E-Mail oder Chat, falsch der naheliegende Fehler, grund sagt
+# warum. Keine Marken.
+
+- fall:
+    de: "Ben sieht sich auf der Seite der Schule die Fotos vom Ausflug an."
+    en: "Ben looks at the photos from the trip on the school's website."
+  antwort: { de: WWW, en: web }
+  falsch: { de: E-Mail, en: email }
+  grund:
+    de: "Er ruft eine Webseite mit dem Browser ab: Das ist das World Wide Web."
+    en: "He loads a web page with the browser: that is the World Wide Web."
+- fall:
+    de: "Selin schickt ihrer Oma einen Brief mit Anhang an oma@post.example."
+    en: "Selin sends her grandma a letter with an attachment to oma@post.example."
+  antwort: { de: E-Mail, en: email }
+  falsch: { de: Chat, en: chat }
+  grund:
+    de: "Die Adresse mit @ zeigt es: Der Brief geht über Mailserver, auch wenn die Oma gerade nicht online ist."
+    en: "The address with @ shows it: the letter goes through mail servers, even if grandma is not online right now."
+- fall:
+    de: "Jona schreibt in der Klassengruppe „Bin gleich da!“ und sieht sofort zwei Häkchen."
+    en: "Jona writes “On my way!” in the class group and sees two ticks at once."
+  antwort: { de: Chat, en: chat }
+  falsch: { de: E-Mail, en: email }
+  grund:
+    de: "Kurze Nachrichten in einer Gruppe, die sofort ankommen: Das ist ein Chat über einen Messenger."
+    en: "Short messages in a group that arrive at once: that is a chat through a messenger."
+- fall:
+    de: "Lea sucht im Browser nach einer Anleitung für ein Origami-Boot und öffnet eine Seite."
+    en: "Lea searches the browser for instructions for an origami boat and opens a page."
+  antwort: { de: WWW, en: web }
+  falsch: { de: Chat, en: chat }
+  grund:
+    de: "Sie öffnet Webseiten im Browser. Das ist das World Wide Web."
+    en: "She opens web pages in the browser. That is the World Wide Web."
+- fall:
+    de: "Frau Berg schickt allen Eltern die Einladung zum Elternabend an ihre Postfächer."
+    en: "Ms Berg sends the invitation to the parents' evening to all the parents' mailboxes."
+  antwort: { de: E-Mail, en: email }
+  falsch: { de: WWW, en: web }
+  grund:
+    de: "Die Einladung landet in Postfächern auf Mailservern. Die Eltern holen sie ab, wann sie wollen."
+    en: "The invitation lands in mailboxes on mail servers. The parents fetch it whenever they like."
+- fall:
+    de: "Ali und Tom schreiben sich beim Hausaufgabenmachen schnell hin und her."
+    en: "Ali and Tom write back and forth quickly while doing homework."
+  antwort: { de: Chat, en: chat }
+  falsch: { de: E-Mail, en: email }
+  grund:
+    de: "Schnelles Hin und Her mit kurzen Nachrichten ist ein Chat."
+    en: "Quick back and forth with short messages is a chat."

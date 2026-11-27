@@ -1,0 +1,58 @@
+# Adressen für die Übung „Gültige IP-Adresse?“. Nur IPv4: vier Zahlen von 0 bis 255 mit Punkten. Die gültigen kommen
+# aus den Beispielbereichen von RFC 5737 (192.0.2.x, 198.51.100.x, 203.0.113.x). antwort ja/nein, gegenteil die
+# falsche Wahl, grund sagt warum.
+
+- adresse: "192.0.2.17"
+  antwort: { de: ja, en: "yes" }
+  gegenteil: { de: nein, en: "no" }
+  grund:
+    de: "Vier Zahlen, alle zwischen 0 und 255, durch Punkte getrennt."
+    en: "Four numbers, all between 0 and 255, separated by dots."
+- adresse: "198.51.100.7"
+  antwort: { de: ja, en: "yes" }
+  gegenteil: { de: nein, en: "no" }
+  grund:
+    de: "Vier Zahlen, alle zwischen 0 und 255. Dass sie verschieden lang sind, ist egal."
+    en: "Four numbers, all between 0 and 255. It does not matter that they have different lengths."
+- adresse: "203.0.113.53"
+  antwort: { de: ja, en: "yes" }
+  gegenteil: { de: nein, en: "no" }
+  grund:
+    de: "Vier Zahlen von 0 bis 255. Auch die 0 ist erlaubt."
+    en: "Four numbers from 0 to 255. Even 0 is allowed."
+- adresse: "192.0.2.255"
+  antwort: { de: ja, en: "yes" }
+  gegenteil: { de: nein, en: "no" }
+  grund:
+    de: "255 ist die größte erlaubte Zahl, also noch in Ordnung."
+    en: "255 is the biggest number allowed, so it is still fine."
+- adresse: "192.0.2.256"
+  antwort: { de: nein, en: "no" }
+  gegenteil: { de: ja, en: "yes" }
+  grund:
+    de: "256 ist größer als 255. Jede der vier Zahlen darf höchstens 255 sein."
+    en: "256 is bigger than 255. Each of the four numbers may be 255 at most."
+- adresse: "198.51.300.7"
+  antwort: { de: nein, en: "no" }
+  gegenteil: { de: ja, en: "yes" }
+  grund:
+    de: "300 ist größer als 255. Das passt nicht in eine IP-Adresse."
+    en: "300 is bigger than 255. That does not fit in an IP address."
+- adresse: "198.51.100"
+  antwort: { de: nein, en: "no" }
+  gegenteil: { de: ja, en: "yes" }
+  grund:
+    de: "Hier stehen nur drei Zahlen. Eine IP-Adresse hat vier."
+    en: "There are only three numbers here. An IP address has four."
+- adresse: "192.0.2.17.4"
+  antwort: { de: nein, en: "no" }
+  gegenteil: { de: ja, en: "yes" }
+  grund:
+    de: "Hier stehen fünf Zahlen. Eine IP-Adresse hat genau vier."
+    en: "There are five numbers here. An IP address has exactly four."
+- adresse: "203.0.113.5a"
+  antwort: { de: nein, en: "no" }
+  gegenteil: { de: ja, en: "yes" }
+  grund:
+    de: "„5a“ ist keine Zahl. In einer IP-Adresse stehen nur Ziffern und Punkte."
+    en: "“5a” is not a number. An IP address has only digits and dots."

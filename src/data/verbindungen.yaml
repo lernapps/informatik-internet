@@ -1,0 +1,68 @@
+# Fälle für die Übung „lokal oder global?“. antwort ist lokal oder global, gegenteil die falsche Wahl, grund sagt
+# warum, ohne das Wort der Antwort vorwegzunehmen. Nur eindeutige Fälle: keine Nachrichten über Messenger oder
+# Webseiten der Schule, deren Server irgendwo stehen kann.
+
+- fall:
+    de: "Mia druckt im Klassenraum ein Arbeitsblatt auf dem Drucker der Schule."
+    en: "In the classroom, Mia prints a worksheet on the school's printer."
+  antwort: { de: lokal, en: local }
+  gegenteil: { de: global, en: global }
+  grund:
+    de: "Tablet und Drucker hängen am selben Router der Schule. Das Päckchen verlässt das Schulnetz nicht."
+    en: "The tablet and the printer are connected to the same school router. The packet never leaves the school network."
+- fall:
+    de: "Lea druckt zu Hause ein Foto auf dem Drucker im Flur."
+    en: "At home, Lea prints a photo on the printer in the hall."
+  antwort: { de: lokal, en: local }
+  gegenteil: { de: global, en: global }
+  grund:
+    de: "Leas Tablet und der Drucker sind im Netz der Wohnung. Ein Router zu Hause reicht das Päckchen weiter, sonst keiner."
+    en: "Lea's tablet and the printer are in the flat's network. One router at home passes the packet on, no other."
+- fall:
+    de: "Ali zeigt ein Video von seinem Laptop auf dem Fernseher im Wohnzimmer. Beide sind im WLAN zu Hause."
+    en: "Ali shows a video from his laptop on the TV in the living room. Both are on the Wi-Fi at home."
+  antwort: { de: lokal, en: local }
+  gegenteil: { de: global, en: global }
+  grund:
+    de: "Laptop und Fernseher sind im selben Netz der Wohnung. Das Video geht nicht hinaus in andere Netze."
+    en: "The laptop and the TV are in the same network in the flat. The video does not go out into other networks."
+- fall:
+    de: "Tom kopiert im Computerraum eine Datei auf den Rechner von Frau Berg im selben Raum."
+    en: "In the computer room, Tom copies a file to Ms Berg's computer in the same room."
+  antwort: { de: lokal, en: local }
+  gegenteil: { de: global, en: global }
+  grund:
+    de: "Beide Rechner sind im Netz der Schule. Die Datei bleibt in diesem einen Netz."
+    en: "Both computers are in the school network. The file stays inside this one network."
+- fall:
+    de: "Ben ruft die Webseite eines Museums in einer anderen Stadt auf."
+    en: "Ben opens the website of a museum in another city."
+  antwort: { de: global, en: global }
+  gegenteil: { de: lokal, en: local }
+  grund:
+    de: "Der Rechner mit der Webseite steht in einem anderen Netz, weit weg. Viele Router reichen die Päckchen von Netz zu Netz."
+    en: "The computer with the website is in another network, far away. Many routers pass the packets from network to network."
+- fall:
+    de: "Selin schreibt ihrer Cousine in der Türkei eine E-Mail."
+    en: "Selin writes an email to her cousin in Turkey."
+  antwort: { de: global, en: global }
+  gegenteil: { de: lokal, en: local }
+  grund:
+    de: "Die Nachricht muss in ein anderes Land. Sie reist durch viele Netze, die über Router verbunden sind."
+    en: "The message has to go to another country. It travels through many networks joined by routers."
+- fall:
+    de: "Lea spricht per Videoanruf mit ihrer Oma in Kanada."
+    en: "Lea talks to her grandma in Canada on a video call."
+  antwort: { de: global, en: global }
+  gegenteil: { de: lokal, en: local }
+  grund:
+    de: "Leas Tablet und das Gerät der Oma sind in Netzen auf zwei Kontinenten. Dazwischen liegen viele Netze."
+    en: "Lea's tablet and her grandma's device are in networks on two continents. Many networks lie in between."
+- fall:
+    de: "Jona spielt online gegen einen Freund, der in eine andere Stadt umgezogen ist."
+    en: "Jona plays online against a friend who has moved to another city."
+  antwort: { de: global, en: global }
+  gegenteil: { de: lokal, en: local }
+  grund:
+    de: "Die beiden Geräte stehen in zwei Wohnungen in zwei Städten, also in zwei Netzen. Router verbinden sie über weitere Netze."
+    en: "The two devices are in two homes in two cities, so in two networks. Routers join them through more networks."
