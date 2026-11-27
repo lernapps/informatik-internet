@@ -5,4 +5,4 @@ title:
 summary:
   de: Du erklärst, wie das Internet aufgebaut ist und wie Client und Server sich über IP-Adressen und das DNS finden.
   en: You explain how the internet is built and how client and server find each other with IP addresses and DNS.
-pages: [das-brauchst-du, aufbau]
+pages: [das-brauchst-du, aufbau, client-server, ip-dns]

@@ -1,0 +1,18 @@
+# Einträge im „Telefonbuch“ für die Übung „DNS nachschlagen“. Namen nur unter .example (RFC 2606), Adressen nur aus
+# RFC 5737. falsch ist eine andere Adresse aus demselben Telefonbuch (der typische Fehler: in der Zeile verrutscht).
+
+- name: "www.schule.example"
+  adresse: "198.51.100.7"
+  falsch: "198.51.100.25"
+- name: "mail.schule.example"
+  adresse: "198.51.100.25"
+  falsch: "198.51.100.7"
+- name: "spiele.example"
+  adresse: "203.0.113.80"
+  falsch: "203.0.113.9"
+- name: "wetter.example"
+  adresse: "203.0.113.9"
+  falsch: "203.0.113.80"
+- name: "museum.example"
+  adresse: "198.51.100.44"
+  falsch: "198.51.100.25"

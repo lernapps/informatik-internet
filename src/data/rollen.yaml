@@ -1,0 +1,80 @@
+# Fälle für die Übung „Client oder Server?“. teil ist ein Beteiligter des Falls, antwort seine Rolle (Client oder
+# Server), gegenteil die falsche Wahl, grund sagt warum, ohne das Wort der Antwort vorwegzunehmen. Die Rolle hängt
+# davon ab, wer fragt und wer antwortet, nicht von der Größe des Geräts (Fall Toms Laptop).
+
+- fall:
+    de: "Ben öffnet auf seinem Handy die Seite vom Klassenausflug."
+    en: "Ben opens the page about the school trip on his phone."
+  teil: { de: "der Browser auf Bens Handy", en: "the browser on Ben's phone" }
+  antwort: { de: Client, en: client }
+  gegenteil: { de: Server, en: server }
+  grund:
+    de: "Der Browser fragt nach der Seite und wartet auf die Antwort."
+    en: "The browser asks for the page and waits for the answer."
+- fall:
+    de: "Ben öffnet auf seinem Handy die Seite vom Klassenausflug."
+    en: "Ben opens the page about the school trip on his phone."
+  teil: { de: "der Rechner, der die Seite schickt", en: "the computer that sends the page" }
+  antwort: { de: Server, en: server }
+  gegenteil: { de: Client, en: client }
+  grund:
+    de: "Er wartet auf Anfragen und schickt die Seite als Antwort zurück."
+    en: "It waits for requests and sends the page back as its answer."
+- fall:
+    de: "Selin holt auf ihrem Tablet neue E-Mails ab."
+    en: "Selin fetches new emails on her tablet."
+  teil: { de: "die Mail-App auf Selins Tablet", en: "the email app on Selin's tablet" }
+  antwort: { de: Client, en: client }
+  gegenteil: { de: Server, en: server }
+  grund:
+    de: "Die App fragt, ob neue Nachrichten da sind."
+    en: "The app asks whether new messages have arrived."
+- fall:
+    de: "Selin holt auf ihrem Tablet neue E-Mails ab."
+    en: "Selin fetches new emails on her tablet."
+  teil: { de: "der Rechner, der Selins Post aufbewahrt", en: "the computer that keeps Selin's mail" }
+  antwort: { de: Server, en: server }
+  gegenteil: { de: Client, en: client }
+  grund:
+    de: "Er hebt die Nachrichten auf und gibt sie heraus, wenn die App danach fragt."
+    en: "It keeps the messages and hands them out when the app asks for them."
+- fall:
+    de: "Jona spielt ein Online-Spiel. Sein Spielstand wird gespeichert."
+    en: "Jona plays an online game. His progress is saved."
+  teil:
+    {
+      de: "der Rechner des Spiels, der alle Spielstände speichert",
+      en: "the game's computer that saves everyone's progress",
+    }
+  antwort: { de: Server, en: server }
+  gegenteil: { de: Client, en: client }
+  grund:
+    de: "Er nimmt die Spielstände vieler Spieler an und antwortet allen."
+    en: "It takes the progress of many players and answers all of them."
+- fall:
+    de: "Lea fragt in der Wetter-App, ob es morgen regnet."
+    en: "Lea asks the weather app whether it will rain tomorrow."
+  teil: { de: "die Wetter-App auf Leas Handy", en: "the weather app on Lea's phone" }
+  antwort: { de: Client, en: client }
+  gegenteil: { de: Server, en: server }
+  grund:
+    de: "Die App schickt eine Frage los und zeigt die Antwort an."
+    en: "The app sends off a question and shows the answer."
+- fall:
+    de: "Tom verteilt im Klassenraum ein Quiz von seinem Laptop. Die Tablets der anderen holen sich die Fragen bei ihm."
+    en: "In the classroom Tom shares a quiz from his laptop. The others' tablets fetch the questions from him."
+  teil: { de: "Toms Laptop", en: "Tom's laptop" }
+  antwort: { de: Server, en: server }
+  gegenteil: { de: Client, en: client }
+  grund:
+    de: "Die Tablets fragen, der Laptop antwortet. Auch ein kleiner Laptop kann diese Rolle haben."
+    en: "The tablets ask, the laptop answers. Even a small laptop can have this role."
+- fall:
+    de: "Tom verteilt im Klassenraum ein Quiz von seinem Laptop. Die Tablets der anderen holen sich die Fragen bei ihm."
+    en: "In the classroom Tom shares a quiz from his laptop. The others' tablets fetch the questions from him."
+  teil: { de: "Alis Tablet", en: "Ali's tablet" }
+  antwort: { de: Client, en: client }
+  gegenteil: { de: Server, en: server }
+  grund:
+    de: "Alis Tablet fragt bei Toms Laptop nach den Fragen."
+    en: "Ali's tablet asks Tom's laptop for the questions."
