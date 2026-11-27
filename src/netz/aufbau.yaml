@@ -22,7 +22,7 @@ blocks:
 
             **Frau Berg:** Wir bauen es am Projekttag nach. Fangt klein an: mit zwei Geräten.
 
-            Auf dieser Seite lernst du, wie das Internet aufgebaut ist. Am Ende legst du selbst einen Weg durch drei
+            Auf dieser Seite lernst du, wie das Internet aufgebaut ist. Am Ende legst du selbst einen Weg durch mehrere
             Netze.
           en: |
             **Ben:** Is the internet actually a giant cable around the whole world?
@@ -31,7 +31,7 @@ blocks:
 
             **Ms Berg:** We will rebuild it on project day. Start small: with two devices.
 
-            On this page you learn how the internet is built. At the end you find a route through three networks
+            On this page you learn how the internet is built. At the end you find a route through several networks
             yourself.
       - type: single-choice
         id: zwei-geraete
@@ -209,7 +209,7 @@ blocks:
           title: { de: "Karte 3: drei Netze", en: "Map 3: three networks" }
           zones:
             - { name: { de: Schule, en: School }, x: 1, y: -5, w: 38, h: 68 }
-            - { name: { de: Mitte, en: middle }, x: 40, y: -5, w: 20, h: 68 }
+            - { name: { de: Mitte, en: Middle }, x: 40, y: -5, w: 20, h: 68 }
             - { name: { de: bei Ben, en: "Ben's home" }, x: 61, y: -5, w: 38, h: 68 }
           label:
             de: "Karte 3: drei Netze. Links das Netz der Schule, in der Mitte ein Netz dazwischen mit Router 1 und Router 2, rechts das Netz bei Ben zu Hause."
@@ -332,15 +332,15 @@ blocks:
         component: NetzWeg
         props:
           task:
-            de: "Schick ein Päckchen von {start} zu {goal}. Der Weg beginnt bei {start}. Tippe dann die nächsten Stationen der Reihe nach an."
-            en: "Send a packet from {start} to {goal}. The route starts at {start}. Then tap the next stations one after the other."
+            de: "Start: {start}. Ziel: {goal}. Leg den Weg eines Päckchens: Tippe nach dem Start die nächsten Stationen der Reihe nach an."
+            en: "Start: {start}. Goal: {goal}. Lay the route of a packet: after the start, tap the next stations one after the other."
           title: { de: "Karte 4: vier Netze", en: "Map 4: four networks" }
           label:
             de: "Karte 4: das Netz der Schule, ein Netz dazwischen mit Router 1 und Router 2, die Netze bei Ben und bei Lea zu Hause."
             en: "Map 4: the school network, a network in between with router 1 and router 2, the networks at Ben's and at Lea's home."
           zones:
             - { name: { de: Schule, en: School }, x: 1, y: -5, w: 38, h: 68 }
-            - { name: { de: Mitte, en: middle }, x: 40, y: -5, w: 20, h: 68 }
+            - { name: { de: Mitte, en: Middle }, x: 40, y: -5, w: 20, h: 68 }
             - { name: { de: bei Ben, en: "Ben's home" }, x: 61, y: -5, w: 38, h: 33 }
             - { name: { de: bei Lea, en: "Lea's home" }, x: 61, y: 35, w: 38, h: 28 }
           stations:
@@ -446,11 +446,11 @@ blocks:
               { de: Es reist über Router durch mehrere Netze., en: It travels through several networks via routers. }
           - left: { de: Router 1 fällt aus., en: Router 1 breaks down. }
             right: { de: Es nimmt einen anderen Weg., en: It takes another route. }
-          - left: { de: Es kommt beim Router der Schule an., en: It arrives at the school router. }
+          - left: { de: Das Päckchen kommt beim Router der Schule an., en: The packet arrives at the school router. }
             right:
               {
-                de: "Er liest, für wen es ist, und reicht es weiter.",
-                en: "It reads who the packet is for and passes it on.",
+                de: "Der Router liest, für wen es ist, und reicht es weiter.",
+                en: "The router reads who it is for and passes it on.",
               }
         distractors:
           - { de: Es wird auf einem Computer für alle gespeichert., en: It is stored on one computer for everyone. }

@@ -79,27 +79,37 @@ blocks:
         props:
           title: { de: "Karte 6: Name nachschlagen, dann schicken", en: "Map 6: look up the name, then send" }
           label:
-            de: "Karte 6: Bens Handy mit 192.0.2.25 über Bens Router an Router 1. An Router 1 hängen der DNS-Server 203.0.113.53 und der Webserver 198.51.100.7."
-            en: "Map 6: Ben's phone with 192.0.2.25 through Ben's router to router 1. Router 1 has the DNS server 203.0.113.53 and the web server 198.51.100.7."
+            de: "Karte 6: Bens Handy mit 192.0.2.25 über Bens Router an Router 1. An Router 1 hängen der DNS-Server 203.0.113.53 und der Router der Schule mit dem Webserver 198.51.100.7."
+            en: "Map 6: Ben's phone with 192.0.2.25 through Ben's router to router 1. Router 1 has the DNS server 203.0.113.53 and the school router with the web server 198.51.100.7."
           stations:
             - { id: ben, kind: geraet, name: { de: Bens Handy, en: "Ben's phone" }, address: 192.0.2.25, x: 12, y: 32 }
-            - { id: rb, kind: router, name: { de: Router Ben, en: "Ben's router" }, x: 36, y: 32 }
-            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 60, y: 32 }
+            - { id: rb, kind: router, name: { de: Router Ben, en: "Ben's router" }, x: 34, y: 32 }
+            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 56, y: 32 }
+            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 80, y: 32 }
             - {
                 id: dns,
                 kind: dns,
                 name: { de: DNS-Server, en: DNS server },
                 address: 203.0.113.53,
-                x: 60,
+                x: 40,
                 y: 0,
                 above: true,
               }
-            - { id: web, kind: server, name: { de: Webserver, en: Web server }, address: 198.51.100.7, x: 86, y: 32 }
+            - {
+                id: web,
+                kind: server,
+                name: { de: Webserver, en: Web server },
+                address: 198.51.100.7,
+                x: 80,
+                y: 0,
+                above: true,
+              }
           cables:
             - { from: ben, to: rb }
             - { from: rb, to: r1 }
             - { from: r1, to: dns }
-            - { from: r1, to: web }
+            - { from: r1, to: rs }
+            - { from: rs, to: web }
           steps:
             - from: ben
               to: rb
@@ -147,8 +157,14 @@ blocks:
             - from: rb
               to: r1
               text:
-                { de: Die Router lesen die Zahl und reichen weiter., en: The routers read the number and pass it on. }
+                {
+                  de: "Die Router lesen die Zahl und reichen weiter …",
+                  en: "The routers read the number and pass it on …",
+                }
             - from: r1
+              to: rs
+              text: { de: "… bis ins Netz der Schule.", en: "… into the school network." }
+            - from: rs
               to: web
               text: { de: Die Anfrage kommt beim Webserver an., en: The request reaches the web server. }
           next: { de: Nächster Schritt, en: Next step }
@@ -161,7 +177,7 @@ blocks:
         nojs:
           de: |
             Karte 6: Bens Handy (192.0.2.25) ist über Bens Router mit Router 1 verbunden. An Router 1 hängen der
-            DNS-Server (203.0.113.53) und der Webserver (198.51.100.7).
+            DNS-Server (203.0.113.53) und der Router der Schule mit dem Webserver (198.51.100.7).
 
             1. Bens Handy fragt den DNS-Server: Welche IP-Adresse hat www.schule.example?
             2. Die Router reichen die Frage weiter.
@@ -170,11 +186,12 @@ blocks:
             5. Die Router reichen die Antwort zurück …
             6. … und Bens Handy kennt jetzt die Adresse des Webservers.
             7. Jetzt schickt Bens Handy die Anfrage nach der Ausflugsseite an 198.51.100.7.
-            8. Die Router lesen die Zahl und reichen weiter.
-            9. Die Anfrage kommt beim Webserver an.
+            8. Die Router lesen die Zahl und reichen weiter …
+            9. … bis ins Netz der Schule.
+            10. Die Anfrage kommt beim Webserver an.
           en: |
             Map 6: Ben's phone (192.0.2.25) is joined through Ben's router to router 1. Router 1 has the DNS server
-            (203.0.113.53) and the web server (198.51.100.7).
+            (203.0.113.53) and the school router with the web server (198.51.100.7).
 
             1. Ben's phone asks the DNS server: what is the IP address of www.schule.example?
             2. The routers pass the question on.
@@ -183,8 +200,9 @@ blocks:
             5. The routers pass the answer back …
             6. … and Ben's phone now knows the address of the web server.
             7. Now Ben's phone sends the request for the trip page to 198.51.100.7.
-            8. The routers read the number and pass it on.
-            9. The request reaches the web server.
+            8. The routers read the number and pass it on …
+            9. … into the school network.
+            10. The request reaches the web server.
       - type: definition
         term: { de: DNS, en: DNS }
         explanation:
@@ -300,7 +318,10 @@ blocks:
           en: Selin types in spiele.example. In which order does this happen?
         items:
           - { de: Selins Tablet kennt nur den Namen., en: "Selin's tablet only knows the name." }
-          - { de: Es fragt den DNS-Server nach der IP-Adresse., en: It asks the DNS server for the IP address. }
+          - {
+              de: Das Tablet fragt den DNS-Server nach der IP-Adresse.,
+              en: The tablet asks the DNS server for the IP address.,
+            }
           - { de: Der DNS-Server antwortet mit 203.0.113.80., en: The DNS server answers with 203.0.113.80. }
           - { de: Das Tablet schickt die Anfrage an 203.0.113.80., en: The tablet sends the request to 203.0.113.80. }
         explanation:

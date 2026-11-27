@@ -82,7 +82,7 @@ const words = (name: string) => {
   <svg class="netz-karte" :viewBox="`0 ${top} 100 ${height - top}`" role="img" :aria-label="label">
     <g v-for="zone in zones ?? []" :key="zone.name" class="netz-zone">
       <rect :x="zone.x" :y="zone.y" :width="zone.w" :height="zone.h" rx="2" />
-      <text :x="zone.x + 1.2" :y="zone.y + 4.4">{{ zone.name }}</text>
+      <text :x="zone.x + 1.2" :y="zone.y + 4.6">{{ zone.name }}</text>
     </g>
     <line
       v-for="line in lines"
@@ -147,7 +147,7 @@ const words = (name: string) => {
 
 .netz-zone text {
   fill: var(--page-muted);
-  font-size: 4px;
+  font-size: 4.2px;
   font-style: italic;
 }
 

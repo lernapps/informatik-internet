@@ -16,12 +16,18 @@ blocks:
       - type: text
         text:
           de: |
+            Hier schreiben die Kinder der Klasse 7b, alle 12 Jahre alt: Jona, Selin, Mia, Ben, Lea, Tom und Ali. Frau
+            Berg ist ihre Klassenlehrerin.
+
             **Frau Berg:** Nächsten Freitag ist Projekttag: „Wir spielen das Internet“. Bringt Briefumschläge mit!
 
             **Ben:** Gute Idee. Ich will wissen, wie die Seite von unserem Ausflug auf mein Handy kommt.
 
             **Mia:** Meine Fotos vom Ausflug sind auch dabei. Ich habe sie vom Tablet hochgeladen.
           en: |
+            The children of class 7b write here, all aged 12: Jona, Selin, Mia, Ben, Lea, Tom and Ali. Ms Berg is their
+            class teacher.
+
             **Ms Berg:** Next Friday is our project day: “We play the internet”. Bring envelopes!
 
             **Ben:** Good idea. I want to know how the page about our school trip gets onto my phone.

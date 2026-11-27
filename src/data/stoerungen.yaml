@@ -6,6 +6,7 @@
     en: "Ben makes a typo: www.schuel.example. The browser says: server not found."
   antwort: { de: DNS-Abfrage, en: DNS lookup }
   falsch: { de: Datei auf dem Webserver, en: file on the web server }
+  anders: { de: Weg durchs Netz, en: route through the network }
   grund:
     de: "Den falsch geschriebenen Namen gibt es im DNS nicht. Ohne IP-Adresse geht keine Anfrage los."
     en: "The misspelt name does not exist in DNS. Without an IP address no request sets off."
@@ -14,6 +15,7 @@
     en: "Ben opens the page for the first time. The DNS server does not answer. The school's web server is running."
   antwort: { de: DNS-Abfrage, en: DNS lookup }
   falsch: { de: Weg durchs Netz, en: route through the network }
+  anders: { de: Datei auf dem Webserver, en: file on the web server }
   grund:
     de: "Bens Handy bekommt keine IP-Adresse für den Namen und weiß nicht, wohin es fragen soll."
     en: "Ben's phone gets no IP address for the name and does not know where to ask."
@@ -22,6 +24,7 @@
     en: "Ben types /klasse-7b/ausflg.html. The web server answers: 404 Not Found."
   antwort: { de: Datei auf dem Webserver, en: file on the web server }
   falsch: { de: DNS-Abfrage, en: DNS lookup }
+  anders: { de: Weg durchs Netz, en: route through the network }
   grund:
     de: "Der Webserver hat geantwortet, also klappten DNS und Weg. Nur die Datei mit diesem Pfad gibt es nicht."
     en: "The web server answered, so DNS and the route worked. Only the file with this path does not exist."
@@ -30,6 +33,7 @@
     en: "Ms Berg deleted ausflug.html by mistake. The web server answers: 404 Not Found."
   antwort: { de: Datei auf dem Webserver, en: file on the web server }
   falsch: { de: Weg durchs Netz, en: route through the network }
+  anders: { de: DNS-Abfrage, en: DNS lookup }
   grund:
     de: "Die Anfrage kam an, aber im Ordner klasse-7b fehlt die Datei."
     en: "The request arrived, but the file is missing from the folder klasse-7b."
@@ -38,14 +42,16 @@
     en: "At Ben's home the router is switched off. No page loads, not even another one."
   antwort: { de: Weg durchs Netz, en: route through the network }
   falsch: { de: Datei auf dem Webserver, en: file on the web server }
+  anders: { de: DNS-Abfrage, en: DNS lookup }
   grund:
     de: "Ohne Bens Router kommt kein Päckchen aus Bens Netz hinaus, nicht einmal die Frage an das DNS."
     en: "Without Ben's router no packet gets out of Ben's network, not even the question to DNS."
 - stoerung:
-    de: "Das einzige Kabel zum Netz der Schule ist kaputt. Andere Seiten laden, die der Schule nicht."
-    en: "The only cable to the school network is broken. Other pages load, but not the school's."
+    de: "Das Kabel zwischen dem Router der Schule und dem Webserver ist kaputt. Andere Seiten laden, die der Schule nicht."
+    en: "The cable between the school router and the web server is broken. Other pages load, but not the school's."
   antwort: { de: Weg durchs Netz, en: route through the network }
   falsch: { de: DNS-Abfrage, en: DNS lookup }
+  anders: { de: Datei auf dem Webserver, en: file on the web server }
   grund:
     de: "Es gibt keinen Weg mehr zum Webserver. Die Anfrage kommt nicht an."
     en: "There is no route to the web server any more. The request does not arrive."

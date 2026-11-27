@@ -263,8 +263,11 @@ blocks:
           en: Put the six steps of loading a web page in the right order.
         items:
           - { de: Der Browser liest die URL., en: The browser reads the URL. }
-          - { de: Er fragt das DNS nach der IP-Adresse., en: It asks DNS for the IP address. }
-          - { de: Er schickt die Anfrage an diese Adresse., en: It sends the request to this address. }
+          - { de: Der Browser fragt das DNS nach der IP-Adresse., en: The browser asks DNS for the IP address. }
+          - {
+              de: Der Browser schickt die Anfrage an diese Adresse.,
+              en: The browser sends the request to this address.,
+            }
           - { de: Der Webserver sucht die Datei zum Pfad., en: The web server looks for the file for the path. }
           - { de: Der Webserver schickt eine Kopie als Antwort., en: The web server sends a copy as its response. }
           - { de: Der Browser zeigt die Seite., en: The browser shows the page. }
@@ -276,8 +279,8 @@ blocks:
         component: NetzWeg
         props:
           task:
-            de: "Leg den Weg eines Päckchens von {start} zu {goal}. Der Weg beginnt bei {start}. Tippe dann die nächsten Stationen der Reihe nach an."
-            en: "Lay the route of a packet from {start} to {goal}. The route starts at {start}. Then tap the next stations one after the other."
+            de: "Start: {start}. Ziel: {goal}. Leg den Weg eines Päckchens: Tippe nach dem Start die nächsten Stationen der Reihe nach an."
+            en: "Start: {start}. Goal: {goal}. Lay the route of a packet: after the start, tap the next stations one after the other."
           title: { de: "Karte 9: zwei Wege zur Schule", en: "Map 9: two routes to the school" }
           label:
             de: "Karte 9: Bens Handy, Bens Router, Router 1 und Router 2, der DNS-Server an Router 1, der Router der Schule mit dem Webserver."
@@ -285,16 +288,16 @@ blocks:
           stations:
             - { id: ben, kind: geraet, name: { de: Bens Handy, en: "Ben's phone" }, x: 10, y: 24 }
             - { id: rb, kind: router, name: { de: Router Ben, en: "Ben's router" }, x: 30, y: 24 }
-            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 52, y: 4 }
-            - { id: r2, kind: router, name: { de: Router 2, en: Router 2 }, x: 52, y: 44 }
+            - { id: r2, kind: router, name: { de: Router 2, en: Router 2 }, x: 52, y: 4, above: true }
+            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 52, y: 44 }
             - { id: dns, kind: dns, name: { de: DNS-Server, en: DNS server }, x: 30, y: 52 }
-            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 72, y: 24 }
-            - { id: web, kind: server, name: { de: Webserver, en: Web server }, x: 90, y: 24 }
+            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 66, y: 24 }
+            - { id: web, kind: server, name: { de: Webserver, en: Web server }, x: 88, y: 24 }
           cables:
             - { from: ben, to: rb }
             - { from: rb, to: r1 }
             - { from: rb, to: r2 }
-            - { from: r2, to: dns }
+            - { from: r1, to: dns }
             - { from: r1, to: rs }
             - { from: r2, to: rs }
             - { from: rs, to: web }
@@ -351,6 +354,10 @@ blocks:
               - { de: Datei auf dem Webserver, en: file on the web server }
         mistakes:
           - value: "e.falsch"
+            message:
+              de: "Frag dich der Reihe nach: Bekam das Handy eine IP-Adresse? Kam die Anfrage an? Hat der Webserver geantwortet?"
+              en: "Ask yourself in order: did the phone get an IP address? Did the request arrive? Did the web server answer?"
+          - value: "e.anders"
             message:
               de: "Frag dich der Reihe nach: Bekam das Handy eine IP-Adresse? Kam die Anfrage an? Hat der Webserver geantwortet?"
               en: "Ask yourself in order: did the phone get an IP address? Did the request arrive? Did the web server answer?"

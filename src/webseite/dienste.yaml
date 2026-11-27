@@ -20,15 +20,15 @@ blocks:
 
             **Ben:** Ich stelle sie in den Chat. Ist doch alles Internet, oder?
 
-            Auf der Seite davor hast du eine URL zerlegt, mit dem Protokoll https vorn. Auf dieser Seite lernst du
-            Dienste im Internet kennen und die Regeln, nach denen sie reden.
+            Auf der Seite davor hast du eine URL zerlegt, mit dem Protokoll https vorn. Webseiten im Browser nennt man
+            das World Wide Web (WWW). Auf dieser Seite lernst du Dienste im Internet und ihre Regeln kennen.
           en: |
             **Selin:** I'm sending the trip photos to my grandma by email.
 
             **Ben:** I'm putting them in the chat. It's all the internet, isn't it?
 
-            On the page before you took a URL apart, with the protocol https at the front. On this page you get to know
-            services on the internet and the rules they talk by.
+            On the page before you took a URL apart, with the protocol https at the front. Web pages in the browser are
+            called the World Wide Web (WWW). On this page you get to know services on the internet and their rules.
       - type: true-false
         id: internet-gleich-www
         text:
@@ -163,6 +163,11 @@ blocks:
                 de: "die Regeln des Messengers; ein offener Standard heißt XMPP",
                 en: "the messenger's rules; one open standard is called XMPP",
               }
+      - type: definition
+        term: { de: Mailserver, en: mail server }
+        explanation:
+          de: Ein Server, der E-Mails annimmt, weiterschickt und in Postfächern aufbewahrt, bis sie abgeholt werden.
+          en: A server that accepts emails, sends them on and keeps them in mailboxes until they are fetched.
       - type: definition
         term: { de: World Wide Web, en: World Wide Web }
         explanation:

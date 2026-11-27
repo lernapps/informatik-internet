@@ -21,7 +21,7 @@ blocks:
             **Frau Berg:** Und jetzt liegt die Ausflugsseite auf dem Webserver der Schule. Auch dort hat jede Datei einen
             Pfad.
           en: |
-            **Mia:** My trip photos were on my tablet first, in the folder Fotos.
+            **Mia:** My trip photos were on my tablet first, in the folder Photos.
 
             **Ms Berg:** And now the trip page is on the school's web server. There too every file has a path.
   - type: section
@@ -52,11 +52,11 @@ blocks:
 
             Check yourself in your head with this path on Mia's tablet:
 
-            **Mias Tablet/Schule/Deutsch/notizen.txt**
+            **Mia's tablet/School/German/notes.txt**
 
             - On the left is the root: Mia's tablet.
-            - Then the folders, separated by a slash /: Schule, and inside it Deutsch.
-            - On the right is the file: notizen.txt.
+            - Then the folders, separated by a slash /: School, and inside it German.
+            - On the right is the file: notes.txt.
 
             Not sure? Read the page [File paths](https://lernapps.net/informatik-dateien/en/ordnen/dateipfad/) in the app
             “My files”.
@@ -64,23 +64,23 @@ blocks:
         id: welcher-ordner
         text:
           de: "In welchem Ordner liegt die Datei mit dem Pfad Mias Tablet/Fotos/Seeberg/see.jpg?"
-          en: "Which folder is the file with the path Mias Tablet/Fotos/Seeberg/see.jpg in?"
+          en: "Which folder is the file with the path Mia's tablet/Photos/Seeberg/lake.jpg in?"
         options:
           - text: { de: Seeberg, en: Seeberg }
             correct: true
             info:
               de: Seeberg steht direkt vor der Datei. Dort liegt see.jpg.
-              en: Seeberg comes right before the file. That is where see.jpg is.
-          - text: { de: Fotos, en: Fotos }
+              en: Seeberg comes right before the file. That is where lake.jpg is.
+          - text: { de: Fotos, en: Photos }
             correct: false
             info:
               de: Fotos ist der Ordner eine Stufe höher. Darin liegt erst der Ordner Seeberg.
-              en: Fotos is the folder one level up. Inside it is the folder Seeberg.
-          - text: { de: Mias Tablet, en: "Mias Tablet" }
+              en: Photos is the folder one level up. Inside it is the folder Seeberg.
+          - text: { de: Mias Tablet, en: "Mia's tablet" }
             correct: false
             info:
               de: Mias Tablet ist die Wurzel, ganz links. Die Datei liegt weiter unten im Baum.
-              en: Mias Tablet is the root, on the far left. The file is further down the tree.
+              en: Mia's tablet is the root, on the far left. The file is further down the tree.
         explanation:
           de: Der Name direkt vor der Datei ist der Ordner, in dem sie liegt.
           en: The name right before the file is the folder it is in.

@@ -21,24 +21,6 @@
     de: "Er wartet auf Anfragen und schickt die Seite als Antwort zurück."
     en: "It waits for requests and sends the page back as its answer."
 - fall:
-    de: "Selin holt auf ihrem Tablet neue E-Mails ab."
-    en: "Selin fetches new emails on her tablet."
-  teil: { de: "die Mail-App auf Selins Tablet", en: "the email app on Selin's tablet" }
-  antwort: { de: Client, en: client }
-  gegenteil: { de: Server, en: server }
-  grund:
-    de: "Die App fragt, ob neue Nachrichten da sind."
-    en: "The app asks whether new messages have arrived."
-- fall:
-    de: "Selin holt auf ihrem Tablet neue E-Mails ab."
-    en: "Selin fetches new emails on her tablet."
-  teil: { de: "der Rechner, der Selins Post aufbewahrt", en: "the computer that keeps Selin's mail" }
-  antwort: { de: Server, en: server }
-  gegenteil: { de: Client, en: client }
-  grund:
-    de: "Er hebt die Nachrichten auf und gibt sie heraus, wenn die App danach fragt."
-    en: "It keeps the messages and hands them out when the app asks for them."
-- fall:
     de: "Jona spielt ein Online-Spiel. Sein Spielstand wird gespeichert."
     en: "Jona plays an online game. His progress is saved."
   teil:
@@ -54,7 +36,7 @@
 - fall:
     de: "Lea fragt in der Wetter-App, ob es morgen regnet."
     en: "Lea asks the weather app whether it will rain tomorrow."
-  teil: { de: "die Wetter-App auf Leas Handy", en: "the weather app on Lea's phone" }
+  teil: { de: "die Wetter-App auf Leas Tablet", en: "the weather app on Lea's tablet" }
   antwort: { de: Client, en: client }
   gegenteil: { de: Server, en: server }
   grund:

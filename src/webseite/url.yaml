@@ -189,6 +189,10 @@ blocks:
             message:
               de: "Such die Stelle von :// und vom ersten / danach. Liegt das Stück davor, dazwischen oder dahinter?"
               en: "Find where :// is and the first / after it. Is the piece before, between or after them?"
+          - value: "e.anders"
+            message:
+              de: "Such die Stelle von :// und vom ersten / danach. Liegt das Stück davor, dazwischen oder dahinter?"
+              en: "Find where :// is and the first / after it. Is the piece before, between or after them?"
         hint:
           de: "Vor :// steht das Protokoll, bis zum nächsten / die Domain, danach der Pfad."
           en: "Before :// is the protocol, up to the next / the domain name, after that the path."
@@ -198,19 +202,19 @@ blocks:
       - type: true-false
         id: pfad-auf-tablet
         text:
-          de: "Stimmt das? Bei https://schule.example/fotos/see.jpg sagt der Pfad, wo das Foto auf Mias Tablet liegt."
-          en: "True or false? In https://schule.example/fotos/see.jpg the path says where the photo is on Mia's tablet."
+          de: "Stimmt das? Bei https://www.schule.example/see.jpg sagt der Pfad, wo das Foto auf Mias Tablet liegt."
+          en: "True or false? In https://www.schule.example/see.jpg the path says where the photo is on Mia's tablet."
         answer: false
         explanation:
-          de: Die Aussage stimmt nicht. Der Pfad sagt, wo die Datei auf dem Rechner schule.example liegt, also auf dem Webserver.
-          en: The statement is not true. The path says where the file is on the computer schule.example, so on the web server.
+          de: Die Aussage stimmt nicht. Der Pfad sagt, wo die Datei auf dem Rechner www.schule.example liegt, also auf dem Webserver.
+          en: The statement is not true. The path says where the file is on the computer www.schule.example, so on the web server.
       - type: matching
         id: was-du-bekommst
         text:
           de: Was bekommst du wohl, wenn du diese URL öffnest? Ordne zu.
           en: What do you probably get when you open this URL? Match them up.
         pairs:
-          - left: { de: "https://schule.example/fotos/see.jpg", en: "https://schule.example/fotos/see.jpg" }
+          - left: { de: "https://www.schule.example/see.jpg", en: "https://www.schule.example/see.jpg" }
             right: { de: "ein Foto vom Ausflug, von der Schule", en: "a photo from the trip, from the school" }
           - left: { de: "https://wetter.example/heute.html", en: "https://wetter.example/heute.html" }
             right: { de: eine Seite mit dem Wetter von heute, en: "a page with today's weather" }

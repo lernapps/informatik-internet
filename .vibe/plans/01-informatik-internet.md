@@ -4,7 +4,7 @@
 # Archetype, null until chosen in Explore. Allowed values: explainer, interactive, quiz.
 archetype: explainer
 # Current phase. Allowed values: explore, plan, code, commit.
-phase: code
+phase: commit
 # prePushFailures: failed pre-push runs, written by the hook.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks.
@@ -99,6 +99,22 @@ curriculum England).
   (URI), RFC 9110 (HTTP), RFC 5321 (SMTP), RFC 9051 (IMAP), RFC 3849/8200 (IPv6, nur am Rand).
 - Nicht gelesen: das Repo von informatik-dateien (Zugriff abgelehnt); stattdessen die veröffentlichte Seite
   https://lernapps.net/informatik-dateien/ordnen/dateipfad/.
+
+- Lernenden-Prüfung der Musterseite (Subagent, Klasse 7, de/en, 360/1280 px): Netz-Zonen und Kartentitel sichtbar,
+  „Station“ erklärt, zweiter Weg genannt, Kabel durch Beschriftung entfernt, Matching wendet an, Tipp verrät nichts,
+  „Die Aussage stimmt nicht.“ statt „Falsch.“, englische Wörter route/wireless/Start again.
+- Fachliche Prüfung (Subagent, Netze): `.exmaple` → `www.schuel.example` (nur reservierte Namen), Domain-Begründung
+  korrigiert, „Keine dieser URLs …“, HTTPS-Anfrage als verschlüsselt markiert, Router-Definition, DNS-Fälle „zum
+  ersten Mal“, Absender auf Karte 8, Pfad „Seite oder Datei“, eine Adresse pro Gerät als Vereinfachung genannt.
+- Lernenden-Prüfung der ganzen App: Personen und Frau Berg als Klassenlehrerin auf der ersten Seite vorgestellt; Geräte
+  einheitlich (Lea Tablet, Jona Laptop); Karten 5, 6, 8, 9 einheitlich (Webserver hinter dem Router der Schule, DNS an
+  Router 1); Störung „Kabel zum Webserver“ statt „einziges Kabel“; `schule.example` überall als `www.schule.example`;
+  E-Mail-Fälle aus „Client oder Server?“ entfernt (E-Mail kommt später); WWW vor der ersten Frage genannt; Webserver und
+  Mailserver definiert; Pronomen in Ordnungsübungen ersetzt; Wegaufgabe „Start: … Ziel: …“; zweite Fehlermeldung für
+  Dreifach-Auswahl; englischer Pfad wie in #492 (Mia's tablet/School/German/notes.txt); Zonen-Schrift 12 px; Webserver
+  nicht mehr abgeschnitten.
+- Nicht geändert: Das Telefonbuch steht in jeder Aufgabe „DNS nachschlagen“ ganz, weil jede Übung allein verständlich
+  sein muss (Nachtrag 5).
 
 ## Explore
 
@@ -277,7 +293,7 @@ neuer Karte als Props, Beispiel-Adressen nur RFC 5737/2606.
 - [x] Run `npx --no -- lernapps check` until it passes.
 - [x] Look at every screen and state, at 360 px and on a desktop, as "Look at the app" of skill `lernapps-cli` says.
       Compare each with its sketch.
-- [ ] Do the whole-app check of skill `lernapps-learner-check`. Fix what it finds and write under "Notes" what you
+- [x] Do the whole-app check of skill `lernapps-learner-check`. Fix what it finds and write under "Notes" what you
       fixed.
 
 ## Commit
