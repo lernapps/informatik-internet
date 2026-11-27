@@ -268,8 +268,8 @@ neuer Karte als Props, Beispiel-Adressen nur RFC 5737/2606.
 - [x] netz/das-brauchst-du: Wiederholung hardware-und-software mit Selbstcheck und einer Übung
 - [x] netz/client-server: Simulator Anfrage und Antwort, Daten rollen.yaml, vier Übungen
 - [x] netz/ip-dns: IP-Adresse und DNS, Simulator mit DNS, Briefumschlag-Spiel, Daten adressen.yaml und dns.yaml
-- [ ] webseite/das-brauchst-du: Wiederholung dateipfad mit Mias Pfad und einer Übung
-- [ ] webseite/url: Komponente UrlZerleger mit Logik und Test, Daten url-teile.yaml, vier Übungen
+- [x] webseite/das-brauchst-du: Wiederholung dateipfad mit Mias Pfad und einer Übung
+- [x] webseite/url: Komponente UrlZerleger mit Logik und Test, Daten url-teile.yaml, vier Übungen
 - [ ] webseite/dienste: Dienste und Protokolle, Simulator E-Mail-Weg, Daten situationen.yaml
 - [ ] webseite/abruf: ganze Reise im Simulator, Daten stoerungen.yaml, Rückblick auf beide Kapitel
 <!-- tasks: pages (7 added): the other pages or screens, after the pattern -->
