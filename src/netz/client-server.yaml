@@ -261,8 +261,8 @@ blocks:
           - text: { de: Er wartet auf Anfragen., en: It waits for requests. }
             correct: true
             info:
-              de: Ein Server ist bereit, bis ein Client etwas will.
-              en: A server is ready until a client wants something.
+              de: Ein Server wartet bereit, bis ein Client etwas will.
+              en: A server waits, ready, until a client wants something.
           - text: { de: Er antwortet vielen Clients., en: It answers many clients. }
             correct: true
             info:

@@ -101,10 +101,10 @@ blocks:
           - type: text
             text:
               de: |
-                Der Pfad einer URL ist ein Dateipfad **auf dem Webserver**, nicht auf deinem Tablet. Die Wurzel heißt dort
+                Der Pfad einer URL sagt, welche Seite oder Datei **auf dem Webserver** gemeint ist, nicht auf deinem Tablet. Die Wurzel heißt dort
                 einfach nur ein Schrägstrich /. Die Domain sagt, welcher Rechner gemeint ist; der Pfad sagt, welche Datei darauf.
               en: |
-                The path of a URL is a file path **on the web server**, not on your tablet. Its root is just a slash /. The
+                The path of a URL says which page or file **on the web server** is meant, not on your tablet. Its root is just a slash /. The
                 domain name says which computer is meant; the path says which file on it.
   - type: section
     id: beispiel
@@ -219,7 +219,7 @@ blocks:
         distractors:
           - { de: eine Datei von deinem eigenen Tablet, en: a file from your own tablet }
         explanation:
-          de: Die Domain sagt, welcher Rechner antwortet; der Pfad, welche Datei er schickt. Keine URL holt eine Datei von deinem eigenen Gerät.
+          de: Die Domain sagt, welcher Rechner antwortet; der Pfad, welche Datei er schickt. Keine dieser URLs holt eine Datei von deinem eigenen Gerät.
           en: The domain name says which computer answers; the path says which file it sends. No URL here fetches a file from your own device.
       - type: text
         text:

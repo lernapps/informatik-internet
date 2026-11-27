@@ -2,16 +2,16 @@
 # Netz, Datei auf dem Webserver; falsch der naheliegende Fehler; grund sagt warum. Namen nur unter .example.
 
 - stoerung:
-    de: "Ben vertippt sich: www.schule.exmaple. Der Browser meldet: Server nicht gefunden."
-    en: "Ben makes a typo: www.schule.exmaple. The browser says: server not found."
+    de: "Ben vertippt sich: www.schuel.example. Der Browser meldet: Server nicht gefunden."
+    en: "Ben makes a typo: www.schuel.example. The browser says: server not found."
   antwort: { de: DNS-Abfrage, en: DNS lookup }
   falsch: { de: Datei auf dem Webserver, en: file on the web server }
   grund:
     de: "Den falsch geschriebenen Namen gibt es im DNS nicht. Ohne IP-Adresse geht keine Anfrage los."
     en: "The misspelt name does not exist in DNS. Without an IP address no request sets off."
 - stoerung:
-    de: "Der DNS-Server antwortet nicht. Der Webserver der Schule läuft."
-    en: "The DNS server does not answer. The school's web server is running."
+    de: "Ben öffnet die Seite zum ersten Mal. Der DNS-Server antwortet nicht. Der Webserver der Schule läuft."
+    en: "Ben opens the page for the first time. The DNS server does not answer. The school's web server is running."
   antwort: { de: DNS-Abfrage, en: DNS lookup }
   falsch: { de: Weg durchs Netz, en: route through the network }
   grund:

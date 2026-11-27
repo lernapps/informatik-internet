@@ -111,8 +111,8 @@ blocks:
                 en: "Step 1: the browser reads the URL. Step 2: it asks the DNS server for the IP address of www.schule.example."
               packet:
                 {
-                  de: "an 203.0.113.53: Frage nach www.schule.example",
-                  en: "to 203.0.113.53: question about www.schule.example",
+                  de: "an 203.0.113.53, von 192.0.2.25: Frage nach www.schule.example",
+                  en: "to 203.0.113.53, from 192.0.2.25: question about www.schule.example",
                 }
             - from: rb
               to: r1
@@ -139,12 +139,12 @@ blocks:
             - from: ben
               to: rb
               text:
-                de: "Schritt 3: Der Browser schickt die Anfrage nach HTTPS: GET /klasse-7b/ausflug.html."
-                en: "Step 3: the browser sends the request by HTTPS: GET /klasse-7b/ausflug.html."
+                de: "Schritt 3: Der Browser schickt die Anfrage nach HTTPS: GET /klasse-7b/ausflug.html. Bei HTTPS ist der Inhalt verschlüsselt; die Router lesen nur die Adressen."
+                en: "Step 3: the browser sends the request by HTTPS: GET /klasse-7b/ausflug.html. With HTTPS the content is encrypted; routers only read the addresses."
               packet:
                 {
-                  de: "an 198.51.100.7, von 192.0.2.25: GET /klasse-7b/ausflug.html",
-                  en: "to 198.51.100.7, from 192.0.2.25: GET /klasse-7b/ausflug.html",
+                  de: "an 198.51.100.7, von 192.0.2.25: GET /klasse-7b/ausflug.html (verschlüsselt)",
+                  en: "to 198.51.100.7, from 192.0.2.25: GET /klasse-7b/ausflug.html (encrypted)",
                 }
             - from: rb
               to: r1
@@ -192,7 +192,7 @@ blocks:
             4. Der DNS-Server antwortet: 198.51.100.7.
             5. Die Antwort reist zurück …
             6. … zu Bens Handy.
-            7. Schritt 3: Der Browser schickt die Anfrage nach HTTPS: GET /klasse-7b/ausflug.html.
+            7. Schritt 3: Der Browser schickt die Anfrage nach HTTPS: GET /klasse-7b/ausflug.html. Bei HTTPS ist der Inhalt verschlüsselt; die Router lesen nur die Adressen.
             8. Router reichen die Anfrage weiter …
             9. … ins Netz der Schule …
             10. Schritt 4: Der Webserver sucht im Ordner klasse-7b die Datei ausflug.html.
@@ -210,7 +210,7 @@ blocks:
             4. The DNS server answers: 198.51.100.7.
             5. The answer travels back …
             6. … to Ben's phone.
-            7. Step 3: the browser sends the request by HTTPS: GET /klasse-7b/ausflug.html.
+            7. Step 3: the browser sends the request by HTTPS: GET /klasse-7b/ausflug.html. With HTTPS the content is encrypted; routers only read the addresses.
             8. Routers pass the request on …
             9. … into the school network …
             10. Step 4: the web server looks for the file ausflug.html in the folder klasse-7b.

@@ -13,8 +13,8 @@
   antwort: { de: Domain, en: domain name }
   falsch: { de: Pfad, en: path }
   grund:
-    de: "schule.example steht zwischen :// und dem ersten /. Das ist der Name des Rechners."
-    en: "schule.example comes between :// and the first /. That is the name of the computer."
+    de: "schule.example gehört zur Domain www.schule.example, die zwischen :// und dem ersten / steht."
+    en: "schule.example is part of the domain name www.schule.example, between :// and the first /."
 - url: "https://www.schule.example/klasse-7b/ausflug.html"
   stueck: "https"
   antwort: { de: Protokoll, en: protocol }

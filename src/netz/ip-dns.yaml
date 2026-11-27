@@ -208,12 +208,12 @@ blocks:
             text:
               de: |
                 Zu Hause gibt der Router den Geräten Adressen, die nur im Heimnetz gelten, und hat selbst eine fürs
-                Internet. Neuere IP-Adressen (IPv6) sind viel länger. Die Adressen und Namen hier sind
+                Internet. Neuere IP-Adressen (IPv6) sind viel länger. In den Karten zeigen wir vereinfacht eine Adresse pro Gerät. Die Adressen und Namen hier sind
                 [Beispiel-Adressen](https://www.rfc-editor.org/rfc/rfc5737) und
                 [Beispiel-Namen](https://www.rfc-editor.org/rfc/rfc2606): „.example“ gibt es absichtlich nicht.
               en: |
                 At home the router gives the devices addresses that only work in the home network, and has one for the
-                internet itself. Newer IP addresses (IPv6) are much longer. The addresses and names here are
+                internet itself. Newer IP addresses (IPv6) are much longer. The maps show one address per device to keep it simple. The addresses and names here are
                 [example addresses](https://www.rfc-editor.org/rfc/rfc5737) and
                 [example names](https://www.rfc-editor.org/rfc/rfc2606): “.example” does not exist, on purpose.
   - type: section
@@ -309,8 +309,8 @@ blocks:
       - type: single-choice
         id: dns-faellt-aus
         text:
-          de: Der DNS-Server antwortet heute nicht. Der Webserver der Schule läuft. Ben tippt www.schule.example ein. Was passiert?
-          en: Today the DNS server does not answer. The school's web server is running. Ben types in www.schule.example. What happens?
+          de: Ben öffnet die Ausflugsseite zum ersten Mal. Der DNS-Server antwortet heute nicht. Der Webserver der Schule läuft. Ben tippt www.schule.example ein. Was passiert?
+          en: Ben opens the trip page for the first time. Today the DNS server does not answer. The school's web server is running. Ben types in www.schule.example. What happens?
         options:
           - text: { de: Die Seite lädt nicht., en: The page does not load. }
             correct: true

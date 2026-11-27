@@ -188,8 +188,8 @@ blocks:
       - type: definition
         term: { de: Router, en: router }
         explanation:
-          de: Ein Gerät, das Päckchen von einem Kabel zum nächsten weiterreicht, bis sie ihr Ziel erreichen. Router verbinden auch Netze miteinander.
-          en: A device that passes packets on from one cable to the next until they reach their goal. Routers also join networks to each other.
+          de: Ein Gerät, das Netze verbindet und Päckchen weiterreicht, bis sie ihr Ziel erreichen. Im Schulnetz verteilt es sie auch an die Geräte.
+          en: A device that joins networks and passes packets on until they reach their goal. In the school network it also hands them to the devices.
       - type: definition
         term: { de: lokales Netz, en: local network }
         explanation:
