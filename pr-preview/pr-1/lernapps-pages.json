@@ -1,0 +1,24 @@
+{
+  "format": 1,
+  "strand": "informatik/informatiksysteme",
+  "pages": [
+    {
+      "path": "netz/das-brauchst-du/",
+      "title": {
+        "de": "Das brauchst du hier",
+        "en": "What you need here"
+      },
+      "recap": "informatik/hardware-und-software"
+    },
+    {
+      "path": "netz/aufbau/",
+      "title": {
+        "de": "Aufbau des Internets",
+        "en": "How the internet is built"
+      },
+      "competencies": [
+        "internet-aufbau"
+      ]
+    }
+  ]
+}
