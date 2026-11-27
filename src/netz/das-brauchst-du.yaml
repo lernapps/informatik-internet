@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Das brauchst du hier
+  en: What you need here
+description:
+  de: "Kurz wiederholt: Hardware und Software, bevor das Netz beginnt."
+  en: "A short recap: hardware and software, before the network starts."
+recap: informatik/hardware-und-software
+blocks:
+  - type: section
+    id: einstieg
+    title:
+      de: Im Klassenchat der 7b
+      en: In the class 7b chat
+    blocks:
+      - type: text
+        text:
+          de: |
+            **Frau Berg:** Nächsten Freitag ist Projekttag: „Wir spielen das Internet“. Bringt Briefumschläge mit!
+
+            **Ben:** Gute Idee. Ich will wissen, wie die Seite von unserem Ausflug auf mein Handy kommt.
+
+            **Mia:** Meine Fotos vom Ausflug sind auch dabei. Ich habe sie vom Tablet hochgeladen.
+          en: |
+            **Ms Berg:** Next Friday is our project day: “We play the internet”. Bring envelopes!
+
+            **Ben:** Good idea. I want to know how the page about our school trip gets onto my phone.
+
+            **Mia:** My photos from the trip are on it too. I uploaded them from my tablet.
+  - type: section
+    id: selbstcheck
+    title:
+      de: Kannst du das schon?
+      en: Can you do this already?
+    blocks:
+      - type: text
+        text:
+          de: |
+            Für dieses Kapitel brauchst du den Baustein **Hardware und Software**: „Ich kann Hardware und Software
+            unterscheiden und erklären, wie sie in einem Informatiksystem zusammenwirken.“
+
+            Prüf dich im Kopf:
+
+            - Hardware kannst du anfassen: Tablet, Bildschirm, Kabel. Auch ein Router ist Hardware.
+            - Software sind Programme, zum Beispiel der Browser, mit dem du Webseiten ansiehst.
+            - Beide brauchen einander: Die Software sagt der Hardware, was sie tun soll.
+
+            Unsicher? Lies die Seite [Hardware und Software](https://lernapps.net/informatik-computer/alltag/hardware-software/)
+            in der App „Wie ein Computer arbeitet“.
+          en: |
+            For this chapter you need the building block **hardware and software**: “I can tell hardware from
+            software and explain how they work together in a computer system.”
+
+            Check yourself in your head:
+
+            - You can touch hardware: a tablet, a screen, a cable. A router is hardware too.
+            - Software is programs, for example the browser you look at web pages with.
+            - They need each other: the software tells the hardware what to do.
+
+            Not sure? Read the page [Hardware and software](https://lernapps.net/informatik-computer/en/alltag/hardware-software/)
+            in the app “How a computer works”.
+      - type: true-false
+        id: browser-hardware
+        text:
+          de: "Stimmt das? Der Browser auf Bens Handy ist Hardware, weil er Webseiten aus dem Netz holt."
+          en: "True or false? The browser on Ben's phone is hardware, because it fetches web pages from the network."
+        answer: false
+        explanation:
+          de: Falsch. Der Browser ist ein Programm, also Software. Er läuft auf der Hardware des Handys und nutzt sie, um Daten zu schicken und zu empfangen.
+          en: False. The browser is a program, so it is software. It runs on the phone's hardware and uses it to send and receive data.

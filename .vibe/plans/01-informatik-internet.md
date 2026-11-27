@@ -8,7 +8,7 @@ phase: code
 # prePushFailures: failed pre-push runs, written by the hook.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks.
-failedChecks: {}
+failedChecks: { checks-pass: 2 }
 ---
 
 # Plan: informatik-internet, first version
@@ -46,6 +46,7 @@ und den Abruf einer Webseite Schritt für Schritt. Explainer zu lernapps/apps#50
 - Geschichte als Klassenchat der 7b in Zeilen „**Name:** …“ (wie #492, #495), keine Szenenbilder.
 - `tasks: { start: first }`: Die ganze Klasse sieht zuerst Aufgabe 1; das erleichtert das Besprechen.
 - Rechteinhaber in `LICENSE`: Oliver Jägle.
+- Kein `scope`: keine `open-task` und kein Material eines Erstellers; der Tutor hat die Seiten selbst.
 
 ## Notes
 
@@ -249,14 +250,14 @@ neuer Karte als Props, Beispiel-Adressen nur RFC 5737/2606.
 
 - [x] Load skill `lernapps-cli`. Create the app as its section "Create" says:
       `npx --no -- lernapps create --archetype explainer`.
-- [ ] Fill the content guide `.agents/skills/app-content/SKILL.md` from "Notes" and "Content method": every heading,
+- [x] Fill the content guide `.agents/skills/app-content/SKILL.md` from "Notes" and "Content method": every heading,
       no "FILL IN" left. Commit it before any content.
-- [ ] Load skill `lernapps-explainer`.
-- [ ] Load skill `lernapps-content-questions`. Read whole, with your file tool:
+- [x] Load skill `lernapps-explainer`.
+- [x] Load skill `lernapps-content-questions`. Read whole, with your file tool:
       `.agents/skills/lernapps-explainer/references/blocks.md` and
       `.agents/skills/lernapps-explainer/references/exercises.md`. A foreign language: also
       `references/language-tasks.md` in the same folder. A component in the plan: also `references/components.md`.
-- [ ] Decide whether the app needs `scope`, as "`scope`" in
+- [x] Decide whether the app needs `scope`, as "`scope`" in
       `.agents/skills/lernapps-explainer/references/structure.md` says. Write the choice under "Key decisions".
 - [ ] Musterseite netz/aufbau in de und en: Komponenten NetzSimulator (drei Stufen) und NetzWeg mit Logik und Tests, Daten verbindungen.yaml, Zettel-Staffel, mindestens vier Übungen
 <!-- tasks: pattern (1 added): the one page or screen that is the pattern for the others -->
