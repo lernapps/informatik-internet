@@ -5,4 +5,4 @@ title:
 summary:
   de: Du zerlegst eine URL, unterscheidest Internetdienste und ihre Protokolle und erklärst den Abruf einer Webseite Schritt für Schritt.
   en: You take a URL apart, tell internet services and their protocols apart and explain step by step how a web page is loaded.
-pages: [das-brauchst-du, url, dienste]
+pages: [das-brauchst-du, url, dienste, abruf]

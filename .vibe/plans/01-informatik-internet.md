@@ -8,7 +8,7 @@ phase: code
 # prePushFailures: failed pre-push runs, written by the hook.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks.
-failedChecks: { checks-pass: 5, usable-at-360px: 5 }
+failedChecks: { checks-pass: 7, usable-at-360px: 5 }
 ---
 
 # Plan: informatik-internet, first version
@@ -270,7 +270,7 @@ neuer Karte als Props, Beispiel-Adressen nur RFC 5737/2606.
 - [x] netz/ip-dns: IP-Adresse und DNS, Simulator mit DNS, Briefumschlag-Spiel, Daten adressen.yaml und dns.yaml
 - [x] webseite/das-brauchst-du: Wiederholung dateipfad mit Mias Pfad und einer Übung
 - [x] webseite/url: Komponente UrlZerleger mit Logik und Test, Daten url-teile.yaml, vier Übungen
-- [ ] webseite/dienste: Dienste und Protokolle, Simulator E-Mail-Weg, Daten situationen.yaml
+- [x] webseite/dienste: Dienste und Protokolle, Simulator E-Mail-Weg, Daten situationen.yaml
 - [ ] webseite/abruf: ganze Reise im Simulator, Daten stoerungen.yaml, Rückblick auf beide Kapitel
 <!-- tasks: pages (7 added): the other pages or screens, after the pattern -->
 - [ ] Update the content guide so that it describes the app as built (`app-content-matches`).

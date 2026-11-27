@@ -1,0 +1,51 @@
+# Störungen für die Übung „Welcher Schritt ging schief?“. antwort ist einer von drei Schritten: DNS-Abfrage, Weg durchs
+# Netz, Datei auf dem Webserver; falsch der naheliegende Fehler; grund sagt warum. Namen nur unter .example.
+
+- stoerung:
+    de: "Ben vertippt sich: www.schule.exmaple. Der Browser meldet: Server nicht gefunden."
+    en: "Ben makes a typo: www.schule.exmaple. The browser says: server not found."
+  antwort: { de: DNS-Abfrage, en: DNS lookup }
+  falsch: { de: Datei auf dem Webserver, en: file on the web server }
+  grund:
+    de: "Den falsch geschriebenen Namen gibt es im DNS nicht. Ohne IP-Adresse geht keine Anfrage los."
+    en: "The misspelt name does not exist in DNS. Without an IP address no request sets off."
+- stoerung:
+    de: "Der DNS-Server antwortet nicht. Der Webserver der Schule läuft."
+    en: "The DNS server does not answer. The school's web server is running."
+  antwort: { de: DNS-Abfrage, en: DNS lookup }
+  falsch: { de: Weg durchs Netz, en: route through the network }
+  grund:
+    de: "Bens Handy bekommt keine IP-Adresse für den Namen und weiß nicht, wohin es fragen soll."
+    en: "Ben's phone gets no IP address for the name and does not know where to ask."
+- stoerung:
+    de: "Ben tippt /klasse-7b/ausflg.html. Der Webserver antwortet: 404 Nicht gefunden."
+    en: "Ben types /klasse-7b/ausflg.html. The web server answers: 404 Not Found."
+  antwort: { de: Datei auf dem Webserver, en: file on the web server }
+  falsch: { de: DNS-Abfrage, en: DNS lookup }
+  grund:
+    de: "Der Webserver hat geantwortet, also klappten DNS und Weg. Nur die Datei mit diesem Pfad gibt es nicht."
+    en: "The web server answered, so DNS and the route worked. Only the file with this path does not exist."
+- stoerung:
+    de: "Frau Berg hat ausflug.html aus Versehen gelöscht. Der Webserver antwortet: 404 Nicht gefunden."
+    en: "Ms Berg deleted ausflug.html by mistake. The web server answers: 404 Not Found."
+  antwort: { de: Datei auf dem Webserver, en: file on the web server }
+  falsch: { de: Weg durchs Netz, en: route through the network }
+  grund:
+    de: "Die Anfrage kam an, aber im Ordner klasse-7b fehlt die Datei."
+    en: "The request arrived, but the file is missing from the folder klasse-7b."
+- stoerung:
+    de: "Bei Ben zu Hause ist der Router ausgeschaltet. Keine Seite lädt, auch keine andere."
+    en: "At Ben's home the router is switched off. No page loads, not even another one."
+  antwort: { de: Weg durchs Netz, en: route through the network }
+  falsch: { de: Datei auf dem Webserver, en: file on the web server }
+  grund:
+    de: "Ohne Bens Router kommt kein Päckchen aus Bens Netz hinaus, nicht einmal die Frage an das DNS."
+    en: "Without Ben's router no packet gets out of Ben's network, not even the question to DNS."
+- stoerung:
+    de: "Das einzige Kabel zum Netz der Schule ist kaputt. Andere Seiten laden, die der Schule nicht."
+    en: "The only cable to the school network is broken. Other pages load, but not the school's."
+  antwort: { de: Weg durchs Netz, en: route through the network }
+  falsch: { de: DNS-Abfrage, en: DNS lookup }
+  grund:
+    de: "Es gibt keinen Weg mehr zum Webserver. Die Anfrage kommt nicht an."
+    en: "There is no route to the web server any more. The request does not arrive."

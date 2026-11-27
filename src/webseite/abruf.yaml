@@ -1,0 +1,409 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Abruf einer Webseite
+  en: How a web page is loaded
+description:
+  de: "Schritt für Schritt: was passiert, wenn ein Browser eine Webseite von einem Webserver abruft."
+  en: "Step by step: what happens when a browser loads a web page from a web server."
+competencies: [webseite-abrufen]
+blocks:
+  - type: section
+    id: einstieg
+    title:
+      de: Ben tippt die URL ein
+      en: Ben types in the URL
+    blocks:
+      - type: text
+        text:
+          de: |
+            **Ben:** Ich tippe jetzt https://www.schule.example/klasse-7b/ausflug.html ein. Was passiert eigentlich alles?
+
+            **Frau Berg:** Das spielen wir am Projekttag nach. Ihr kennt schon jedes Teil davon.
+
+            Auf den Seiten davor hast du URL, Dienste, DNS, Client und Server kennengelernt. Auf dieser Seite setzt du
+            alles zur ganzen Reise einer Webseite zusammen.
+          en: |
+            **Ben:** I'm typing in https://www.schule.example/klasse-7b/ausflug.html now. What actually happens?
+
+            **Ms Berg:** We'll act it out on project day. You already know every part of it.
+
+            On the pages before you got to know URLs, services, DNS, client and server. On this page you put everything
+            together into the whole journey of a web page.
+      - type: single-choice
+        id: was-zuerst
+        text:
+          de: Ben hat die URL eingetippt. Was braucht sein Handy, bevor es die Anfrage an den Webserver losschicken kann?
+          en: Ben has typed in the URL. What does his phone need before it can send the request to the web server?
+        options:
+          - text: { de: die IP-Adresse des Webservers, en: "the IP address of the web server" }
+            correct: true
+            info:
+              de: Router lesen nur Zahlen. Darum fragt das Handy zuerst das DNS nach der Adresse.
+              en: Routers only read numbers. So the phone first asks DNS for the address.
+          - text: { de: die Seite selbst, en: the page itself }
+            correct: false
+            info:
+              de: Die Seite kommt erst als Antwort. Vorher muss die Anfrage beim Server ankommen.
+              en: The page only comes as the response. First the request has to reach the server.
+          - text: { de: den Dateipfad auf Bens Handy, en: "the file path on Ben's phone" }
+            correct: false
+            info:
+              de: Der Pfad in der URL zeigt auf den Webserver, nicht auf Bens Handy.
+              en: The path in the URL points to the web server, not to Ben's phone.
+        explanation:
+          de: Ohne IP-Adresse weiß kein Router, wohin die Anfrage soll. Darum kommt das DNS zuerst.
+          en: Without an IP address no router knows where the request should go. That is why DNS comes first.
+  - type: section
+    id: idee
+    title:
+      de: "Ausprobieren: die ganze Reise"
+      en: "Try it: the whole journey"
+    blocks:
+      - type: text
+        text:
+          de: |
+            Auf dieser Karte siehst du alles zusammen: Bens Handy, Router, den lila DNS-Server und den orangen Webserver.
+            Drück **Nächster Schritt**, bis die Seite bei Ben ist. Achte auf die Schritte 1 bis 6 in der Liste.
+          en: |
+            On this map you see everything together: Ben's phone, routers, the purple DNS server and the orange web
+            server. Press **Next step** until the page reaches Ben. Look out for steps 1 to 6 in the list.
+      - type: vue-component
+        component: NetzSimulator
+        props:
+          title: { de: "Karte 8: die ganze Reise der Ausflugsseite", en: "Map 8: the whole journey of the trip page" }
+          label:
+            de: "Karte 8: Bens Handy 192.0.2.25 über Bens Router an Router 1. Daran der DNS-Server 203.0.113.53 und der Router der Schule mit dem Webserver 198.51.100.7."
+            en: "Map 8: Ben's phone 192.0.2.25 through Ben's router to router 1. It has the DNS server 203.0.113.53 and the school router with the web server 198.51.100.7."
+          stations:
+            - { id: ben, kind: geraet, name: { de: Bens Handy, en: "Ben's phone" }, address: 192.0.2.25, x: 12, y: 40 }
+            - { id: rb, kind: router, name: { de: Router Ben, en: "Ben's router" }, x: 34, y: 40 }
+            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 56, y: 40 }
+            - { id: dns, kind: dns, name: { de: DNS-Server, en: DNS server }, address: 203.0.113.53, x: 40, y: 2 }
+            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 80, y: 40 }
+            - { id: web, kind: server, name: { de: Webserver, en: Web server }, address: 198.51.100.7, x: 82, y: 2 }
+          cables:
+            - { from: ben, to: rb }
+            - { from: rb, to: r1 }
+            - { from: r1, to: dns }
+            - { from: r1, to: rs }
+            - { from: rs, to: web }
+          steps:
+            - from: ben
+              to: rb
+              text:
+                de: "Schritt 1: Der Browser liest die URL. Schritt 2: Er fragt den DNS-Server nach der IP-Adresse von www.schule.example."
+                en: "Step 1: the browser reads the URL. Step 2: it asks the DNS server for the IP address of www.schule.example."
+              packet:
+                {
+                  de: "an 203.0.113.53: Frage nach www.schule.example",
+                  en: "to 203.0.113.53: question about www.schule.example",
+                }
+            - from: rb
+              to: r1
+              text: { de: Router reichen die Frage weiter …, en: Routers pass the question on … }
+            - from: r1
+              to: dns
+              text: { de: "… bis zum DNS-Server.", en: "… to the DNS server." }
+            - from: dns
+              to: r1
+              text:
+                de: "Der DNS-Server antwortet: 198.51.100.7."
+                en: "The DNS server answers: 198.51.100.7."
+              packet:
+                {
+                  de: "an 192.0.2.25: www.schule.example hat 198.51.100.7",
+                  en: "to 192.0.2.25: www.schule.example is 198.51.100.7",
+                }
+            - from: r1
+              to: rb
+              text: { de: Die Antwort reist zurück …, en: The answer travels back … }
+            - from: rb
+              to: ben
+              text: { de: "… zu Bens Handy.", en: "… to Ben's phone." }
+            - from: ben
+              to: rb
+              text:
+                de: "Schritt 3: Der Browser schickt die Anfrage nach HTTPS: GET /klasse-7b/ausflug.html."
+                en: "Step 3: the browser sends the request by HTTPS: GET /klasse-7b/ausflug.html."
+              packet:
+                {
+                  de: "an 198.51.100.7, von 192.0.2.25: GET /klasse-7b/ausflug.html",
+                  en: "to 198.51.100.7, from 192.0.2.25: GET /klasse-7b/ausflug.html",
+                }
+            - from: rb
+              to: r1
+              text: { de: Router reichen die Anfrage weiter …, en: Routers pass the request on … }
+            - from: r1
+              to: rs
+              text: { de: "… ins Netz der Schule …", en: "… into the school network …" }
+            - from: rs
+              to: web
+              text:
+                de: "Schritt 4: Der Webserver sucht im Ordner klasse-7b die Datei ausflug.html."
+                en: "Step 4: the web server looks for the file ausflug.html in the folder klasse-7b."
+            - from: web
+              to: rs
+              text:
+                de: "Schritt 5: Er antwortet 200 OK und schickt eine Kopie der Seite, in vielen Päckchen."
+                en: "Step 5: it answers 200 OK and sends a copy of the page, in many packets."
+              packet: { de: "an 192.0.2.25: 200 OK, die Ausflugsseite", en: "to 192.0.2.25: 200 OK, the trip page" }
+            - from: rs
+              to: r1
+              text: { de: Router reichen die Antwort weiter …, en: Routers pass the response on … }
+            - from: r1
+              to: rb
+              text: { de: "… zurück zu Ben …", en: "… back to Ben …" }
+            - from: rb
+              to: ben
+              text:
+                de: "Schritt 6: Der Browser setzt die Päckchen zusammen und zeigt die Seite. Für jedes Foto darauf schickt er eine weitere Anfrage."
+                en: "Step 6: the browser puts the packets together and shows the page. For each photo on it, it sends another request."
+          next: { de: Nächster Schritt, en: Next step }
+          restart: { de: Von vorn, en: Start again }
+          ready:
+            de: "Ben hat die URL eingetippt. Drück auf „Nächster Schritt“."
+            en: "Ben has typed in the URL. Press “Next step”."
+          arrived: { de: "Die Ausflugsseite ist auf Bens Handy.", en: "The trip page is on Ben's phone." }
+          packetLabel: { de: "Auf dem Päckchen steht:", en: "The packet says:" }
+        nojs:
+          de: |
+            Karte 8: Bens Handy (192.0.2.25) ist über Bens Router mit Router 1 verbunden. An Router 1 hängen der DNS-Server
+            (203.0.113.53) und der Router der Schule mit dem Webserver (198.51.100.7).
+
+            1. Schritt 1: Der Browser liest die URL. Schritt 2: Er fragt den DNS-Server nach der IP-Adresse von www.schule.example.
+            2. Router reichen die Frage weiter …
+            3. … bis zum DNS-Server.
+            4. Der DNS-Server antwortet: 198.51.100.7.
+            5. Die Antwort reist zurück …
+            6. … zu Bens Handy.
+            7. Schritt 3: Der Browser schickt die Anfrage nach HTTPS: GET /klasse-7b/ausflug.html.
+            8. Router reichen die Anfrage weiter …
+            9. … ins Netz der Schule …
+            10. Schritt 4: Der Webserver sucht im Ordner klasse-7b die Datei ausflug.html.
+            11. Schritt 5: Er antwortet 200 OK und schickt eine Kopie der Seite, in vielen Päckchen.
+            12. Router reichen die Antwort weiter …
+            13. … zurück zu Ben …
+            14. Schritt 6: Der Browser setzt die Päckchen zusammen und zeigt die Seite. Für jedes Foto darauf schickt er eine weitere Anfrage.
+          en: |
+            Map 8: Ben's phone (192.0.2.25) is joined through Ben's router to router 1. Router 1 has the DNS server
+            (203.0.113.53) and the school router with the web server (198.51.100.7).
+
+            1. Step 1: the browser reads the URL. Step 2: it asks the DNS server for the IP address of www.schule.example.
+            2. Routers pass the question on …
+            3. … to the DNS server.
+            4. The DNS server answers: 198.51.100.7.
+            5. The answer travels back …
+            6. … to Ben's phone.
+            7. Step 3: the browser sends the request by HTTPS: GET /klasse-7b/ausflug.html.
+            8. Routers pass the request on …
+            9. … into the school network …
+            10. Step 4: the web server looks for the file ausflug.html in the folder klasse-7b.
+            11. Step 5: it answers 200 OK and sends a copy of the page, in many packets.
+            12. Routers pass the response on …
+            13. … back to Ben …
+            14. Step 6: the browser puts the packets together and shows the page. For each photo on it, it sends another request.
+      - type: note
+        title: { de: Merke, en: Remember }
+        blocks:
+          - type: text
+            text:
+              de: |
+                Die Seite **wandert nicht weg** vom Webserver. Er schickt eine **Kopie**. Darum können viele Handys
+                dieselbe Seite gleichzeitig abrufen.
+              en: |
+                The page **does not move away** from the web server. It sends a **copy**. That is why many phones can load
+                the same page at the same time.
+  - type: section
+    id: beispiel
+    title:
+      de: "Beispiel: Fehler suchen"
+      en: "Example: finding the fault"
+    blocks:
+      - type: example
+        title: { de: "Zwei Meldungen, zwei Schritte", en: "Two messages, two steps" }
+        blocks:
+          - type: text
+            text:
+              de: |
+                - **„Server nicht gefunden“**: Schritt 2 ging schief. Das DNS kennt den Namen nicht, zum Beispiel wegen
+                  eines Tippfehlers in der Domain.
+                - **„404 Nicht gefunden“**: Der Webserver hat geantwortet, Schritt 1 bis 3 klappten. In Schritt 4 fand
+                  er die Datei nicht, zum Beispiel wegen eines Tippfehlers im Pfad.
+              en: |
+                - **“Server not found”**: step 2 went wrong. DNS does not know the name, for example because of a typo in
+                  the domain name.
+                - **“404 Not Found”**: the web server answered, steps 1 to 3 worked. In step 4 it did not find the file,
+                  for example because of a typo in the path.
+  - type: section
+    id: uebung
+    title:
+      de: Üben mit der ganzen Reise
+      en: Practise with the whole journey
+    blocks:
+      - type: ordering
+        id: sechs-schritte
+        text:
+          de: Bring die sechs Schritte beim Abruf einer Webseite in die richtige Reihenfolge.
+          en: Put the six steps of loading a web page in the right order.
+        items:
+          - { de: Der Browser liest die URL., en: The browser reads the URL. }
+          - { de: Er fragt das DNS nach der IP-Adresse., en: It asks DNS for the IP address. }
+          - { de: Er schickt die Anfrage an diese Adresse., en: It sends the request to this address. }
+          - { de: Der Webserver sucht die Datei zum Pfad., en: The web server looks for the file for the path. }
+          - { de: Der Webserver schickt eine Kopie als Antwort., en: The web server sends a copy as its response. }
+          - { de: Der Browser zeigt die Seite., en: The browser shows the page. }
+        explanation:
+          de: Erst Name in Zahl übersetzen, dann fragen, dann antworten. Router reichen dabei jedes Päckchen weiter.
+          en: First translate the name into a number, then ask, then answer. Routers pass every packet on along the way.
+      - type: vue-component
+        id: antwort-weg
+        component: NetzWeg
+        props:
+          task:
+            de: "Leg den Weg eines Päckchens von {start} zu {goal}. Der Weg beginnt bei {start}. Tippe dann die nächsten Stationen der Reihe nach an."
+            en: "Lay the route of a packet from {start} to {goal}. The route starts at {start}. Then tap the next stations one after the other."
+          title: { de: "Karte 9: zwei Wege zur Schule", en: "Map 9: two routes to the school" }
+          label:
+            de: "Karte 9: Bens Handy, Bens Router, Router 1 und Router 2, der DNS-Server an Router 1, der Router der Schule mit dem Webserver."
+            en: "Map 9: Ben's phone, Ben's router, router 1 and router 2, the DNS server at router 1, the school router with the web server."
+          stations:
+            - { id: ben, kind: geraet, name: { de: Bens Handy, en: "Ben's phone" }, x: 10, y: 24 }
+            - { id: rb, kind: router, name: { de: Router Ben, en: "Ben's router" }, x: 30, y: 24 }
+            - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 52, y: 4 }
+            - { id: r2, kind: router, name: { de: Router 2, en: Router 2 }, x: 52, y: 44 }
+            - { id: dns, kind: dns, name: { de: DNS-Server, en: DNS server }, x: 30, y: 52 }
+            - { id: rs, kind: router, name: { de: Router Schule, en: School router }, x: 72, y: 24 }
+            - { id: web, kind: server, name: { de: Webserver, en: Web server }, x: 90, y: 24 }
+          cables:
+            - { from: ben, to: rb }
+            - { from: rb, to: r1 }
+            - { from: rb, to: r2 }
+            - { from: r2, to: dns }
+            - { from: r1, to: rs }
+            - { from: r2, to: rs }
+            - { from: rs, to: web }
+          trips:
+            - { start: web, goal: ben }
+            - { start: ben, goal: web }
+            - { start: ben, goal: dns }
+            - { start: dns, goal: ben }
+          startMark: { de: Start, en: Start }
+          goalMark: { de: Ziel, en: Goal }
+          wayLabel: { de: "Dein Weg:", en: "Your route:" }
+          choose: { de: "Nächste Station:", en: "Next station:" }
+          undo: { de: Letzte Station zurück, en: Take back the last station }
+          restart: { de: Von vorn, en: Start again }
+          anyWay:
+            de: Jeder Weg über verbundene Router zählt, nicht nur der kürzeste.
+            en: Every route over joined routers counts, not just the shortest.
+          empty:
+            de: Wähl zuerst die Station, zu der das Päckchen vom Start aus geht.
+            en: First choose the station the packet goes to from the start.
+          gap:
+            de: "Zwischen {from} und {to} liegt kein Kabel. Das Päckchen kann nur über eine Linie der Karte gehen."
+            en: "No cable joins {from} and {to}. The packet can only travel along a line on the map."
+          noRouter:
+            de: "{name} ist kein Router. Nur Router reichen Päckchen weiter."
+            en: "{name} is not a router. Only routers pass packets on."
+          twice:
+            de: "{name} kommt zweimal in deinem Weg vor. Ein Päckchen geht nicht im Kreis."
+            en: "{name} comes twice in your route. A packet does not go round in circles."
+          short:
+            de: "Dein Weg endet bei {name}. Das Päckchen soll aber bis {goal} kommen."
+            en: "Your route ends at {name}. But the packet should get to {goal}."
+        examples:
+          accepted:
+            - { answer: [rs, r1, rb, ben], seed: 1 }
+            - { answer: [rs, r2, rb, ben], seed: 1 }
+          rejected:
+            - { answer: [rs, rb, ben], seed: 1 }
+            - { answer: [rs, r2, dns, rb, ben], seed: 1 }
+      - type: generated
+        id: was-ging-schief
+        given:
+          e: { pick: 1, from: { data: stoerungen } }
+        task:
+          text:
+            de: "{{e.stoerung}} Bei welchem Teil der Reise liegt der Fehler?"
+            en: "{{e.stoerung}} Which part of the journey has the fault?"
+        answer:
+          value: "e.antwort"
+          compare:
+            choice:
+              - { de: DNS-Abfrage, en: DNS lookup }
+              - { de: Weg durchs Netz, en: route through the network }
+              - { de: Datei auf dem Webserver, en: file on the web server }
+        mistakes:
+          - value: "e.falsch"
+            message:
+              de: "Frag dich der Reihe nach: Bekam das Handy eine IP-Adresse? Kam die Anfrage an? Hat der Webserver geantwortet?"
+              en: "Ask yourself in order: did the phone get an IP address? Did the request arrive? Did the web server answer?"
+        hint:
+          de: Eine Antwort mit 404 kommt vom Webserver. Dann haben DNS und Weg geklappt.
+          en: A 404 response comes from the web server. Then DNS and the route worked.
+        steps:
+          - de: "{{e.grund}} Antwort: {{answer}}."
+            en: "{{e.grund}} Answer: {{answer}}."
+      - type: multiple-choice
+        id: nach-dem-abruf
+        text:
+          de: Ben hat die Ausflugsseite geladen. Was stimmt jetzt? Wähle alles, was stimmt.
+          en: Ben has loaded the trip page. What is true now? Choose everything that is true.
+        options:
+          - text: { de: Die Seite liegt weiter auf dem Webserver., en: The page is still on the web server. }
+            correct: true
+            info:
+              de: Der Webserver hat nur eine Kopie geschickt. Das Original bleibt.
+              en: The web server only sent a copy. The original stays.
+          - text: { de: "Bens Handy hat eine Kopie der Seite.", en: "Ben's phone has a copy of the page." }
+            correct: true
+            info:
+              de: Der Browser hat die Päckchen zusammengesetzt und zeigt die Kopie.
+              en: The browser has put the packets together and shows the copy.
+          - text: { de: Lea kann die Seite jetzt nicht mehr laden., en: Lea cannot load the page any more now. }
+            correct: false
+            info:
+              de: Der Webserver schickt jedem eine eigene Kopie, auch Lea.
+              en: The web server sends everyone their own copy, Lea too.
+          - text: { de: Der DNS-Server hat die Seite geschickt., en: The DNS server sent the page. }
+            correct: false
+            info:
+              de: Der DNS-Server hat nur die IP-Adresse genannt. Die Seite kam vom Webserver.
+              en: The DNS server only gave the IP address. The page came from the web server.
+        explanation:
+          de: Beim Abruf bekommt der Client eine Kopie. Die Seite bleibt auf dem Webserver für alle anderen.
+          en: When loading, the client gets a copy. The page stays on the web server for everyone else.
+  - type: section
+    id: rueckblick
+    title:
+      de: "Rückblick: von zwei Rechnern bis zur ganzen Webseite"
+      en: "Looking back: from two computers to a whole web page"
+    blocks:
+      - type: text
+        text:
+          de: |
+            **Ben:** Jetzt weiß ich, wie die Ausflugsseite auf mein Handy kommt!
+
+            **Frau Berg:** Dann seid ihr bereit für den Projekttag. Bringt eure Umschläge mit!
+
+            Das kannst du jetzt:
+
+            - Das Internet ist ein Netz aus Netzen; Router reichen Päckchen weiter.
+            - Der Client fragt, der Server antwortet.
+            - Jedes Gerät im Netz braucht eine IP-Adresse; das DNS übersetzt Namen in Adressen.
+            - Eine URL hat Protokoll, Domain und Pfad.
+            - WWW, E-Mail und Chat sind Dienste mit eigenen Protokollen.
+            - Du kannst den Abruf einer Webseite in sechs Schritten erklären.
+          en: |
+            **Ben:** Now I know how the trip page gets onto my phone!
+
+            **Ms Berg:** Then you're ready for project day. Bring your envelopes!
+
+            What you can do now:
+
+            - The internet is a network of networks; routers pass packets on.
+            - The client asks, the server answers.
+            - Every device in a network needs an IP address; DNS translates names into addresses.
+            - A URL has a protocol, a domain name and a path.
+            - The web, email and chat are services with their own protocols.
+            - You can explain how a web page is loaded in six steps.

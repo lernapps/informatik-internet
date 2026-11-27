@@ -113,13 +113,14 @@ function answers(ids: string[], length: number): string[][] {
   return all;
 }
 
-test("map 4: every answer up to six stations is checked like an independent rule, and every wrong one has a reason", () => {
+/** Every answer up to six stations is checked like an independent rule, and every wrong one has a reason. */
+function exhaust(map: Props): void {
   const cable = (a: string, b: string) =>
-    karte4.cables.some((c) => (c.from === a && c.to === b) || (c.from === b && c.to === a));
-  const router = (id: string) => karte4.stations.find((s) => s.id === id)?.kind === "router";
-  for (let seed = 1; seed <= karte4.trips.length; seed++) {
-    const task = generate(seed, karte4);
-    const ids = karte4.stations.map((s) => s.id).filter((id) => id !== task.start);
+    map.cables.some((c) => (c.from === a && c.to === b) || (c.from === b && c.to === a));
+  const router = (id: string) => map.stations.find((s) => s.id === id)?.kind === "router";
+  for (let seed = 1; seed <= map.trips.length; seed++) {
+    const task = generate(seed, map);
+    const ids = map.stations.map((s) => s.id).filter((id) => id !== task.start);
     let right = 0;
     for (const answer of answers(ids, 6)) {
       const way = [task.start, ...answer];
@@ -131,8 +132,41 @@ test("map 4: every answer up to six stations is checked like an independent rule
         way.slice(1, -1).every(router);
       expect(check(task, answer), `${seed}: ${way.join(" ")}`).toBe(expected);
       if (expected) right++;
-      else expect(reason(task, answer, karte4), `${seed}: ${way.join(" ")}`).toBeTruthy();
+      else expect(reason(task, answer, map), `${seed}: ${way.join(" ")}`).toBeTruthy();
     }
     expect(right).toBeGreaterThanOrEqual(1);
   }
-}, 120_000);
+}
+
+test("map 4 of netz/aufbau: every answer up to six stations", () => exhaust(karte4), 120_000);
+
+// Map 9 of the page webseite/abruf, as in its props.
+const karte9: Props = {
+  ...props,
+  stations: [
+    { id: "ben", kind: "geraet", name: "Bens Handy", x: 10, y: 24 },
+    { id: "rb", kind: "router", name: "Router Ben", x: 30, y: 24 },
+    { id: "r1", kind: "router", name: "Router 1", x: 52, y: 4 },
+    { id: "r2", kind: "router", name: "Router 2", x: 52, y: 44 },
+    { id: "dns", kind: "dns", name: "DNS-Server", x: 30, y: 52 },
+    { id: "rs", kind: "router", name: "Router Schule", x: 72, y: 24 },
+    { id: "web", kind: "server", name: "Webserver", x: 90, y: 24 },
+  ],
+  cables: [
+    { from: "ben", to: "rb" },
+    { from: "rb", to: "r1" },
+    { from: "rb", to: "r2" },
+    { from: "r2", to: "dns" },
+    { from: "r1", to: "rs" },
+    { from: "r2", to: "rs" },
+    { from: "rs", to: "web" },
+  ],
+  trips: [
+    { start: "web", goal: "ben" },
+    { start: "ben", goal: "web" },
+    { start: "ben", goal: "dns" },
+    { start: "dns", goal: "ben" },
+  ],
+};
+
+test("map 9 of webseite/abruf: every answer up to six stations", () => exhaust(karte9), 120_000);
