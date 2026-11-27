@@ -1,0 +1,52 @@
+# Fälle für die Übung „In welchem Teil steht …?“. url ist die ganze URL, stueck ein Stück daraus, antwort sein Teil
+# (Protokoll, Domain oder Pfad), falsch der typische Fehler, grund sagt warum. Namen nur unter .example (RFC 2606).
+
+- url: "https://www.schule.example/klasse-7b/ausflug.html"
+  stueck: "klasse-7b"
+  antwort: { de: Pfad, en: path }
+  falsch: { de: Domain, en: domain name }
+  grund:
+    de: "klasse-7b steht nach dem ersten / hinter der Domain. Es ist ein Ordner auf dem Webserver."
+    en: "klasse-7b comes after the first / behind the domain name. It is a folder on the web server."
+- url: "https://www.schule.example/klasse-7b/ausflug.html"
+  stueck: "schule.example"
+  antwort: { de: Domain, en: domain name }
+  falsch: { de: Pfad, en: path }
+  grund:
+    de: "schule.example steht zwischen :// und dem ersten /. Das ist der Name des Rechners."
+    en: "schule.example comes between :// and the first /. That is the name of the computer."
+- url: "https://www.schule.example/klasse-7b/ausflug.html"
+  stueck: "https"
+  antwort: { de: Protokoll, en: protocol }
+  falsch: { de: Domain, en: domain name }
+  grund:
+    de: "https steht ganz vorn, vor ://. Es sagt, nach welchen Regeln Browser und Server reden."
+    en: "https comes right at the front, before ://. It says which rules the browser and server talk by."
+- url: "http://wetter.example/heute.html"
+  stueck: "heute.html"
+  antwort: { de: Pfad, en: path }
+  falsch: { de: Domain, en: domain name }
+  grund:
+    de: "heute.html steht nach dem / hinter der Domain. Es ist die Datei auf dem Server."
+    en: "heute.html comes after the / behind the domain name. It is the file on the server."
+- url: "https://museum.example/ausstellung/steine/bild-3.jpg"
+  stueck: "museum.example"
+  antwort: { de: Domain, en: domain name }
+  falsch: { de: Protokoll, en: protocol }
+  grund:
+    de: "museum.example steht nach :// und vor dem ersten /. Das ist die Domain."
+    en: "museum.example comes after :// and before the first /. That is the domain name."
+- url: "https://museum.example/ausstellung/steine/bild-3.jpg"
+  stueck: "steine"
+  antwort: { de: Pfad, en: path }
+  falsch: { de: Domain, en: domain name }
+  grund:
+    de: "steine steht zwischen zwei / nach der Domain: ein Ordner im Pfad."
+    en: "steine comes between two / after the domain name: a folder in the path."
+- url: "http://wetter.example/heute.html"
+  stueck: "http"
+  antwort: { de: Protokoll, en: protocol }
+  falsch: { de: Pfad, en: path }
+  grund:
+    de: "http steht vorn, vor ://. Auch http ist ein Protokoll, nur ohne Verschlüsselung."
+    en: "http comes at the front, before ://. http is a protocol too, just without encryption."

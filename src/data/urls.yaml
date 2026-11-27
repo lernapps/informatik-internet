@@ -1,0 +1,16 @@
+# URLs für die Übung „Teile einer URL“ (Komponente UrlZerleger). teile ist die URL in Teilen, arten der Kasten jedes
+# Teils: 0 Protokoll, 1 Domain, 2 Pfad. Namen nur unter .example (RFC 2606). Der Pfad ist oft in mehrere Teile
+# geteilt, damit Lernende sehen, dass alles ab dem ersten / nach der Domain zum Pfad gehört.
+
+- teile: ["https://", "www.schule.example", "/klasse-7b", "/ausflug.html"]
+  arten: [0, 1, 2, 2]
+- teile: ["https://", "spiele.example", "/quiz", "/runde-2.html"]
+  arten: [0, 1, 2, 2]
+- teile: ["http://", "wetter.example", "/heute.html"]
+  arten: [0, 1, 2]
+- teile: ["https://", "museum.example", "/ausstellung", "/steine", "/bild-3.jpg"]
+  arten: [0, 1, 2, 2, 2]
+- teile: ["https://", "mail.schule.example", "/posteingang"]
+  arten: [0, 1, 2]
+- teile: ["https://", "www.schule.example", "/fotos", "/ausflug", "/see.jpg"]
+  arten: [0, 1, 2, 2, 2]

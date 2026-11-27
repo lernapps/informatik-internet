@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title:
+  de: Eine Webseite reist zu mir
+  en: A web page travels to me
+summary:
+  de: Du zerlegst eine URL, unterscheidest Internetdienste und ihre Protokolle und erklärst den Abruf einer Webseite Schritt für Schritt.
+  en: You take a URL apart, tell internet services and their protocols apart and explain step by step how a web page is loaded.
+pages: [das-brauchst-du, url]

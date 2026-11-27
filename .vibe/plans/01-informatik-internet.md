@@ -8,7 +8,7 @@ phase: code
 # prePushFailures: failed pre-push runs, written by the hook.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks.
-failedChecks: { checks-pass: 4 }
+failedChecks: { checks-pass: 5, usable-at-360px: 5 }
 ---
 
 # Plan: informatik-internet, first version
@@ -266,8 +266,8 @@ neuer Karte als Props, Beispiel-Adressen nur RFC 5737/2606.
       change: change the pattern first.
       Creator: Orchestrator: Ja, die übrigen Seiten folgen diesem Muster. Lösung als „Ein möglicher Weg (es gibt mehrere)“, nach Richtig kurz „Jeder Weg über verbundene Router zählt“; Beschriftungen bei 360 px mindestens 12 px; Vorschau vor Veröffentlichen selbst ansehen.
 - [x] netz/das-brauchst-du: Wiederholung hardware-und-software mit Selbstcheck und einer Übung
-- [ ] netz/client-server: Simulator Anfrage und Antwort, Daten rollen.yaml, vier Übungen
-- [ ] netz/ip-dns: IP-Adresse und DNS, Simulator mit DNS, Briefumschlag-Spiel, Daten adressen.yaml und dns.yaml
+- [x] netz/client-server: Simulator Anfrage und Antwort, Daten rollen.yaml, vier Übungen
+- [x] netz/ip-dns: IP-Adresse und DNS, Simulator mit DNS, Briefumschlag-Spiel, Daten adressen.yaml und dns.yaml
 - [ ] webseite/das-brauchst-du: Wiederholung dateipfad mit Mias Pfad und einer Übung
 - [ ] webseite/url: Komponente UrlZerleger mit Logik und Test, Daten url-teile.yaml, vier Übungen
 - [ ] webseite/dienste: Dienste und Protokolle, Simulator E-Mail-Weg, Daten situationen.yaml

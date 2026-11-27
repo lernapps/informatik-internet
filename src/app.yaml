@@ -17,7 +17,7 @@ intro:
     names, until a whole web page reaches you.
 languages: [de, en]
 tasks: { start: first }
-chapters: [netz]
+chapters: [netz, webseite]
 sources:
   - title:
       de: "Gesellschaft für Informatik: Bildungsstandards Informatik für die Sekundarstufe I (2025), Abschnitt 5.4, IS-5"
