@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" crossorigin src="../../../assets/index-D9mjBk7h.js"></script>
+    <link rel="modulepreload" crossorigin href="../../../assets/tasks-C8F2Wlxx-cG9osHbD.js">
+    <link rel="stylesheet" crossorigin href="../../../assets/index-CtncCkFd.css">
+    <title>Internet services and protocols – How the internet works</title>
+    <meta name="description" content="Tell the web, email and chat apart; each service talks by fixed rules, its protocol." />
+    <meta name="lernapps-archetype" content="explainer" />
+    <link rel="alternate" hreflang="de" href="../../../webseite/dienste/" />
+    <link rel="alternate" hreflang="en" href="../../../en/webseite/dienste/" />
+    <script type="module" crossorigin src="../../../assets/islands-CvhaeP6S.js"></script>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <header class="page-header"><nav class="page-languages" aria-label="Language"><ul><li><a href="../../../webseite/dienste/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../../en/webseite/dienste/" hreflang="en" lang="en" aria-current="page">English</a></li></ul></nav></header>
+<nav class="explainer-breadcrumbs" aria-label="You are here"><ol><li><a href="../../../en/">Start</a></li><li><a href="../../../en/webseite/">A web page travels to me</a></li><li aria-current="page">Internet services and protocols</li></ol></nav>
+<main class="explainer" id="inhalt-der-seite" data-task-start="first">
+<div class="explainer-title-row">
+<h1>Internet services and protocols</h1>
+<div class="explainer-tutor explainer-tutor-page">
+<details class="explainer-tutor-off">
+<summary>Learn with an AI tutor</summary>
+<p>An AI tutor explains this page to you and helps you with the exercises. Choose your assistant:</p>
+<p class="explainer-tutor-actions"><span class="explainer-tutor-way" hidden><select class="explainer-tutor-select" aria-label="Assistant"><option value="Claude">Claude</option><option value="ChatGPT">ChatGPT</option><option value="Mistral Vibe" data-hint="Mistral Vibe does not load web pages when the link comes from a button. So we copy the sentence with the link for you. A click on “Learn with Mistral Vibe” opens Mistral Vibe with a short message. Then paste the copied sentence (Ctrl+V, ⌘+V on a Mac) and send it.">Mistral Vibe</option><option value="copy">Another one: copy the text</option></select> <button type="button" class="explainer-tutor-on">Switch on</button></span> <span class="explainer-tutor-plain"><a class="explainer-tutor-provider" href="https://claude.ai/new" rel="noopener" target="_blank">Open with Claude</a> <a class="explainer-tutor-provider" href="https://chatgpt.com/" rel="noopener" target="_blank">Open with ChatGPT</a> <a class="explainer-tutor-provider" href="https://chat.mistral.ai/chat" rel="noopener" target="_blank">Open with Mistral Vibe</a></span></p>
+<p class="explainer-tutor-hint" role="status" aria-live="polite" hidden></p>
+<p class="explainer-tutor-note">You use your own account with the provider. The assistant is not offered by lernapps.net: lernapps only provides the content and the exercises. The choice holds for all pages, on this device only.</p>
+<p><a class="explainer-tutor-guide" href="../../../en/webseite/dienste/tutor/">See what your tutor gets for this page</a></p>
+</details>
+<p class="explainer-tutor-bar" hidden><button type="button" class="explainer-tutor-go"></button></p>
+<p class="explainer-tutor-status" role="status" aria-live="polite"></p>
+<script type="application/json" class="explainer-tutor-prompt">{"start":"Load ⟦base⟧webseite/dienste/tutor/⟦query⟧ and be my tutor.","base":"⟦base⟧","query":"⟦query⟧","root":"../../../en/","storage":"informatik-internet","page":{"id":"dienste","title":"Internet services and protocols","exercises":[{"id":"internet-gleich-www","section":"einstieg","numbered":false},{"id":"welcher-dienst","section":"uebung","numbered":true},{"id":"protokoll-zuordnen","section":"uebung","numbered":false},{"id":"http-gespraech","section":"uebung","numbered":false},{"id":"ben-offline","section":"uebung","numbered":false}],"sections":["einstieg","idee","beispiel","uebung"]},"tutor":"webseite/dienste/tutor/","markdown":"webseite/dienste/tutor/index.md","ways":[{"name":"Claude","url":"https://claude.ai/new?q={prompt}"},{"name":"ChatGPT","url":"https://chatgpt.com/?q={prompt}"},{"name":"Mistral Vibe","url":"https://chat.mistral.ai/chat?q={prompt}","paste":true}],"placeholder":"I need help with a learning unit. I will tell you in a moment what it is about.","go":"Learn with {name}","done":"✓ Copied – now paste it into {name}","copy":"Copy the text","copied":"The prompt is copied. Paste it into the chat of your AI assistant.","failed":"Copying did not work. Try again."}</script>
+</div>
+</div>
+
+<nav class="explainer-toc" aria-label="On this page"><p class="explainer-toc-title">On this page</p><ol><li><a href="#einstieg">Sending photos, but how?</a></li><li><a href="#idee">Try it: the route of an email</a></li><li><a href="#beispiel">Example: a conversation by HTTP</a></li><li><a href="#uebung">Practise with services</a></li></ol></nav>
+<section class="explainer-section">
+<h2 id="einstieg">Sending photos, but how?</h2>
+<div class="explainer-block" data-block="einstieg/1" data-block-id="3d08eaf1" data-block-type="text" data-block-order="1">
+<div class="block-text"><p><strong>Selin:</strong> I&#39;m sending the trip photos to my grandma by email.</p>
+<p><strong>Ben:</strong> I&#39;m putting them in the chat. It&#39;s all the internet, isn&#39;t it?</p>
+<p>On the page before you took a URL apart, with the protocol https at the front. Web pages in the browser are
+called the World Wide Web (WWW). On this page you get to know services on the internet and their rules.</p></div>
+</div>
+<div class="explainer-block" data-block="einstieg/2" data-block-id="da6e36ee" data-block-type="true-false" data-block-order="2">
+<div class="explainer-exercise explainer-question" id="internet-gleich-www">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="question" id="frage-internet-gleich-www" data-id="internet-gleich-www" data-type="true-false">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">True or false? The internet and the World Wide Web are the same thing.</legend>
+<label class="question-option"><input type="radio" name="frage-internet-gleich-www" value="true"> <span>True</span></label>
+<label class="question-option"><input type="radio" name="frage-internet-gleich-www" value="false"> <span>False</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<p><strong>Right answer:</strong> The statement is false.</p>
+<p class="question-explanation">The statement is not true. The internet is the network of networks. The World Wide Web is one service that uses this network, like email and chat.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Check</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Solution</summary>
+<p><strong>Right answer:</strong> The statement is false.</p>
+<p class="question-explanation">The statement is not true. The internet is the network of networks. The World Wide Web is one service that uses this network, like email and chat.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"en","question":{"id":"internet-gleich-www","text":"True or false? The internet and the World Wide Web are the same thing.","explanation":"The statement is not true. The internet is the network of networks. The World Wide Web is one service that uses this network, like email and chat.","links":[],"type":"true-false","answer":false},"rendered":{}}</script>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="idee">Try it: the route of an email</h2>
+<div class="explainer-block" data-block="idee/1" data-block-id="dc600c3a" data-block-type="definition" data-block-order="3">
+<dl class="explainer-definition"><dt><dfn id="begriff-internetdienst"><a href="../../../en/glossar/#internetdienst">internet service</a></dfn></dt><dd><p>Something offered over the internet, for example the World Wide Web, email or chat. Each service has its own programs and its own rules.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/2" data-block-id="ab64d322" data-block-type="text" data-block-order="4">
+<div class="block-text"><p>A <strong>protocol</strong> sets out who says what and when, as on the phone: first “hello”, then the question, then the
+answer. Each service has its own. With email the letters travel through two <strong>mail servers</strong>. Press <strong>Next
+step</strong>.</p></div>
+</div>
+<div class="explainer-block" data-block="idee/3" data-block-id="6147cdc3" data-block-type="vue-component" data-block-order="5">
+<div class="explainer-component" data-component="NetzSimulator">
+<div class="explainer-island" hidden><div class="netz-simulator" data-v-3809a295><p class="netz-titel" data-v-3809a295>Map 7: Selin sends Ben an email</p><svg class="netz-karte" viewbox="0 -16 100 76" role="img" aria-label="Map 7: Selin&#39;s tablet at router 1, with Selin&#39;s mail server. Router 1 is joined to router 2, which has Ben&#39;s mail server and Ben&#39;s phone." data-v-3809a295 data-v-91d279a5><!--[--><!--]--><!--[--><line x1="10" y1="38" x2="34" y2="38" class="netz-kabel" data-v-91d279a5></line><line x1="34" y1="38" x2="34" y2="4" class="netz-kabel" data-v-91d279a5></line><line x1="34" y1="38" x2="66" y2="38" class="netz-kabel" data-v-91d279a5></line><line x1="66" y1="38" x2="66" y2="4" class="netz-kabel" data-v-91d279a5></line><line x1="66" y1="38" x2="90" y2="38" class="netz-kabel" data-v-91d279a5></line><!--]--><!--[--><g transform="translate(10 38)" class="netz-geraet" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-6" y="-4" width="12" height="8" rx="1.5" class="netz-form" data-v-91d279a5></rect><rect x="-4.5" y="-2.7" width="9" height="5.4" rx="0.6" class="netz-innen" data-v-91d279a5></rect></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Selin&#39;s</text><text y="14.6" class="netz-name" data-v-91d279a5>tablet</text><!--]--><!----></g><g transform="translate(34 38)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router 1</text><!--]--><!----></g><g transform="translate(34 4)" class="netz-server" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-3.8" y="-5.5" width="7.6" height="11" rx="0.8" class="netz-form" data-v-91d279a5></rect><path d="M-2.4 -2.8h4.8M-2.4 0h4.8M-2.4 2.8h4.8" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="-11" class="netz-name" data-v-91d279a5>Selin&#39;s mail</text><text y="-6.6" class="netz-name" data-v-91d279a5>server</text><!--]--><!----></g><g transform="translate(66 38)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router 2</text><!--]--><!----></g><g transform="translate(66 4)" class="netz-server" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-3.8" y="-5.5" width="7.6" height="11" rx="0.8" class="netz-form" data-v-91d279a5></rect><path d="M-2.4 -2.8h4.8M-2.4 0h4.8M-2.4 2.8h4.8" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="-11" class="netz-name" data-v-91d279a5>Ben&#39;s mail</text><text y="-6.6" class="netz-name" data-v-91d279a5>server</text><!--]--><!----></g><g transform="translate(90 38)" class="netz-geraet" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-6" y="-4" width="12" height="8" rx="1.5" class="netz-form" data-v-91d279a5></rect><rect x="-4.5" y="-2.7" width="9" height="5.4" rx="0.6" class="netz-innen" data-v-91d279a5></rect></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Ben&#39;s</text><text y="14.6" class="netz-name" data-v-91d279a5>phone</text><!--]--><!----></g><!--]--><g class="netz-paeckchen" style="transform:translate(14.5px, 30.5px);" aria-hidden="true" data-v-91d279a5><rect x="0" y="0" width="7.4" height="5" rx="0.5" data-v-91d279a5></rect><path d="M0.3 0.4l3.4 2.6l3.4 -2.6" data-v-91d279a5></path></g></svg><p class="netz-simulator-paeckchen" data-v-3809a295><span aria-hidden="true" data-v-3809a295>✉</span> The packet says: <strong data-v-3809a295>Email to ben@schule.example (SMTP)</strong></p><p class="netz-simulator-knoepfe" data-v-3809a295><button type="button" data-v-3809a295>Next step</button><button type="button" disabled data-v-3809a295>Start again</button></p><ol class="netz-simulator-liste" aria-live="polite" data-v-3809a295><!--[--><!--]--></ol><p class="netz-simulator-stand" data-v-3809a295>Selin has written the email. Press “Next step”.</p></div></div>
+<div class="explainer-nojs"><p>Map 7: Selin&#39;s tablet is at router 1, which also has Selin&#39;s mail server. Router 1 is joined to router 2,
+which has Ben&#39;s mail server and Ben&#39;s phone.</p>
+<ol>
+<li>Selin&#39;s email app hands in the email, by the rules of SMTP.</li>
+<li>It arrives at Selin&#39;s mail server.</li>
+<li>Selin&#39;s mail server sends it on to Ben&#39;s mail server, again with SMTP.</li>
+<li>Routers pass it on …</li>
+<li>… into Ben&#39;s mailbox. It waits there, even if Ben&#39;s phone is switched off.</li>
+<li>Later Ben&#39;s email app asks for new mail and fetches it, by the rules of IMAP.</li>
+<li>Ben reads the email.</li>
+</ol></div>
+<script type="application/json" class="explainer-component-props">{"title":"Map 7: Selin sends Ben an email","label":"Map 7: Selin's tablet at router 1, with Selin's mail server. Router 1 is joined to router 2, which has Ben's mail server and Ben's phone.","stations":[{"id":"selin","kind":"geraet","name":"Selin's tablet","x":10,"y":34},{"id":"r1","kind":"router","name":"Router 1","x":34,"y":34},{"id":"ms","kind":"server","name":"Selin's mail server","x":34,"y":0,"above":true},{"id":"r2","kind":"router","name":"Router 2","x":66,"y":34},{"id":"mb","kind":"server","name":"Ben's mail server","x":66,"y":0,"above":true},{"id":"ben","kind":"geraet","name":"Ben's phone","x":90,"y":34}],"cables":[{"from":"selin","to":"r1"},{"from":"r1","to":"ms"},{"from":"r1","to":"r2"},{"from":"r2","to":"mb"},{"from":"r2","to":"ben"}],"steps":[{"from":"selin","to":"r1","text":"Selin's email app hands in the email, by the rules of SMTP.","packet":"Email to ben@schule.example (SMTP)"},{"from":"r1","to":"ms","text":"It arrives at Selin's mail server."},{"from":"ms","to":"r1","text":"Selin's mail server sends it on to Ben's mail server, again with SMTP."},{"from":"r1","to":"r2","text":"Routers pass it on …"},{"from":"r2","to":"mb","text":"… into Ben's mailbox. It waits there, even if Ben's phone is switched off."},{"from":"mb","to":"r2","text":"Later Ben's email app asks for new mail and fetches it, by the rules of IMAP.","packet":"Email for Ben (IMAP)"},{"from":"r2","to":"ben","text":"Ben reads the email."}],"next":"Next step","restart":"Start again","ready":"Selin has written the email. Press “Next step”.","arrived":"Arrived at Ben's.","packetLabel":"The packet says:"}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="idee/4" data-block-id="d50eb57c" data-block-type="table" data-block-order="6">
+<div class="block-table" role="region" aria-label="Three services and their protocols" tabindex="0"><table><caption>Three services and their protocols</caption><thead><tr><th scope="col">Service</th><th scope="col">Protocol</th></tr></thead><tbody><tr><td>World Wide Web (web pages)</td><td>HTTP, or HTTPS: the same, but encrypted</td></tr><tr><td>email</td><td>SMTP to send, IMAP to fetch</td></tr><tr><td>chat</td><td>the messenger&#39;s rules; one open standard is called XMPP</td></tr></tbody></table></div>
+</div>
+<div class="explainer-block" data-block="idee/5" data-block-id="386a1e2f" data-block-type="definition" data-block-order="7">
+<dl class="explainer-definition"><dt><dfn id="begriff-mailserver"><a href="../../../en/glossar/#mailserver">mail server</a></dfn></dt><dd><p>A server that accepts emails, sends them on and keeps them in mailboxes until they are fetched.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/6" data-block-id="1188fde9" data-block-type="definition" data-block-order="8">
+<dl class="explainer-definition"><dt><dfn id="begriff-world-wide-web"><a href="../../../en/glossar/#world-wide-web">World Wide Web</a></dfn></dt><dd><p>The service for web pages. Browsers fetch the pages from web servers with HTTP or HTTPS. WWW or the web for short.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/7" data-block-id="b9975db9" data-block-type="note" data-block-order="9">
+<div class="explainer-box explainer-note">
+<h3 class="explainer-box-title">Remember</h3>
+<div class="explainer-block" data-block="idee/7/1" data-block-id="0150ab49" data-block-type="text" data-block-order="10">
+<div class="block-text"><p>The <strong>internet</strong> is the network. <strong>The web, email and chat</strong> are services that use it. Each service talks
+by its own <strong>protocol</strong>.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="beispiel">Example: a conversation by HTTP</h2>
+<div class="explainer-block" data-block="beispiel/1" data-block-id="db110355" data-block-type="code" data-block-order="11">
+<figure class="block-code"><pre role="region" aria-label="Code in plaintext" tabindex="0"><code class="hljs language-plaintext">Browser:   GET /klasse-7b/ausflug.html
+Server:    200 OK
+           (dann folgt die Seite)
+</code></pre><figcaption>Simplified: the browser asks for a path with GET, the server answers with 200 OK and the page. Real messages are longer. (The server's line in brackets says: then the page follows.)</figcaption></figure>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="uebung">Practise with services</h2>
+<div class="explainer-block" data-block="uebung/1" data-block-id="82d126a4" data-block-type="generated" data-block-order="12">
+<div class="explainer-exercise explainer-generated" id="welcher-dienst">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="explainer-live" hidden></div>
+<p class="explainer-worked-intro">Three worked tasks, each with its solution:</p>
+<ol class="explainer-worked"><li class="explainer-worked-task"><p class="explainer-task-number">Task no. 1</p><p class="explainer-task">Ms Berg sends the invitation to the parents' evening to all the parents' mailboxes. Which service does the person use: the web, email or chat?</p><div class="explainer-worked-entries"><ul><li>web</li><li>email</li><li>chat</li></ul></div><details class="explainer-hint"><summary>Hint</summary><p>Web pages in the browser are the web, mail with an @ address is email, quick short messages are chat.</p></details><details class="explainer-solution"><summary>Solution</summary><ol class="explainer-steps"><li>The invitation lands in mailboxes on mail servers. The parents fetch it whenever they like. Answer: email.</li></ol><p><strong>Right answer:</strong> email</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Task no. 2</p><p class="explainer-task">Jona writes “On my way!” in the class group and sees two ticks at once. Which service does the person use: the web, email or chat?</p><div class="explainer-worked-entries"><ul><li>web</li><li>email</li><li>chat</li></ul></div><details class="explainer-hint"><summary>Hint</summary><p>Web pages in the browser are the web, mail with an @ address is email, quick short messages are chat.</p></details><details class="explainer-solution"><summary>Solution</summary><ol class="explainer-steps"><li>Short messages in a group that arrive at once: that is a chat through a messenger. Answer: chat.</li></ol><p><strong>Right answer:</strong> chat</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Task no. 3</p><p class="explainer-task">Ben looks at the photos from the trip on the school's website. Which service does the person use: the web, email or chat?</p><div class="explainer-worked-entries"><ul><li>web</li><li>email</li><li>chat</li></ul></div><details class="explainer-hint"><summary>Hint</summary><p>Web pages in the browser are the web, mail with an @ address is email, quick short messages are chat.</p></details><details class="explainer-solution"><summary>Solution</summary><ol class="explainer-steps"><li>He loads a web page with the browser: that is the World Wide Web. Answer: web.</li></ol><p><strong>Right answer:</strong> web</p></details></li></ol>
+<script type="application/json" class="explainer-exercise-data">{"kind":"generated","lang":"en","spec":{"type":"generated","id":"welcher-dienst","given":{"e":{"pick":1,"from":{"data":"situationen"}}},"task":{"text":{"de":"{{e.fall}} Welchen Dienst nutzt die Person: WWW, E-Mail oder Chat?","en":"{{e.fall}} Which service does the person use: the web, email or chat?"}},"answer":{"value":"e.antwort","compare":{"choice":[{"de":"WWW","en":"web"},{"de":"E-Mail","en":"email"},{"de":"Chat","en":"chat"}]}},"mistakes":[{"value":"e.falsch","message":{"de":"Frag dich: Wird eine Webseite abgerufen, ein Brief in ein Postfach gelegt oder schnell hin und her geschrieben?","en":"Ask yourself: is a web page loaded, a letter put into a mailbox, or are messages sent quickly back and forth?"}}],"hint":{"de":"Webseiten im Browser sind WWW, Post mit @-Adresse ist E-Mail, schnelle kurze Nachrichten sind Chat.","en":"Web pages in the browser are the web, mail with an @ address is email, quick short messages are chat."},"steps":[{"de":"{{e.grund}} Antwort: {{answer}}.","en":"{{e.grund}} Answer: {{answer}}."}]},"templates":{"en":{"task":"⟦e.fall⟧ Which service does the person use: the web, email or chat?","steps":["⟦e.grund⟧ Answer: ⟦answer⟧."],"hint":"Web pages in the browser are the web, mail with an @ address is email, quick short messages are chat.","messages":["Ask yourself: is a web page loaded, a letter put into a mailbox, or are messages sent quickly back and forth?"]}},"data":{"situationen":[{"fall":{"de":"Ben sieht sich auf der Seite der Schule die Fotos vom Ausflug an.","en":"Ben looks at the photos from the trip on the school's website."},"antwort":{"de":"WWW","en":"web"},"falsch":{"de":"E-Mail","en":"email"},"grund":{"de":"Er ruft eine Webseite mit dem Browser ab: Das ist das World Wide Web.","en":"He loads a web page with the browser: that is the World Wide Web."}},{"fall":{"de":"Selin schickt ihrer Oma einen Brief mit Anhang an oma@post.example.","en":"Selin sends her grandma a letter with an attachment to oma@post.example."},"antwort":{"de":"E-Mail","en":"email"},"falsch":{"de":"Chat","en":"chat"},"grund":{"de":"Die Adresse mit @ zeigt es: Der Brief geht über Mailserver, auch wenn die Oma gerade nicht online ist.","en":"The address with @ shows it: the letter goes through mail servers, even if grandma is not online right now."}},{"fall":{"de":"Jona schreibt in der Klassengruppe „Bin gleich da!“ und sieht sofort zwei Häkchen.","en":"Jona writes “On my way!” in the class group and sees two ticks at once."},"antwort":{"de":"Chat","en":"chat"},"falsch":{"de":"E-Mail","en":"email"},"grund":{"de":"Kurze Nachrichten in einer Gruppe, die sofort ankommen: Das ist ein Chat über einen Messenger.","en":"Short messages in a group that arrive at once: that is a chat through a messenger."}},{"fall":{"de":"Lea sucht im Browser nach einer Anleitung für ein Origami-Boot und öffnet eine Seite.","en":"Lea searches the browser for instructions for an origami boat and opens a page."},"antwort":{"de":"WWW","en":"web"},"falsch":{"de":"Chat","en":"chat"},"grund":{"de":"Sie öffnet Webseiten im Browser. Das ist das World Wide Web.","en":"She opens web pages in the browser. That is the World Wide Web."}},{"fall":{"de":"Frau Berg schickt allen Eltern die Einladung zum Elternabend an ihre Postfächer.","en":"Ms Berg sends the invitation to the parents' evening to all the parents' mailboxes."},"antwort":{"de":"E-Mail","en":"email"},"falsch":{"de":"WWW","en":"web"},"grund":{"de":"Die Einladung landet in Postfächern auf Mailservern. Die Eltern holen sie ab, wann sie wollen.","en":"The invitation lands in mailboxes on mail servers. The parents fetch it whenever they like."}},{"fall":{"de":"Ali und Tom schreiben sich beim Hausaufgabenmachen schnell hin und her.","en":"Ali and Tom write back and forth quickly while doing homework."},"antwort":{"de":"Chat","en":"chat"},"falsch":{"de":"E-Mail","en":"email"},"grund":{"de":"Schnelles Hin und Her mit kurzen Nachrichten ist ein Chat.","en":"Quick back and forth with short messages is a chat."}}]},"seeds":[1,2,3,4,5,13],"texts":{"newTask":"New task","practice":"Practise yourself, with new tasks each time:","hint":"Hint","solution":"Solution","taskNumber":"Task no. {n}"}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/2" data-block-id="c05f2dd8" data-block-type="matching" data-block-order="13">
+<div class="explainer-exercise explainer-question" id="protokoll-zuordnen">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="question" id="frage-protokoll-zuordnen" data-id="protokoll-zuordnen" data-type="matching">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Which protocol goes with which job?</legend>
+<p class="question-hint">Choose the match for each entry.</p>
+<ul class="question-pairs">
+<li><label><span>load a web page encrypted</span> <select name="frage-protokoll-zuordnen-0" data-left="0"><option value="">please choose</option><option value="1">SMTP</option><option value="2">IMAP</option><option value="0">HTTPS</option><option value="3">file path</option></select></label></li>
+<li><label><span>send an email</span> <select name="frage-protokoll-zuordnen-1" data-left="1"><option value="">please choose</option><option value="1">SMTP</option><option value="2">IMAP</option><option value="0">HTTPS</option><option value="3">file path</option></select></label></li>
+<li><label><span>fetch new emails from the server</span> <select name="frage-protokoll-zuordnen-2" data-left="2"><option value="">please choose</option><option value="1">SMTP</option><option value="2">IMAP</option><option value="0">HTTPS</option><option value="3">file path</option></select></label></li>
+</ul>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<p><strong>Right answer:</strong> load a web page encrypted – HTTPS; send an email – SMTP; fetch new emails from the server – IMAP</p>
+<p class="question-explanation">HTTPS fetches web pages encrypted, SMTP sends emails, IMAP fetches them. A file path is not a protocol but the place of a file.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Check</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Solution</summary>
+<p><strong>Right answer:</strong> load a web page encrypted – HTTPS; send an email – SMTP; fetch new emails from the server – IMAP</p>
+<p class="question-explanation">HTTPS fetches web pages encrypted, SMTP sends emails, IMAP fetches them. A file path is not a protocol but the place of a file.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"en","question":{"id":"protokoll-zuordnen","text":"Which protocol goes with which job?","explanation":"HTTPS fetches web pages encrypted, SMTP sends emails, IMAP fetches them. A file path is not a protocol but the place of a file.","links":[],"type":"matching","pairs":[{"left":"load a web page encrypted","right":"HTTPS"},{"left":"send an email","right":"SMTP"},{"left":"fetch new emails from the server","right":"IMAP"}],"distractors":["file path"]},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/3" data-block-id="65c81e98" data-block-type="ordering" data-block-order="14">
+<div class="explainer-exercise explainer-question" id="http-gespraech">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="question" id="frage-http-gespraech" data-id="http-gespraech" data-type="ordering">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Ben opens the trip page. In which order do the browser and the web server talk by HTTP?</legend>
+<p class="question-hint">Give each entry its place: 1 for the first.</p>
+<ul class="question-pairs">
+<li><label><span>The web server answers: 200 OK, with the page.</span> <select name="frage-http-gespraech-2" data-item="2"><option value="">please choose</option><option value="0">Place 1</option><option value="1">Place 2</option><option value="2">Place 3</option><option value="3">Place 4</option></select></label></li>
+<li><label><span>The browser shows the page.</span> <select name="frage-http-gespraech-3" data-item="3"><option value="">please choose</option><option value="0">Place 1</option><option value="1">Place 2</option><option value="2">Place 3</option><option value="3">Place 4</option></select></label></li>
+<li><label><span>The browser sends: GET /klasse-7b/ausflug.html</span> <select name="frage-http-gespraech-0" data-item="0"><option value="">please choose</option><option value="0">Place 1</option><option value="1">Place 2</option><option value="2">Place 3</option><option value="3">Place 4</option></select></label></li>
+<li><label><span>The web server looks for the file.</span> <select name="frage-http-gespraech-1" data-item="1"><option value="">please choose</option><option value="0">Place 1</option><option value="1">Place 2</option><option value="2">Place 3</option><option value="3">Place 4</option></select></label></li>
+</ul>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<p><strong>Right answer:</strong> 1. The browser sends: GET /klasse-7b/ausflug.html, 2. The web server looks for the file., 3. The web server answers: 200 OK, with the page., 4. The browser shows the page.</p>
+<p class="question-explanation">By HTTP the browser always asks first, with GET and a path. The server answers with a number like 200 OK and the page.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Check</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Solution</summary>
+<p><strong>Right answer:</strong> 1. The browser sends: GET /klasse-7b/ausflug.html, 2. The web server looks for the file., 3. The web server answers: 200 OK, with the page., 4. The browser shows the page.</p>
+<p class="question-explanation">By HTTP the browser always asks first, with GET and a path. The server answers with a number like 200 OK and the page.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"en","question":{"id":"http-gespraech","text":"Ben opens the trip page. In which order do the browser and the web server talk by HTTP?","explanation":"By HTTP the browser always asks first, with GET and a path. The server answers with a number like 200 OK and the page.","links":[],"type":"ordering","items":["The browser sends: GET /klasse-7b/ausflug.html","The web server looks for the file.","The web server answers: 200 OK, with the page.","The browser shows the page."]},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/4" data-block-id="5113fc9e" data-block-type="single-choice" data-block-order="15">
+<div class="explainer-exercise explainer-question" id="ben-offline">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="question" id="frage-ben-offline" data-id="ben-offline" data-type="single-choice">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Ben's phone is switched off when Selin sends him an email. What happens to the email?</legend>
+<label class="question-option"><input type="radio" name="frage-ben-offline" value="0"> <span>It waits on Ben's mail server.</span></label>
+<label class="question-option"><input type="radio" name="frage-ben-offline" value="1"> <span>It gets lost.</span></label>
+<label class="question-option"><input type="radio" name="frage-ben-offline" value="2"> <span>It turns into a web page.</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>It waits on Ben's mail server.</strong> <span class="question-badge question-badge-right">right answer</span></p><p>The mail server keeps it in the mailbox. Ben's email app fetches it with IMAP as soon as the phone is on.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>It gets lost.</strong></p><p>With email the receiver does not have to be online. That is what the mail server is for.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>It turns into a web page.</strong></p><p>Email and the web are different services with different protocols.</p></li>
+</ul>
+<p class="question-explanation">Email works through mail servers. The mail waits there until it is fetched.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Check</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Solution</summary>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>It waits on Ben's mail server.</strong> <span class="question-badge question-badge-right">right answer</span></p><p>The mail server keeps it in the mailbox. Ben's email app fetches it with IMAP as soon as the phone is on.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>It gets lost.</strong></p><p>With email the receiver does not have to be online. That is what the mail server is for.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>It turns into a web page.</strong></p><p>Email and the web are different services with different protocols.</p></li>
+</ul>
+<p class="question-explanation">Email works through mail servers. The mail waits there until it is fetched.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"en","question":{"id":"ben-offline","text":"Ben's phone is switched off when Selin sends him an email. What happens to the email?","explanation":"Email works through mail servers. The mail waits there until it is fetched.","links":[],"type":"single-choice","options":[{"text":"It waits on Ben's mail server.","correct":true,"info":"The mail server keeps it in the mailbox. Ben's email app fetches it with IMAP as soon as the phone is on."},{"text":"It gets lost.","correct":false,"info":"With email the receiver does not have to be online. That is what the mail server is for."},{"text":"It turns into a web page.","correct":false,"info":"Email and the web are different services with different protocols."}]},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/5" data-block-id="b588dd6f" data-block-type="text" data-block-order="16">
+<div class="block-text"><p><strong>Selin:</strong> Email with SMTP and IMAP, the trip page with HTTPS. All the internet, but different services!</p>
+<p><strong>Ben:</strong> Then I want to see the whole journey of the trip page now, from the URL onto my phone.</p>
+<p>Next: how a web page is loaded, step by step.</p></div>
+</div>
+</section>
+<p class="explainer-feedback-invite" hidden><span>Found a mistake or have an idea for this app?</span> <button type="button" class="explainer-feedback-switch">Give feedback on “How the internet works”</button></p>
+</main>
+<template class="explainer-feedback-template">
+<aside class="explainer-feedback" aria-labelledby="feedback-titel" hidden>
+<div class="explainer-feedback-head">
+<h2 id="feedback-titel">Feedback</h2>
+<button type="button" class="explainer-feedback-help-open" aria-expanded="false" aria-controls="feedback-hilfe">Help</button>
+<button type="button" class="explainer-feedback-collapse" aria-expanded="true" aria-controls="feedback-inhalt" aria-label="Collapse the bar" title="Collapse the bar"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+<button type="button" class="explainer-feedback-expand" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Expand the feedback bar</span></button>
+<div class="explainer-feedback-body" id="feedback-inhalt">
+<section class="explainer-feedback-help" id="feedback-hilfe" aria-labelledby="feedback-hilfe-titel" hidden>
+<h3 id="feedback-hilfe-titel">How to give feedback</h3>
+<ol><li>Go through the pages. Every paragraph, figure and exercise shows “Note”.</li><li>If you mark text in the block first, the note quotes it.</li><li>When you are done, choose “Open an issue on GitHub”. The app copies your notes, and you paste them into the issue. You need a GitHub account for this.</li></ol>
+<p class="explainer-feedback-privacy">Your notes stay in this browser on this device only. The app sends nothing. If you clear the browser's data, the notes are gone.</p>
+<p><button type="button" class="explainer-feedback-help-done">Got it</button></p>
+</section>
+<form class="explainer-feedback-form" hidden>
+<p class="explainer-feedback-new">New note on</p>
+<p class="explainer-feedback-where"></p>
+<blockquote class="explainer-feedback-quote" hidden></blockquote>
+<label for="feedback-text">Your note</label>
+<textarea id="feedback-text" class="explainer-feedback-text" rows="5" required></textarea>
+<p class="explainer-feedback-buttons"><button type="submit" class="explainer-feedback-save">Save</button> <button type="button" class="explainer-feedback-cancel">Cancel</button></p>
+</form>
+<p class="explainer-feedback-status" role="status" aria-live="polite"></p>
+<section class="explainer-feedback-notes" aria-labelledby="feedback-notizen">
+<h3 id="feedback-notizen" class="explainer-feedback-count"></h3>
+<p class="explainer-feedback-actions"><button type="button" class="explainer-feedback-copy">Copy</button> <a class="explainer-feedback-issue" href="#" target="_blank" rel="noopener">Open an issue on GitHub</a></p>
+<textarea class="explainer-feedback-export" readonly rows="6" aria-label="Text to copy" hidden></textarea>
+<div class="explainer-feedback-list"></div>
+</section>
+</div>
+<div class="explainer-feedback-foot">
+<button type="button" class="explainer-feedback-delete-all">Delete all …</button>
+<span class="explainer-feedback-local">Kept in this browser only</span>
+<button type="button" class="explainer-feedback-off">End</button>
+</div>
+<script type="application/json" class="explainer-feedback-data">{"storage":"informatik-internet","app":"How the internet works","root":"../../../en/","repository":"lernapps/informatik-internet","revision":"fd334eb","page":{"title":"Internet services and protocols","order":6}}</script>
+</aside>
+</template>
+<nav class="explainer-pager" aria-label="Page through"><a rel="prev" href="../../../en/webseite/url/">Back: How a URL is built</a><a rel="next" href="../../../en/webseite/abruf/">Next: How a web page is loaded</a></nav>
+<footer class="page-footer"><p>An explainer on lernapps.net · <a href="https://lernapps.net/imprint/">Imprint</a> · <a href="https://lernapps.net/privacy/">Privacy</a></p></footer>
+  </body>
+</html>

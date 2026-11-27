@@ -45,6 +45,9 @@ A short recap: hardware and software, before the network starts.
 
 ### In the class 7b chat
 
+The children of class 7b write here, all aged 12: Jona, Selin, Mia, Ben, Lea, Tom and Ali. Ms Berg is their
+class teacher.
+
 **Ms Berg:** Next Friday is our project day: “We play the internet”. Bring envelopes!
 
 **Ben:** Good idea. I want to know how the page about our school trip gets onto my phone.

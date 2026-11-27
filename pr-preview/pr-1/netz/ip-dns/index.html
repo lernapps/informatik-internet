@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" crossorigin src="../../assets/index-D9mjBk7h.js"></script>
+    <link rel="modulepreload" crossorigin href="../../assets/tasks-C8F2Wlxx-cG9osHbD.js">
+    <link rel="stylesheet" crossorigin href="../../assets/index-CtncCkFd.css">
+    <title>IP-Adresse und DNS – Wie das Internet funktioniert</title>
+    <meta name="description" content="Jedes Gerät im Netz braucht eine Adresse; das DNS übersetzt Namen in IP-Adressen." />
+    <meta name="lernapps-archetype" content="explainer" />
+    <link rel="alternate" hreflang="de" href="../../netz/ip-dns/" />
+    <link rel="alternate" hreflang="en" href="../../en/netz/ip-dns/" />
+    <script type="module" crossorigin src="../../assets/islands-CvhaeP6S.js"></script>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <header class="page-header"><nav class="page-languages" aria-label="Sprache"><ul><li><a href="../../netz/ip-dns/" hreflang="de" lang="de" aria-current="page">Deutsch</a></li><li><a href="../../en/netz/ip-dns/" hreflang="en" lang="en">English</a></li></ul></nav></header>
+<nav class="explainer-breadcrumbs" aria-label="Du bist hier"><ol><li><a href="../../">Start</a></li><li><a href="../../netz/">Ein Netz aus Netzen</a></li><li aria-current="page">IP-Adresse und DNS</li></ol></nav>
+<main class="explainer" id="inhalt-der-seite" data-task-start="first">
+<div class="explainer-title-row">
+<h1>IP-Adresse und DNS</h1>
+<div class="explainer-tutor explainer-tutor-page">
+<details class="explainer-tutor-off">
+<summary>Mit einem KI-Tutor lernen</summary>
+<p>Ein KI-Tutor erklärt dir diese Seite und hilft dir bei den Aufgaben. Wähl deinen Assistenten:</p>
+<p class="explainer-tutor-actions"><span class="explainer-tutor-way" hidden><select class="explainer-tutor-select" aria-label="Assistent"><option value="Claude">Claude</option><option value="ChatGPT">ChatGPT</option><option value="Mistral Vibe" data-hint="Mistral Vibe lädt keine Webseiten, wenn der Link aus einem Knopf kommt. Darum kopieren wir den Satz mit dem Link für dich. Ein Klick auf „Mit Mistral Vibe lernen“ öffnet Mistral Vibe mit einer kurzen Nachricht. Füg danach den kopierten Satz ein (Strg+V, am Mac ⌘+V) und schick ihn ab.">Mistral Vibe</option><option value="copy">Ein anderer: Text kopieren</option></select> <button type="button" class="explainer-tutor-on">Einschalten</button></span> <span class="explainer-tutor-plain"><a class="explainer-tutor-provider" href="https://claude.ai/new" rel="noopener" target="_blank">Mit Claude öffnen</a> <a class="explainer-tutor-provider" href="https://chatgpt.com/" rel="noopener" target="_blank">Mit ChatGPT öffnen</a> <a class="explainer-tutor-provider" href="https://chat.mistral.ai/chat" rel="noopener" target="_blank">Mit Mistral Vibe öffnen</a></span></p>
+<p class="explainer-tutor-hint" role="status" aria-live="polite" hidden></p>
+<p class="explainer-tutor-note">Du nutzt dein eigenes Konto beim Anbieter. Der Assistent ist kein Angebot von lernapps.net: lernapps liefert nur Inhalte und Aufgaben. Die Wahl gilt für alle Seiten, nur auf diesem Gerät.</p>
+<p><a class="explainer-tutor-guide" href="../../netz/ip-dns/tutor/">Ansehen, was dein Tutor zu dieser Seite bekommt</a></p>
+</details>
+<p class="explainer-tutor-bar" hidden><button type="button" class="explainer-tutor-go"></button></p>
+<p class="explainer-tutor-status" role="status" aria-live="polite"></p>
+<script type="application/json" class="explainer-tutor-prompt">{"start":"Lade ⟦base⟧netz/ip-dns/tutor/⟦query⟧ und sei mein Tutor.","base":"⟦base⟧","query":"⟦query⟧","root":"../../","storage":"informatik-internet","page":{"id":"ip-dns","title":"IP-Adresse und DNS","exercises":[{"id":"umschlag","section":"einstieg","numbered":false},{"id":"gueltige-adresse","section":"uebung","numbered":true},{"id":"dns-nachschlagen","section":"uebung","numbered":true},{"id":"dns-schritte","section":"uebung","numbered":false},{"id":"dns-faellt-aus","section":"uebung","numbered":false}],"sections":["einstieg","idee","beispiel","uebung"]},"tutor":"netz/ip-dns/tutor/","markdown":"netz/ip-dns/tutor/index.md","ways":[{"name":"Claude","url":"https://claude.ai/new?q={prompt}"},{"name":"ChatGPT","url":"https://chatgpt.com/?q={prompt}"},{"name":"Mistral Vibe","url":"https://chat.mistral.ai/chat?q={prompt}","paste":true}],"placeholder":"Ich brauche Hilfe bei einer Lern-Einheit. Ich schreibe Dir gleich, worum es geht.","go":"Mit {name} lernen","done":"✓ Kopiert – jetzt in {name} einfügen","copy":"Text kopieren","copied":"Der Prompt ist kopiert. Füg ihn in den Chat deines KI-Assistenten ein.","failed":"Kopieren ging nicht. Versuch es noch einmal."}</script>
+</div>
+</div>
+
+<nav class="explainer-toc" aria-label="Auf dieser Seite"><p class="explainer-toc-title">Auf dieser Seite</p><ol><li><a href="#einstieg">Was steht auf dem Umschlag?</a></li><li><a href="#idee">Ausprobieren: erst nachschlagen, dann schicken</a></li><li><a href="#beispiel">Zum Mitmachen ohne Computer: das Briefumschlag-Spiel</a></li><li><a href="#uebung">Üben mit Adressen</a></li></ol></nav>
+<section class="explainer-section">
+<h2 id="einstieg">Was steht auf dem Umschlag?</h2>
+<div class="explainer-block" data-block="einstieg/1" data-block-id="7df36db3" data-block-type="text" data-block-order="1">
+<div class="block-text"><p><strong>Jona:</strong> Ich schreibe für den Projekttag „www.schule.example“ auf einen Umschlag.</p>
+<p><strong>Selin:</strong> Router lesen aber keine Namen. Die brauchen Zahlen!</p>
+<p>Auf der Seite davor hast du gesehen: Bens Handy fragt, der Webserver antwortet. Auf dieser Seite lernst du,
+wie die beiden sich mit Adressen finden.</p></div>
+</div>
+<div class="explainer-block" data-block="einstieg/2" data-block-id="7c390d35" data-block-type="multiple-choice" data-block-order="2">
+<div class="explainer-exercise explainer-question" id="umschlag">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="question" id="frage-umschlag" data-id="umschlag" data-type="multiple-choice">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Bens Handy schickt ein Päckchen und will eine Antwort. Was muss darauf stehen? Wähle alles, was stimmt.</legend>
+<label class="question-option"><input type="checkbox" name="frage-umschlag" value="0"> <span>die Adresse des Empfängers</span></label>
+<label class="question-option"><input type="checkbox" name="frage-umschlag" value="1"> <span>die Adresse des Absenders</span></label>
+<label class="question-option"><input type="checkbox" name="frage-umschlag" value="2"> <span>der Name des Browsers</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>die Adresse des Empfängers</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Ohne sie wissen die Router nicht, wohin das Päckchen soll.</p></li>
+<li class="question-info question-info-right" data-option="1"><p class="question-info-head"><strong>die Adresse des Absenders</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Die Antwort muss zurückfinden. Dafür braucht sie die Adresse von Bens Handy.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>der Name des Browsers</strong></p><p>Welcher Browser fragt, hilft den Routern nicht beim Weiterreichen.</p></li>
+</ul>
+<p class="question-explanation">Wie bei einem Brief stehen Empfänger und Absender auf dem Päckchen. Im Netz sind das Zahlen.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Lösung</summary>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>die Adresse des Empfängers</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Ohne sie wissen die Router nicht, wohin das Päckchen soll.</p></li>
+<li class="question-info question-info-right" data-option="1"><p class="question-info-head"><strong>die Adresse des Absenders</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Die Antwort muss zurückfinden. Dafür braucht sie die Adresse von Bens Handy.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>der Name des Browsers</strong></p><p>Welcher Browser fragt, hilft den Routern nicht beim Weiterreichen.</p></li>
+</ul>
+<p class="question-explanation">Wie bei einem Brief stehen Empfänger und Absender auf dem Päckchen. Im Netz sind das Zahlen.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"de","question":{"id":"umschlag","text":"Bens Handy schickt ein Päckchen und will eine Antwort. Was muss darauf stehen? Wähle alles, was stimmt.","explanation":"Wie bei einem Brief stehen Empfänger und Absender auf dem Päckchen. Im Netz sind das Zahlen.","links":[],"type":"multiple-choice","options":[{"text":"die Adresse des Empfängers","correct":true,"info":"Ohne sie wissen die Router nicht, wohin das Päckchen soll."},{"text":"die Adresse des Absenders","correct":true,"info":"Die Antwort muss zurückfinden. Dafür braucht sie die Adresse von Bens Handy."},{"text":"der Name des Browsers","correct":false,"info":"Welcher Browser fragt, hilft den Routern nicht beim Weiterreichen."}]},"rendered":{}}</script>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="idee">Ausprobieren: erst nachschlagen, dann schicken</h2>
+<div class="explainer-block" data-block="idee/1" data-block-id="50699e0a" data-block-type="definition" data-block-order="3">
+<dl class="explainer-definition"><dt><dfn id="begriff-ip-adresse"><a href="../../glossar/#ip-adresse">IP-Adresse</a></dfn></dt><dd><p>Die Nummer eines Geräts im Netz, zum Beispiel 192.0.2.17. Sie besteht aus vier Zahlen von 0 bis 255, getrennt durch Punkte.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/2" data-block-id="72c4507c" data-block-type="text" data-block-order="4">
+<div class="block-text"><p><strong>Jedes Gerät im Netz braucht eine Adresse.</strong> Menschen merken sich aber lieber Namen wie
+<a href="http://www.schule.example" rel="noopener">www.schule.example</a>. Darum gibt es das <strong>DNS</strong>: ein Telefonbuch, das Namen in IP-Adressen übersetzt. Der
+lila DNS-Server schlägt nach. Drück <strong>Nächster Schritt</strong>.</p></div>
+</div>
+<div class="explainer-block" data-block="idee/3" data-block-id="fbe0b5ea" data-block-type="vue-component" data-block-order="5">
+<div class="explainer-component" data-component="NetzSimulator">
+<div class="explainer-island" hidden><div class="netz-simulator" data-v-3809a295><p class="netz-titel" data-v-3809a295>Karte 6: Name nachschlagen, dann schicken</p><svg class="netz-karte" viewbox="0 -16 100 74" role="img" aria-label="Karte 6: Bens Handy mit 192.0.2.25 über Bens Router an Router 1. An Router 1 hängen der DNS-Server 203.0.113.53 und der Router der Schule mit dem Webserver 198.51.100.7." data-v-3809a295 data-v-91d279a5><!--[--><!--]--><!--[--><line x1="12" y1="36" x2="34" y2="36" class="netz-kabel" data-v-91d279a5></line><line x1="34" y1="36" x2="56" y2="36" class="netz-kabel" data-v-91d279a5></line><line x1="56" y1="36" x2="40" y2="4" class="netz-kabel" data-v-91d279a5></line><line x1="56" y1="36" x2="80" y2="36" class="netz-kabel" data-v-91d279a5></line><line x1="80" y1="36" x2="80" y2="4" class="netz-kabel" data-v-91d279a5></line><!--]--><!--[--><g transform="translate(12 36)" class="netz-geraet" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-6" y="-4" width="12" height="8" rx="1.5" class="netz-form" data-v-91d279a5></rect><rect x="-4.5" y="-2.7" width="9" height="5.4" rx="0.6" class="netz-innen" data-v-91d279a5></rect></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Bens</text><text y="14.6" class="netz-name" data-v-91d279a5>Handy</text><!--]--><text y="19" class="netz-adresse" data-v-91d279a5>192.0.2.25</text></g><g transform="translate(34 36)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router</text><text y="14.6" class="netz-name" data-v-91d279a5>Ben</text><!--]--><!----></g><g transform="translate(56 36)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router 1</text><!--]--><!----></g><g transform="translate(80 36)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router</text><text y="14.6" class="netz-name" data-v-91d279a5>Schule</text><!--]--><!----></g><g transform="translate(40 4)" class="netz-dns" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-4.5" y="-5" width="9" height="10" rx="0.8" class="netz-form" data-v-91d279a5></rect><path d="M-2.6 -5v10M-1 -2.5h3.6M-1 0h3.6M-1 2.5h3.6" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="-11" class="netz-name" data-v-91d279a5>DNS-Server</text><!--]--><text y="-6.6" class="netz-adresse" data-v-91d279a5>203.0.113.53</text></g><g transform="translate(80 4)" class="netz-server" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-3.8" y="-5.5" width="7.6" height="11" rx="0.8" class="netz-form" data-v-91d279a5></rect><path d="M-2.4 -2.8h4.8M-2.4 0h4.8M-2.4 2.8h4.8" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="-11" class="netz-name" data-v-91d279a5>Webserver</text><!--]--><text y="-6.6" class="netz-adresse" data-v-91d279a5>198.51.100.7</text></g><!--]--><g class="netz-paeckchen" style="transform:translate(16.5px, 28.5px);" aria-hidden="true" data-v-91d279a5><rect x="0" y="0" width="7.4" height="5" rx="0.5" data-v-91d279a5></rect><path d="M0.3 0.4l3.4 2.6l3.4 -2.6" data-v-91d279a5></path></g></svg><p class="netz-simulator-paeckchen" data-v-3809a295><span aria-hidden="true" data-v-3809a295>✉</span> Auf dem Päckchen steht: <strong data-v-3809a295>an 203.0.113.53, von 192.0.2.25: Frage nach www.schule.example</strong></p><p class="netz-simulator-knoepfe" data-v-3809a295><button type="button" data-v-3809a295>Nächster Schritt</button><button type="button" disabled data-v-3809a295>Von vorn</button></p><ol class="netz-simulator-liste" aria-live="polite" data-v-3809a295><!--[--><!--]--></ol><p class="netz-simulator-stand" data-v-3809a295>Bens Handy kennt nur den Namen www.schule.example. Drück auf „Nächster Schritt“.</p></div></div>
+<div class="explainer-nojs"><p>Karte 6: Bens Handy (192.0.2.25) ist über Bens Router mit Router 1 verbunden. An Router 1 hängen der
+DNS-Server (203.0.113.53) und der Router der Schule mit dem Webserver (198.51.100.7).</p>
+<ol>
+<li>Bens Handy fragt den DNS-Server: Welche IP-Adresse hat <a href="http://www.schule.example" rel="noopener">www.schule.example</a>?</li>
+<li>Die Router reichen die Frage weiter.</li>
+<li>Der DNS-Server schlägt den Namen nach und findet 198.51.100.7.</li>
+<li>Er schickt die Antwort an die Absender-Adresse 192.0.2.25 zurück.</li>
+<li>Die Router reichen die Antwort zurück …</li>
+<li>… und Bens Handy kennt jetzt die Adresse des Webservers.</li>
+<li>Jetzt schickt Bens Handy die Anfrage nach der Ausflugsseite an 198.51.100.7.</li>
+<li>Die Router lesen die Zahl und reichen weiter …</li>
+<li>… bis ins Netz der Schule.</li>
+<li>Die Anfrage kommt beim Webserver an.</li>
+</ol></div>
+<script type="application/json" class="explainer-component-props">{"title":"Karte 6: Name nachschlagen, dann schicken","label":"Karte 6: Bens Handy mit 192.0.2.25 über Bens Router an Router 1. An Router 1 hängen der DNS-Server 203.0.113.53 und der Router der Schule mit dem Webserver 198.51.100.7.","stations":[{"id":"ben","kind":"geraet","name":"Bens Handy","address":"192.0.2.25","x":12,"y":32},{"id":"rb","kind":"router","name":"Router Ben","x":34,"y":32},{"id":"r1","kind":"router","name":"Router 1","x":56,"y":32},{"id":"rs","kind":"router","name":"Router Schule","x":80,"y":32},{"id":"dns","kind":"dns","name":"DNS-Server","address":"203.0.113.53","x":40,"y":0,"above":true},{"id":"web","kind":"server","name":"Webserver","address":"198.51.100.7","x":80,"y":0,"above":true}],"cables":[{"from":"ben","to":"rb"},{"from":"rb","to":"r1"},{"from":"r1","to":"dns"},{"from":"r1","to":"rs"},{"from":"rs","to":"web"}],"steps":[{"from":"ben","to":"rb","text":"Bens Handy fragt den DNS-Server: Welche IP-Adresse hat www.schule.example?","packet":"an 203.0.113.53, von 192.0.2.25: Frage nach www.schule.example"},{"from":"rb","to":"r1","text":"Die Router reichen die Frage weiter."},{"from":"r1","to":"dns","text":"Der DNS-Server schlägt den Namen nach und findet 198.51.100.7."},{"from":"dns","to":"r1","text":"Er schickt die Antwort an die Absender-Adresse 192.0.2.25 zurück.","packet":"an 192.0.2.25: www.schule.example hat 198.51.100.7"},{"from":"r1","to":"rb","text":"Die Router reichen die Antwort zurück …"},{"from":"rb","to":"ben","text":"… und Bens Handy kennt jetzt die Adresse des Webservers."},{"from":"ben","to":"rb","text":"Jetzt schickt Bens Handy die Anfrage nach der Ausflugsseite an 198.51.100.7.","packet":"an 198.51.100.7, von 192.0.2.25: Anfrage"},{"from":"rb","to":"r1","text":"Die Router lesen die Zahl und reichen weiter …"},{"from":"r1","to":"rs","text":"… bis ins Netz der Schule."},{"from":"rs","to":"web","text":"Die Anfrage kommt beim Webserver an."}],"next":"Nächster Schritt","restart":"Von vorn","ready":"Bens Handy kennt nur den Namen www.schule.example. Drück auf „Nächster Schritt“.","arrived":"Angekommen beim Webserver.","packetLabel":"Auf dem Päckchen steht:"}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="idee/4" data-block-id="ee22f642" data-block-type="definition" data-block-order="6">
+<dl class="explainer-definition"><dt><dfn id="begriff-dns"><a href="../../glossar/#dns">DNS</a></dfn></dt><dd><p>Das Telefonbuch des Internets (englisch Domain Name System). DNS-Server übersetzen Namen wie <a href="http://www.schule.example" rel="noopener">www.schule.example</a> in IP-Adressen.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/5" data-block-id="3e94b6c0" data-block-type="note" data-block-order="7">
+<div class="explainer-box explainer-note">
+<h3 class="explainer-box-title">Merke</h3>
+<div class="explainer-block" data-block="idee/5/1" data-block-id="57cd5e6d" data-block-type="text" data-block-order="8">
+<div class="block-text"><p>Router lesen <strong>nur Zahlen</strong>, keine Namen. Darum schlägt das Gerät den Namen zuerst beim DNS nach. Anders
+als beim Telefonbuch geschieht das von selbst, in Bruchteilen einer Sekunde.</p></div>
+</div>
+</div>
+</div>
+<div class="explainer-block" data-block="idee/6" data-block-id="aad6c8dd" data-block-type="note" data-block-order="9">
+<div class="explainer-box explainer-note">
+<h3 class="explainer-box-title">Für Neugierige</h3>
+<div class="explainer-block" data-block="idee/6/1" data-block-id="0aab43c6" data-block-type="text" data-block-order="10">
+<div class="block-text"><p>Zu Hause gibt der Router den Geräten Adressen, die nur im Heimnetz gelten, und hat selbst eine fürs
+Internet. Neuere IP-Adressen (IPv6) sind viel länger. In den Karten zeigen wir vereinfacht eine Adresse pro Gerät. Die Adressen und Namen hier sind
+<a href="https://www.rfc-editor.org/rfc/rfc5737" rel="noopener">Beispiel-Adressen</a> und
+<a href="https://www.rfc-editor.org/rfc/rfc2606" rel="noopener">Beispiel-Namen</a>: „.example“ gibt es absichtlich nicht.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="beispiel">Zum Mitmachen ohne Computer: das Briefumschlag-Spiel</h2>
+<div class="explainer-block" data-block="beispiel/1" data-block-id="e6ba580c" data-block-type="note" data-block-order="11">
+<div class="explainer-box explainer-note">
+<h3 class="explainer-box-title">So spielt ihr es</h3>
+<div class="explainer-block" data-block="beispiel/1/1" data-block-id="70ff035a" data-block-type="text" data-block-order="12">
+<div class="block-text"><ol>
+<li>Jedes Kind bekommt eine Karte mit einer IP-Adresse, zum Beispiel 192.0.2.5. Drei Kinder sind Router.</li>
+<li>Ein Kind ist das DNS. Es hat eine Liste: Name → IP-Adresse.</li>
+<li>Wer schreiben will, kennt nur einen Namen. Er fragt das DNS nach der Nummer.</li>
+<li>Auf den Umschlag kommen „an“ und „von“, beides als IP-Adresse. Die Router geben ihn weiter.</li>
+<li>Die Antwort geht an die Absender-Adresse zurück.</li>
+</ol></div>
+</div>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="uebung">Üben mit Adressen</h2>
+<div class="explainer-block" data-block="uebung/1" data-block-id="507d649b" data-block-type="generated" data-block-order="13">
+<div class="explainer-exercise explainer-generated" id="gueltige-adresse">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="explainer-live" hidden></div>
+<p class="explainer-worked-intro">Drei Beispielaufgaben, jede mit ihrer Lösung:</p>
+<ol class="explainer-worked"><li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 1</p><p class="explainer-task">Kann <strong>192.0.2.17.4</strong> eine IP-Adresse sein? Eine IP-Adresse hat vier Zahlen von 0 bis 255.</p><div class="explainer-worked-entries"><ul><li>ja</li><li>nein</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Es müssen genau vier Zahlen sein, keine größer als 255.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>Hier stehen fünf Zahlen. Eine IP-Adresse hat genau vier. Antwort: nein.</li></ol><p><strong>Richtige Antwort:</strong> nein</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 2</p><p class="explainer-task">Kann <strong>192.0.2.256</strong> eine IP-Adresse sein? Eine IP-Adresse hat vier Zahlen von 0 bis 255.</p><div class="explainer-worked-entries"><ul><li>ja</li><li>nein</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Es müssen genau vier Zahlen sein, keine größer als 255.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>256 ist größer als 255. Jede der vier Zahlen darf höchstens 255 sein. Antwort: nein.</li></ol><p><strong>Richtige Antwort:</strong> nein</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 3</p><p class="explainer-task">Kann <strong>198.51.100</strong> eine IP-Adresse sein? Eine IP-Adresse hat vier Zahlen von 0 bis 255.</p><div class="explainer-worked-entries"><ul><li>ja</li><li>nein</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Es müssen genau vier Zahlen sein, keine größer als 255.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>Hier stehen nur drei Zahlen. Eine IP-Adresse hat vier. Antwort: nein.</li></ol><p><strong>Richtige Antwort:</strong> nein</p></details></li></ol>
+<script type="application/json" class="explainer-exercise-data">{"kind":"generated","lang":"de","spec":{"type":"generated","id":"gueltige-adresse","given":{"e":{"pick":1,"from":{"data":"adressen"}}},"task":{"text":{"de":"Kann **{{e.adresse}}** eine IP-Adresse sein? Eine IP-Adresse hat vier Zahlen von 0 bis 255.","en":"Can **{{e.adresse}}** be an IP address? An IP address has four numbers from 0 to 255."}},"answer":{"value":"e.antwort","compare":{"choice":[{"de":"ja","en":"yes"},{"de":"nein","en":"no"}]}},"mistakes":[{"value":"e.gegenteil","message":{"de":"Zähl die Zahlen zwischen den Punkten, und prüf jede einzeln.","en":"Count the numbers between the dots, and check each one."}}],"hint":{"de":"Es müssen genau vier Zahlen sein, keine größer als 255.","en":"There must be exactly four numbers, none bigger than 255."},"steps":[{"de":"{{e.grund}} Antwort: {{answer}}.","en":"{{e.grund}} Answer: {{answer}}."}]},"templates":{"de":{"task":"Kann \u003cstrong>⟦e.adresse⟧\u003c/strong> eine IP-Adresse sein? Eine IP-Adresse hat vier Zahlen von 0 bis 255.","steps":["⟦e.grund⟧ Antwort: ⟦answer⟧."],"hint":"Es müssen genau vier Zahlen sein, keine größer als 255.","messages":["Zähl die Zahlen zwischen den Punkten, und prüf jede einzeln."]}},"data":{"adressen":[{"adresse":"192.0.2.17","antwort":{"de":"ja","en":"yes"},"gegenteil":{"de":"nein","en":"no"},"grund":{"de":"Vier Zahlen, alle zwischen 0 und 255, durch Punkte getrennt.","en":"Four numbers, all between 0 and 255, separated by dots."}},{"adresse":"198.51.100.7","antwort":{"de":"ja","en":"yes"},"gegenteil":{"de":"nein","en":"no"},"grund":{"de":"Vier Zahlen, alle zwischen 0 und 255. Dass sie verschieden lang sind, ist egal.","en":"Four numbers, all between 0 and 255. It does not matter that they have different lengths."}},{"adresse":"203.0.113.53","antwort":{"de":"ja","en":"yes"},"gegenteil":{"de":"nein","en":"no"},"grund":{"de":"Vier Zahlen von 0 bis 255. Auch die 0 ist erlaubt.","en":"Four numbers from 0 to 255. Even 0 is allowed."}},{"adresse":"192.0.2.255","antwort":{"de":"ja","en":"yes"},"gegenteil":{"de":"nein","en":"no"},"grund":{"de":"255 ist die größte erlaubte Zahl, also noch in Ordnung.","en":"255 is the biggest number allowed, so it is still fine."}},{"adresse":"192.0.2.256","antwort":{"de":"nein","en":"no"},"gegenteil":{"de":"ja","en":"yes"},"grund":{"de":"256 ist größer als 255. Jede der vier Zahlen darf höchstens 255 sein.","en":"256 is bigger than 255. Each of the four numbers may be 255 at most."}},{"adresse":"198.51.300.7","antwort":{"de":"nein","en":"no"},"gegenteil":{"de":"ja","en":"yes"},"grund":{"de":"300 ist größer als 255. Das passt nicht in eine IP-Adresse.","en":"300 is bigger than 255. That does not fit in an IP address."}},{"adresse":"198.51.100","antwort":{"de":"nein","en":"no"},"gegenteil":{"de":"ja","en":"yes"},"grund":{"de":"Hier stehen nur drei Zahlen. Eine IP-Adresse hat vier.","en":"There are only three numbers here. An IP address has four."}},{"adresse":"192.0.2.17.4","antwort":{"de":"nein","en":"no"},"gegenteil":{"de":"ja","en":"yes"},"grund":{"de":"Hier stehen fünf Zahlen. Eine IP-Adresse hat genau vier.","en":"There are five numbers here. An IP address has exactly four."}},{"adresse":"203.0.113.5a","antwort":{"de":"nein","en":"no"},"gegenteil":{"de":"ja","en":"yes"},"grund":{"de":"„5a“ ist keine Zahl. In einer IP-Adresse stehen nur Ziffern und Punkte.","en":"“5a” is not a number. An IP address has only digits and dots."}}]},"seeds":[1,2,3,4,6,7,10,19,20],"texts":{"newTask":"Neue Aufgabe","practice":"Übe selbst, mit immer neuen Aufgaben:","hint":"Tipp","solution":"Lösung","taskNumber":"Aufgabe Nr. {n}"}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/2" data-block-id="51917ff4" data-block-type="generated" data-block-order="14">
+<div class="explainer-exercise explainer-generated" id="dns-nachschlagen">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="explainer-live" hidden></div>
+<p class="explainer-worked-intro">Drei Beispielaufgaben, jede mit ihrer Lösung:</p>
+<ol class="explainer-worked"><li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 1</p><p class="explainer-task">Das Telefonbuch des DNS: <a href="http://www.schule.example" rel="noopener">www.schule.example</a> → 198.51.100.7, mail.schule.example → 198.51.100.25, spiele.example → 203.0.113.80, wetter.example → 203.0.113.9, museum.example → 198.51.100.44. An welche IP-Adresse schickt Lea ihre Anfrage für <strong>wetter.example</strong>?</p><div class="explainer-worked-entries"><ul><li>198.51.100.7</li><li>198.51.100.25</li><li>203.0.113.80</li><li>203.0.113.9</li><li>198.51.100.44</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Such den Namen links, die Adresse steht rechts daneben.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>Im Telefonbuch steht wetter.example → 203.0.113.9.</li></ol><p><strong>Richtige Antwort:</strong> 203.0.113.9</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 2</p><p class="explainer-task">Das Telefonbuch des DNS: <a href="http://www.schule.example" rel="noopener">www.schule.example</a> → 198.51.100.7, mail.schule.example → 198.51.100.25, spiele.example → 203.0.113.80, wetter.example → 203.0.113.9, museum.example → 198.51.100.44. An welche IP-Adresse schickt Lea ihre Anfrage für <strong>www.schule.example</strong>?</p><div class="explainer-worked-entries"><ul><li>198.51.100.7</li><li>198.51.100.25</li><li>203.0.113.80</li><li>203.0.113.9</li><li>198.51.100.44</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Such den Namen links, die Adresse steht rechts daneben.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>Im Telefonbuch steht www.schule.example → 198.51.100.7.</li></ol><p><strong>Richtige Antwort:</strong> 198.51.100.7</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 3</p><p class="explainer-task">Das Telefonbuch des DNS: <a href="http://www.schule.example" rel="noopener">www.schule.example</a> → 198.51.100.7, mail.schule.example → 198.51.100.25, spiele.example → 203.0.113.80, wetter.example → 203.0.113.9, museum.example → 198.51.100.44. An welche IP-Adresse schickt Lea ihre Anfrage für <strong>museum.example</strong>?</p><div class="explainer-worked-entries"><ul><li>198.51.100.7</li><li>198.51.100.25</li><li>203.0.113.80</li><li>203.0.113.9</li><li>198.51.100.44</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Such den Namen links, die Adresse steht rechts daneben.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>Im Telefonbuch steht museum.example → 198.51.100.44.</li></ol><p><strong>Richtige Antwort:</strong> 198.51.100.44</p></details></li></ol>
+<script type="application/json" class="explainer-exercise-data">{"kind":"generated","lang":"de","spec":{"type":"generated","id":"dns-nachschlagen","given":{"e":{"pick":1,"from":{"data":"dns"}}},"task":{"text":{"de":"Das Telefonbuch des DNS: www.schule.example → 198.51.100.7, mail.schule.example → 198.51.100.25, spiele.example → 203.0.113.80, wetter.example → 203.0.113.9, museum.example → 198.51.100.44. An welche IP-Adresse schickt Lea ihre Anfrage für **{{e.name}}**?","en":"The DNS phone book: www.schule.example → 198.51.100.7, mail.schule.example → 198.51.100.25, spiele.example → 203.0.113.80, wetter.example → 203.0.113.9, museum.example → 198.51.100.44. Which IP address does Lea send her request for **{{e.name}}** to?"}},"answer":{"value":"e.adresse","compare":{"choice":["198.51.100.7","198.51.100.25","203.0.113.80","203.0.113.9","198.51.100.44"]}},"mistakes":[{"value":"e.falsch","message":{"de":"Das ist die Adresse eines anderen Namens. Such den Namen genau, Buchstabe für Buchstabe.","en":"That is the address of another name. Find the name exactly, letter by letter."}}],"hint":{"de":"Such den Namen links, die Adresse steht rechts daneben.","en":"Find the name on the left; the address is next to it on the right."},"steps":[{"de":"Im Telefonbuch steht {{e.name}} → {{answer}}.","en":"The phone book says {{e.name}} → {{answer}}."}]},"templates":{"de":{"task":"Das Telefonbuch des DNS: \u003ca href=\"http://www.schule.example\" rel=\"noopener\">www.schule.example\u003c/a> → 198.51.100.7, mail.schule.example → 198.51.100.25, spiele.example → 203.0.113.80, wetter.example → 203.0.113.9, museum.example → 198.51.100.44. An welche IP-Adresse schickt Lea ihre Anfrage für \u003cstrong>⟦e.name⟧\u003c/strong>?","steps":["Im Telefonbuch steht ⟦e.name⟧ → ⟦answer⟧."],"hint":"Such den Namen links, die Adresse steht rechts daneben.","messages":["Das ist die Adresse eines anderen Namens. Such den Namen genau, Buchstabe für Buchstabe."]}},"data":{"dns":[{"name":"www.schule.example","adresse":"198.51.100.7","falsch":"198.51.100.25"},{"name":"mail.schule.example","adresse":"198.51.100.25","falsch":"198.51.100.7"},{"name":"spiele.example","adresse":"203.0.113.80","falsch":"203.0.113.9"},{"name":"wetter.example","adresse":"203.0.113.9","falsch":"203.0.113.80"},{"name":"museum.example","adresse":"198.51.100.44","falsch":"198.51.100.25"}]},"seeds":[1,2,3,4,9],"texts":{"newTask":"Neue Aufgabe","practice":"Übe selbst, mit immer neuen Aufgaben:","hint":"Tipp","solution":"Lösung","taskNumber":"Aufgabe Nr. {n}"}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/3" data-block-id="71ba50cf" data-block-type="ordering" data-block-order="15">
+<div class="explainer-exercise explainer-question" id="dns-schritte">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="question" id="frage-dns-schritte" data-id="dns-schritte" data-type="ordering">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Selin tippt spiele.example ein. In welcher Reihenfolge passiert das?</legend>
+<p class="question-hint">Gib jedem Eintrag seinen Platz: 1 für den ersten.</p>
+<ul class="question-pairs">
+<li><label><span>Das Tablet fragt den DNS-Server nach der IP-Adresse.</span> <select name="frage-dns-schritte-1" data-item="1"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option></select></label></li>
+<li><label><span>Selins Tablet kennt nur den Namen.</span> <select name="frage-dns-schritte-0" data-item="0"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option></select></label></li>
+<li><label><span>Das Tablet schickt die Anfrage an 203.0.113.80.</span> <select name="frage-dns-schritte-3" data-item="3"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option></select></label></li>
+<li><label><span>Der DNS-Server antwortet mit 203.0.113.80.</span> <select name="frage-dns-schritte-2" data-item="2"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option></select></label></li>
+</ul>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<p><strong>Richtige Antwort:</strong> 1. Selins Tablet kennt nur den Namen., 2. Das Tablet fragt den DNS-Server nach der IP-Adresse., 3. Der DNS-Server antwortet mit 203.0.113.80., 4. Das Tablet schickt die Anfrage an 203.0.113.80.</p>
+<p class="question-explanation">Erst nachschlagen, dann schicken. Router brauchen die Zahl, bevor das Päckchen losgeht.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Lösung</summary>
+<p><strong>Richtige Antwort:</strong> 1. Selins Tablet kennt nur den Namen., 2. Das Tablet fragt den DNS-Server nach der IP-Adresse., 3. Der DNS-Server antwortet mit 203.0.113.80., 4. Das Tablet schickt die Anfrage an 203.0.113.80.</p>
+<p class="question-explanation">Erst nachschlagen, dann schicken. Router brauchen die Zahl, bevor das Päckchen losgeht.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"de","question":{"id":"dns-schritte","text":"Selin tippt spiele.example ein. In welcher Reihenfolge passiert das?","explanation":"Erst nachschlagen, dann schicken. Router brauchen die Zahl, bevor das Päckchen losgeht.","links":[],"type":"ordering","items":["Selins Tablet kennt nur den Namen.","Das Tablet fragt den DNS-Server nach der IP-Adresse.","Der DNS-Server antwortet mit 203.0.113.80.","Das Tablet schickt die Anfrage an 203.0.113.80."]},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/4" data-block-id="7e7c65fe" data-block-type="single-choice" data-block-order="16">
+<div class="explainer-exercise explainer-question" id="dns-faellt-aus">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="question" id="frage-dns-faellt-aus" data-id="dns-faellt-aus" data-type="single-choice">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Ben öffnet die Ausflugsseite zum ersten Mal. Der DNS-Server antwortet heute nicht. Der Webserver der Schule läuft. Ben tippt www.schule.example ein. Was passiert?</legend>
+<label class="question-option"><input type="radio" name="frage-dns-faellt-aus" value="0"> <span>Die Seite lädt nicht.</span></label>
+<label class="question-option"><input type="radio" name="frage-dns-faellt-aus" value="1"> <span>Die Router lesen den Namen selbst.</span></label>
+<label class="question-option"><input type="radio" name="frage-dns-faellt-aus" value="2"> <span>Die Seite kommt, nur langsamer.</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>Die Seite lädt nicht.</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Ohne Antwort vom DNS kennt Bens Handy die IP-Adresse nicht und weiß nicht, wohin es fragen soll.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>Die Router lesen den Namen selbst.</strong></p><p>Router lesen nur IP-Adressen. Mit dem Namen können sie nichts anfangen.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>Die Seite kommt, nur langsamer.</strong></p><p>Ohne Adresse geht gar keine Anfrage los, auch keine langsame.</p></li>
+</ul>
+<p class="question-explanation">Der Name allein reicht nicht. Erst das DNS liefert die Zahl, mit der das Päckchen losgehen kann.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Lösung</summary>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>Die Seite lädt nicht.</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Ohne Antwort vom DNS kennt Bens Handy die IP-Adresse nicht und weiß nicht, wohin es fragen soll.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>Die Router lesen den Namen selbst.</strong></p><p>Router lesen nur IP-Adressen. Mit dem Namen können sie nichts anfangen.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>Die Seite kommt, nur langsamer.</strong></p><p>Ohne Adresse geht gar keine Anfrage los, auch keine langsame.</p></li>
+</ul>
+<p class="question-explanation">Der Name allein reicht nicht. Erst das DNS liefert die Zahl, mit der das Päckchen losgehen kann.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"de","question":{"id":"dns-faellt-aus","text":"Ben öffnet die Ausflugsseite zum ersten Mal. Der DNS-Server antwortet heute nicht. Der Webserver der Schule läuft. Ben tippt www.schule.example ein. Was passiert?","explanation":"Der Name allein reicht nicht. Erst das DNS liefert die Zahl, mit der das Päckchen losgehen kann.","links":[],"type":"single-choice","options":[{"text":"Die Seite lädt nicht.","correct":true,"info":"Ohne Antwort vom DNS kennt Bens Handy die IP-Adresse nicht und weiß nicht, wohin es fragen soll."},{"text":"Die Router lesen den Namen selbst.","correct":false,"info":"Router lesen nur IP-Adressen. Mit dem Namen können sie nichts anfangen."},{"text":"Die Seite kommt, nur langsamer.","correct":false,"info":"Ohne Adresse geht gar keine Anfrage los, auch keine langsame."}]},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/5" data-block-id="a9a1c729" data-block-type="text" data-block-order="17">
+<div class="block-text"><p><strong>Selin:</strong> Also: Router lesen Zahlen, das DNS übersetzt Namen. Unser Umschlag-Spiel kann kommen!</p>
+<p>Geschafft: Du kennst das Netz aus Netzen, Client und Server und die Adressen. Im nächsten Kapitel reist eine
+ganze Webseite zu Ben.</p></div>
+</div>
+</section>
+<p class="explainer-feedback-invite" hidden><span>Fehler gefunden oder eine Idee für diese App?</span> <button type="button" class="explainer-feedback-switch">Feedback zu „Wie das Internet funktioniert“ geben</button></p>
+</main>
+<template class="explainer-feedback-template">
+<aside class="explainer-feedback" aria-labelledby="feedback-titel" hidden>
+<div class="explainer-feedback-head">
+<h2 id="feedback-titel">Feedback</h2>
+<button type="button" class="explainer-feedback-help-open" aria-expanded="false" aria-controls="feedback-hilfe">Hilfe</button>
+<button type="button" class="explainer-feedback-collapse" aria-expanded="true" aria-controls="feedback-inhalt" aria-label="Leiste einklappen" title="Leiste einklappen"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+<button type="button" class="explainer-feedback-expand" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Feedback-Leiste ausklappen</span></button>
+<div class="explainer-feedback-body" id="feedback-inhalt">
+<section class="explainer-feedback-help" id="feedback-hilfe" aria-labelledby="feedback-hilfe-titel" hidden>
+<h3 id="feedback-hilfe-titel">So gibst du Feedback</h3>
+<ol><li>Geh die Seiten durch. Bei jedem Absatz, jeder Abbildung und jeder Aufgabe erscheint „Notiz“.</li><li>Markierst du vorher Text im Block, steht er als Zitat in der Notiz.</li><li>Bist du fertig, wähl „Issue auf GitHub öffnen“. Die App kopiert dabei deine Notizen, und du fügst sie im Issue ein. Dafür brauchst du ein GitHub-Konto.</li></ol>
+<p class="explainer-feedback-privacy">Deine Notizen bleiben nur in diesem Browser, auf diesem Gerät. Die App sendet nichts. Wenn du die Browserdaten löschst, sind die Notizen weg.</p>
+<p><button type="button" class="explainer-feedback-help-done">Verstanden</button></p>
+</section>
+<form class="explainer-feedback-form" hidden>
+<p class="explainer-feedback-new">Neue Notiz zu</p>
+<p class="explainer-feedback-where"></p>
+<blockquote class="explainer-feedback-quote" hidden></blockquote>
+<label for="feedback-text">Deine Notiz</label>
+<textarea id="feedback-text" class="explainer-feedback-text" rows="5" required></textarea>
+<p class="explainer-feedback-buttons"><button type="submit" class="explainer-feedback-save">Speichern</button> <button type="button" class="explainer-feedback-cancel">Abbrechen</button></p>
+</form>
+<p class="explainer-feedback-status" role="status" aria-live="polite"></p>
+<section class="explainer-feedback-notes" aria-labelledby="feedback-notizen">
+<h3 id="feedback-notizen" class="explainer-feedback-count"></h3>
+<p class="explainer-feedback-actions"><button type="button" class="explainer-feedback-copy">Kopieren</button> <a class="explainer-feedback-issue" href="#" target="_blank" rel="noopener">Issue auf GitHub öffnen</a></p>
+<textarea class="explainer-feedback-export" readonly rows="6" aria-label="Text zum Kopieren" hidden></textarea>
+<div class="explainer-feedback-list"></div>
+</section>
+</div>
+<div class="explainer-feedback-foot">
+<button type="button" class="explainer-feedback-delete-all">Alle löschen …</button>
+<span class="explainer-feedback-local">Nur in diesem Browser gespeichert</span>
+<button type="button" class="explainer-feedback-off">Beenden</button>
+</div>
+<script type="application/json" class="explainer-feedback-data">{"storage":"informatik-internet","app":"Wie das Internet funktioniert","root":"../../","repository":"lernapps/informatik-internet","revision":"fd334eb","page":{"title":"IP-Adresse und DNS","order":3}}</script>
+</aside>
+</template>
+<nav class="explainer-pager" aria-label="Weiterblättern"><a rel="prev" href="../../netz/client-server/">Zurück: Client und Server</a><a rel="next" href="../../webseite/das-brauchst-du/">Weiter: Das brauchst du hier</a></nav>
+<footer class="page-footer"><p>Eine Erklär-App auf lernapps.net · <a href="https://lernapps.net/imprint/">Impressum</a> · <a href="https://lernapps.net/privacy/">Datenschutz</a></p></footer>
+  </body>
+</html>

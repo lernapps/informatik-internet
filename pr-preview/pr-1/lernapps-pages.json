@@ -19,6 +19,64 @@
       "competencies": [
         "internet-aufbau"
       ]
+    },
+    {
+      "path": "netz/client-server/",
+      "title": {
+        "de": "Client und Server",
+        "en": "Client and server"
+      },
+      "competencies": [
+        "client-und-server"
+      ]
+    },
+    {
+      "path": "netz/ip-dns/",
+      "title": {
+        "de": "IP-Adresse und DNS",
+        "en": "IP addresses and DNS"
+      },
+      "competencies": [
+        "ip-adresse-und-dns"
+      ]
+    },
+    {
+      "path": "webseite/das-brauchst-du/",
+      "title": {
+        "de": "Das brauchst du hier",
+        "en": "What you need here"
+      },
+      "recap": "informatik/dateipfad"
+    },
+    {
+      "path": "webseite/url/",
+      "title": {
+        "de": "Aufbau einer URL",
+        "en": "How a URL is built"
+      },
+      "competencies": [
+        "url-aufbau"
+      ]
+    },
+    {
+      "path": "webseite/dienste/",
+      "title": {
+        "de": "Internetdienste und Protokolle",
+        "en": "Internet services and protocols"
+      },
+      "competencies": [
+        "internetdienste"
+      ]
+    },
+    {
+      "path": "webseite/abruf/",
+      "title": {
+        "de": "Abruf einer Webseite",
+        "en": "How a web page is loaded"
+      },
+      "competencies": [
+        "webseite-abrufen"
+      ]
     }
   ]
 }

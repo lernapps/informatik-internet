@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" crossorigin src="../../../assets/index-D9mjBk7h.js"></script>
+    <link rel="modulepreload" crossorigin href="../../../assets/tasks-C8F2Wlxx-cG9osHbD.js">
+    <link rel="stylesheet" crossorigin href="../../../assets/index-CtncCkFd.css">
+    <title>Client and server – How the internet works</title>
+    <meta name="description" content="Who asks, who answers: the roles of client and server, with examples." />
+    <meta name="lernapps-archetype" content="explainer" />
+    <link rel="alternate" hreflang="de" href="../../../netz/client-server/" />
+    <link rel="alternate" hreflang="en" href="../../../en/netz/client-server/" />
+    <script type="module" crossorigin src="../../../assets/islands-CvhaeP6S.js"></script>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <header class="page-header"><nav class="page-languages" aria-label="Language"><ul><li><a href="../../../netz/client-server/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../../en/netz/client-server/" hreflang="en" lang="en" aria-current="page">English</a></li></ul></nav></header>
+<nav class="explainer-breadcrumbs" aria-label="You are here"><ol><li><a href="../../../en/">Start</a></li><li><a href="../../../en/netz/">A network of networks</a></li><li aria-current="page">Client and server</li></ol></nav>
+<main class="explainer" id="inhalt-der-seite" data-task-start="first">
+<div class="explainer-title-row">
+<h1>Client and server</h1>
+<div class="explainer-tutor explainer-tutor-page">
+<details class="explainer-tutor-off">
+<summary>Learn with an AI tutor</summary>
+<p>An AI tutor explains this page to you and helps you with the exercises. Choose your assistant:</p>
+<p class="explainer-tutor-actions"><span class="explainer-tutor-way" hidden><select class="explainer-tutor-select" aria-label="Assistant"><option value="Claude">Claude</option><option value="ChatGPT">ChatGPT</option><option value="Mistral Vibe" data-hint="Mistral Vibe does not load web pages when the link comes from a button. So we copy the sentence with the link for you. A click on “Learn with Mistral Vibe” opens Mistral Vibe with a short message. Then paste the copied sentence (Ctrl+V, ⌘+V on a Mac) and send it.">Mistral Vibe</option><option value="copy">Another one: copy the text</option></select> <button type="button" class="explainer-tutor-on">Switch on</button></span> <span class="explainer-tutor-plain"><a class="explainer-tutor-provider" href="https://claude.ai/new" rel="noopener" target="_blank">Open with Claude</a> <a class="explainer-tutor-provider" href="https://chatgpt.com/" rel="noopener" target="_blank">Open with ChatGPT</a> <a class="explainer-tutor-provider" href="https://chat.mistral.ai/chat" rel="noopener" target="_blank">Open with Mistral Vibe</a></span></p>
+<p class="explainer-tutor-hint" role="status" aria-live="polite" hidden></p>
+<p class="explainer-tutor-note">You use your own account with the provider. The assistant is not offered by lernapps.net: lernapps only provides the content and the exercises. The choice holds for all pages, on this device only.</p>
+<p><a class="explainer-tutor-guide" href="../../../en/netz/client-server/tutor/">See what your tutor gets for this page</a></p>
+</details>
+<p class="explainer-tutor-bar" hidden><button type="button" class="explainer-tutor-go"></button></p>
+<p class="explainer-tutor-status" role="status" aria-live="polite"></p>
+<script type="application/json" class="explainer-tutor-prompt">{"start":"Load ⟦base⟧netz/client-server/tutor/⟦query⟧ and be my tutor.","base":"⟦base⟧","query":"⟦query⟧","root":"../../../en/","storage":"informatik-internet","page":{"id":"client-server","title":"Client and server","exercises":[{"id":"wer-fragt","section":"einstieg","numbered":false},{"id":"server-gross","section":"idee","numbered":false},{"id":"client-oder-server","section":"uebung","numbered":true},{"id":"was-tut-ein-server","section":"uebung","numbered":false},{"id":"anfrage-antwort","section":"uebung","numbered":false}],"sections":["einstieg","idee","beispiel","uebung"]},"tutor":"netz/client-server/tutor/","markdown":"netz/client-server/tutor/index.md","ways":[{"name":"Claude","url":"https://claude.ai/new?q={prompt}"},{"name":"ChatGPT","url":"https://chatgpt.com/?q={prompt}"},{"name":"Mistral Vibe","url":"https://chat.mistral.ai/chat?q={prompt}","paste":true}],"placeholder":"I need help with a learning unit. I will tell you in a moment what it is about.","go":"Learn with {name}","done":"✓ Copied – now paste it into {name}","copy":"Copy the text","copied":"The prompt is copied. Paste it into the chat of your AI assistant.","failed":"Copying did not work. Try again."}</script>
+</div>
+</div>
+
+<nav class="explainer-toc" aria-label="On this page"><p class="explainer-toc-title">On this page</p><ol><li><a href="#einstieg">Where is the trip page?</a></li><li><a href="#idee">Try it: request and response</a></li><li><a href="#beispiel">Example: the online game</a></li><li><a href="#uebung">Practise with requests and responses</a></li></ol></nav>
+<section class="explainer-section">
+<h2 id="einstieg">Where is the trip page?</h2>
+<div class="explainer-block" data-block="einstieg/1" data-block-id="9c41142b" data-block-type="text" data-block-order="1">
+<div class="block-text"><p><strong>Lea:</strong> The trip page isn&#39;t on my tablet. So where is it?</p>
+<p><strong>Ms Berg:</strong> On a computer at school. It waits until someone asks for the page.</p>
+<p><strong>Ben:</strong> And then my phone asks?</p>
+<p>On the page before you sent packets through networks. On this page you learn who asks and who answers in a
+network.</p></div>
+</div>
+<div class="explainer-block" data-block="einstieg/2" data-block-id="c6005f6d" data-block-type="single-choice" data-block-order="2">
+<div class="explainer-exercise explainer-question" id="wer-fragt">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="question" id="frage-wer-fragt" data-id="wer-fragt" data-type="single-choice">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Ben wants to see the trip page. Who sends the first message?</legend>
+<label class="question-option"><input type="radio" name="frage-wer-fragt" value="0"> <span>Ben's phone</span></label>
+<label class="question-option"><input type="radio" name="frage-wer-fragt" value="1"> <span>The computer with the page</span></label>
+<label class="question-option"><input type="radio" name="frage-wer-fragt" value="2"> <span>The school router</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>Ben's phone</strong> <span class="question-badge question-badge-right">right answer</span></p><p>Ben wants something, so his phone asks for it first.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>The computer with the page</strong></p><p>The computer with the page does not know that Ben wants it. It waits until someone asks.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>The school router</strong></p><p>A router only passes packets on. It does not ask for anything itself.</p></li>
+</ul>
+<p class="question-explanation">Whoever wants something asks first. Here that is Ben's phone.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Check</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Solution</summary>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>Ben's phone</strong> <span class="question-badge question-badge-right">right answer</span></p><p>Ben wants something, so his phone asks for it first.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>The computer with the page</strong></p><p>The computer with the page does not know that Ben wants it. It waits until someone asks.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>The school router</strong></p><p>A router only passes packets on. It does not ask for anything itself.</p></li>
+</ul>
+<p class="question-explanation">Whoever wants something asks first. Here that is Ben's phone.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"en","question":{"id":"wer-fragt","text":"Ben wants to see the trip page. Who sends the first message?","explanation":"Whoever wants something asks first. Here that is Ben's phone.","links":[],"type":"single-choice","options":[{"text":"Ben's phone","correct":true,"info":"Ben wants something, so his phone asks for it first."},{"text":"The computer with the page","correct":false,"info":"The computer with the page does not know that Ben wants it. It waits until someone asks."},{"text":"The school router","correct":false,"info":"A router only passes packets on. It does not ask for anything itself."}]},"rendered":{}}</script>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="idee">Try it: request and response</h2>
+<div class="explainer-block" data-block="idee/1" data-block-id="0bf4ea2c" data-block-type="text" data-block-order="3">
+<div class="block-text"><p>The orange box is the school&#39;s <strong>web server</strong>, a computer with the trip page. Press <strong>Next step</strong> and watch
+which way the packet travels and what it says.</p></div>
+</div>
+<div class="explainer-block" data-block="idee/2" data-block-id="32835a44" data-block-type="vue-component" data-block-order="4">
+<div class="explainer-component" data-component="NetzSimulator">
+<div class="explainer-island" hidden><div class="netz-simulator" data-v-3809a295><p class="netz-titel" data-v-3809a295>Map 5: Ben&#39;s phone asks the web server</p><svg class="netz-karte" viewbox="0 -6 100 38" role="img" aria-label="Map 5: Ben&#39;s phone, Ben&#39;s router, router 1, the school router and the school&#39;s web server, joined in a row." data-v-3809a295 data-v-91d279a5><!--[--><g class="netz-zone" data-v-91d279a5><rect x="1" y="-5" width="38" height="40" rx="2" data-v-91d279a5></rect><text x="2.2" y="-0.40000000000000036" data-v-91d279a5>Ben&#39;s home</text></g><g class="netz-zone" data-v-91d279a5><rect x="40" y="-5" width="20" height="40" rx="2" data-v-91d279a5></rect><text x="41.2" y="-0.40000000000000036" data-v-91d279a5>Middle</text></g><g class="netz-zone" data-v-91d279a5><rect x="61" y="-5" width="38" height="40" rx="2" data-v-91d279a5></rect><text x="62.2" y="-0.40000000000000036" data-v-91d279a5>School</text></g><!--]--><!--[--><line x1="10" y1="10" x2="30" y2="10" class="netz-kabel" data-v-91d279a5></line><line x1="30" y1="10" x2="50" y2="10" class="netz-kabel" data-v-91d279a5></line><line x1="50" y1="10" x2="70" y2="10" class="netz-kabel" data-v-91d279a5></line><line x1="70" y1="10" x2="88" y2="10" class="netz-kabel" data-v-91d279a5></line><!--]--><!--[--><g transform="translate(10 10)" class="netz-geraet" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-6" y="-4" width="12" height="8" rx="1.5" class="netz-form" data-v-91d279a5></rect><rect x="-4.5" y="-2.7" width="9" height="5.4" rx="0.6" class="netz-innen" data-v-91d279a5></rect></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Ben&#39;s</text><text y="14.6" class="netz-name" data-v-91d279a5>phone</text><!--]--><!----></g><g transform="translate(30 10)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Ben&#39;s</text><text y="14.6" class="netz-name" data-v-91d279a5>router</text><!--]--><!----></g><g transform="translate(50 10)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router 1</text><!--]--><!----></g><g transform="translate(70 10)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>School</text><text y="14.6" class="netz-name" data-v-91d279a5>router</text><!--]--><!----></g><g transform="translate(88 10)" class="netz-server" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-3.8" y="-5.5" width="7.6" height="11" rx="0.8" class="netz-form" data-v-91d279a5></rect><path d="M-2.4 -2.8h4.8M-2.4 0h4.8M-2.4 2.8h4.8" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Web</text><text y="14.6" class="netz-name" data-v-91d279a5>server</text><!--]--><!----></g><!--]--><g class="netz-paeckchen" style="transform:translate(14.5px, 2.5px);" aria-hidden="true" data-v-91d279a5><rect x="0" y="0" width="7.4" height="5" rx="0.5" data-v-91d279a5></rect><path d="M0.3 0.4l3.4 2.6l3.4 -2.6" data-v-91d279a5></path></g></svg><p class="netz-simulator-paeckchen" data-v-3809a295><span aria-hidden="true" data-v-3809a295>✉</span> The packet says: <strong data-v-3809a295>Request: the trip page, please!</strong></p><p class="netz-simulator-knoepfe" data-v-3809a295><button type="button" data-v-3809a295>Next step</button><button type="button" disabled data-v-3809a295>Start again</button></p><ol class="netz-simulator-liste" aria-live="polite" data-v-3809a295><!--[--><!--]--></ol><p class="netz-simulator-stand" data-v-3809a295>The packet is at Ben&#39;s phone. Press “Next step”.</p></div></div>
+<div class="explainer-nojs"><p>Map 5: Ben&#39;s phone, Ben&#39;s router, router 1, the school router and the school&#39;s web server, joined in a row.</p>
+<ol>
+<li>Ben&#39;s phone sends off a request: “The trip page, please!”</li>
+<li>The routers pass the request on …</li>
+<li>… all the way to the school.</li>
+<li>The web server gets the request and looks for the page.</li>
+<li>The web server sends the page back as its response.</li>
+<li>The routers pass the response on …</li>
+<li>… back to Ben.</li>
+<li>Ben&#39;s phone gets the response and shows the page.</li>
+</ol></div>
+<script type="application/json" class="explainer-component-props">{"title":"Map 5: Ben's phone asks the web server","label":"Map 5: Ben's phone, Ben's router, router 1, the school router and the school's web server, joined in a row.","zones":[{"name":"Ben's home","x":1,"y":-5,"w":38,"h":40},{"name":"Middle","x":40,"y":-5,"w":20,"h":40},{"name":"School","x":61,"y":-5,"w":38,"h":40}],"stations":[{"id":"ben","kind":"geraet","name":"Ben's phone","x":10,"y":6},{"id":"rb","kind":"router","name":"Ben's router","x":30,"y":6},{"id":"r1","kind":"router","name":"Router 1","x":50,"y":6},{"id":"rs","kind":"router","name":"School router","x":70,"y":6},{"id":"web","kind":"server","name":"Web server","x":88,"y":6}],"cables":[{"from":"ben","to":"rb"},{"from":"rb","to":"r1"},{"from":"r1","to":"rs"},{"from":"rs","to":"web"}],"steps":[{"from":"ben","to":"rb","text":"Ben's phone sends off a request.","packet":"Request: the trip page, please!"},{"from":"rb","to":"r1","text":"The routers pass the request on …"},{"from":"r1","to":"rs","text":"… all the way to the school."},{"from":"rs","to":"web","text":"The web server gets the request and looks for the page."},{"from":"web","to":"rs","text":"The web server sends the page back as its response.","packet":"Response: the trip page"},{"from":"rs","to":"r1","text":"The routers pass the response on …"},{"from":"r1","to":"rb","text":"… back to Ben."},{"from":"rb","to":"ben","text":"Ben's phone gets the response and shows the page."}],"next":"Next step","restart":"Start again","ready":"The packet is at Ben's phone. Press “Next step”.","arrived":"Done: one request, one response.","packetLabel":"The packet says:"}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="idee/3" data-block-id="3aeb8d73" data-block-type="definition" data-block-order="5">
+<dl class="explainer-definition"><dt><dfn id="begriff-client"><a href="../../../en/glossar/#client">client</a></dfn></dt><dd><p>A program or device that sends a request and waits for the response, for example the browser on Ben&#39;s phone.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/4" data-block-id="3fafc471" data-block-type="definition" data-block-order="6">
+<dl class="explainer-definition"><dt><dfn id="begriff-server"><a href="../../../en/glossar/#server">server</a></dfn></dt><dd><p>A program or computer that waits for requests and sends responses, often to many clients at once.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/5" data-block-id="ac26e52a" data-block-type="definition" data-block-order="7">
+<dl class="explainer-definition"><dt><dfn id="begriff-webserver"><a href="../../../en/glossar/#webserver">web server</a></dfn></dt><dd><p>A server that sends web pages, for example the school&#39;s computer with the trip page.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/6" data-block-id="e15e7529" data-block-type="true-false" data-block-order="8">
+<div class="explainer-exercise explainer-question" id="server-gross">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="question" id="frage-server-gross" data-id="server-gross" data-type="true-false">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">True or false? Tom's laptop cannot be a server because it is too small.</legend>
+<label class="question-option"><input type="radio" name="frage-server-gross" value="true"> <span>True</span></label>
+<label class="question-option"><input type="radio" name="frage-server-gross" value="false"> <span>False</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<p><strong>Right answer:</strong> The statement is false.</p>
+<p class="question-explanation">The statement is not true. If other devices ask Tom's laptop and it answers, it is a server. What counts is the role, not the size.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Check</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Solution</summary>
+<p><strong>Right answer:</strong> The statement is false.</p>
+<p class="question-explanation">The statement is not true. If other devices ask Tom's laptop and it answers, it is a server. What counts is the role, not the size.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"en","question":{"id":"server-gross","text":"True or false? Tom's laptop cannot be a server because it is too small.","explanation":"The statement is not true. If other devices ask Tom's laptop and it answers, it is a server. What counts is the role, not the size.","links":[],"type":"true-false","answer":false},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="idee/7" data-block-id="b8d4ab23" data-block-type="text" data-block-order="9">
+<div class="block-text"><p>Like at the school tuck shop: you order (client), the shop hands it out (server). But the comparison has
+limits: a server is a program on a computer. It often runs day and night and serves many clients at once.</p></div>
+</div>
+<div class="explainer-block" data-block="idee/8" data-block-id="4d3e8670" data-block-type="note" data-block-order="10">
+<div class="explainer-box explainer-note">
+<h3 class="explainer-box-title">Remember</h3>
+<div class="explainer-block" data-block="idee/8/1" data-block-id="5c90d8c2" data-block-type="text" data-block-order="11">
+<div class="block-text"><p>Client and server are <strong>roles</strong>: whoever asks is the client. Whoever answers is the server. It does not
+depend on size. Even a small laptop can be a server.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="beispiel">Example: the online game</h2>
+<div class="explainer-block" data-block="beispiel/1" data-block-id="e2ed0c0b" data-block-type="example" data-block-order="12">
+<div class="explainer-box explainer-example">
+<h3 class="explainer-box-title">Jona's progress</h3>
+<div class="explainer-block" data-block="beispiel/1/1" data-block-id="fa5d6253" data-block-type="text" data-block-order="13">
+<div class="block-text"><ol>
+<li>Jona finishes a level. The game app on his laptop (client) sends a request: “Save my progress.”</li>
+<li>The game server (server) saves it and responds: “Saved.”</li>
+<li>The next day the app asks: “Where was Jona?” The server responds with the level.</li>
+</ol>
+<p>The same game server answers thousands of other players at the same time.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="uebung">Practise with requests and responses</h2>
+<div class="explainer-block" data-block="uebung/1" data-block-id="cc2a17d9" data-block-type="generated" data-block-order="14">
+<div class="explainer-exercise explainer-generated" id="client-oder-server">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="explainer-live" hidden></div>
+<p class="explainer-worked-intro">Three worked tasks, each with its solution:</p>
+<ol class="explainer-worked"><li class="explainer-worked-task"><p class="explainer-task-number">Task no. 1</p><p class="explainer-task">Ben opens the page about the school trip on his phone. What role does <strong>the browser on Ben's phone</strong> have here: client or server?</p><div class="explainer-worked-entries"><ul><li>client</li><li>server</li></ul></div><details class="explainer-hint"><summary>Hint</summary><p>Whoever asks is the client. Whoever answers is the server.</p></details><details class="explainer-solution"><summary>Solution</summary><ol class="explainer-steps"><li>The browser asks for the page and waits for the answer. Answer: client.</li></ol><p><strong>Right answer:</strong> client</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Task no. 2</p><p class="explainer-task">In the classroom Tom shares a quiz from his laptop. The others' tablets fetch the questions from him. What role does <strong>Ali's tablet</strong> have here: client or server?</p><div class="explainer-worked-entries"><ul><li>client</li><li>server</li></ul></div><details class="explainer-hint"><summary>Hint</summary><p>Whoever asks is the client. Whoever answers is the server.</p></details><details class="explainer-solution"><summary>Solution</summary><ol class="explainer-steps"><li>Ali's tablet asks Tom's laptop for the questions. Answer: client.</li></ol><p><strong>Right answer:</strong> client</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Task no. 3</p><p class="explainer-task">In the classroom Tom shares a quiz from his laptop. The others' tablets fetch the questions from him. What role does <strong>Tom's laptop</strong> have here: client or server?</p><div class="explainer-worked-entries"><ul><li>client</li><li>server</li></ul></div><details class="explainer-hint"><summary>Hint</summary><p>Whoever asks is the client. Whoever answers is the server.</p></details><details class="explainer-solution"><summary>Solution</summary><ol class="explainer-steps"><li>The tablets ask, the laptop answers. Even a small laptop can have this role. Answer: server.</li></ol><p><strong>Right answer:</strong> server</p></details></li></ol>
+<script type="application/json" class="explainer-exercise-data">{"kind":"generated","lang":"en","spec":{"type":"generated","id":"client-oder-server","given":{"e":{"pick":1,"from":{"data":"rollen"}}},"task":{"text":{"de":"{{e.fall}} Welche Rolle hat hier **{{e.teil}}**: Client oder Server?","en":"{{e.fall}} What role does **{{e.teil}}** have here: client or server?"}},"answer":{"value":"e.antwort","compare":{"choice":[{"de":"Client","en":"client"},{"de":"Server","en":"server"}]}},"mistakes":[{"value":"e.gegenteil","message":{"de":"Frag dich: Schickt dieser Teil eine Frage los, oder wartet er auf Fragen und antwortet?","en":"Ask yourself: does this part send off a question, or does it wait for questions and answer?"}}],"hint":{"de":"Wer fragt, ist Client. Wer antwortet, ist Server.","en":"Whoever asks is the client. Whoever answers is the server."},"steps":[{"de":"{{e.grund}} Antwort: {{answer}}.","en":"{{e.grund}} Answer: {{answer}}."}]},"templates":{"en":{"task":"⟦e.fall⟧ What role does \u003cstrong>⟦e.teil⟧\u003c/strong> have here: client or server?","steps":["⟦e.grund⟧ Answer: ⟦answer⟧."],"hint":"Whoever asks is the client. Whoever answers is the server.","messages":["Ask yourself: does this part send off a question, or does it wait for questions and answer?"]}},"data":{"rollen":[{"fall":{"de":"Ben öffnet auf seinem Handy die Seite vom Klassenausflug.","en":"Ben opens the page about the school trip on his phone."},"teil":{"de":"der Browser auf Bens Handy","en":"the browser on Ben's phone"},"antwort":{"de":"Client","en":"client"},"gegenteil":{"de":"Server","en":"server"},"grund":{"de":"Der Browser fragt nach der Seite und wartet auf die Antwort.","en":"The browser asks for the page and waits for the answer."}},{"fall":{"de":"Ben öffnet auf seinem Handy die Seite vom Klassenausflug.","en":"Ben opens the page about the school trip on his phone."},"teil":{"de":"der Rechner, der die Seite schickt","en":"the computer that sends the page"},"antwort":{"de":"Server","en":"server"},"gegenteil":{"de":"Client","en":"client"},"grund":{"de":"Er wartet auf Anfragen und schickt die Seite als Antwort zurück.","en":"It waits for requests and sends the page back as its answer."}},{"fall":{"de":"Jona spielt ein Online-Spiel. Sein Spielstand wird gespeichert.","en":"Jona plays an online game. His progress is saved."},"teil":{"de":"der Rechner des Spiels, der alle Spielstände speichert","en":"the game's computer that saves everyone's progress"},"antwort":{"de":"Server","en":"server"},"gegenteil":{"de":"Client","en":"client"},"grund":{"de":"Er nimmt die Spielstände vieler Spieler an und antwortet allen.","en":"It takes the progress of many players and answers all of them."}},{"fall":{"de":"Lea fragt in der Wetter-App, ob es morgen regnet.","en":"Lea asks the weather app whether it will rain tomorrow."},"teil":{"de":"die Wetter-App auf Leas Tablet","en":"the weather app on Lea's tablet"},"antwort":{"de":"Client","en":"client"},"gegenteil":{"de":"Server","en":"server"},"grund":{"de":"Die App schickt eine Frage los und zeigt die Antwort an.","en":"The app sends off a question and shows the answer."}},{"fall":{"de":"Tom verteilt im Klassenraum ein Quiz von seinem Laptop. Die Tablets der anderen holen sich die Fragen bei ihm.","en":"In the classroom Tom shares a quiz from his laptop. The others' tablets fetch the questions from him."},"teil":{"de":"Toms Laptop","en":"Tom's laptop"},"antwort":{"de":"Server","en":"server"},"gegenteil":{"de":"Client","en":"client"},"grund":{"de":"Die Tablets fragen, der Laptop antwortet. Auch ein kleiner Laptop kann diese Rolle haben.","en":"The tablets ask, the laptop answers. Even a small laptop can have this role."}},{"fall":{"de":"Tom verteilt im Klassenraum ein Quiz von seinem Laptop. Die Tablets der anderen holen sich die Fragen bei ihm.","en":"In the classroom Tom shares a quiz from his laptop. The others' tablets fetch the questions from him."},"teil":{"de":"Alis Tablet","en":"Ali's tablet"},"antwort":{"de":"Client","en":"client"},"gegenteil":{"de":"Server","en":"server"},"grund":{"de":"Alis Tablet fragt bei Toms Laptop nach den Fragen.","en":"Ali's tablet asks Tom's laptop for the questions."}}]},"seeds":[1,2,5,6,8,22],"texts":{"newTask":"New task","practice":"Practise yourself, with new tasks each time:","hint":"Hint","solution":"Solution","taskNumber":"Task no. {n}"}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/2" data-block-id="986ed2e5" data-block-type="multiple-choice" data-block-order="15">
+<div class="explainer-exercise explainer-question" id="was-tut-ein-server">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="question" id="frage-was-tut-ein-server" data-id="was-tut-ein-server" data-type="multiple-choice">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">What does a server do? Choose everything that is true.</legend>
+<label class="question-option"><input type="checkbox" name="frage-was-tut-ein-server" value="0"> <span>It waits for requests.</span></label>
+<label class="question-option"><input type="checkbox" name="frage-was-tut-ein-server" value="1"> <span>It answers many clients.</span></label>
+<label class="question-option"><input type="checkbox" name="frage-was-tut-ein-server" value="2"> <span>It asks Ben on its own.</span></label>
+<label class="question-option"><input type="checkbox" name="frage-was-tut-ein-server" value="3"> <span>It is always a giant computer.</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>It waits for requests.</strong> <span class="question-badge question-badge-right">right answer</span></p><p>A server waits, ready, until a client wants something.</p></li>
+<li class="question-info question-info-right" data-option="1"><p class="question-info-head"><strong>It answers many clients.</strong> <span class="question-badge question-badge-right">right answer</span></p><p>A web server sends the same page to many phones and laptops.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>It asks Ben on its own.</strong></p><p>A server does not start. The client asks first.</p></li>
+<li class="question-info" data-option="3"><p class="question-info-head"><strong>It is always a giant computer.</strong></p><p>Server is a role. Even a laptop can be a server if it answers.</p></li>
+</ul>
+<p class="question-explanation">A server waits for requests and answers, often many clients. How big it is does not matter.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Check</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Solution</summary>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>It waits for requests.</strong> <span class="question-badge question-badge-right">right answer</span></p><p>A server waits, ready, until a client wants something.</p></li>
+<li class="question-info question-info-right" data-option="1"><p class="question-info-head"><strong>It answers many clients.</strong> <span class="question-badge question-badge-right">right answer</span></p><p>A web server sends the same page to many phones and laptops.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>It asks Ben on its own.</strong></p><p>A server does not start. The client asks first.</p></li>
+<li class="question-info" data-option="3"><p class="question-info-head"><strong>It is always a giant computer.</strong></p><p>Server is a role. Even a laptop can be a server if it answers.</p></li>
+</ul>
+<p class="question-explanation">A server waits for requests and answers, often many clients. How big it is does not matter.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"en","question":{"id":"was-tut-ein-server","text":"What does a server do? Choose everything that is true.","explanation":"A server waits for requests and answers, often many clients. How big it is does not matter.","links":[],"type":"multiple-choice","options":[{"text":"It waits for requests.","correct":true,"info":"A server waits, ready, until a client wants something."},{"text":"It answers many clients.","correct":true,"info":"A web server sends the same page to many phones and laptops."},{"text":"It asks Ben on its own.","correct":false,"info":"A server does not start. The client asks first."},{"text":"It is always a giant computer.","correct":false,"info":"Server is a role. Even a laptop can be a server if it answers."}]},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/3" data-block-id="128208d2" data-block-type="ordering" data-block-order="16">
+<div class="explainer-exercise explainer-question" id="anfrage-antwort">
+<p class="explainer-exercise-label">Exercise</p>
+<div class="question" id="frage-anfrage-antwort" data-id="anfrage-antwort" data-type="ordering">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">In which order does this happen when Lea wants to look at a page?</legend>
+<p class="question-hint">Give each entry its place: 1 for the first.</p>
+<ul class="question-pairs">
+<li><label><span>Lea's browser sends a request.</span> <select name="frage-anfrage-antwort-0" data-item="0"><option value="">please choose</option><option value="0">Place 1</option><option value="1">Place 2</option><option value="2">Place 3</option><option value="3">Place 4</option></select></label></li>
+<li><label><span>The server sends the page as its response.</span> <select name="frage-anfrage-antwort-2" data-item="2"><option value="">please choose</option><option value="0">Place 1</option><option value="1">Place 2</option><option value="2">Place 3</option><option value="3">Place 4</option></select></label></li>
+<li><label><span>Routers pass the request to the server.</span> <select name="frage-anfrage-antwort-1" data-item="1"><option value="">please choose</option><option value="0">Place 1</option><option value="1">Place 2</option><option value="2">Place 3</option><option value="3">Place 4</option></select></label></li>
+<li><label><span>Lea's browser shows the page.</span> <select name="frage-anfrage-antwort-3" data-item="3"><option value="">please choose</option><option value="0">Place 1</option><option value="1">Place 2</option><option value="2">Place 3</option><option value="3">Place 4</option></select></label></li>
+</ul>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<p><strong>Right answer:</strong> 1. Lea's browser sends a request., 2. Routers pass the request to the server., 3. The server sends the page as its response., 4. Lea's browser shows the page.</p>
+<p class="question-explanation">First the client asks, then the server answers. The routers carry both through the network.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Check</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Solution</summary>
+<p><strong>Right answer:</strong> 1. Lea's browser sends a request., 2. Routers pass the request to the server., 3. The server sends the page as its response., 4. Lea's browser shows the page.</p>
+<p class="question-explanation">First the client asks, then the server answers. The routers carry both through the network.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"en","question":{"id":"anfrage-antwort","text":"In which order does this happen when Lea wants to look at a page?","explanation":"First the client asks, then the server answers. The routers carry both through the network.","links":[],"type":"ordering","items":["Lea's browser sends a request.","Routers pass the request to the server.","The server sends the page as its response.","Lea's browser shows the page."]},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/4" data-block-id="1237ad24" data-block-type="text" data-block-order="17">
+<div class="block-text"><p><strong>Ben:</strong> My phone is the client, the school&#39;s web server answers. Got it!</p>
+<p><strong>Jona:</strong> But how does your phone know where the web server is? It needs an address.</p>
+<p>Next: IP addresses and DNS.</p></div>
+</div>
+</section>
+<p class="explainer-feedback-invite" hidden><span>Found a mistake or have an idea for this app?</span> <button type="button" class="explainer-feedback-switch">Give feedback on “How the internet works”</button></p>
+</main>
+<template class="explainer-feedback-template">
+<aside class="explainer-feedback" aria-labelledby="feedback-titel" hidden>
+<div class="explainer-feedback-head">
+<h2 id="feedback-titel">Feedback</h2>
+<button type="button" class="explainer-feedback-help-open" aria-expanded="false" aria-controls="feedback-hilfe">Help</button>
+<button type="button" class="explainer-feedback-collapse" aria-expanded="true" aria-controls="feedback-inhalt" aria-label="Collapse the bar" title="Collapse the bar"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+<button type="button" class="explainer-feedback-expand" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Expand the feedback bar</span></button>
+<div class="explainer-feedback-body" id="feedback-inhalt">
+<section class="explainer-feedback-help" id="feedback-hilfe" aria-labelledby="feedback-hilfe-titel" hidden>
+<h3 id="feedback-hilfe-titel">How to give feedback</h3>
+<ol><li>Go through the pages. Every paragraph, figure and exercise shows “Note”.</li><li>If you mark text in the block first, the note quotes it.</li><li>When you are done, choose “Open an issue on GitHub”. The app copies your notes, and you paste them into the issue. You need a GitHub account for this.</li></ol>
+<p class="explainer-feedback-privacy">Your notes stay in this browser on this device only. The app sends nothing. If you clear the browser's data, the notes are gone.</p>
+<p><button type="button" class="explainer-feedback-help-done">Got it</button></p>
+</section>
+<form class="explainer-feedback-form" hidden>
+<p class="explainer-feedback-new">New note on</p>
+<p class="explainer-feedback-where"></p>
+<blockquote class="explainer-feedback-quote" hidden></blockquote>
+<label for="feedback-text">Your note</label>
+<textarea id="feedback-text" class="explainer-feedback-text" rows="5" required></textarea>
+<p class="explainer-feedback-buttons"><button type="submit" class="explainer-feedback-save">Save</button> <button type="button" class="explainer-feedback-cancel">Cancel</button></p>
+</form>
+<p class="explainer-feedback-status" role="status" aria-live="polite"></p>
+<section class="explainer-feedback-notes" aria-labelledby="feedback-notizen">
+<h3 id="feedback-notizen" class="explainer-feedback-count"></h3>
+<p class="explainer-feedback-actions"><button type="button" class="explainer-feedback-copy">Copy</button> <a class="explainer-feedback-issue" href="#" target="_blank" rel="noopener">Open an issue on GitHub</a></p>
+<textarea class="explainer-feedback-export" readonly rows="6" aria-label="Text to copy" hidden></textarea>
+<div class="explainer-feedback-list"></div>
+</section>
+</div>
+<div class="explainer-feedback-foot">
+<button type="button" class="explainer-feedback-delete-all">Delete all …</button>
+<span class="explainer-feedback-local">Kept in this browser only</span>
+<button type="button" class="explainer-feedback-off">End</button>
+</div>
+<script type="application/json" class="explainer-feedback-data">{"storage":"informatik-internet","app":"How the internet works","root":"../../../en/","repository":"lernapps/informatik-internet","revision":"fd334eb","page":{"title":"Client and server","order":2}}</script>
+</aside>
+</template>
+<nav class="explainer-pager" aria-label="Page through"><a rel="prev" href="../../../en/netz/aufbau/">Back: How the internet is built</a><a rel="next" href="../../../en/netz/ip-dns/">Next: IP addresses and DNS</a></nav>
+<footer class="page-footer"><p>An explainer on lernapps.net · <a href="https://lernapps.net/imprint/">Imprint</a> · <a href="https://lernapps.net/privacy/">Privacy</a></p></footer>
+  </body>
+</html>

@@ -49,7 +49,7 @@ Das Internet als Netz aus vielen Netzen: Router reichen Päckchen weiter, lokale
 
 **Frau Berg:** Wir bauen es am Projekttag nach. Fangt klein an: mit zwei Geräten.
 
-Auf dieser Seite lernst du, wie das Internet aufgebaut ist. Am Ende legst du selbst einen Weg durch drei
+Auf dieser Seite lernst du, wie das Internet aufgebaut ist. Am Ende legst du selbst einen Weg durch mehrere
 Netze.
 
 - Aufgabe `zwei-geraete` (unten)
@@ -67,7 +67,7 @@ Schick ein Foto zum Drucker:
 
 Interaktiv: Karte 2: das Netz der Schule. Mias Tablet, Jonas Laptop, Leas Tablet und der Drucker hängen am Router der Schule. 1. Mias Tablet schickt das Päckchen zum Router der Schule. 2. Der Router liest, für wen das Päckchen ist, und reicht es über das Kabel zum Drucker weiter.
 
-- **Router**: Ein Gerät, das Päckchen von einem Kabel zum nächsten weiterreicht, bis sie ihr Ziel erreichen. Router verbinden auch Netze miteinander.
+- **Router**: Ein Gerät, das Netze verbindet und Päckchen weiterreicht, bis sie ihr Ziel erreichen. Im Schulnetz verteilt es sie auch an die Geräte.
 
 - **lokales Netz**: Ein Netz an einem Ort, zum Beispiel in der Schule oder in einer Wohnung. Kurz LAN (englisch local area network).
 
@@ -126,7 +126,7 @@ Als Nächstes: Wer fragt, wer antwortet? Client und Server.
 ### Aufgabe weg-legen
 
 - Was zu tun ist: Eine Netzkarte mit Geräten, Routern und Kabeln. Das Kind soll ein Päckchen von einer Station zu einer anderen schicken: Es tippt Station für Station an, vom Start bis zum Ziel, und drückt dann „Prüfen“.
-- Aufgabe: „Schick ein Päckchen von {start} zu {goal}. Der Weg beginnt bei {start}. Tippe dann die nächsten Stationen der Reihe nach an.“
+- Aufgabe: „Start: {start}. Ziel: {goal}. Leg den Weg eines Päckchens: Tippe nach dem Start die nächsten Stationen der Reihe nach an.“
 - Antwortformat: Die angetippten Stationen nach dem Start, der Reihe nach.
 - Was als richtig zählt: Richtig ist jeder Weg, bei dem zwischen zwei Stationen immer ein Kabel liegt, dazwischen nur Router sind, keine Station doppelt vorkommt und der Weg am Ziel endet. Es muss nicht der kürzeste sein.
 - Typische Fehler (die Meldung der App passt zu einem davon):
@@ -181,6 +181,6 @@ Nr. | e.fall | e.grund | Zur Wahl | Lösung | F1
 
 - Aufgabe: Was passiert mit dem Päckchen? Ordne zu.
 - Antwortformat: jedem Eintrag links den passenden rechts zuordnen
-- Lösung: Mia druckt in der Schule. – Es bleibt im lokalen Netz der Schule.; Mia schickt Ben ein Foto nach Hause. – Es reist über Router durch mehrere Netze.; Router 1 fällt aus. – Es nimmt einen anderen Weg.; Es kommt beim Router der Schule an. – Er liest, für wen es ist, und reicht es weiter.
+- Lösung: Mia druckt in der Schule. – Es bleibt im lokalen Netz der Schule.; Mia schickt Ben ein Foto nach Hause. – Es reist über Router durch mehrere Netze.; Router 1 fällt aus. – Es nimmt einen anderen Weg.; Das Päckchen kommt beim Router der Schule an. – Der Router liest, für wen es ist, und reicht es weiter.
 - Erklärung: Im lokalen Netz reicht ein Router. Nach draußen reisen Päckchen über mehrere Router durch mehrere Netze; fällt einer aus, nehmen sie einen anderen Weg. Das Internet ist kein einzelner Computer, der alles speichert.
 - Link: [../?via=tutor#was-passiert](../?via=tutor#was-passiert)

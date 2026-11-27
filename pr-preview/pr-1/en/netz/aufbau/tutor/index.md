@@ -49,7 +49,7 @@ The internet as a network of many networks: routers pass packets on, local and g
 
 **Ms Berg:** We will rebuild it on project day. Start small: with two devices.
 
-On this page you learn how the internet is built. At the end you find a route through three networks
+On this page you learn how the internet is built. At the end you find a route through several networks
 yourself.
 
 - Exercise `zwei-geraete` (below)
@@ -67,7 +67,7 @@ photo to the printer:
 
 Interactive: Map 2: the school network. Mia's tablet, Jona's laptop, Lea's tablet and the printer are joined to the school router. 1. Mia's tablet sends the packet to the school router. 2. The router reads who the packet is for and passes it on along the cable to the printer.
 
-- **router**: A device that passes packets on from one cable to the next until they reach their goal. Routers also join networks to each other.
+- **router**: A device that joins networks and passes packets on until they reach their goal. In the school network it also hands them to the devices.
 
 - **local network**: A network in one place, for example at school or in a home. LAN for short (local area network).
 
@@ -126,7 +126,7 @@ Next: who asks, who answers? Client and server.
 ### Exercise weg-legen
 
 - What to do: A network map with devices, routers and cables. The child sends a packet from one station to another: they tap one station after the other, from the start to the goal, and then press “Check”.
-- Task: „Send a packet from {start} to {goal}. The route starts at {start}. Then tap the next stations one after the other.“
+- Task: „Start: {start}. Goal: {goal}. Lay the route of a packet: after the start, tap the next stations one after the other.“
 - Answer format: The stations tapped after the start, in order.
 - What counts as right: Any way is right where a cable joins each two stations in a row, only routers are in between, no station comes twice and the way ends at the goal. It need not be the shortest.
 - Typical mistakes (the app's message fits one of them):
@@ -181,6 +181,6 @@ No. | e.fall | e.grund | Choices | Solution | F1
 
 - Task: What happens to the packet? Match them up.
 - Answer format: match each item on the left with one on the right
-- Solution: Mia prints at school. – It stays in the school's local network.; Mia sends Ben a photo at home. – It travels through several networks via routers.; Router 1 breaks down. – It takes another route.; It arrives at the school router. – It reads who the packet is for and passes it on.
+- Solution: Mia prints at school. – It stays in the school's local network.; Mia sends Ben a photo at home. – It travels through several networks via routers.; Router 1 breaks down. – It takes another route.; The packet arrives at the school router. – The router reads who it is for and passes it on.
 - Explanation: In a local network one router is enough. To go outside, packets travel through several networks via several routers; if one breaks, they take another route. The internet is not one single computer that stores everything.
 - Link: [../?via=tutor#was-passiert](../?via=tutor#was-passiert)

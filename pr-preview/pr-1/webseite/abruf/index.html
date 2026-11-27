@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" crossorigin src="../../assets/index-D9mjBk7h.js"></script>
+    <link rel="modulepreload" crossorigin href="../../assets/tasks-C8F2Wlxx-cG9osHbD.js">
+    <link rel="stylesheet" crossorigin href="../../assets/index-CtncCkFd.css">
+    <title>Abruf einer Webseite – Wie das Internet funktioniert</title>
+    <meta name="description" content="Schritt für Schritt: was passiert, wenn ein Browser eine Webseite von einem Webserver abruft." />
+    <meta name="lernapps-archetype" content="explainer" />
+    <link rel="alternate" hreflang="de" href="../../webseite/abruf/" />
+    <link rel="alternate" hreflang="en" href="../../en/webseite/abruf/" />
+    <script type="module" crossorigin src="../../assets/islands-CvhaeP6S.js"></script>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <header class="page-header"><nav class="page-languages" aria-label="Sprache"><ul><li><a href="../../webseite/abruf/" hreflang="de" lang="de" aria-current="page">Deutsch</a></li><li><a href="../../en/webseite/abruf/" hreflang="en" lang="en">English</a></li></ul></nav></header>
+<nav class="explainer-breadcrumbs" aria-label="Du bist hier"><ol><li><a href="../../">Start</a></li><li><a href="../../webseite/">Eine Webseite reist zu mir</a></li><li aria-current="page">Abruf einer Webseite</li></ol></nav>
+<main class="explainer" id="inhalt-der-seite" data-task-start="first">
+<div class="explainer-title-row">
+<h1>Abruf einer Webseite</h1>
+<div class="explainer-tutor explainer-tutor-page">
+<details class="explainer-tutor-off">
+<summary>Mit einem KI-Tutor lernen</summary>
+<p>Ein KI-Tutor erklärt dir diese Seite und hilft dir bei den Aufgaben. Wähl deinen Assistenten:</p>
+<p class="explainer-tutor-actions"><span class="explainer-tutor-way" hidden><select class="explainer-tutor-select" aria-label="Assistent"><option value="Claude">Claude</option><option value="ChatGPT">ChatGPT</option><option value="Mistral Vibe" data-hint="Mistral Vibe lädt keine Webseiten, wenn der Link aus einem Knopf kommt. Darum kopieren wir den Satz mit dem Link für dich. Ein Klick auf „Mit Mistral Vibe lernen“ öffnet Mistral Vibe mit einer kurzen Nachricht. Füg danach den kopierten Satz ein (Strg+V, am Mac ⌘+V) und schick ihn ab.">Mistral Vibe</option><option value="copy">Ein anderer: Text kopieren</option></select> <button type="button" class="explainer-tutor-on">Einschalten</button></span> <span class="explainer-tutor-plain"><a class="explainer-tutor-provider" href="https://claude.ai/new" rel="noopener" target="_blank">Mit Claude öffnen</a> <a class="explainer-tutor-provider" href="https://chatgpt.com/" rel="noopener" target="_blank">Mit ChatGPT öffnen</a> <a class="explainer-tutor-provider" href="https://chat.mistral.ai/chat" rel="noopener" target="_blank">Mit Mistral Vibe öffnen</a></span></p>
+<p class="explainer-tutor-hint" role="status" aria-live="polite" hidden></p>
+<p class="explainer-tutor-note">Du nutzt dein eigenes Konto beim Anbieter. Der Assistent ist kein Angebot von lernapps.net: lernapps liefert nur Inhalte und Aufgaben. Die Wahl gilt für alle Seiten, nur auf diesem Gerät.</p>
+<p><a class="explainer-tutor-guide" href="../../webseite/abruf/tutor/">Ansehen, was dein Tutor zu dieser Seite bekommt</a></p>
+</details>
+<p class="explainer-tutor-bar" hidden><button type="button" class="explainer-tutor-go"></button></p>
+<p class="explainer-tutor-status" role="status" aria-live="polite"></p>
+<script type="application/json" class="explainer-tutor-prompt">{"start":"Lade ⟦base⟧webseite/abruf/tutor/⟦query⟧ und sei mein Tutor.","base":"⟦base⟧","query":"⟦query⟧","root":"../../","storage":"informatik-internet","page":{"id":"abruf","title":"Abruf einer Webseite","exercises":[{"id":"was-zuerst","section":"einstieg","numbered":false},{"id":"sechs-schritte","section":"uebung","numbered":false},{"id":"antwort-weg","section":"uebung","numbered":true},{"id":"was-ging-schief","section":"uebung","numbered":true},{"id":"nach-dem-abruf","section":"uebung","numbered":false}],"sections":["einstieg","idee","beispiel","uebung","rueckblick"]},"tutor":"webseite/abruf/tutor/","markdown":"webseite/abruf/tutor/index.md","ways":[{"name":"Claude","url":"https://claude.ai/new?q={prompt}"},{"name":"ChatGPT","url":"https://chatgpt.com/?q={prompt}"},{"name":"Mistral Vibe","url":"https://chat.mistral.ai/chat?q={prompt}","paste":true}],"placeholder":"Ich brauche Hilfe bei einer Lern-Einheit. Ich schreibe Dir gleich, worum es geht.","go":"Mit {name} lernen","done":"✓ Kopiert – jetzt in {name} einfügen","copy":"Text kopieren","copied":"Der Prompt ist kopiert. Füg ihn in den Chat deines KI-Assistenten ein.","failed":"Kopieren ging nicht. Versuch es noch einmal."}</script>
+</div>
+</div>
+
+<nav class="explainer-toc" aria-label="Auf dieser Seite"><p class="explainer-toc-title">Auf dieser Seite</p><ol><li><a href="#einstieg">Ben tippt die URL ein</a></li><li><a href="#idee">Ausprobieren: die ganze Reise</a></li><li><a href="#beispiel">Beispiel: Fehler suchen</a></li><li><a href="#uebung">Üben mit der ganzen Reise</a></li><li><a href="#rueckblick">Rückblick: von zwei Rechnern bis zur ganzen Webseite</a></li></ol></nav>
+<section class="explainer-section">
+<h2 id="einstieg">Ben tippt die URL ein</h2>
+<div class="explainer-block" data-block="einstieg/1" data-block-id="d0e2a9b6" data-block-type="text" data-block-order="1">
+<div class="block-text"><p><strong>Ben:</strong> Ich tippe jetzt <a href="https://www.schule.example/klasse-7b/ausflug.html" rel="noopener">https://www.schule.example/klasse-7b/ausflug.html</a> ein. Was passiert eigentlich alles?</p>
+<p><strong>Frau Berg:</strong> Das spielen wir am Projekttag nach. Ihr kennt schon jedes Teil davon.</p>
+<p>Auf den Seiten davor hast du URL, Dienste, DNS, Client und Server kennengelernt. Auf dieser Seite setzt du
+alles zur ganzen Reise einer Webseite zusammen.</p></div>
+</div>
+<div class="explainer-block" data-block="einstieg/2" data-block-id="12cb35f3" data-block-type="single-choice" data-block-order="2">
+<div class="explainer-exercise explainer-question" id="was-zuerst">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="question" id="frage-was-zuerst" data-id="was-zuerst" data-type="single-choice">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Ben hat die URL eingetippt. Was braucht sein Handy, bevor es die Anfrage an den Webserver losschicken kann?</legend>
+<label class="question-option"><input type="radio" name="frage-was-zuerst" value="0"> <span>die IP-Adresse des Webservers</span></label>
+<label class="question-option"><input type="radio" name="frage-was-zuerst" value="1"> <span>die Seite selbst</span></label>
+<label class="question-option"><input type="radio" name="frage-was-zuerst" value="2"> <span>den Dateipfad auf Bens Handy</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>die IP-Adresse des Webservers</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Router lesen nur Zahlen. Darum fragt das Handy zuerst das DNS nach der Adresse.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>die Seite selbst</strong></p><p>Die Seite kommt erst als Antwort. Vorher muss die Anfrage beim Server ankommen.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>den Dateipfad auf Bens Handy</strong></p><p>Der Pfad in der URL zeigt auf den Webserver, nicht auf Bens Handy.</p></li>
+</ul>
+<p class="question-explanation">Ohne IP-Adresse weiß kein Router, wohin die Anfrage soll. Darum kommt das DNS zuerst.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Lösung</summary>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>die IP-Adresse des Webservers</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Router lesen nur Zahlen. Darum fragt das Handy zuerst das DNS nach der Adresse.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>die Seite selbst</strong></p><p>Die Seite kommt erst als Antwort. Vorher muss die Anfrage beim Server ankommen.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>den Dateipfad auf Bens Handy</strong></p><p>Der Pfad in der URL zeigt auf den Webserver, nicht auf Bens Handy.</p></li>
+</ul>
+<p class="question-explanation">Ohne IP-Adresse weiß kein Router, wohin die Anfrage soll. Darum kommt das DNS zuerst.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"de","question":{"id":"was-zuerst","text":"Ben hat die URL eingetippt. Was braucht sein Handy, bevor es die Anfrage an den Webserver losschicken kann?","explanation":"Ohne IP-Adresse weiß kein Router, wohin die Anfrage soll. Darum kommt das DNS zuerst.","links":[],"type":"single-choice","options":[{"text":"die IP-Adresse des Webservers","correct":true,"info":"Router lesen nur Zahlen. Darum fragt das Handy zuerst das DNS nach der Adresse."},{"text":"die Seite selbst","correct":false,"info":"Die Seite kommt erst als Antwort. Vorher muss die Anfrage beim Server ankommen."},{"text":"den Dateipfad auf Bens Handy","correct":false,"info":"Der Pfad in der URL zeigt auf den Webserver, nicht auf Bens Handy."}]},"rendered":{}}</script>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="idee">Ausprobieren: die ganze Reise</h2>
+<div class="explainer-block" data-block="idee/1" data-block-id="d2dcc436" data-block-type="text" data-block-order="3">
+<div class="block-text"><p>Auf dieser Karte siehst du alles zusammen: Bens Handy, Router, den lila DNS-Server und den orangen Webserver.
+Drück <strong>Nächster Schritt</strong>, bis die Seite bei Ben ist. Achte auf die Schritte 1 bis 6 in der Liste.</p></div>
+</div>
+<div class="explainer-block" data-block="idee/2" data-block-id="4fb99df1" data-block-type="vue-component" data-block-order="4">
+<div class="explainer-component" data-component="NetzSimulator">
+<div class="explainer-island" hidden><div class="netz-simulator" data-v-3809a295><p class="netz-titel" data-v-3809a295>Karte 8: die ganze Reise der Ausflugsseite</p><svg class="netz-karte" viewbox="0 -16 100 82" role="img" aria-label="Karte 8: Bens Handy 192.0.2.25 über Bens Router an Router 1. Daran der DNS-Server 203.0.113.53 und der Router der Schule mit dem Webserver 198.51.100.7." data-v-3809a295 data-v-91d279a5><!--[--><!--]--><!--[--><line x1="12" y1="44" x2="34" y2="44" class="netz-kabel" data-v-91d279a5></line><line x1="34" y1="44" x2="56" y2="44" class="netz-kabel" data-v-91d279a5></line><line x1="56" y1="44" x2="40" y2="6" class="netz-kabel" data-v-91d279a5></line><line x1="56" y1="44" x2="80" y2="44" class="netz-kabel" data-v-91d279a5></line><line x1="80" y1="44" x2="82" y2="6" class="netz-kabel" data-v-91d279a5></line><!--]--><!--[--><g transform="translate(12 44)" class="netz-geraet" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-6" y="-4" width="12" height="8" rx="1.5" class="netz-form" data-v-91d279a5></rect><rect x="-4.5" y="-2.7" width="9" height="5.4" rx="0.6" class="netz-innen" data-v-91d279a5></rect></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Bens</text><text y="14.6" class="netz-name" data-v-91d279a5>Handy</text><!--]--><text y="19" class="netz-adresse" data-v-91d279a5>192.0.2.25</text></g><g transform="translate(34 44)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router</text><text y="14.6" class="netz-name" data-v-91d279a5>Ben</text><!--]--><!----></g><g transform="translate(56 44)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router 1</text><!--]--><!----></g><g transform="translate(40 6)" class="netz-dns" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-4.5" y="-5" width="9" height="10" rx="0.8" class="netz-form" data-v-91d279a5></rect><path d="M-2.6 -5v10M-1 -2.5h3.6M-1 0h3.6M-1 2.5h3.6" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="-11" class="netz-name" data-v-91d279a5>DNS-Server</text><!--]--><text y="-6.6" class="netz-adresse" data-v-91d279a5>203.0.113.53</text></g><g transform="translate(80 44)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router</text><text y="14.6" class="netz-name" data-v-91d279a5>Schule</text><!--]--><!----></g><g transform="translate(82 6)" class="netz-server" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-3.8" y="-5.5" width="7.6" height="11" rx="0.8" class="netz-form" data-v-91d279a5></rect><path d="M-2.4 -2.8h4.8M-2.4 0h4.8M-2.4 2.8h4.8" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="-11" class="netz-name" data-v-91d279a5>Webserver</text><!--]--><text y="-6.6" class="netz-adresse" data-v-91d279a5>198.51.100.7</text></g><!--]--><g class="netz-paeckchen" style="transform:translate(16.5px, 36.5px);" aria-hidden="true" data-v-91d279a5><rect x="0" y="0" width="7.4" height="5" rx="0.5" data-v-91d279a5></rect><path d="M0.3 0.4l3.4 2.6l3.4 -2.6" data-v-91d279a5></path></g></svg><p class="netz-simulator-paeckchen" data-v-3809a295><span aria-hidden="true" data-v-3809a295>✉</span> Auf dem Päckchen steht: <strong data-v-3809a295>an 203.0.113.53, von 192.0.2.25: Frage nach www.schule.example</strong></p><p class="netz-simulator-knoepfe" data-v-3809a295><button type="button" data-v-3809a295>Nächster Schritt</button><button type="button" disabled data-v-3809a295>Von vorn</button></p><ol class="netz-simulator-liste" aria-live="polite" data-v-3809a295><!--[--><!--]--></ol><p class="netz-simulator-stand" data-v-3809a295>Ben hat die URL eingetippt. Drück auf „Nächster Schritt“.</p></div></div>
+<div class="explainer-nojs"><p>Karte 8: Bens Handy (192.0.2.25) ist über Bens Router mit Router 1 verbunden. An Router 1 hängen der DNS-Server
+(203.0.113.53) und der Router der Schule mit dem Webserver (198.51.100.7).</p>
+<ol>
+<li>Schritt 1: Der Browser liest die URL. Schritt 2: Er fragt den DNS-Server nach der IP-Adresse von <a href="http://www.schule.example" rel="noopener">www.schule.example</a>.</li>
+<li>Router reichen die Frage weiter …</li>
+<li>… bis zum DNS-Server.</li>
+<li>Der DNS-Server antwortet: 198.51.100.7.</li>
+<li>Die Antwort reist zurück …</li>
+<li>… zu Bens Handy.</li>
+<li>Schritt 3: Der Browser schickt die Anfrage nach HTTPS: GET /klasse-7b/ausflug.html. Bei HTTPS ist der Inhalt verschlüsselt; die Router lesen nur die Adressen.</li>
+<li>Router reichen die Anfrage weiter …</li>
+<li>… ins Netz der Schule …</li>
+<li>Schritt 4: Der Webserver sucht im Ordner klasse-7b die Datei ausflug.html.</li>
+<li>Schritt 5: Er antwortet 200 OK und schickt eine Kopie der Seite, in vielen Päckchen.</li>
+<li>Router reichen die Antwort weiter …</li>
+<li>… zurück zu Ben …</li>
+<li>Schritt 6: Der Browser setzt die Päckchen zusammen und zeigt die Seite. Für jedes Foto darauf schickt er eine weitere Anfrage.</li>
+</ol></div>
+<script type="application/json" class="explainer-component-props">{"title":"Karte 8: die ganze Reise der Ausflugsseite","label":"Karte 8: Bens Handy 192.0.2.25 über Bens Router an Router 1. Daran der DNS-Server 203.0.113.53 und der Router der Schule mit dem Webserver 198.51.100.7.","stations":[{"id":"ben","kind":"geraet","name":"Bens Handy","address":"192.0.2.25","x":12,"y":40},{"id":"rb","kind":"router","name":"Router Ben","x":34,"y":40},{"id":"r1","kind":"router","name":"Router 1","x":56,"y":40},{"id":"dns","kind":"dns","name":"DNS-Server","address":"203.0.113.53","x":40,"y":2,"above":true},{"id":"rs","kind":"router","name":"Router Schule","x":80,"y":40},{"id":"web","kind":"server","name":"Webserver","address":"198.51.100.7","x":82,"y":2,"above":true}],"cables":[{"from":"ben","to":"rb"},{"from":"rb","to":"r1"},{"from":"r1","to":"dns"},{"from":"r1","to":"rs"},{"from":"rs","to":"web"}],"steps":[{"from":"ben","to":"rb","text":"Schritt 1: Der Browser liest die URL. Schritt 2: Er fragt den DNS-Server nach der IP-Adresse von www.schule.example.","packet":"an 203.0.113.53, von 192.0.2.25: Frage nach www.schule.example"},{"from":"rb","to":"r1","text":"Router reichen die Frage weiter …"},{"from":"r1","to":"dns","text":"… bis zum DNS-Server."},{"from":"dns","to":"r1","text":"Der DNS-Server antwortet: 198.51.100.7.","packet":"an 192.0.2.25: www.schule.example hat 198.51.100.7"},{"from":"r1","to":"rb","text":"Die Antwort reist zurück …"},{"from":"rb","to":"ben","text":"… zu Bens Handy."},{"from":"ben","to":"rb","text":"Schritt 3: Der Browser schickt die Anfrage nach HTTPS: GET /klasse-7b/ausflug.html. Bei HTTPS ist der Inhalt verschlüsselt; die Router lesen nur die Adressen.","packet":"an 198.51.100.7, von 192.0.2.25: GET /klasse-7b/ausflug.html (verschlüsselt)"},{"from":"rb","to":"r1","text":"Router reichen die Anfrage weiter …"},{"from":"r1","to":"rs","text":"… ins Netz der Schule …"},{"from":"rs","to":"web","text":"Schritt 4: Der Webserver sucht im Ordner klasse-7b die Datei ausflug.html."},{"from":"web","to":"rs","text":"Schritt 5: Er antwortet 200 OK und schickt eine Kopie der Seite, in vielen Päckchen.","packet":"an 192.0.2.25: 200 OK, die Ausflugsseite"},{"from":"rs","to":"r1","text":"Router reichen die Antwort weiter …"},{"from":"r1","to":"rb","text":"… zurück zu Ben …"},{"from":"rb","to":"ben","text":"Schritt 6: Der Browser setzt die Päckchen zusammen und zeigt die Seite. Für jedes Foto darauf schickt er eine weitere Anfrage."}],"next":"Nächster Schritt","restart":"Von vorn","ready":"Ben hat die URL eingetippt. Drück auf „Nächster Schritt“.","arrived":"Die Ausflugsseite ist auf Bens Handy.","packetLabel":"Auf dem Päckchen steht:"}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="idee/3" data-block-id="ac08c432" data-block-type="note" data-block-order="5">
+<div class="explainer-box explainer-note">
+<h3 class="explainer-box-title">Merke</h3>
+<div class="explainer-block" data-block="idee/3/1" data-block-id="23963049" data-block-type="text" data-block-order="6">
+<div class="block-text"><p>Die Seite <strong>wandert nicht weg</strong> vom Webserver. Er schickt eine <strong>Kopie</strong>. Darum können viele Handys
+dieselbe Seite gleichzeitig abrufen.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="beispiel">Beispiel: Fehler suchen</h2>
+<div class="explainer-block" data-block="beispiel/1" data-block-id="37de1154" data-block-type="example" data-block-order="7">
+<div class="explainer-box explainer-example">
+<h3 class="explainer-box-title">Zwei Meldungen, zwei Schritte</h3>
+<div class="explainer-block" data-block="beispiel/1/1" data-block-id="3aef6b32" data-block-type="text" data-block-order="8">
+<div class="block-text"><ul>
+<li><strong>„Server nicht gefunden“</strong>: Schritt 2 ging schief. Das DNS kennt den Namen nicht, zum Beispiel wegen
+eines Tippfehlers in der Domain.</li>
+<li><strong>„404 Nicht gefunden“</strong>: Der Webserver hat geantwortet, Schritt 1 bis 3 klappten. In Schritt 4 fand
+er die Datei nicht, zum Beispiel wegen eines Tippfehlers im Pfad.</li>
+</ul></div>
+</div>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="uebung">Üben mit der ganzen Reise</h2>
+<div class="explainer-block" data-block="uebung/1" data-block-id="f50f2d76" data-block-type="ordering" data-block-order="9">
+<div class="explainer-exercise explainer-question" id="sechs-schritte">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="question" id="frage-sechs-schritte" data-id="sechs-schritte" data-type="ordering">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Bring die sechs Schritte beim Abruf einer Webseite in die richtige Reihenfolge.</legend>
+<p class="question-hint">Gib jedem Eintrag seinen Platz: 1 für den ersten.</p>
+<ul class="question-pairs">
+<li><label><span>Der Browser fragt das DNS nach der IP-Adresse.</span> <select name="frage-sechs-schritte-1" data-item="1"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option><option value="4">Platz 5</option><option value="5">Platz 6</option></select></label></li>
+<li><label><span>Der Browser zeigt die Seite.</span> <select name="frage-sechs-schritte-5" data-item="5"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option><option value="4">Platz 5</option><option value="5">Platz 6</option></select></label></li>
+<li><label><span>Der Browser liest die URL.</span> <select name="frage-sechs-schritte-0" data-item="0"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option><option value="4">Platz 5</option><option value="5">Platz 6</option></select></label></li>
+<li><label><span>Der Webserver schickt eine Kopie als Antwort.</span> <select name="frage-sechs-schritte-4" data-item="4"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option><option value="4">Platz 5</option><option value="5">Platz 6</option></select></label></li>
+<li><label><span>Der Browser schickt die Anfrage an diese Adresse.</span> <select name="frage-sechs-schritte-2" data-item="2"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option><option value="4">Platz 5</option><option value="5">Platz 6</option></select></label></li>
+<li><label><span>Der Webserver sucht die Datei zum Pfad.</span> <select name="frage-sechs-schritte-3" data-item="3"><option value="">bitte wählen</option><option value="0">Platz 1</option><option value="1">Platz 2</option><option value="2">Platz 3</option><option value="3">Platz 4</option><option value="4">Platz 5</option><option value="5">Platz 6</option></select></label></li>
+</ul>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<p><strong>Richtige Antwort:</strong> 1. Der Browser liest die URL., 2. Der Browser fragt das DNS nach der IP-Adresse., 3. Der Browser schickt die Anfrage an diese Adresse., 4. Der Webserver sucht die Datei zum Pfad., 5. Der Webserver schickt eine Kopie als Antwort., 6. Der Browser zeigt die Seite.</p>
+<p class="question-explanation">Erst Name in Zahl übersetzen, dann fragen, dann antworten. Router reichen dabei jedes Päckchen weiter.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Lösung</summary>
+<p><strong>Richtige Antwort:</strong> 1. Der Browser liest die URL., 2. Der Browser fragt das DNS nach der IP-Adresse., 3. Der Browser schickt die Anfrage an diese Adresse., 4. Der Webserver sucht die Datei zum Pfad., 5. Der Webserver schickt eine Kopie als Antwort., 6. Der Browser zeigt die Seite.</p>
+<p class="question-explanation">Erst Name in Zahl übersetzen, dann fragen, dann antworten. Router reichen dabei jedes Päckchen weiter.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"de","question":{"id":"sechs-schritte","text":"Bring die sechs Schritte beim Abruf einer Webseite in die richtige Reihenfolge.","explanation":"Erst Name in Zahl übersetzen, dann fragen, dann antworten. Router reichen dabei jedes Päckchen weiter.","links":[],"type":"ordering","items":["Der Browser liest die URL.","Der Browser fragt das DNS nach der IP-Adresse.","Der Browser schickt die Anfrage an diese Adresse.","Der Webserver sucht die Datei zum Pfad.","Der Webserver schickt eine Kopie als Antwort.","Der Browser zeigt die Seite."]},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/2" data-block-id="3f95e2bf" data-block-type="vue-component" data-block-order="10">
+<div class="explainer-component" id="antwort-weg" data-component="NetzWeg" data-exercise data-seeds="[1,2,3,4]" data-checked>
+<p class="explainer-exercise-label">Aufgabe</p>
+<p class="explainer-task-controls" hidden><span class="explainer-task-number" tabindex="-1" data-template="Aufgabe Nr. {n}">Aufgabe Nr. 1</span> <button type="button" class="explainer-new-task" title="Neue Aufgabe"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg><span class="explainer-new-task-text">Neue Aufgabe</span></button></p>
+<form class="explainer-component-form" novalidate><div class="explainer-island" hidden><div class="netz-weg" data-v-d9dfea42><p data-v-d9dfea42>Start: Webserver. Ziel: Bens Handy. Leg den Weg eines Päckchens: Tippe nach dem Start die nächsten Stationen der Reihe nach an.</p><p class="netz-titel" data-v-d9dfea42>Karte 9: zwei Wege zur Schule</p><svg class="netz-karte" viewbox="0 -16 100 94" role="img" aria-label="Karte 9: Bens Handy, Bens Router, Router 1 und Router 2, der DNS-Server an Router 1, der Router der Schule mit dem Webserver." data-v-d9dfea42 data-v-91d279a5><!--[--><!--]--><!--[--><line x1="10" y1="28" x2="30" y2="28" class="netz-kabel" data-v-91d279a5></line><line x1="30" y1="28" x2="52" y2="48" class="netz-kabel" data-v-91d279a5></line><line x1="30" y1="28" x2="52" y2="8" class="netz-kabel" data-v-91d279a5></line><line x1="52" y1="48" x2="30" y2="56" class="netz-kabel" data-v-91d279a5></line><line x1="52" y1="48" x2="66" y2="28" class="netz-kabel" data-v-91d279a5></line><line x1="52" y1="8" x2="66" y2="28" class="netz-kabel" data-v-91d279a5></line><line x1="66" y1="28" x2="88" y2="28" class="netz-kabel" data-v-91d279a5></line><!--]--><!--[--><g transform="translate(10 28)" class="netz-geraet" data-v-91d279a5><circle r="6.2" class="netz-ring" data-v-91d279a5></circle><!--[--><text y="-8.6" class="netz-mark" data-v-91d279a5>Ziel</text><!--]--><g data-v-91d279a5><rect x="-6" y="-4" width="12" height="8" rx="1.5" class="netz-form" data-v-91d279a5></rect><rect x="-4.5" y="-2.7" width="9" height="5.4" rx="0.6" class="netz-innen" data-v-91d279a5></rect></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Bens</text><text y="14.6" class="netz-name" data-v-91d279a5>Handy</text><!--]--><!----></g><g transform="translate(30 28)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router</text><text y="14.6" class="netz-name" data-v-91d279a5>Ben</text><!--]--><!----></g><g transform="translate(52 8)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="-6.6" class="netz-name" data-v-91d279a5>Router 2</text><!--]--><!----></g><g transform="translate(52 48)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router 1</text><!--]--><!----></g><g transform="translate(30 56)" class="netz-dns" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><rect x="-4.5" y="-5" width="9" height="10" rx="0.8" class="netz-form" data-v-91d279a5></rect><path d="M-2.6 -5v10M-1 -2.5h3.6M-1 0h3.6M-1 2.5h3.6" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>DNS-Server</text><!--]--><!----></g><g transform="translate(66 28)" class="netz-router" data-v-91d279a5><!----><!--[--><!--]--><g data-v-91d279a5><circle r="4.6" class="netz-form" data-v-91d279a5></circle><path d="M-2.8 -1.2h5.2m-1.6 -1.4l1.6 1.4l-1.6 1.4M2.8 1.4h-5.2m1.6 -1.4l-1.6 1.4l1.6 1.4" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Router</text><text y="14.6" class="netz-name" data-v-91d279a5>Schule</text><!--]--><!----></g><g transform="translate(88 28)" class="netz-server" data-v-91d279a5><circle r="6.2" class="netz-ring" data-v-91d279a5></circle><!--[--><text y="-8.6" class="netz-mark" data-v-91d279a5>Start</text><!--]--><g data-v-91d279a5><rect x="-3.8" y="-5.5" width="7.6" height="11" rx="0.8" class="netz-form" data-v-91d279a5></rect><path d="M-2.4 -2.8h4.8M-2.4 0h4.8M-2.4 2.8h4.8" class="netz-linie" data-v-91d279a5></path></g><!--[--><text y="10.2" class="netz-name" data-v-91d279a5>Webserver</text><!--]--><!----></g><!--]--><!----></svg><p class="netz-weg-pfad" aria-live="polite" data-v-d9dfea42>Dein Weg: <strong data-v-d9dfea42>Webserver</strong></p><!----><p class="netz-weg-frage" data-v-d9dfea42>Nächste Station:</p><div class="netz-weg-stationen" role="group" aria-label="Nächste Station:" data-v-d9dfea42><!--[--><button type="button" class="netz-weg-geraet" data-v-d9dfea42>Bens Handy</button><button type="button" class="netz-weg-router" data-v-d9dfea42>Router Ben</button><button type="button" class="netz-weg-router" data-v-d9dfea42>Router 2</button><button type="button" class="netz-weg-router" data-v-d9dfea42>Router 1</button><button type="button" class="netz-weg-dns" data-v-d9dfea42>DNS-Server</button><button type="button" class="netz-weg-router" data-v-d9dfea42>Router Schule</button><!--]--></div><p class="netz-weg-knoepfe" data-v-d9dfea42><button type="button" disabled data-v-d9dfea42>Letzte Station zurück</button><button type="button" disabled data-v-d9dfea42>Von vorn</button></p></div></div><p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button> <button type="button" class="question-solve" hidden>Lösung</button></p></form>
+<div class="explainer-nojs"><div class="explainer-described"><p class="explainer-task-number">Aufgabe Nr. 1</p><div class="explainer-task"><p>Start: Webserver. Ziel: Bens Handy. Leg den Weg eines Päckchens: Tippe nach dem Start die nächsten Stationen der Reihe nach an.</p></div><details class="explainer-solution"><summary>Lösung</summary><p>Ein möglicher Weg (es gibt mehrere): Webserver → Router Schule → Router 2 → Router Ben → Bens Handy</p></details></div></div>
+<p class="question-feedback" data-right="Richtig!" data-wrong="Leider nicht richtig." data-incomplete="Bearbeite zuerst die Aufgabe."></p>
+<div class="explainer-component-solution" hidden tabindex="-1"><p class="explainer-component-solution-label">Lösung</p><div class="explainer-component-solution-text"></div></div>
+<template class="explainer-component-solutions"><div data-number="1"><p>Ein möglicher Weg (es gibt mehrere): Webserver → Router Schule → Router 2 → Router Ben → Bens Handy</p></div><div data-number="2"><p>Ein möglicher Weg (es gibt mehrere): Bens Handy → Router Ben → Router 2 → Router Schule → Webserver</p></div><div data-number="3"><p>Ein möglicher Weg (es gibt mehrere): Bens Handy → Router Ben → Router 1 → DNS-Server</p></div><div data-number="4"><p>Ein möglicher Weg (es gibt mehrere): DNS-Server → Router 1 → Router Ben → Bens Handy</p></div></template>
+<script type="application/json" class="explainer-component-props">{"task":"Start: {start}. Ziel: {goal}. Leg den Weg eines Päckchens: Tippe nach dem Start die nächsten Stationen der Reihe nach an.","title":"Karte 9: zwei Wege zur Schule","label":"Karte 9: Bens Handy, Bens Router, Router 1 und Router 2, der DNS-Server an Router 1, der Router der Schule mit dem Webserver.","stations":[{"id":"ben","kind":"geraet","name":"Bens Handy","x":10,"y":24},{"id":"rb","kind":"router","name":"Router Ben","x":30,"y":24},{"id":"r2","kind":"router","name":"Router 2","x":52,"y":4,"above":true},{"id":"r1","kind":"router","name":"Router 1","x":52,"y":44},{"id":"dns","kind":"dns","name":"DNS-Server","x":30,"y":52},{"id":"rs","kind":"router","name":"Router Schule","x":66,"y":24},{"id":"web","kind":"server","name":"Webserver","x":88,"y":24}],"cables":[{"from":"ben","to":"rb"},{"from":"rb","to":"r1"},{"from":"rb","to":"r2"},{"from":"r1","to":"dns"},{"from":"r1","to":"rs"},{"from":"r2","to":"rs"},{"from":"rs","to":"web"}],"trips":[{"start":"web","goal":"ben"},{"start":"ben","goal":"web"},{"start":"ben","goal":"dns"},{"start":"dns","goal":"ben"}],"startMark":"Start","goalMark":"Ziel","wayLabel":"Dein Weg:","choose":"Nächste Station:","undo":"Letzte Station zurück","restart":"Von vorn","anyWay":"Jeder Weg über verbundene Router zählt, nicht nur der kürzeste.","empty":"Wähl zuerst die Station, zu der das Päckchen vom Start aus geht.","gap":"Zwischen {from} und {to} liegt kein Kabel. Das Päckchen kann nur über eine Linie der Karte gehen.","noRouter":"{name} ist kein Router. Nur Router reichen Päckchen weiter.","twice":"{name} kommt zweimal in deinem Weg vor. Ein Päckchen geht nicht im Kreis.","short":"Dein Weg endet bei {name}. Das Päckchen soll aber bis {goal} kommen."}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/3" data-block-id="e310f10c" data-block-type="generated" data-block-order="11">
+<div class="explainer-exercise explainer-generated" id="was-ging-schief">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="explainer-live" hidden></div>
+<p class="explainer-worked-intro">Drei Beispielaufgaben, jede mit ihrer Lösung:</p>
+<ol class="explainer-worked"><li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 1</p><p class="explainer-task">Bei Ben zu Hause ist der Router ausgeschaltet. Keine Seite lädt, auch keine andere. Bei welchem Teil der Reise liegt der Fehler?</p><div class="explainer-worked-entries"><ul><li>DNS-Abfrage</li><li>Weg durchs Netz</li><li>Datei auf dem Webserver</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Eine Antwort mit 404 kommt vom Webserver. Dann haben DNS und Weg geklappt.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>Ohne Bens Router kommt kein Päckchen aus Bens Netz hinaus, nicht einmal die Frage an das DNS. Antwort: Weg durchs Netz.</li></ol><p><strong>Richtige Antwort:</strong> Weg durchs Netz</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 2</p><p class="explainer-task">Frau Berg hat ausflug.html aus Versehen gelöscht. Der Webserver antwortet: 404 Nicht gefunden. Bei welchem Teil der Reise liegt der Fehler?</p><div class="explainer-worked-entries"><ul><li>DNS-Abfrage</li><li>Weg durchs Netz</li><li>Datei auf dem Webserver</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Eine Antwort mit 404 kommt vom Webserver. Dann haben DNS und Weg geklappt.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>Die Anfrage kam an, aber im Ordner klasse-7b fehlt die Datei. Antwort: Datei auf dem Webserver.</li></ol><p><strong>Richtige Antwort:</strong> Datei auf dem Webserver</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 3</p><p class="explainer-task">Ben tippt /klasse-7b/ausflg.html. Der Webserver antwortet: 404 Nicht gefunden. Bei welchem Teil der Reise liegt der Fehler?</p><div class="explainer-worked-entries"><ul><li>DNS-Abfrage</li><li>Weg durchs Netz</li><li>Datei auf dem Webserver</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Eine Antwort mit 404 kommt vom Webserver. Dann haben DNS und Weg geklappt.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>Der Webserver hat geantwortet, also klappten DNS und Weg. Nur die Datei mit diesem Pfad gibt es nicht. Antwort: Datei auf dem Webserver.</li></ol><p><strong>Richtige Antwort:</strong> Datei auf dem Webserver</p></details></li></ol>
+<script type="application/json" class="explainer-exercise-data">{"kind":"generated","lang":"de","spec":{"type":"generated","id":"was-ging-schief","given":{"e":{"pick":1,"from":{"data":"stoerungen"}}},"task":{"text":{"de":"{{e.stoerung}} Bei welchem Teil der Reise liegt der Fehler?","en":"{{e.stoerung}} Which part of the journey has the fault?"}},"answer":{"value":"e.antwort","compare":{"choice":[{"de":"DNS-Abfrage","en":"DNS lookup"},{"de":"Weg durchs Netz","en":"route through the network"},{"de":"Datei auf dem Webserver","en":"file on the web server"}]}},"mistakes":[{"value":"e.falsch","message":{"de":"Frag dich der Reihe nach: Bekam das Handy eine IP-Adresse? Kam die Anfrage an? Hat der Webserver geantwortet?","en":"Ask yourself in order: did the phone get an IP address? Did the request arrive? Did the web server answer?"}},{"value":"e.anders","message":{"de":"Frag dich der Reihe nach: Bekam das Handy eine IP-Adresse? Kam die Anfrage an? Hat der Webserver geantwortet?","en":"Ask yourself in order: did the phone get an IP address? Did the request arrive? Did the web server answer?"}}],"hint":{"de":"Eine Antwort mit 404 kommt vom Webserver. Dann haben DNS und Weg geklappt.","en":"A 404 response comes from the web server. Then DNS and the route worked."},"steps":[{"de":"{{e.grund}} Antwort: {{answer}}.","en":"{{e.grund}} Answer: {{answer}}."}]},"templates":{"de":{"task":"⟦e.stoerung⟧ Bei welchem Teil der Reise liegt der Fehler?","steps":["⟦e.grund⟧ Antwort: ⟦answer⟧."],"hint":"Eine Antwort mit 404 kommt vom Webserver. Dann haben DNS und Weg geklappt.","messages":["Frag dich der Reihe nach: Bekam das Handy eine IP-Adresse? Kam die Anfrage an? Hat der Webserver geantwortet?","Frag dich der Reihe nach: Bekam das Handy eine IP-Adresse? Kam die Anfrage an? Hat der Webserver geantwortet?"]}},"data":{"stoerungen":[{"stoerung":{"de":"Ben vertippt sich: www.schuel.example. Der Browser meldet: Server nicht gefunden.","en":"Ben makes a typo: www.schuel.example. The browser says: server not found."},"antwort":{"de":"DNS-Abfrage","en":"DNS lookup"},"falsch":{"de":"Datei auf dem Webserver","en":"file on the web server"},"anders":{"de":"Weg durchs Netz","en":"route through the network"},"grund":{"de":"Den falsch geschriebenen Namen gibt es im DNS nicht. Ohne IP-Adresse geht keine Anfrage los.","en":"The misspelt name does not exist in DNS. Without an IP address no request sets off."}},{"stoerung":{"de":"Ben öffnet die Seite zum ersten Mal. Der DNS-Server antwortet nicht. Der Webserver der Schule läuft.","en":"Ben opens the page for the first time. The DNS server does not answer. The school's web server is running."},"antwort":{"de":"DNS-Abfrage","en":"DNS lookup"},"falsch":{"de":"Weg durchs Netz","en":"route through the network"},"anders":{"de":"Datei auf dem Webserver","en":"file on the web server"},"grund":{"de":"Bens Handy bekommt keine IP-Adresse für den Namen und weiß nicht, wohin es fragen soll.","en":"Ben's phone gets no IP address for the name and does not know where to ask."}},{"stoerung":{"de":"Ben tippt /klasse-7b/ausflg.html. Der Webserver antwortet: 404 Nicht gefunden.","en":"Ben types /klasse-7b/ausflg.html. The web server answers: 404 Not Found."},"antwort":{"de":"Datei auf dem Webserver","en":"file on the web server"},"falsch":{"de":"DNS-Abfrage","en":"DNS lookup"},"anders":{"de":"Weg durchs Netz","en":"route through the network"},"grund":{"de":"Der Webserver hat geantwortet, also klappten DNS und Weg. Nur die Datei mit diesem Pfad gibt es nicht.","en":"The web server answered, so DNS and the route worked. Only the file with this path does not exist."}},{"stoerung":{"de":"Frau Berg hat ausflug.html aus Versehen gelöscht. Der Webserver antwortet: 404 Nicht gefunden.","en":"Ms Berg deleted ausflug.html by mistake. The web server answers: 404 Not Found."},"antwort":{"de":"Datei auf dem Webserver","en":"file on the web server"},"falsch":{"de":"Weg durchs Netz","en":"route through the network"},"anders":{"de":"DNS-Abfrage","en":"DNS lookup"},"grund":{"de":"Die Anfrage kam an, aber im Ordner klasse-7b fehlt die Datei.","en":"The request arrived, but the file is missing from the folder klasse-7b."}},{"stoerung":{"de":"Bei Ben zu Hause ist der Router ausgeschaltet. Keine Seite lädt, auch keine andere.","en":"At Ben's home the router is switched off. No page loads, not even another one."},"antwort":{"de":"Weg durchs Netz","en":"route through the network"},"falsch":{"de":"Datei auf dem Webserver","en":"file on the web server"},"anders":{"de":"DNS-Abfrage","en":"DNS lookup"},"grund":{"de":"Ohne Bens Router kommt kein Päckchen aus Bens Netz hinaus, nicht einmal die Frage an das DNS.","en":"Without Ben's router no packet gets out of Ben's network, not even the question to DNS."}},{"stoerung":{"de":"Das Kabel zwischen dem Router der Schule und dem Webserver ist kaputt. Andere Seiten laden, die der Schule nicht.","en":"The cable between the school router and the web server is broken. Other pages load, but not the school's."},"antwort":{"de":"Weg durchs Netz","en":"route through the network"},"falsch":{"de":"DNS-Abfrage","en":"DNS lookup"},"anders":{"de":"Datei auf dem Webserver","en":"file on the web server"},"grund":{"de":"Es gibt keinen Weg mehr zum Webserver. Die Anfrage kommt nicht an.","en":"There is no route to the web server any more. The request does not arrive."}}]},"seeds":[1,2,3,7,10,17],"texts":{"newTask":"Neue Aufgabe","practice":"Übe selbst, mit immer neuen Aufgaben:","hint":"Tipp","solution":"Lösung","taskNumber":"Aufgabe Nr. {n}"}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/4" data-block-id="5d11f7a3" data-block-type="multiple-choice" data-block-order="12">
+<div class="explainer-exercise explainer-question" id="nach-dem-abruf">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="question" id="frage-nach-dem-abruf" data-id="nach-dem-abruf" data-type="multiple-choice">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Ben hat die Ausflugsseite geladen. Was stimmt jetzt? Wähle alles, was stimmt.</legend>
+<label class="question-option"><input type="checkbox" name="frage-nach-dem-abruf" value="0"> <span>Die Seite liegt weiter auf dem Webserver.</span></label>
+<label class="question-option"><input type="checkbox" name="frage-nach-dem-abruf" value="1"> <span>Bens Handy hat eine Kopie der Seite.</span></label>
+<label class="question-option"><input type="checkbox" name="frage-nach-dem-abruf" value="2"> <span>Lea kann die Seite jetzt nicht mehr laden.</span></label>
+<label class="question-option"><input type="checkbox" name="frage-nach-dem-abruf" value="3"> <span>Der DNS-Server hat die Seite geschickt.</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>Die Seite liegt weiter auf dem Webserver.</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Der Webserver hat nur eine Kopie geschickt. Das Original bleibt.</p></li>
+<li class="question-info question-info-right" data-option="1"><p class="question-info-head"><strong>Bens Handy hat eine Kopie der Seite.</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Der Browser hat die Päckchen zusammengesetzt und zeigt die Kopie.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>Lea kann die Seite jetzt nicht mehr laden.</strong></p><p>Der Webserver schickt jedem eine eigene Kopie, auch Lea.</p></li>
+<li class="question-info" data-option="3"><p class="question-info-head"><strong>Der DNS-Server hat die Seite geschickt.</strong></p><p>Der DNS-Server hat nur die IP-Adresse genannt. Die Seite kam vom Webserver.</p></li>
+</ul>
+<p class="question-explanation">Beim Abruf bekommt der Client eine Kopie. Die Seite bleibt auf dem Webserver für alle anderen.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Lösung</summary>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>Die Seite liegt weiter auf dem Webserver.</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Der Webserver hat nur eine Kopie geschickt. Das Original bleibt.</p></li>
+<li class="question-info question-info-right" data-option="1"><p class="question-info-head"><strong>Bens Handy hat eine Kopie der Seite.</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Der Browser hat die Päckchen zusammengesetzt und zeigt die Kopie.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>Lea kann die Seite jetzt nicht mehr laden.</strong></p><p>Der Webserver schickt jedem eine eigene Kopie, auch Lea.</p></li>
+<li class="question-info" data-option="3"><p class="question-info-head"><strong>Der DNS-Server hat die Seite geschickt.</strong></p><p>Der DNS-Server hat nur die IP-Adresse genannt. Die Seite kam vom Webserver.</p></li>
+</ul>
+<p class="question-explanation">Beim Abruf bekommt der Client eine Kopie. Die Seite bleibt auf dem Webserver für alle anderen.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"de","question":{"id":"nach-dem-abruf","text":"Ben hat die Ausflugsseite geladen. Was stimmt jetzt? Wähle alles, was stimmt.","explanation":"Beim Abruf bekommt der Client eine Kopie. Die Seite bleibt auf dem Webserver für alle anderen.","links":[],"type":"multiple-choice","options":[{"text":"Die Seite liegt weiter auf dem Webserver.","correct":true,"info":"Der Webserver hat nur eine Kopie geschickt. Das Original bleibt."},{"text":"Bens Handy hat eine Kopie der Seite.","correct":true,"info":"Der Browser hat die Päckchen zusammengesetzt und zeigt die Kopie."},{"text":"Lea kann die Seite jetzt nicht mehr laden.","correct":false,"info":"Der Webserver schickt jedem eine eigene Kopie, auch Lea."},{"text":"Der DNS-Server hat die Seite geschickt.","correct":false,"info":"Der DNS-Server hat nur die IP-Adresse genannt. Die Seite kam vom Webserver."}]},"rendered":{}}</script>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="rueckblick">Rückblick: von zwei Rechnern bis zur ganzen Webseite</h2>
+<div class="explainer-block" data-block="rueckblick/1" data-block-id="06a07f1e" data-block-type="text" data-block-order="13">
+<div class="block-text"><p><strong>Ben:</strong> Jetzt weiß ich, wie die Ausflugsseite auf mein Handy kommt!</p>
+<p><strong>Frau Berg:</strong> Dann seid ihr bereit für den Projekttag. Bringt eure Umschläge mit!</p>
+<p>Das kannst du jetzt:</p>
+<ul>
+<li>Das Internet ist ein Netz aus Netzen; Router reichen Päckchen weiter.</li>
+<li>Der Client fragt, der Server antwortet.</li>
+<li>Jedes Gerät im Netz braucht eine IP-Adresse; das DNS übersetzt Namen in Adressen.</li>
+<li>Eine URL hat Protokoll, Domain und Pfad.</li>
+<li>WWW, E-Mail und Chat sind Dienste mit eigenen Protokollen.</li>
+<li>Du kannst den Abruf einer Webseite in sechs Schritten erklären.</li>
+</ul></div>
+</div>
+</section>
+<p class="explainer-feedback-invite" hidden><span>Fehler gefunden oder eine Idee für diese App?</span> <button type="button" class="explainer-feedback-switch">Feedback zu „Wie das Internet funktioniert“ geben</button></p>
+</main>
+<template class="explainer-feedback-template">
+<aside class="explainer-feedback" aria-labelledby="feedback-titel" hidden>
+<div class="explainer-feedback-head">
+<h2 id="feedback-titel">Feedback</h2>
+<button type="button" class="explainer-feedback-help-open" aria-expanded="false" aria-controls="feedback-hilfe">Hilfe</button>
+<button type="button" class="explainer-feedback-collapse" aria-expanded="true" aria-controls="feedback-inhalt" aria-label="Leiste einklappen" title="Leiste einklappen"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+<button type="button" class="explainer-feedback-expand" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Feedback-Leiste ausklappen</span></button>
+<div class="explainer-feedback-body" id="feedback-inhalt">
+<section class="explainer-feedback-help" id="feedback-hilfe" aria-labelledby="feedback-hilfe-titel" hidden>
+<h3 id="feedback-hilfe-titel">So gibst du Feedback</h3>
+<ol><li>Geh die Seiten durch. Bei jedem Absatz, jeder Abbildung und jeder Aufgabe erscheint „Notiz“.</li><li>Markierst du vorher Text im Block, steht er als Zitat in der Notiz.</li><li>Bist du fertig, wähl „Issue auf GitHub öffnen“. Die App kopiert dabei deine Notizen, und du fügst sie im Issue ein. Dafür brauchst du ein GitHub-Konto.</li></ol>
+<p class="explainer-feedback-privacy">Deine Notizen bleiben nur in diesem Browser, auf diesem Gerät. Die App sendet nichts. Wenn du die Browserdaten löschst, sind die Notizen weg.</p>
+<p><button type="button" class="explainer-feedback-help-done">Verstanden</button></p>
+</section>
+<form class="explainer-feedback-form" hidden>
+<p class="explainer-feedback-new">Neue Notiz zu</p>
+<p class="explainer-feedback-where"></p>
+<blockquote class="explainer-feedback-quote" hidden></blockquote>
+<label for="feedback-text">Deine Notiz</label>
+<textarea id="feedback-text" class="explainer-feedback-text" rows="5" required></textarea>
+<p class="explainer-feedback-buttons"><button type="submit" class="explainer-feedback-save">Speichern</button> <button type="button" class="explainer-feedback-cancel">Abbrechen</button></p>
+</form>
+<p class="explainer-feedback-status" role="status" aria-live="polite"></p>
+<section class="explainer-feedback-notes" aria-labelledby="feedback-notizen">
+<h3 id="feedback-notizen" class="explainer-feedback-count"></h3>
+<p class="explainer-feedback-actions"><button type="button" class="explainer-feedback-copy">Kopieren</button> <a class="explainer-feedback-issue" href="#" target="_blank" rel="noopener">Issue auf GitHub öffnen</a></p>
+<textarea class="explainer-feedback-export" readonly rows="6" aria-label="Text zum Kopieren" hidden></textarea>
+<div class="explainer-feedback-list"></div>
+</section>
+</div>
+<div class="explainer-feedback-foot">
+<button type="button" class="explainer-feedback-delete-all">Alle löschen …</button>
+<span class="explainer-feedback-local">Nur in diesem Browser gespeichert</span>
+<button type="button" class="explainer-feedback-off">Beenden</button>
+</div>
+<script type="application/json" class="explainer-feedback-data">{"storage":"informatik-internet","app":"Wie das Internet funktioniert","root":"../../","repository":"lernapps/informatik-internet","revision":"fd334eb","page":{"title":"Abruf einer Webseite","order":7}}</script>
+</aside>
+</template>
+<nav class="explainer-pager" aria-label="Weiterblättern"><a rel="prev" href="../../webseite/dienste/">Zurück: Internetdienste und Protokolle</a></nav>
+<footer class="page-footer"><p>Eine Erklär-App auf lernapps.net · <a href="https://lernapps.net/imprint/">Impressum</a> · <a href="https://lernapps.net/privacy/">Datenschutz</a></p></footer>
+  </body>
+</html>

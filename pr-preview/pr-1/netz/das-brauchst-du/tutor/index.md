@@ -45,6 +45,9 @@ Kurz wiederholt: Hardware und Software, bevor das Netz beginnt.
 
 ### Im Klassenchat der 7b
 
+Hier schreiben die Kinder der Klasse 7b, alle 12 Jahre alt: Jona, Selin, Mia, Ben, Lea, Tom und Ali. Frau
+Berg ist ihre Klassenlehrerin.
+
 **Frau Berg:** Nächsten Freitag ist Projekttag: „Wir spielen das Internet“. Bringt Briefumschläge mit!
 
 **Ben:** Gute Idee. Ich will wissen, wie die Seite von unserem Ausflug auf mein Handy kommt.

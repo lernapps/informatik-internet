@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" crossorigin src="../../assets/index-D9mjBk7h.js"></script>
+    <link rel="modulepreload" crossorigin href="../../assets/tasks-C8F2Wlxx-cG9osHbD.js">
+    <link rel="stylesheet" crossorigin href="../../assets/index-CtncCkFd.css">
+    <title>Aufbau einer URL – Wie das Internet funktioniert</title>
+    <meta name="description" content="Die Teile einer URL benennen: Protokoll, Domain und Pfad." />
+    <meta name="lernapps-archetype" content="explainer" />
+    <link rel="alternate" hreflang="de" href="../../webseite/url/" />
+    <link rel="alternate" hreflang="en" href="../../en/webseite/url/" />
+    <script type="module" crossorigin src="../../assets/islands-CvhaeP6S.js"></script>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <header class="page-header"><nav class="page-languages" aria-label="Sprache"><ul><li><a href="../../webseite/url/" hreflang="de" lang="de" aria-current="page">Deutsch</a></li><li><a href="../../en/webseite/url/" hreflang="en" lang="en">English</a></li></ul></nav></header>
+<nav class="explainer-breadcrumbs" aria-label="Du bist hier"><ol><li><a href="../../">Start</a></li><li><a href="../../webseite/">Eine Webseite reist zu mir</a></li><li aria-current="page">Aufbau einer URL</li></ol></nav>
+<main class="explainer" id="inhalt-der-seite" data-task-start="first">
+<div class="explainer-title-row">
+<h1>Aufbau einer URL</h1>
+<div class="explainer-tutor explainer-tutor-page">
+<details class="explainer-tutor-off">
+<summary>Mit einem KI-Tutor lernen</summary>
+<p>Ein KI-Tutor erklärt dir diese Seite und hilft dir bei den Aufgaben. Wähl deinen Assistenten:</p>
+<p class="explainer-tutor-actions"><span class="explainer-tutor-way" hidden><select class="explainer-tutor-select" aria-label="Assistent"><option value="Claude">Claude</option><option value="ChatGPT">ChatGPT</option><option value="Mistral Vibe" data-hint="Mistral Vibe lädt keine Webseiten, wenn der Link aus einem Knopf kommt. Darum kopieren wir den Satz mit dem Link für dich. Ein Klick auf „Mit Mistral Vibe lernen“ öffnet Mistral Vibe mit einer kurzen Nachricht. Füg danach den kopierten Satz ein (Strg+V, am Mac ⌘+V) und schick ihn ab.">Mistral Vibe</option><option value="copy">Ein anderer: Text kopieren</option></select> <button type="button" class="explainer-tutor-on">Einschalten</button></span> <span class="explainer-tutor-plain"><a class="explainer-tutor-provider" href="https://claude.ai/new" rel="noopener" target="_blank">Mit Claude öffnen</a> <a class="explainer-tutor-provider" href="https://chatgpt.com/" rel="noopener" target="_blank">Mit ChatGPT öffnen</a> <a class="explainer-tutor-provider" href="https://chat.mistral.ai/chat" rel="noopener" target="_blank">Mit Mistral Vibe öffnen</a></span></p>
+<p class="explainer-tutor-hint" role="status" aria-live="polite" hidden></p>
+<p class="explainer-tutor-note">Du nutzt dein eigenes Konto beim Anbieter. Der Assistent ist kein Angebot von lernapps.net: lernapps liefert nur Inhalte und Aufgaben. Die Wahl gilt für alle Seiten, nur auf diesem Gerät.</p>
+<p><a class="explainer-tutor-guide" href="../../webseite/url/tutor/">Ansehen, was dein Tutor zu dieser Seite bekommt</a></p>
+</details>
+<p class="explainer-tutor-bar" hidden><button type="button" class="explainer-tutor-go"></button></p>
+<p class="explainer-tutor-status" role="status" aria-live="polite"></p>
+<script type="application/json" class="explainer-tutor-prompt">{"start":"Lade ⟦base⟧webseite/url/tutor/⟦query⟧ und sei mein Tutor.","base":"⟦base⟧","query":"⟦query⟧","root":"../../","storage":"informatik-internet","page":{"id":"url","title":"Aufbau einer URL","exercises":[{"id":"wie-ein-pfad","section":"einstieg","numbered":false},{"id":"url-zerlegen","section":"uebung","numbered":true},{"id":"welcher-teil","section":"uebung","numbered":true},{"id":"pfad-auf-tablet","section":"uebung","numbered":false},{"id":"was-du-bekommst","section":"uebung","numbered":false}],"sections":["einstieg","idee","beispiel","uebung"]},"tutor":"webseite/url/tutor/","markdown":"webseite/url/tutor/index.md","ways":[{"name":"Claude","url":"https://claude.ai/new?q={prompt}"},{"name":"ChatGPT","url":"https://chatgpt.com/?q={prompt}"},{"name":"Mistral Vibe","url":"https://chat.mistral.ai/chat?q={prompt}","paste":true}],"placeholder":"Ich brauche Hilfe bei einer Lern-Einheit. Ich schreibe Dir gleich, worum es geht.","go":"Mit {name} lernen","done":"✓ Kopiert – jetzt in {name} einfügen","copy":"Text kopieren","copied":"Der Prompt ist kopiert. Füg ihn in den Chat deines KI-Assistenten ein.","failed":"Kopieren ging nicht. Versuch es noch einmal."}</script>
+</div>
+</div>
+
+<nav class="explainer-toc" aria-label="Auf dieser Seite"><p class="explainer-toc-title">Auf dieser Seite</p><ol><li><a href="#einstieg">Ein Link im Klassenchat</a></li><li><a href="#idee">Drei Teile einer URL</a></li><li><a href="#beispiel">Beispiel: eine URL lesen</a></li><li><a href="#uebung">Üben mit URLs</a></li></ol></nav>
+<section class="explainer-section">
+<h2 id="einstieg">Ein Link im Klassenchat</h2>
+<div class="explainer-block" data-block="einstieg/1" data-block-id="631abc20" data-block-type="text" data-block-order="1">
+<div class="block-text"><p><strong>Frau Berg:</strong> Hier ist die Ausflugsseite: <a href="https://www.schule.example/klasse-7b/ausflug.html" rel="noopener">https://www.schule.example/klasse-7b/ausflug.html</a></p>
+<p><strong>Mia:</strong> Der hintere Teil sieht aus wie ein Pfad auf meinem Tablet!</p>
+<p>Im Kapitel davor hast du gelernt, wie Geräte sich mit Namen und Adressen finden. Auf dieser Seite lernst du,
+die Teile einer solchen Webadresse zu benennen.</p></div>
+</div>
+<div class="explainer-block" data-block="einstieg/2" data-block-id="54d5fa5c" data-block-type="single-choice" data-block-order="2">
+<div class="explainer-exercise explainer-question" id="wie-ein-pfad">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="question" id="frage-wie-ein-pfad" data-id="wie-ein-pfad" data-type="single-choice">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Welcher Teil von https://www.schule.example/klasse-7b/ausflug.html sieht aus wie ein Dateipfad?</legend>
+<label class="question-option"><input type="radio" name="frage-wie-ein-pfad" value="0"> <span>/klasse-7b/ausflug.html</span></label>
+<label class="question-option"><input type="radio" name="frage-wie-ein-pfad" value="1"> <span>www.schule.example</span></label>
+<label class="question-option"><input type="radio" name="frage-wie-ein-pfad" value="2"> <span>https://</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>/klasse-7b/ausflug.html</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Ordner und Datei, getrennt durch Schrägstriche, wie bei Mias Tablet.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>www.schule.example</strong></p><p>Das ist ein Name mit Punkten, kein Weg durch Ordner.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>https://</strong></p><p>Das steht ganz vorn und enthält keinen Ordner und keine Datei.</p></li>
+</ul>
+<p class="question-explanation">Ordner, Schrägstrich, Datei, so sieht ein Pfad aus.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Lösung</summary>
+<ul class="question-infos">
+<li class="question-info question-info-right" data-option="0"><p class="question-info-head"><strong>/klasse-7b/ausflug.html</strong> <span class="question-badge question-badge-right">richtige Antwort</span></p><p>Ordner und Datei, getrennt durch Schrägstriche, wie bei Mias Tablet.</p></li>
+<li class="question-info" data-option="1"><p class="question-info-head"><strong>www.schule.example</strong></p><p>Das ist ein Name mit Punkten, kein Weg durch Ordner.</p></li>
+<li class="question-info" data-option="2"><p class="question-info-head"><strong>https://</strong></p><p>Das steht ganz vorn und enthält keinen Ordner und keine Datei.</p></li>
+</ul>
+<p class="question-explanation">Ordner, Schrägstrich, Datei, so sieht ein Pfad aus.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"de","question":{"id":"wie-ein-pfad","text":"Welcher Teil von https://www.schule.example/klasse-7b/ausflug.html sieht aus wie ein Dateipfad?","explanation":"Ordner, Schrägstrich, Datei, so sieht ein Pfad aus.","links":[],"type":"single-choice","options":[{"text":"/klasse-7b/ausflug.html","correct":true,"info":"Ordner und Datei, getrennt durch Schrägstriche, wie bei Mias Tablet."},{"text":"www.schule.example","correct":false,"info":"Das ist ein Name mit Punkten, kein Weg durch Ordner."},{"text":"https://","correct":false,"info":"Das steht ganz vorn und enthält keinen Ordner und keine Datei."}]},"rendered":{}}</script>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="idee">Drei Teile einer URL</h2>
+<div class="explainer-block" data-block="idee/1" data-block-id="c32dcd22" data-block-type="code" data-block-order="3">
+<figure class="block-code"><pre role="region" aria-label="Code in plaintext" tabindex="0"><code class="hljs language-plaintext">https://
+www.schule.example
+/klasse-7b/ausflug.html
+</code></pre><figcaption>Die URL der Ausflugsseite, in ihre drei Teile zerlegt: oben das Protokoll, in der Mitte die Domain, unten der Pfad.</figcaption></figure>
+</div>
+<div class="explainer-block" data-block="idee/2" data-block-id="8f48632b" data-block-type="definition" data-block-order="4">
+<dl class="explainer-definition"><dt><dfn id="begriff-url"><a href="../../glossar/#url">URL</a></dfn></dt><dd><p>Die Adresse einer Seite oder Datei im Web, zum Beispiel <a href="https://www.schule.example/klasse-7b/ausflug.html" rel="noopener">https://www.schule.example/klasse-7b/ausflug.html</a>.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/3" data-block-id="b5539c84" data-block-type="table" data-block-order="5">
+<div class="block-table" role="region" aria-label="Was jeder Teil sagt" tabindex="0"><table><caption>Was jeder Teil sagt</caption><thead><tr><th scope="col">Teil</th><th scope="col">Was er sagt</th></tr></thead><tbody><tr><td>Protokoll: https</td><td>nach welchen Regeln Browser und Server reden</td></tr><tr><td>Domain: <a href="http://www.schule.example" rel="noopener">www.schule.example</a></td><td>auf welchem Rechner die Seite liegt</td></tr><tr><td>Pfad: /klasse-7b/ausflug.html</td><td>wo die Datei auf diesem Rechner liegt</td></tr></tbody></table></div>
+</div>
+<div class="explainer-block" data-block="idee/4" data-block-id="6bfefd5d" data-block-type="definition" data-block-order="6">
+<dl class="explainer-definition"><dt><dfn id="begriff-domain"><a href="../../glossar/#domain">Domain</a></dfn></dt><dd><p>Der Name eines Rechners im Internet, zum Beispiel <a href="http://www.schule.example" rel="noopener">www.schule.example</a>. Das DNS übersetzt ihn in eine IP-Adresse.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/5" data-block-id="2bdbc37c" data-block-type="definition" data-block-order="7">
+<dl class="explainer-definition"><dt><dfn id="begriff-protokoll"><a href="../../glossar/#protokoll">Protokoll</a></dfn></dt><dd><p>Feste Regeln, nach denen zwei Rechner miteinander reden. Mehr dazu auf der nächsten Seite.</p></dd></dl>
+</div>
+<div class="explainer-block" data-block="idee/6" data-block-id="feb52a55" data-block-type="note" data-block-order="8">
+<div class="explainer-box explainer-note">
+<h3 class="explainer-box-title">Merke</h3>
+<div class="explainer-block" data-block="idee/6/1" data-block-id="12b9e163" data-block-type="text" data-block-order="9">
+<div class="block-text"><p>Der Pfad einer URL sagt, welche Seite oder Datei <strong>auf dem Webserver</strong> gemeint ist, nicht auf deinem Tablet. Die Wurzel heißt dort
+einfach nur ein Schrägstrich /. Die Domain sagt, welcher Rechner gemeint ist; der Pfad sagt, welche Datei darauf.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="beispiel">Beispiel: eine URL lesen</h2>
+<div class="explainer-block" data-block="beispiel/1" data-block-id="941bdc44" data-block-type="example" data-block-order="10">
+<div class="explainer-box explainer-example">
+<h3 class="explainer-box-title">https://museum.example/ausstellung/steine/bild-3.jpg</h3>
+<div class="explainer-block" data-block="beispiel/1/1" data-block-id="02dc412a" data-block-type="text" data-block-order="11">
+<div class="block-text"><ol>
+<li>Vor :// steht das Protokoll: https.</li>
+<li>Bis zum nächsten / steht die Domain: museum.example. Diesen Rechner fragt der Browser.</li>
+<li>Der Rest ist der Pfad: im Ordner ausstellung, darin im Ordner steine, die Datei bild-3.jpg.</li>
+</ol></div>
+</div>
+</div>
+</div>
+</section>
+<section class="explainer-section">
+<h2 id="uebung">Üben mit URLs</h2>
+<div class="explainer-block" data-block="uebung/1" data-block-id="783146ed" data-block-type="vue-component" data-block-order="12">
+<div class="explainer-component" id="url-zerlegen" data-component="UrlZerleger" data-exercise data-seeds="[1,2,3,4,5,6]" data-checked>
+<p class="explainer-exercise-label">Aufgabe</p>
+<p class="explainer-task-controls" hidden><span class="explainer-task-number" tabindex="-1" data-template="Aufgabe Nr. {n}">Aufgabe Nr. 1</span> <button type="button" class="explainer-new-task" title="Neue Aufgabe"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg><span class="explainer-new-task-text">Neue Aufgabe</span></button></p>
+<form class="explainer-component-form" novalidate><div class="explainer-island" hidden><div class="url-zerleger" data-v-6fdbf4c1><p data-v-6fdbf4c1>Leg jeden Teil dieser URL in seinen Kasten:</p><p class="url-zerleger-url" data-v-6fdbf4c1><code data-v-6fdbf4c1>https://www.schule.example/klasse-7b/ausflug.html</code></p><ul class="url-zerleger-teile" data-v-6fdbf4c1><!--[--><li data-v-6fdbf4c1><code class="url-zerleger-teil" data-v-6fdbf4c1>https://</code><span class="url-zerleger-wahl" role="group" aria-label="https://" data-v-6fdbf4c1><!--[--><button type="button" class="url-zerleger-box-0" aria-pressed="false" data-v-6fdbf4c1>Protokoll</button><button type="button" class="url-zerleger-box-1" aria-pressed="false" data-v-6fdbf4c1>Domain</button><button type="button" class="url-zerleger-box-2" aria-pressed="false" data-v-6fdbf4c1>Pfad</button><!--]--></span></li><li data-v-6fdbf4c1><code class="url-zerleger-teil" data-v-6fdbf4c1>www.schule.example</code><span class="url-zerleger-wahl" role="group" aria-label="www.schule.example" data-v-6fdbf4c1><!--[--><button type="button" class="url-zerleger-box-0" aria-pressed="false" data-v-6fdbf4c1>Protokoll</button><button type="button" class="url-zerleger-box-1" aria-pressed="false" data-v-6fdbf4c1>Domain</button><button type="button" class="url-zerleger-box-2" aria-pressed="false" data-v-6fdbf4c1>Pfad</button><!--]--></span></li><li data-v-6fdbf4c1><code class="url-zerleger-teil" data-v-6fdbf4c1>/klasse-7b</code><span class="url-zerleger-wahl" role="group" aria-label="/klasse-7b" data-v-6fdbf4c1><!--[--><button type="button" class="url-zerleger-box-0" aria-pressed="false" data-v-6fdbf4c1>Protokoll</button><button type="button" class="url-zerleger-box-1" aria-pressed="false" data-v-6fdbf4c1>Domain</button><button type="button" class="url-zerleger-box-2" aria-pressed="false" data-v-6fdbf4c1>Pfad</button><!--]--></span></li><li data-v-6fdbf4c1><code class="url-zerleger-teil" data-v-6fdbf4c1>/ausflug.html</code><span class="url-zerleger-wahl" role="group" aria-label="/ausflug.html" data-v-6fdbf4c1><!--[--><button type="button" class="url-zerleger-box-0" aria-pressed="false" data-v-6fdbf4c1>Protokoll</button><button type="button" class="url-zerleger-box-1" aria-pressed="false" data-v-6fdbf4c1>Domain</button><button type="button" class="url-zerleger-box-2" aria-pressed="false" data-v-6fdbf4c1>Pfad</button><!--]--></span></li><!--]--></ul><div class="url-zerleger-kaesten" aria-hidden="true" data-v-6fdbf4c1><!--[--><div class="url-zerleger-kasten url-zerleger-box-0" data-v-6fdbf4c1><strong data-v-6fdbf4c1>Protokoll</strong><!--[--><!--]--><span class="url-zerleger-leer" data-v-6fdbf4c1>noch leer</span></div><div class="url-zerleger-kasten url-zerleger-box-1" data-v-6fdbf4c1><strong data-v-6fdbf4c1>Domain</strong><!--[--><!--]--><span class="url-zerleger-leer" data-v-6fdbf4c1>noch leer</span></div><div class="url-zerleger-kasten url-zerleger-box-2" data-v-6fdbf4c1><strong data-v-6fdbf4c1>Pfad</strong><!--[--><!--]--><span class="url-zerleger-leer" data-v-6fdbf4c1>noch leer</span></div><!--]--></div><p data-v-6fdbf4c1><button type="button" class="url-zerleger-reset" data-v-6fdbf4c1>Zurücksetzen</button></p></div></div><p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button> <button type="button" class="question-solve" hidden>Lösung</button></p></form>
+<div class="explainer-nojs"><div class="explainer-described"><p class="explainer-task-number">Aufgabe Nr. 1</p><div class="explainer-task"><p>Leg jeden Teil dieser URL in seinen Kasten: <a href="https://www.schule.example/klasse-7b/ausflug.html" rel="noopener">https://www.schule.example/klasse-7b/ausflug.html</a></p></div><details class="explainer-solution"><summary>Lösung</summary><p>https:// → Protokoll, <a href="http://www.schule.example" rel="noopener">www.schule.example</a> → Domain, /klasse-7b → Pfad, /ausflug.html → Pfad</p></details></div></div>
+<p class="question-feedback" data-right="Richtig!" data-wrong="Leider nicht richtig." data-incomplete="Bearbeite zuerst die Aufgabe."></p>
+<div class="explainer-component-solution" hidden tabindex="-1"><p class="explainer-component-solution-label">Lösung</p><div class="explainer-component-solution-text"></div></div>
+<template class="explainer-component-solutions"><div data-number="1"><p>https:// → Protokoll, <a href="http://www.schule.example" rel="noopener">www.schule.example</a> → Domain, /klasse-7b → Pfad, /ausflug.html → Pfad</p></div><div data-number="2"><p>https:// → Protokoll, spiele.example → Domain, /quiz → Pfad, /runde-2.html → Pfad</p></div><div data-number="3"><p>http:// → Protokoll, wetter.example → Domain, /heute.html → Pfad</p></div><div data-number="4"><p>https:// → Protokoll, museum.example → Domain, /ausstellung → Pfad, /steine → Pfad, /bild-3.jpg → Pfad</p></div><div data-number="5"><p>https:// → Protokoll, mail.schule.example → Domain, /posteingang → Pfad</p></div><div data-number="6"><p>https:// → Protokoll, <a href="http://www.schule.example" rel="noopener">www.schule.example</a> → Domain, /fotos → Pfad, /ausflug → Pfad, /see.jpg → Pfad</p></div></template>
+<script type="application/json" class="explainer-component-props">{"task":"Leg jeden Teil dieser URL in seinen Kasten:","urls":[{"teile":["https://","www.schule.example","/klasse-7b","/ausflug.html"],"arten":[0,1,2,2]},{"teile":["https://","spiele.example","/quiz","/runde-2.html"],"arten":[0,1,2,2]},{"teile":["http://","wetter.example","/heute.html"],"arten":[0,1,2]},{"teile":["https://","museum.example","/ausstellung","/steine","/bild-3.jpg"],"arten":[0,1,2,2,2]},{"teile":["https://","mail.schule.example","/posteingang"],"arten":[0,1,2]},{"teile":["https://","www.schule.example","/fotos","/ausflug","/see.jpg"],"arten":[0,1,2,2,2]}],"boxes":["Protokoll","Domain","Pfad"],"rules":["Das Protokoll steht ganz vorn, vor ://.","Die Domain steht zwischen :// und dem ersten / danach.","Der Pfad beginnt mit dem ersten / nach der Domain."],"empty":"noch leer","reset":"Zurücksetzen","unplaced":"Leg zuerst jeden Teil in einen Kasten.","wrong":"„{teil}“ gehört nicht in den Kasten {box}. {regel}"}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/2" data-block-id="e526b1ce" data-block-type="generated" data-block-order="13">
+<div class="explainer-exercise explainer-generated" id="welcher-teil">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="explainer-live" hidden></div>
+<p class="explainer-worked-intro">Drei Beispielaufgaben, jede mit ihrer Lösung:</p>
+<ol class="explainer-worked"><li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 1</p><p class="explainer-task">In der URL https://www.schule.example/klasse-7b/ausflug.html: Zu welchem Teil gehört <strong>klasse-7b</strong>?</p><div class="explainer-worked-entries"><ul><li>Protokoll</li><li>Domain</li><li>Pfad</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Vor :// steht das Protokoll, bis zum nächsten / die Domain, danach der Pfad.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>klasse-7b steht nach dem ersten / hinter der Domain. Es ist ein Ordner auf dem Webserver. Antwort: Pfad.</li></ol><p><strong>Richtige Antwort:</strong> Pfad</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 2</p><p class="explainer-task">In der URL https://www.schule.example/klasse-7b/ausflug.html: Zu welchem Teil gehört <strong>www.schule.example</strong>?</p><div class="explainer-worked-entries"><ul><li>Protokoll</li><li>Domain</li><li>Pfad</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Vor :// steht das Protokoll, bis zum nächsten / die Domain, danach der Pfad.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>www.schule.example steht zwischen :// und dem ersten /. Das ist der Name des Rechners. Antwort: Domain.</li></ol><p><strong>Richtige Antwort:</strong> Domain</p></details></li>
+<li class="explainer-worked-task"><p class="explainer-task-number">Aufgabe Nr. 3</p><p class="explainer-task">In der URL http://wetter.example/heute.html: Zu welchem Teil gehört <strong>heute.html</strong>?</p><div class="explainer-worked-entries"><ul><li>Protokoll</li><li>Domain</li><li>Pfad</li></ul></div><details class="explainer-hint"><summary>Tipp</summary><p>Vor :// steht das Protokoll, bis zum nächsten / die Domain, danach der Pfad.</p></details><details class="explainer-solution"><summary>Lösung</summary><ol class="explainer-steps"><li>heute.html steht nach dem / hinter der Domain. Es ist die Datei auf dem Server. Antwort: Pfad.</li></ol><p><strong>Richtige Antwort:</strong> Pfad</p></details></li></ol>
+<script type="application/json" class="explainer-exercise-data">{"kind":"generated","lang":"de","spec":{"type":"generated","id":"welcher-teil","given":{"e":{"pick":1,"from":{"data":"url-teile"}}},"task":{"text":{"de":"In der URL {{e.url}}: Zu welchem Teil gehört **{{e.stueck}}**?","en":"In the URL {{e.url}}: which part does **{{e.stueck}}** belong to?"}},"answer":{"value":"e.antwort","compare":{"choice":[{"de":"Protokoll","en":"protocol"},{"de":"Domain","en":"domain name"},{"de":"Pfad","en":"path"}]}},"mistakes":[{"value":"e.falsch","message":{"de":"Such die Stelle von :// und vom ersten / danach. Liegt das Stück davor, dazwischen oder dahinter?","en":"Find where :// is and the first / after it. Is the piece before, between or after them?"}},{"value":"e.anders","message":{"de":"Such die Stelle von :// und vom ersten / danach. Liegt das Stück davor, dazwischen oder dahinter?","en":"Find where :// is and the first / after it. Is the piece before, between or after them?"}}],"hint":{"de":"Vor :// steht das Protokoll, bis zum nächsten / die Domain, danach der Pfad.","en":"Before :// is the protocol, up to the next / the domain name, after that the path."},"steps":[{"de":"{{e.grund}} Antwort: {{answer}}.","en":"{{e.grund}} Answer: {{answer}}."}]},"templates":{"de":{"task":"In der URL ⟦e.url⟧: Zu welchem Teil gehört \u003cstrong>⟦e.stueck⟧\u003c/strong>?","steps":["⟦e.grund⟧ Antwort: ⟦answer⟧."],"hint":"Vor :// steht das Protokoll, bis zum nächsten / die Domain, danach der Pfad.","messages":["Such die Stelle von :// und vom ersten / danach. Liegt das Stück davor, dazwischen oder dahinter?","Such die Stelle von :// und vom ersten / danach. Liegt das Stück davor, dazwischen oder dahinter?"]}},"data":{"url-teile":[{"url":"https://www.schule.example/klasse-7b/ausflug.html","stueck":"klasse-7b","antwort":{"de":"Pfad","en":"path"},"falsch":{"de":"Domain","en":"domain name"},"anders":{"de":"Protokoll","en":"protocol"},"grund":{"de":"klasse-7b steht nach dem ersten / hinter der Domain. Es ist ein Ordner auf dem Webserver.","en":"klasse-7b comes after the first / behind the domain name. It is a folder on the web server."}},{"url":"https://www.schule.example/klasse-7b/ausflug.html","stueck":"www.schule.example","antwort":{"de":"Domain","en":"domain name"},"falsch":{"de":"Pfad","en":"path"},"anders":{"de":"Protokoll","en":"protocol"},"grund":{"de":"www.schule.example steht zwischen :// und dem ersten /. Das ist der Name des Rechners.","en":"www.schule.example comes between :// and the first /. That is the name of the computer."}},{"url":"https://www.schule.example/klasse-7b/ausflug.html","stueck":"https","antwort":{"de":"Protokoll","en":"protocol"},"falsch":{"de":"Domain","en":"domain name"},"anders":{"de":"Pfad","en":"path"},"grund":{"de":"https steht ganz vorn, vor ://. Es sagt, nach welchen Regeln Browser und Server reden.","en":"https comes right at the front, before ://. It says which rules the browser and server talk by."}},{"url":"http://wetter.example/heute.html","stueck":"heute.html","antwort":{"de":"Pfad","en":"path"},"falsch":{"de":"Domain","en":"domain name"},"anders":{"de":"Protokoll","en":"protocol"},"grund":{"de":"heute.html steht nach dem / hinter der Domain. Es ist die Datei auf dem Server.","en":"heute.html comes after the / behind the domain name. It is the file on the server."}},{"url":"https://museum.example/ausstellung/steine/bild-3.jpg","stueck":"museum.example","antwort":{"de":"Domain","en":"domain name"},"falsch":{"de":"Protokoll","en":"protocol"},"anders":{"de":"Pfad","en":"path"},"grund":{"de":"museum.example steht nach :// und vor dem ersten /. Das ist die Domain.","en":"museum.example comes after :// and before the first /. That is the domain name."}},{"url":"https://museum.example/ausstellung/steine/bild-3.jpg","stueck":"steine","antwort":{"de":"Pfad","en":"path"},"falsch":{"de":"Domain","en":"domain name"},"anders":{"de":"Protokoll","en":"protocol"},"grund":{"de":"steine steht zwischen zwei / nach der Domain: ein Ordner im Pfad.","en":"steine comes between two / after the domain name: a folder in the path."}},{"url":"http://wetter.example/heute.html","stueck":"http","antwort":{"de":"Protokoll","en":"protocol"},"falsch":{"de":"Pfad","en":"path"},"anders":{"de":"Domain","en":"domain name"},"grund":{"de":"http steht vorn, vor ://. Auch http ist ein Protokoll, nur ohne Verschlüsselung.","en":"http comes at the front, before ://. http is a protocol too, just without encryption."}}]},"seeds":[1,3,4,8,12,14,19],"texts":{"newTask":"Neue Aufgabe","practice":"Übe selbst, mit immer neuen Aufgaben:","hint":"Tipp","solution":"Lösung","taskNumber":"Aufgabe Nr. {n}"}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/3" data-block-id="bfeb423f" data-block-type="true-false" data-block-order="14">
+<div class="explainer-exercise explainer-question" id="pfad-auf-tablet">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="question" id="frage-pfad-auf-tablet" data-id="pfad-auf-tablet" data-type="true-false">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Stimmt das? Bei https://www.schule.example/see.jpg sagt der Pfad, wo das Foto auf Mias Tablet liegt.</legend>
+<label class="question-option"><input type="radio" name="frage-pfad-auf-tablet" value="true"> <span>Stimmt</span></label>
+<label class="question-option"><input type="radio" name="frage-pfad-auf-tablet" value="false"> <span>Stimmt nicht</span></label>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<p><strong>Richtige Antwort:</strong> Die Aussage stimmt nicht.</p>
+<p class="question-explanation">Die Aussage stimmt nicht. Der Pfad sagt, wo die Datei auf dem Rechner www.schule.example liegt, also auf dem Webserver.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Lösung</summary>
+<p><strong>Richtige Antwort:</strong> Die Aussage stimmt nicht.</p>
+<p class="question-explanation">Die Aussage stimmt nicht. Der Pfad sagt, wo die Datei auf dem Rechner www.schule.example liegt, also auf dem Webserver.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"de","question":{"id":"pfad-auf-tablet","text":"Stimmt das? Bei https://www.schule.example/see.jpg sagt der Pfad, wo das Foto auf Mias Tablet liegt.","explanation":"Die Aussage stimmt nicht. Der Pfad sagt, wo die Datei auf dem Rechner www.schule.example liegt, also auf dem Webserver.","links":[],"type":"true-false","answer":false},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/4" data-block-id="b0d5d23c" data-block-type="matching" data-block-order="15">
+<div class="explainer-exercise explainer-question" id="was-du-bekommst">
+<p class="explainer-exercise-label">Aufgabe</p>
+<div class="question" id="frage-was-du-bekommst" data-id="was-du-bekommst" data-type="matching">
+<form class="question-form" novalidate>
+<fieldset>
+<legend class="question-text">Was bekommst du wohl, wenn du diese URL öffnest? Ordne zu.</legend>
+<p class="question-hint">Wähle zu jedem Eintrag das Passende.</p>
+<ul class="question-pairs">
+<li><label><span>https://www.schule.example/see.jpg</span> <select name="frage-was-du-bekommst-0" data-left="0"><option value="">bitte wählen</option><option value="0">ein Foto vom Ausflug, von der Schule</option><option value="2">eine Seite mit einem Quiz</option><option value="3">eine Datei von deinem eigenen Tablet</option><option value="1">eine Seite mit dem Wetter von heute</option></select></label></li>
+<li><label><span>https://wetter.example/heute.html</span> <select name="frage-was-du-bekommst-1" data-left="1"><option value="">bitte wählen</option><option value="0">ein Foto vom Ausflug, von der Schule</option><option value="2">eine Seite mit einem Quiz</option><option value="3">eine Datei von deinem eigenen Tablet</option><option value="1">eine Seite mit dem Wetter von heute</option></select></label></li>
+<li><label><span>https://spiele.example/quiz.html</span> <select name="frage-was-du-bekommst-2" data-left="2"><option value="">bitte wählen</option><option value="0">ein Foto vom Ausflug, von der Schule</option><option value="2">eine Seite mit einem Quiz</option><option value="3">eine Datei von deinem eigenen Tablet</option><option value="1">eine Seite mit dem Wetter von heute</option></select></label></li>
+</ul>
+</fieldset>
+<div class="question-feedback-row"><div class="question-feedback" role="status"></div></div>
+<div class="question-reveal" hidden>
+<p><strong>Richtige Antwort:</strong> https://www.schule.example/see.jpg – ein Foto vom Ausflug, von der Schule; https://wetter.example/heute.html – eine Seite mit dem Wetter von heute; https://spiele.example/quiz.html – eine Seite mit einem Quiz</p>
+<p class="question-explanation">Die Domain sagt, welcher Rechner antwortet; der Pfad, welche Datei er schickt. Keine dieser URLs holt eine Datei von deinem eigenen Gerät.</p>
+</div>
+<p class="question-actions" hidden><button type="submit" class="question-check">Prüfen</button></p>
+</form>
+</div>
+<details class="explainer-solution"><summary>Lösung</summary>
+<p><strong>Richtige Antwort:</strong> https://www.schule.example/see.jpg – ein Foto vom Ausflug, von der Schule; https://wetter.example/heute.html – eine Seite mit dem Wetter von heute; https://spiele.example/quiz.html – eine Seite mit einem Quiz</p>
+<p class="question-explanation">Die Domain sagt, welcher Rechner antwortet; der Pfad, welche Datei er schickt. Keine dieser URLs holt eine Datei von deinem eigenen Gerät.</p>
+</details>
+<script type="application/json" class="explainer-exercise-data">{"kind":"question","lang":"de","question":{"id":"was-du-bekommst","text":"Was bekommst du wohl, wenn du diese URL öffnest? Ordne zu.","explanation":"Die Domain sagt, welcher Rechner antwortet; der Pfad, welche Datei er schickt. Keine dieser URLs holt eine Datei von deinem eigenen Gerät.","links":[],"type":"matching","pairs":[{"left":"https://www.schule.example/see.jpg","right":"ein Foto vom Ausflug, von der Schule"},{"left":"https://wetter.example/heute.html","right":"eine Seite mit dem Wetter von heute"},{"left":"https://spiele.example/quiz.html","right":"eine Seite mit einem Quiz"}],"distractors":["eine Datei von deinem eigenen Tablet"]},"rendered":{}}</script>
+</div>
+</div>
+<div class="explainer-block" data-block="uebung/5" data-block-id="580adefa" data-block-type="text" data-block-order="16">
+<div class="block-text"><p><strong>Mia:</strong> https, Domain, Pfad. Jetzt verstehe ich den Link!</p>
+<p><strong>Selin:</strong> Und was heißt das „https“ genau? Für meine E-Mail steht da nichts davon.</p>
+<p>Als Nächstes: Dienste im Internet und ihre Protokolle.</p></div>
+</div>
+</section>
+<p class="explainer-feedback-invite" hidden><span>Fehler gefunden oder eine Idee für diese App?</span> <button type="button" class="explainer-feedback-switch">Feedback zu „Wie das Internet funktioniert“ geben</button></p>
+</main>
+<template class="explainer-feedback-template">
+<aside class="explainer-feedback" aria-labelledby="feedback-titel" hidden>
+<div class="explainer-feedback-head">
+<h2 id="feedback-titel">Feedback</h2>
+<button type="button" class="explainer-feedback-help-open" aria-expanded="false" aria-controls="feedback-hilfe">Hilfe</button>
+<button type="button" class="explainer-feedback-collapse" aria-expanded="true" aria-controls="feedback-inhalt" aria-label="Leiste einklappen" title="Leiste einklappen"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+<button type="button" class="explainer-feedback-expand" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Feedback-Leiste ausklappen</span></button>
+<div class="explainer-feedback-body" id="feedback-inhalt">
+<section class="explainer-feedback-help" id="feedback-hilfe" aria-labelledby="feedback-hilfe-titel" hidden>
+<h3 id="feedback-hilfe-titel">So gibst du Feedback</h3>
+<ol><li>Geh die Seiten durch. Bei jedem Absatz, jeder Abbildung und jeder Aufgabe erscheint „Notiz“.</li><li>Markierst du vorher Text im Block, steht er als Zitat in der Notiz.</li><li>Bist du fertig, wähl „Issue auf GitHub öffnen“. Die App kopiert dabei deine Notizen, und du fügst sie im Issue ein. Dafür brauchst du ein GitHub-Konto.</li></ol>
+<p class="explainer-feedback-privacy">Deine Notizen bleiben nur in diesem Browser, auf diesem Gerät. Die App sendet nichts. Wenn du die Browserdaten löschst, sind die Notizen weg.</p>
+<p><button type="button" class="explainer-feedback-help-done">Verstanden</button></p>
+</section>
+<form class="explainer-feedback-form" hidden>
+<p class="explainer-feedback-new">Neue Notiz zu</p>
+<p class="explainer-feedback-where"></p>
+<blockquote class="explainer-feedback-quote" hidden></blockquote>
+<label for="feedback-text">Deine Notiz</label>
+<textarea id="feedback-text" class="explainer-feedback-text" rows="5" required></textarea>
+<p class="explainer-feedback-buttons"><button type="submit" class="explainer-feedback-save">Speichern</button> <button type="button" class="explainer-feedback-cancel">Abbrechen</button></p>
+</form>
+<p class="explainer-feedback-status" role="status" aria-live="polite"></p>
+<section class="explainer-feedback-notes" aria-labelledby="feedback-notizen">
+<h3 id="feedback-notizen" class="explainer-feedback-count"></h3>
+<p class="explainer-feedback-actions"><button type="button" class="explainer-feedback-copy">Kopieren</button> <a class="explainer-feedback-issue" href="#" target="_blank" rel="noopener">Issue auf GitHub öffnen</a></p>
+<textarea class="explainer-feedback-export" readonly rows="6" aria-label="Text zum Kopieren" hidden></textarea>
+<div class="explainer-feedback-list"></div>
+</section>
+</div>
+<div class="explainer-feedback-foot">
+<button type="button" class="explainer-feedback-delete-all">Alle löschen …</button>
+<span class="explainer-feedback-local">Nur in diesem Browser gespeichert</span>
+<button type="button" class="explainer-feedback-off">Beenden</button>
+</div>
+<script type="application/json" class="explainer-feedback-data">{"storage":"informatik-internet","app":"Wie das Internet funktioniert","root":"../../","repository":"lernapps/informatik-internet","revision":"fd334eb","page":{"title":"Aufbau einer URL","order":5}}</script>
+</aside>
+</template>
+<nav class="explainer-pager" aria-label="Weiterblättern"><a rel="prev" href="../../webseite/das-brauchst-du/">Zurück: Das brauchst du hier</a><a rel="next" href="../../webseite/dienste/">Weiter: Internetdienste und Protokolle</a></nav>
+<footer class="page-footer"><p>Eine Erklär-App auf lernapps.net · <a href="https://lernapps.net/imprint/">Impressum</a> · <a href="https://lernapps.net/privacy/">Datenschutz</a></p></footer>
+  </body>
+</html>
