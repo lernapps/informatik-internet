@@ -173,6 +173,6 @@ No. | e.url | e.stueck | e.grund | Choices | Solution | F1 | F2
 
 - Task: What do you probably get when you open this URL? Match them up.
 - Answer format: match each item on the left with one on the right
-- Solution: https://www.schule.example/see.jpg – a photo from the trip, from the school; https://wetter.example/heute.html – a page with today's weather; https://spiele.example/quiz.html – a page with a quiz
+- Solution: https://fotos.example/see.jpg – a photo of a lake; https://wetter.example/heute.html – a page with today's weather; https://spiele.example/quiz.html – a page with a quiz
 - Explanation: The domain name says which computer answers; the path says which file it sends. No URL here fetches a file from your own device.
 - Link: [../?via=tutor#was-du-bekommst](../?via=tutor#was-du-bekommst)

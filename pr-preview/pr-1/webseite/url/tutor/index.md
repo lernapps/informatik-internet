@@ -173,6 +173,6 @@ Nr. | e.url | e.stueck | e.grund | Zur Wahl | Lösung | F1 | F2
 
 - Aufgabe: Was bekommst du wohl, wenn du diese URL öffnest? Ordne zu.
 - Antwortformat: jedem Eintrag links den passenden rechts zuordnen
-- Lösung: https://www.schule.example/see.jpg – ein Foto vom Ausflug, von der Schule; https://wetter.example/heute.html – eine Seite mit dem Wetter von heute; https://spiele.example/quiz.html – eine Seite mit einem Quiz
+- Lösung: https://fotos.example/see.jpg – ein Foto von einem See; https://wetter.example/heute.html – eine Seite mit dem Wetter von heute; https://spiele.example/quiz.html – eine Seite mit einem Quiz
 - Erklärung: Die Domain sagt, welcher Rechner antwortet; der Pfad, welche Datei er schickt. Keine dieser URLs holt eine Datei von deinem eigenen Gerät.
 - Link: [../?via=tutor#was-du-bekommst](../?via=tutor#was-du-bekommst)
