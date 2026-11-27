@@ -209,8 +209,8 @@ blocks:
           title: { de: "Karte 3: drei Netze", en: "Map 3: three networks" }
           zones:
             - { name: { de: Schule, en: School }, x: 1, y: -5, w: 38, h: 68 }
-            - { name: { de: dazwischen, en: in between }, x: 40, y: -5, w: 20, h: 68 }
-            - { name: { de: Ben zu Hause, en: "Ben's home" }, x: 61, y: -5, w: 38, h: 68 }
+            - { name: { de: Mitte, en: middle }, x: 40, y: -5, w: 20, h: 68 }
+            - { name: { de: bei Ben, en: "Ben's home" }, x: 61, y: -5, w: 38, h: 68 }
           label:
             de: "Karte 3: drei Netze. Links das Netz der Schule, in der Mitte ein Netz dazwischen mit Router 1 und Router 2, rechts das Netz bei Ben zu Hause."
             en: "Map 3: three networks. On the left the school network, in the middle a network in between with router 1 and router 2, on the right the network at Ben's home."
@@ -340,9 +340,9 @@ blocks:
             en: "Map 4: the school network, a network in between with router 1 and router 2, the networks at Ben's and at Lea's home."
           zones:
             - { name: { de: Schule, en: School }, x: 1, y: -5, w: 38, h: 68 }
-            - { name: { de: dazwischen, en: in between }, x: 40, y: -5, w: 20, h: 68 }
-            - { name: { de: Ben zu Hause, en: "Ben's home" }, x: 61, y: -5, w: 38, h: 33 }
-            - { name: { de: Lea zu Hause, en: "Lea's home" }, x: 61, y: 35, w: 38, h: 28 }
+            - { name: { de: Mitte, en: middle }, x: 40, y: -5, w: 20, h: 68 }
+            - { name: { de: bei Ben, en: "Ben's home" }, x: 61, y: -5, w: 38, h: 33 }
+            - { name: { de: bei Lea, en: "Lea's home" }, x: 61, y: 35, w: 38, h: 28 }
           stations:
             - { id: jona, kind: geraet, name: { de: Jonas Laptop, en: Jona's laptop }, x: 10, y: 4 }
             - { id: mia, kind: geraet, name: { de: Mias Tablet, en: Mia's tablet }, x: 10, y: 44 }
@@ -372,6 +372,9 @@ blocks:
           startMark: { de: Start, en: Start }
           goalMark: { de: Ziel, en: Goal }
           wayLabel: { de: "Dein Weg:", en: "Your route:" }
+          anyWay:
+            de: Jeder Weg über verbundene Router zählt, nicht nur der kürzeste.
+            en: Every route over joined routers counts, not just the shortest.
           choose: { de: "Nächste Station:", en: "Next station:" }
           undo: { de: Letzte Station zurück, en: Take back the last station }
           restart: { de: Von vorn, en: Start again }

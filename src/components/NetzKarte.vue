@@ -53,7 +53,7 @@ const props = defineProps<{
   label: string;
 }>();
 
-const height = computed(() => Math.max(...props.stations.map((s) => s.y)) + 24);
+const height = computed(() => Math.max(...props.stations.map((s) => s.y)) + 26);
 const lines = computed(() =>
   props.cables.flatMap((cable) => {
     const a = station(props.stations, cable.from);
@@ -73,7 +73,7 @@ const words = (name: string) => {
   <svg class="netz-karte" :viewBox="`0 -6 100 ${height + 6}`" role="img" :aria-label="label">
     <g v-for="zone in zones ?? []" :key="zone.name" class="netz-zone">
       <rect :x="zone.x" :y="zone.y" :width="zone.w" :height="zone.h" rx="2" />
-      <text :x="zone.x + 1.2" :y="zone.y + 3.6">{{ zone.name }}</text>
+      <text :x="zone.x + 1.2" :y="zone.y + 4.4">{{ zone.name }}</text>
     </g>
     <line
       v-for="line in lines"
@@ -105,8 +105,8 @@ const words = (name: string) => {
         <rect x="-4.5" y="-5" width="9" height="10" rx="0.8" class="netz-form" />
         <path d="M-2.6 -5v10M-1 -2.5h3.6M-1 0h3.6M-1 2.5h3.6" class="netz-linie" />
       </g>
-      <text v-for="(word, i) in words(s.name)" :key="i" :y="9.6 + i * 4" class="netz-name">{{ word }}</text>
-      <text v-if="s.address" :y="9.6 + words(s.name).length * 4" class="netz-adresse">{{ s.address }}</text>
+      <text v-for="(word, i) in words(s.name)" :key="i" :y="10.2 + i * 4.4" class="netz-name">{{ word }}</text>
+      <text v-if="s.address" :y="10.2 + words(s.name).length * 4.4" class="netz-adresse">{{ s.address }}</text>
     </g>
     <g
       v-if="packet"
@@ -138,7 +138,7 @@ const words = (name: string) => {
 
 .netz-zone text {
   fill: var(--page-muted);
-  font-size: 3.2px;
+  font-size: 4px;
   font-style: italic;
 }
 
@@ -200,13 +200,13 @@ const words = (name: string) => {
   stroke: var(--netz-grund, var(--page-background));
   stroke-width: 1.2px;
   stroke-linejoin: round;
-  font-size: 3.8px;
+  font-size: 4.2px;
   text-anchor: middle;
 }
 
 .netz-adresse {
   fill: var(--page-muted);
-  font-size: 3.2px;
+  font-size: 4px;
 }
 
 .netz-mark {

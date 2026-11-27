@@ -6,7 +6,7 @@
 import { computed, ref } from "vue";
 import NetzKarte from "./NetzKarte.vue";
 import { cableKey, fill, joined, nameOf } from "./Netz.ts";
-import { generate, params } from "./NetzWeg.ts";
+import { check, generate, params } from "./NetzWeg.ts";
 
 type Station = {
   /** @verbatim */
@@ -68,6 +68,8 @@ const props = defineProps<{
   noRouter: string;
   twice: string;
   short: string;
+  /** The line shown once a right route is checked, e.g. that every route over joined routers counts. */
+  anyWay: string;
   /** The task number, which the explainer gives. */
   seed: number;
   /** Whether the explainer checked the answer shown now. */
@@ -113,6 +115,7 @@ function set(next: string[]): void {
     <p class="netz-weg-pfad" aria-live="polite">
       {{ wayLabel }} <strong>{{ names.join(" → ") }}</strong>
     </p>
+    <p v-if="checked && way.length > 0 && check(current, way)" class="netz-weg-jeder">{{ anyWay }}</p>
     <p class="netz-weg-frage">{{ choose }}</p>
     <div class="netz-weg-stationen" role="group" :aria-label="choose">
       <button v-for="s in choices" :key="s.id" type="button" :class="`netz-weg-${s.kind}`" @click="set([...way, s.id])">
@@ -183,6 +186,11 @@ function set(next: string[]): void {
 
 .netz-weg-pfad {
   margin: 0.5rem 0;
+}
+
+.netz-weg-jeder {
+  margin: 0.25rem 0;
+  font-weight: bold;
 }
 
 .netz-weg-frage {

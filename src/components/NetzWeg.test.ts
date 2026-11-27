@@ -63,7 +63,7 @@ test("describe and show name the stations", () => {
   const task = { ...generate(1, props), start: "ben", goal: "jona" };
   expect(describe(task, props, "de")).toEqual({
     task: "Schick ein Päckchen von Bens Handy zu Jonas Laptop.",
-    solution: "Bens Handy → Router Ben → Router 1 → Router Schule → Jonas Laptop",
+    solution: "Ein möglicher Weg (es gibt mehrere): Bens Handy → Router Ben → Router 1 → Router Schule → Jonas Laptop",
   });
   expect(show(["rb"], task)).toBe("Bens Handy → Router Ben");
 });

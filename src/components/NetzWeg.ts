@@ -106,8 +106,9 @@ export function show(answer: Answer, task: Task, _props?: Props, _lang?: string)
 }
 
 /** The task as a learner reads it, and a right way. */
-export function describe(task: Task, props: Props, _lang: string): { task: string; solution: string } {
-  return { task: fill(props.task, params(task, props, _lang)), solution: show(solution(task), task) };
+export function describe(task: Task, props: Props, lang: string): { task: string; solution: string } {
+  const lead = lang === "en" ? "One possible route (there are several): " : "Ein möglicher Weg (es gibt mehrere): ";
+  return { task: fill(props.task, params(task, props, lang)), solution: lead + show(solution(task), task) };
 }
 
 /** The task once, with {start} and {goal}: the prop task. */

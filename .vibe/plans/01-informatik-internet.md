@@ -261,9 +261,10 @@ neuer Karte als Props, Beispiel-Adressen nur RFC 5737/2606.
       `.agents/skills/lernapps-explainer/references/structure.md` says. Write the choice under "Key decisions".
 - [x] Musterseite netz/aufbau in de und en: Komponenten NetzSimulator (drei Stufen) und NetzWeg mit Logik und Tests, Daten verbindungen.yaml, Zettel-Staffel, mindestens vier Übungen
 <!-- tasks: pattern (1 added): the one page or screen that is the pattern for the others -->
-- [ ] **Checkpoint:** the pattern page. Load skill `lernapps-learner-check` and do its learner check on the page. Fix
+- [x] **Checkpoint:** the pattern page. Load skill `lernapps-learner-check` and do its learner check on the page. Fix
       what it finds. Then show the creator the page and ask whether the others may follow it. Stop and wait. A
       change: change the pattern first.
+      Creator: Orchestrator: Ja, die übrigen Seiten folgen diesem Muster. Lösung als „Ein möglicher Weg (es gibt mehrere)“, nach Richtig kurz „Jeder Weg über verbundene Router zählt“; Beschriftungen bei 360 px mindestens 12 px; Vorschau vor Veröffentlichen selbst ansehen.
 - [ ] netz/das-brauchst-du: Wiederholung hardware-und-software mit Selbstcheck und einer Übung
 - [ ] netz/client-server: Simulator Anfrage und Antwort, Daten rollen.yaml, vier Übungen
 - [ ] netz/ip-dns: IP-Adresse und DNS, Simulator mit DNS, Briefumschlag-Spiel, Daten adressen.yaml und dns.yaml
