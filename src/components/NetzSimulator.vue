@@ -18,6 +18,8 @@ type Station = {
   address?: string;
   x: number;
   y: number;
+  /** Labels above the station, for a station at the top that cables reach from below. */
+  above?: boolean;
 };
 type Zone = {
   /** The name of the network in the zone's corner. */

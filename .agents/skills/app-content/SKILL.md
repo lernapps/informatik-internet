@@ -85,10 +85,13 @@ Kapitel `webseite` – Eine Webseite reist zu mir:
 
 ## Exercise patterns
 
-- **Weg über Router legen** (`internet-aufbau`, `webseite-abrufen`): Komponente `NetzWeg`. Karte als Props
-  (`stations`, `cables`), Fahrten `trips` (Start, Ziel). Richtig ist jeder Weg über Kabel, dazwischen nur Router,
-  Ende am Ziel. Gründe als Props: `gap` (kein Kabel zwischen {from} und {to}), `noRouter` ({name} reicht nicht
-  weiter), `twice`, `short`, `empty`.
+- **Weg über Router legen** (`internet-aufbau` Übung `weg-legen` auf Karte 4, `webseite-abrufen` Übung
+  `antwort-weg` auf Karte 9): Komponente `NetzWeg`. Karte als Props (`stations`, `cables`, `zones`), Fahrten `trips`
+  (Start, Ziel; Aufgabe n ist die n-te Fahrt, nie zwei Stationen mit direktem Kabel). Richtig ist jeder Weg über
+  Kabel, dazwischen nur Router, keine Station doppelt, Ende am Ziel. Gründe als Props: `gap` ({from}, {to}),
+  `noRouter` ({name}), `twice`, `short` ({name}, {goal}), `empty`; `anyWay` erscheint nach einem richtigen Weg.
+  „Lösung“ zeigt „Ein möglicher Weg (es gibt mehrere)“. `NetzWeg.test.ts` probiert jede Karte mit allen Antworten
+  bis sechs Stationen gegen eine unabhängige Regel durch: eine neue Karte dort eintragen.
 - **Lokal oder global** (`internet-aufbau`, Übung `lokal-oder-global`): `generated` `pick: 1` aus
   `data/verbindungen.yaml` (`fall`, `antwort` lokal/global, `gegenteil`, `grund`), `compare: { choice: [lokal, global] }`
   (en local/global).
@@ -96,24 +99,39 @@ Kapitel `webseite` – Eine Webseite reist zu mir:
   `gegenteil`, `grund`), `choice` [Client, Server].
 - **Gültige IP-Adresse** (`ip-adresse-und-dns`): `generated` aus `data/adressen.yaml` (`adresse`, `antwort` ja/nein,
   `gegenteil`, `grund`); nur IPv4, Fehler: Zahl über 255, drei Teile, Buchstaben.
-- **DNS nachschlagen** (`ip-adresse-und-dns`): `table` mit dem Telefonbuch, `generated` aus `data/dns.yaml`.
-- **Teile einer URL** (`url-aufbau`): Komponente `UrlZerleger` (nach `EvaSortierer` aus lernapps/informatik-computer)
-  und `generated` aus `data/url-teile.yaml`, `choice` [Protokoll, Domain, Pfad].
-- **Welcher Dienst** (`internetdienste`): `generated` aus `data/situationen.yaml`, `choice` [WWW, E-Mail, Chat].
-- **Welcher Schritt ging schief** (`webseite-abrufen`): `generated` aus `data/stoerungen.yaml`.
+- **DNS nachschlagen** (`ip-adresse-und-dns`, Übung `dns-nachschlagen`): `generated` aus `data/dns.yaml` (`name`,
+  `adresse`, `falsch`); das ganze Telefonbuch steht im Aufgabentext (die Übung muss allein verständlich sein),
+  `choice` aus den fünf Adressen.
+- **Teile einer URL** (`url-aufbau`): Komponente `UrlZerleger` (nach `EvaSortierer` aus lernapps/informatik-computer),
+  URLs aus `data/urls.yaml` (`teile`, `arten` 0 Protokoll, 1 Domain, 2 Pfad; Aufgaben der Reihe nach), Props `rules`
+  je Kasten für die Rückmeldung; dazu `generated` aus `data/url-teile.yaml` (`url`, `stueck`, `antwort`, `falsch`,
+  `grund`), `choice` [Protokoll, Domain, Pfad].
+- **Welcher Dienst** (`internetdienste`): `generated` aus `data/situationen.yaml` (`fall`, `antwort`, `falsch`,
+  `grund`), `choice` [WWW, E-Mail, Chat] (en web, email, chat).
+- **Welcher Teil ging schief** (`webseite-abrufen`): `generated` aus `data/stoerungen.yaml` (`stoerung`, `antwort`,
+  `falsch`, `grund`), `choice` [DNS-Abfrage, Weg durchs Netz, Datei auf dem Webserver]; 404 heißt: der Webserver hat
+  geantwortet.
 - Dazu je Seite Fragen (`single-choice`, `multiple-choice`, `true-false`, `ordering`, `matching`); jede falsche
   Option sagt im `info`, warum sie nicht passt. Höchstens drei von fünf Übungen sind reine Auswahl.
 
 ## Figures
 
-- **NetzSimulator** (Anzeige-Komponente, Texte als Props je Sprache, `nojs` = nummerierte Schrittliste): Karte im
-  Raster 100 × 60, Stationen mit Form und Farbe als doppeltem Merkmal:
+- **NetzSimulator** (Anzeige-Komponente, Texte als Props je Sprache, `nojs` = Kartenbeschreibung und nummerierte
+  Schrittliste): sichtbarer Titel `title` („Karte n: …“, fortlaufend über die App: 1–3 aufbau, 4 Übung aufbau, 5
+  client-server, 6 ip-dns, 7 dienste, 8 und 9 abruf), `label` für Screenreader, Netze als gestrichelte Zonen
+  (`zones`, Name oben links). Karte im Raster x 0 bis 100, y 0 bis etwa 52; Stationen mit Form und Farbe als doppeltem
+  Merkmal:
   - Gerät: abgerundetes Rechteck, blau `#2f5fb3`
   - Router: Kreis mit Pfeilen, grün `#23704a`
   - Server: hohes Rechteck mit Linien, orange `#a4500f`
   - DNS-Server: Buch, lila `#7b4fb8`
   - Päckchen: Umschlag gelb `#f2c14e` mit dunklem Rand, darunter „an: …“ und „von: …“
   - Kabel grau, benutzte Kabel dick in `--page-accent`.
+  - Beschriftungen mindestens 12 px bei 360 px (Schrift 4,2 Einheiten, Zonen 4); Namen über 8 Zeichen in zwei
+    Zeilen. Stationen mit Adresse mindestens 26 Einheiten auseinander. Eine Station oben, zu der Kabel von unten
+    kommen, bekommt `above: true` (Beschriftung über dem Symbol).
+  - Ein Päckchen trägt `packet` als Text („an 198.51.100.7, von 192.0.2.25: …“); er bleibt, bis ein Schritt einen
+    neuen setzt.
   Knöpfe „Nächster Schritt“ und „Von vorn“; die Seite nennt beide und sagt, worauf man schaut.
 - **NetzWeg**: dieselbe Karte, Knöpfe der Stationen darunter, gewählter Weg als Pfeilkette.
 - Kein Text im SVG außer Props (Namen, Adressen). Eigene Zeichnung, `CC-BY-4.0`.

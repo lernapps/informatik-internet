@@ -85,7 +85,15 @@ blocks:
             - { id: ben, kind: geraet, name: { de: Bens Handy, en: "Ben's phone" }, address: 192.0.2.25, x: 12, y: 32 }
             - { id: rb, kind: router, name: { de: Router Ben, en: "Ben's router" }, x: 36, y: 32 }
             - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 60, y: 32 }
-            - { id: dns, kind: dns, name: { de: DNS-Server, en: DNS server }, address: 203.0.113.53, x: 60, y: 0 }
+            - {
+                id: dns,
+                kind: dns,
+                name: { de: DNS-Server, en: DNS server },
+                address: 203.0.113.53,
+                x: 60,
+                y: 0,
+                above: true,
+              }
             - { id: web, kind: server, name: { de: Webserver, en: Web server }, address: 198.51.100.7, x: 86, y: 32 }
           cables:
             - { from: ben, to: rb }

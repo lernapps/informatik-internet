@@ -14,6 +14,7 @@ export interface Station {
   address?: string;
   x: number;
   y: number;
+  above?: boolean;
 }
 
 /** A cable between two stations, by their ids. */

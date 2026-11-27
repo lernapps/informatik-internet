@@ -69,9 +69,16 @@ blocks:
           stations:
             - { id: selin, kind: geraet, name: { de: Selins Tablet, en: "Selin's tablet" }, x: 10, y: 34 }
             - { id: r1, kind: router, name: { de: Router 1, en: Router 1 }, x: 34, y: 34 }
-            - { id: ms, kind: server, name: { de: Mailserver Selin, en: "Selin's mail server" }, x: 34, y: 0 }
+            - {
+                id: ms,
+                kind: server,
+                name: { de: Mailserver Selin, en: "Selin's mail server" },
+                x: 34,
+                y: 0,
+                above: true,
+              }
             - { id: r2, kind: router, name: { de: Router 2, en: Router 2 }, x: 66, y: 34 }
-            - { id: mb, kind: server, name: { de: Mailserver Ben, en: "Ben's mail server" }, x: 66, y: 0 }
+            - { id: mb, kind: server, name: { de: Mailserver Ben, en: "Ben's mail server" }, x: 66, y: 0, above: true }
             - { id: ben, kind: geraet, name: { de: Bens Handy, en: "Ben's phone" }, x: 90, y: 34 }
           cables:
             - { from: selin, to: r1 }

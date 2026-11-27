@@ -16,6 +16,7 @@ type Station = {
   address?: string;
   x: number;
   y: number;
+  above?: boolean;
 };
 type Zone = {
   /** The name in the zone's top left corner, e.g. "Netz der Schule". */
@@ -54,6 +55,8 @@ const props = defineProps<{
 }>();
 
 const height = computed(() => Math.max(...props.stations.map((s) => s.y)) + 26);
+// a station with its labels above it moves the top of the map up, so the labels stay in view
+const top = computed(() => (props.stations.some((s) => s.above) ? -16 : -6));
 const lines = computed(() =>
   props.cables.flatMap((cable) => {
     const a = station(props.stations, cable.from);
@@ -62,6 +65,12 @@ const lines = computed(() =>
   }),
 );
 const packet = computed(() => (!props.at ? undefined : station(props.stations, props.at)));
+// the y of label line k: below the station, or above it for a station marked above (cables come from below)
+const labelY = (s: Station, k: number) => {
+  if (!s.above) return 10.2 + k * 4.4;
+  const lines = words(s.name).length + (s.address ? 1 : 0);
+  return -6.6 - (lines - 1 - k) * 4.4;
+};
 // a long name on two lines, so that neighbours do not overlap
 const words = (name: string) => {
   const parts = name.split(" ");
@@ -70,7 +79,7 @@ const words = (name: string) => {
 </script>
 
 <template>
-  <svg class="netz-karte" :viewBox="`0 -6 100 ${height + 6}`" role="img" :aria-label="label">
+  <svg class="netz-karte" :viewBox="`0 ${top} 100 ${height - top}`" role="img" :aria-label="label">
     <g v-for="zone in zones ?? []" :key="zone.name" class="netz-zone">
       <rect :x="zone.x" :y="zone.y" :width="zone.w" :height="zone.h" rx="2" />
       <text :x="zone.x + 1.2" :y="zone.y + 4.4">{{ zone.name }}</text>
@@ -105,13 +114,13 @@ const words = (name: string) => {
         <rect x="-4.5" y="-5" width="9" height="10" rx="0.8" class="netz-form" />
         <path d="M-2.6 -5v10M-1 -2.5h3.6M-1 0h3.6M-1 2.5h3.6" class="netz-linie" />
       </g>
-      <text v-for="(word, i) in words(s.name)" :key="i" :y="10.2 + i * 4.4" class="netz-name">{{ word }}</text>
-      <text v-if="s.address" :y="10.2 + words(s.name).length * 4.4" class="netz-adresse">{{ s.address }}</text>
+      <text v-for="(word, i) in words(s.name)" :key="i" :y="labelY(s, i)" class="netz-name">{{ word }}</text>
+      <text v-if="s.address" :y="labelY(s, words(s.name).length)" class="netz-adresse">{{ s.address }}</text>
     </g>
     <g
       v-if="packet"
       class="netz-paeckchen"
-      :style="{ transform: `translate(${packet.x + 4.5}px, ${packet.y - 3.5}px)` }"
+      :style="{ transform: `translate(${packet.x + 4.5}px, ${packet.y + (packet.above ? 5 : -3.5)}px)` }"
       aria-hidden="true"
     >
       <rect x="0" y="0" width="7.4" height="5" rx="0.5" />
@@ -124,7 +133,7 @@ const words = (name: string) => {
 .netz-karte {
   display: block;
   width: 100%;
-  max-width: 40rem;
+  max-width: 34rem;
   height: auto;
   margin: 0 auto;
 }

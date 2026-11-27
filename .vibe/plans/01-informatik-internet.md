@@ -271,7 +271,7 @@ neuer Karte als Props, Beispiel-Adressen nur RFC 5737/2606.
 - [x] webseite/das-brauchst-du: Wiederholung dateipfad mit Mias Pfad und einer Übung
 - [x] webseite/url: Komponente UrlZerleger mit Logik und Test, Daten url-teile.yaml, vier Übungen
 - [x] webseite/dienste: Dienste und Protokolle, Simulator E-Mail-Weg, Daten situationen.yaml
-- [ ] webseite/abruf: ganze Reise im Simulator, Daten stoerungen.yaml, Rückblick auf beide Kapitel
+- [x] webseite/abruf: ganze Reise im Simulator, Daten stoerungen.yaml, Rückblick auf beide Kapitel
 <!-- tasks: pages (7 added): the other pages or screens, after the pattern -->
 - [ ] Update the content guide so that it describes the app as built (`app-content-matches`).
 - [ ] Run `npx --no -- lernapps check` until it passes.
