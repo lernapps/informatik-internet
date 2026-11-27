@@ -214,8 +214,8 @@ blocks:
           de: Was bekommst du wohl, wenn du diese URL öffnest? Ordne zu.
           en: What do you probably get when you open this URL? Match them up.
         pairs:
-          - left: { de: "https://www.schule.example/see.jpg", en: "https://www.schule.example/see.jpg" }
-            right: { de: "ein Foto vom Ausflug, von der Schule", en: "a photo from the trip, from the school" }
+          - left: { de: "https://fotos.example/see.jpg", en: "https://fotos.example/see.jpg" }
+            right: { de: "ein Foto von einem See", en: "a photo of a lake" }
           - left: { de: "https://wetter.example/heute.html", en: "https://wetter.example/heute.html" }
             right: { de: eine Seite mit dem Wetter von heute, en: "a page with today's weather" }
           - left: { de: "https://spiele.example/quiz.html", en: "https://spiele.example/quiz.html" }
