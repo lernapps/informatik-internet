@@ -416,16 +416,16 @@ blocks:
               de: "Frag dich: Sind beide Geräte im selben Netz, an einem Ort? Oder liegen andere Netze dazwischen?"
               en: "Ask yourself: are both devices in the same network, in one place? Or are other networks in between?"
         hint:
-          de: Denk an die Karten oben. Hängen beide Geräte am selben Router?
-          en: Think of the maps above. Are both devices connected to the same router?
+          de: Hängen beide Geräte am selben Router, an einem Ort?
+          en: Are both devices connected to the same router, in one place?
         steps:
           - de: "{{e.grund}} Antwort: {{answer}}."
             en: "{{e.grund}} Answer: {{answer}}."
       - type: true-false
         id: router-faellt-aus
         text:
-          de: "Schau auf Karte 3. Stimmt das? Wenn Router 1 ausfällt, kommt kein Päckchen mehr von Mia zu Ben."
-          en: "Look at map 3. True or false? If router 1 breaks down, no packet can get from Mia to Ben any more."
+          de: "Mias Schulrouter ist mit Router 1 und Router 2 verbunden. Beide sind mit Bens Router verbunden. Stimmt das? Wenn Router 1 ausfällt, kommt kein Päckchen mehr von Mia zu Ben."
+          en: "Mia's school router is joined to router 1 and router 2. Both are joined to Ben's router. True or false? If router 1 breaks down, no packet can get from Mia to Ben any more."
         answer: false
         explanation:
           de: "Die Aussage stimmt nicht. Der Router der Schule ist auch mit Router 2 verbunden, und Router 2 mit Bens Router. Das Päckchen nimmt dann diesen Weg. Weil es viele Wege gibt, fällt das Internet nicht aus, wenn ein Router kaputt ist."
