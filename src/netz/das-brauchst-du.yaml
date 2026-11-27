@@ -66,5 +66,5 @@ blocks:
           en: "True or false? The browser on Ben's phone is hardware, because it fetches web pages from the network."
         answer: false
         explanation:
-          de: Falsch. Der Browser ist ein Programm, also Software. Er läuft auf der Hardware des Handys und nutzt sie, um Daten zu schicken und zu empfangen.
-          en: False. The browser is a program, so it is software. It runs on the phone's hardware and uses it to send and receive data.
+          de: Die Aussage stimmt nicht. Der Browser ist ein Programm, also Software. Er läuft auf der Hardware des Handys und nutzt sie, um Daten zu schicken und zu empfangen.
+          en: The statement is not true. The browser is a program, so it is software. It runs on the phone's hardware and uses it to send and receive data.

@@ -19,6 +19,14 @@ type Station = {
   x: number;
   y: number;
 };
+type Zone = {
+  /** The name of the network in the zone's corner. */
+  name: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+};
 type Cable = {
   /** @verbatim */
   from: string;
@@ -35,8 +43,12 @@ type Trip = {
 const props = defineProps<{
   /** The task, with {start} and {goal}. */
   task: string;
+  /** The name of the map, shown above it, e.g. "Karte 3: drei Netze". */
+  title: string;
   /** What the map shows, for screen readers. */
   label: string;
+  /** Networks drawn as dashed boxes, with their names. */
+  zones?: Zone[];
   stations: Station[];
   cables: Cable[];
   trips: Trip[];
@@ -88,8 +100,10 @@ function set(next: string[]): void {
 <template>
   <div class="netz-weg">
     <p>{{ fill(task, params(current, props, "")) }}</p>
+    <p class="netz-titel">{{ title }}</p>
     <NetzKarte
       :label="label"
+      :zones="zones ?? []"
       :stations="current.stations"
       :cables="current.cables"
       :used="used"
@@ -160,6 +174,11 @@ function set(next: string[]): void {
 .netz-weg button:focus-visible {
   outline: 3px solid var(--page-text);
   outline-offset: 2px;
+}
+
+.netz-titel {
+  margin: 0.5rem 0 0.25rem;
+  font-weight: bold;
 }
 
 .netz-weg-pfad {

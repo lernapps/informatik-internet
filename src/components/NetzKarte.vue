@@ -17,6 +17,14 @@ type Station = {
   x: number;
   y: number;
 };
+type Zone = {
+  /** The name in the zone's top left corner, e.g. "Netz der Schule". */
+  name: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+};
 type Cable = {
   /** @verbatim */
   from: string;
@@ -39,6 +47,8 @@ const props = defineProps<{
     id: string;
     text: string;
   }[];
+  /** Networks drawn as dashed boxes behind the stations, with their names. */
+  zones?: Zone[];
   /** What the map shows, for screen readers. */
   label: string;
 }>();
@@ -61,6 +71,10 @@ const words = (name: string) => {
 
 <template>
   <svg class="netz-karte" :viewBox="`0 -6 100 ${height + 6}`" role="img" :aria-label="label">
+    <g v-for="zone in zones ?? []" :key="zone.name" class="netz-zone">
+      <rect :x="zone.x" :y="zone.y" :width="zone.w" :height="zone.h" rx="2" />
+      <text :x="zone.x + 1.2" :y="zone.y + 3.6">{{ zone.name }}</text>
+    </g>
     <line
       v-for="line in lines"
       :key="line.key"
@@ -71,7 +85,7 @@ const words = (name: string) => {
       :class="['netz-kabel', { 'netz-kabel-benutzt': line.used }]"
     />
     <g v-for="s in stations" :key="s.id" :transform="`translate(${s.x} ${s.y + 4})`" :class="`netz-${s.kind}`">
-      <circle v-if="marks?.some((m) => m.id === s.id)" r="6.8" class="netz-ring" />
+      <circle v-if="marks?.some((m) => m.id === s.id)" r="6.2" class="netz-ring" />
       <text v-for="m in marks?.filter((m) => m.id === s.id)" :key="m.text" y="-8.6" class="netz-mark">
         {{ m.text }}
       </text>
@@ -113,6 +127,19 @@ const words = (name: string) => {
   max-width: 40rem;
   height: auto;
   margin: 0 auto;
+}
+
+.netz-zone rect {
+  fill: none;
+  stroke: var(--page-muted);
+  stroke-width: 0.4;
+  stroke-dasharray: 1.5 1;
+}
+
+.netz-zone text {
+  fill: var(--page-muted);
+  font-size: 3.2px;
+  font-style: italic;
 }
 
 .netz-kabel {

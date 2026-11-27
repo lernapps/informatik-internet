@@ -140,4 +140,13 @@ Kapitel `webseite` – Eine Webseite reist zu mir:
 
 ## Rules learned from mistakes
 
-None yet.
+- Jede Netzkarte hat einen sichtbaren Titel („Karte 3: drei Netze“) und zeichnet ihre Netze als gestrichelte Zonen
+  mit Namen (`zones`); sonst sehen Lernende nicht, welche „drei Netze“ der Text meint (Lernenden-Prüfung Musterseite).
+- Ein Wort wie „Station“ vor der ersten Übung erklären, die es nutzt (Lernenden-Prüfung).
+- Wenn der Text „mehr als ein Weg“ sagt, nennt er den zweiten Weg auf der Karte (Lernenden-Prüfung).
+- `explanation` einer `true-false`-Frage beginnt nicht mit „Falsch.“, sondern mit „Die Aussage stimmt nicht.“: Nach
+  „Richtig!“ verwirrt ein „Falsch.“ (Lernenden-Prüfung).
+- `matching` wiederholt nicht die Definitionen, sondern wendet sie auf Fälle an (Lernenden-Prüfung).
+- Tipp (`hint`) verrät die Antwort nicht; er zeigt, wo man nachsieht.
+- Englisch: „route“ für den Weg eines Päckchens, „wireless (Wi-Fi)“ für Funk, „Start again“ für „Von vorn“.
+- Keine zwei Kabel, die durch die Beschriftung einer Station laufen; lieber ein Kabel weglassen.

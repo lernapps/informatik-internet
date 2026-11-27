@@ -19,6 +19,14 @@ type Station = {
   x: number;
   y: number;
 };
+type Zone = {
+  /** The name of the network in the zone's corner. */
+  name: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+};
 type Cable = {
   /** @verbatim */
   from: string;
@@ -37,8 +45,12 @@ type Step = {
 };
 
 const props = defineProps<{
+  /** The name of the map, shown above it, e.g. "Karte 3: drei Netze". */
+  title: string;
   /** What the map shows, for screen readers. */
   label: string;
+  /** Networks drawn as dashed boxes, with their names. */
+  zones?: Zone[];
   stations: Station[];
   cables: Cable[];
   steps: Step[];
@@ -63,7 +75,8 @@ const finished = computed(() => done.value >= props.steps.length);
 
 <template>
   <div class="netz-simulator">
-    <NetzKarte :label="label" :stations="stations" :cables="cables" :used="used" :at="at ?? ''" />
+    <p class="netz-titel">{{ title }}</p>
+    <NetzKarte :label="label" :stations="stations" :cables="cables" :zones="zones ?? []" :used="used" :at="at ?? ''" />
     <p v-if="carries" class="netz-simulator-paeckchen">
       <span aria-hidden="true">✉</span> {{ packetLabel }} <strong>{{ carries }}</strong>
     </p>
@@ -86,6 +99,11 @@ const finished = computed(() => done.value >= props.steps.length);
   border: 1px solid var(--page-border);
   border-radius: 0.5rem;
   background: var(--page-surface);
+}
+
+.netz-titel {
+  margin: 0 0 0.25rem;
+  font-weight: bold;
 }
 
 .netz-simulator-paeckchen {
