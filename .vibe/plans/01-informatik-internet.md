@@ -273,9 +273,9 @@ neuer Karte als Props, Beispiel-Adressen nur RFC 5737/2606.
 - [x] webseite/dienste: Dienste und Protokolle, Simulator E-Mail-Weg, Daten situationen.yaml
 - [x] webseite/abruf: ganze Reise im Simulator, Daten stoerungen.yaml, Rückblick auf beide Kapitel
 <!-- tasks: pages (7 added): the other pages or screens, after the pattern -->
-- [ ] Update the content guide so that it describes the app as built (`app-content-matches`).
-- [ ] Run `npx --no -- lernapps check` until it passes.
-- [ ] Look at every screen and state, at 360 px and on a desktop, as "Look at the app" of skill `lernapps-cli` says.
+- [x] Update the content guide so that it describes the app as built (`app-content-matches`).
+- [x] Run `npx --no -- lernapps check` until it passes.
+- [x] Look at every screen and state, at 360 px and on a desktop, as "Look at the app" of skill `lernapps-cli` says.
       Compare each with its sketch.
 - [ ] Do the whole-app check of skill `lernapps-learner-check`. Fix what it finds and write under "Notes" what you
       fixed.
