@@ -153,7 +153,7 @@ Kapitel `webseite` – Eine Webseite reist zu mir:
    `competencies: [<id>]`. Voraussetzungen von außen: eine Seite `das-brauchst-du` mit `recap`.
 3. Kapitel in `chapters` von `src/app.yaml` eintragen, beide Sprachen schreiben.
 4. Netz-Bilder über `NetzSimulator` mit eigener Karte als Props; nur Beispiel-Adressen (RFC 5737, `.example`).
-5. 1 bis 3 Übungen je Seite in `selfAssessment` im `chapter.yaml`.
+5. 1 bis 3 ihrer Übungen in `selfAssessment` aufnehmen, wie Skill `lernapps-explainer-self-assessment` sagt (heute: je Kapitel 3 Schritte mit 3 Übungen, generierte und Komponenten zweimal oder neben einer Frage).
 6. `npx vp build`, `npx --no -- lernapps check`, Commit.
 
 ## Rules learned from mistakes
