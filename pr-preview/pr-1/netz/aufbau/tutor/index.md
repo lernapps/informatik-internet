@@ -149,7 +149,7 @@ Nr. | start | goal | Lösung | F1 | F2 | F3
 
 - Aufgabe: „{e.fall} Bleiben die Päckchen in einem **lokalen** Netz, oder reisen sie durch ein **globales** Netz?“
 - Antwortformat: eine Antwort wählen
-- Tipp der App: „Denk an die Karten oben. Hängen beide Geräte am selben Router?“
+- Tipp der App: „Hängen beide Geräte am selben Router, an einem Ort?“
 - Lösungsweg:
   - {e.grund} Antwort: {answer}.
 - Typische Fehler und was die App sagt:
@@ -171,7 +171,7 @@ Nr. | e.fall | e.grund | Zur Wahl | Lösung | F1
 
 ### Aufgabe router-faellt-aus
 
-- Aufgabe: Schau auf Karte 3. Stimmt das? Wenn Router 1 ausfällt, kommt kein Päckchen mehr von Mia zu Ben.
+- Aufgabe: Mias Schulrouter ist mit Router 1 und Router 2 verbunden. Beide sind mit Bens Router verbunden. Stimmt das? Wenn Router 1 ausfällt, kommt kein Päckchen mehr von Mia zu Ben.
 - Antwortformat: „Stimmt“ oder „Stimmt nicht“ wählen
 - Lösung: Die Aussage stimmt nicht.
 - Erklärung: Die Aussage stimmt nicht. Der Router der Schule ist auch mit Router 2 verbunden, und Router 2 mit Bens Router. Das Päckchen nimmt dann diesen Weg. Weil es viele Wege gibt, fällt das Internet nicht aus, wenn ein Router kaputt ist.

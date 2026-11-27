@@ -149,7 +149,7 @@ No. | start | goal | Solution | F1 | F2 | F3
 
 - Task: „{e.fall} Do the packets stay in a **local** network, or do they travel through a **global** network?“
 - Answer format: choose one answer
-- The app's hint: „Think of the maps above. Are both devices connected to the same router?“
+- The app's hint: „Are both devices connected to the same router, in one place?“
 - Steps of the solution:
   - {e.grund} Answer: {answer}.
 - Typical mistakes and what the app says:
@@ -171,7 +171,7 @@ No. | e.fall | e.grund | Choices | Solution | F1
 
 ### Exercise router-faellt-aus
 
-- Task: Look at map 3. True or false? If router 1 breaks down, no packet can get from Mia to Ben any more.
+- Task: Mia's school router is joined to router 1 and router 2. Both are joined to Ben's router. True or false? If router 1 breaks down, no packet can get from Mia to Ben any more.
 - Answer format: choose “true” or “false”
 - Solution: The statement is false.
 - Explanation: The statement is not true. The school router is also joined to router 2, and router 2 to Ben's router. The packet then takes that way. Because there are many ways, the internet does not stop when one router breaks.
